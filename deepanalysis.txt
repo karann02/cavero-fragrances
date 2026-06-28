@@ -6482,3 +6482,60 @@ SECTION 17 : DEVELOPMENT WORKFLOW — HOW WE BUILD THIS PROJECT
       keep .env gitignored, do a ₹1 live test then refund.
     - Playwright selector-drift pass (separate, non-blocking).
 
+
+====================================================
+  SESSION 47 — PRODUCTION DEPLOY PREP (GitHub + Render + Neon + Cloudinary)
+  Last Updated : 2026-06-28
+====================================================
+
+  STACK (user-chosen): GitHub → Render (one Node web service) + Neon (Postgres)
+  + Cloudinary (media). All-in-one: server.js serves the Angular build
+  (dist/cliniva/browser) AND /api, so frontend+backend are SAME-ORIGIN
+  (environment.ts apiGatewayBaseUrl=''). No CORS, no separate frontend host.
+  Vercel ruled out — can't run the persistent Express server / setInterval
+  cleanup / webhooks, and can't host Postgres.
+
+  CODE CHANGES (committed on branch main; repo git-initialized this session)
+    - config/db.js — uses DATABASE_URL + SSL when present (Neon); falls back to
+      individual DB_* vars (local, no SSL). DB_SSL=true forces SSL on fallback.
+    - server.js — CSP widened (helmet): scriptSrc/connectSrc/frameSrc/fontSrc now
+      allow Razorpay (checkout+api), Google sign-in+fonts, GA4/gtag, GSAP
+      (jsdelivr), lordicon. Only breaks in PROD (ng serve has no CSP; Express
+      serves prod frontend with CSP). Reusable arrays RAZORPAY/GOOGLE/ANALYTICS/CDNS.
+    - checkout.component.ts — fixed flatMap union-type error the prod build caught
+      (typed callback return as OrderItemPayload[]). combo_id pricing logic unchanged.
+    - .gitignore — UN-IGNORED src/environments/environment.ts (prod build needs it;
+      no secrets inside). Added **/assets/uploads/ (stray backend/src/.../reels
+      jpeg had slipped past the root-anchored rule). .env still ignored.
+    - render.yaml (NEW, repo root) — Render blueprint. buildCommand:
+      "npm install --include=dev && npm run build && npm install --prefix
+      backend/auth-service"  (--include=dev REQUIRED: Render sets NODE_ENV=
+      production → would skip Angular CLI devDeps → build fail). startCommand:
+      node backend/auth-service/server.js. healthCheck /api/categories. All
+      secrets sync:false; DATABASE_URL=Neon pooled string; JWT_SECRET generateValue.
+
+  VERIFIED
+    - npm run build → green, output dist/cliniva/browser/index.html present.
+    - backend boots clean locally after all changes (DB connect, migrate, :5000).
+    - git: no .env / uploads / node_modules / dist staged; environment.ts tracked.
+
+  DEPLOY RUNBOOK (remaining — user does)
+    1. Push to GitHub (empty repo → git remote add origin → git push -u origin main).
+    2. Neon: create project → copy POOLED connection string.
+    3. Render: New+ → Blueprint → pick repo → Apply.
+    4. Render Environment: paste DATABASE_URL (Neon pooled), RAZORPAY_TEST/LIVE
+       keys, CLOUDINARY_* (cloud=douotprmz), GOOGLE_*, EMAIL_USER/PASS,
+       CONTACT_RECEIVER_EMAIL. (JWT auto, RAZORPAY_MODE=test preset.)
+    5. After live: Render Shell → node backend/auth-service/scripts/seed.js →
+       creates admin@cavero.com / Admin@123 (+ roles/categories/brands). Change pw.
+    6. Set FRONTEND_URL = https://<service>.onrender.com.
+    7. Razorpay webhook <url>/api/payment/webhook (payment.captured + order.paid),
+       set RAZORPAY_WEBHOOK_SECRET. Google OAuth: add authorized JS origin +
+       consent app name = Cavero Fragrances.
+    8. GO-LIVE: custom domain caverofragrance.com (Render custom domain + DNS),
+       flip RAZORPAY_MODE=live, ROTATE all secrets shared in chat (Neon pw, JWT,
+       Cloudinary api_secret, Google secret), ₹1 live test then refund.
+
+  CAVEATS: Render free web sleeps after 15min idle (~50s cold start) → Starter
+  $7/mo kills it. Neon free persistent. Tables auto-created on boot.
+
