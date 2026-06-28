@@ -261,23 +261,31 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ success: false, message: 'An error occurred.' });
 });
 
-const runMigrations = require('./migrate');
+// Run as a standalone server ONLY when executed directly (local dev, Railway, Render, etc.).
+// On Vercel the file is `require`d by api/index.js as a serverless function, where we must
+// NOT call app.listen(), and must NOT re-run sync()/migrations or background timers
+// (the schema already exists on the managed DB; serverless functions don't persist timers).
+if (require.main === module) {
+  const runMigrations = require('./migrate');
+  const PORT = process.env.PORT || 5000;
+  sequelize.sync().then(async () => {
+    await runMigrations();
+    const server = app.listen(PORT, () => console.log(`Auth service running on port ${PORT}`));
+    server.on('error', (error) => {
+      console.error('[auth-service] Server error:', error);
+    });
 
-const PORT = process.env.PORT || 5000;
-sequelize.sync().then(async () => {
-  await runMigrations();
-  const server = app.listen(PORT, () => console.log(`Auth service running on port ${PORT}`));
-  server.on('error', (error) => {
-    console.error('[auth-service] Server error:', error);
+    // Safety-net: sweep abandoned online "pending" orders — reconcile if actually paid,
+    // otherwise release their reserved stock + coupon. Runs shortly after boot, then hourly-ish.
+    try {
+      const { cleanupStalePendingOrders } = require('./utils/pendingOrders');
+      setTimeout(() => cleanupStalePendingOrders().catch(() => {}), 60 * 1000);
+      setInterval(() => cleanupStalePendingOrders().catch(() => {}), 15 * 60 * 1000);
+    } catch (e) {
+      console.error('[auth-service] pending-order cleanup not scheduled:', e.message);
+    }
   });
+}
 
-  // Safety-net: sweep abandoned online "pending" orders — reconcile if actually paid,
-  // otherwise release their reserved stock + coupon. Runs shortly after boot, then hourly-ish.
-  try {
-    const { cleanupStalePendingOrders } = require('./utils/pendingOrders');
-    setTimeout(() => cleanupStalePendingOrders().catch(() => {}), 60 * 1000);
-    setInterval(() => cleanupStalePendingOrders().catch(() => {}), 15 * 60 * 1000);
-  } catch (e) {
-    console.error('[auth-service] pending-order cleanup not scheduled:', e.message);
-  }
-});
+// Export the configured Express app for serverless (Vercel) use.
+module.exports = app;
