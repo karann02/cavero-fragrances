@@ -1,0 +1,1414 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Principal"
+    },
+    "DASHBOARD": {
+      "TEXT": "Tablero",
+      "LIST": {
+        "DASHBOARD1": "Tablero 1",
+        "DASHBOARD2": "Tablero 2",
+        "DOCTOR-DASHBOARD": "Tablero del Doctor",
+        "PATIENT-DASHBOARD": "Tablero del Paciente"
+      }
+    },
+    "LABEL-SETTING": {
+      "TEXT": "Configuración de Etiquetas",
+      "LIST": {
+        "LABEL-SETTING": "Configuración de Etiquetas",
+        "CUSTOM-LABEL-SETTING": "Configuración Personalizada de Etiquetas",
+        "SUB-CUSTOM-LABEL-SETTING": "Sub Configuración Personalizada de Etiquetas"
+      }
+    },
+    "APPOINTMENTS": {
+      "TEXT": "Citas",
+      "LIST": {
+        "PERMISSION-ASSIGNEMNT": "Asignación de Permisos",
+        "APPOINTMENT-CALENDAR": "Calendario de Citas",
+        "ALL-APPOINTMENT": "Todas las Citas",
+        "DOCTOR-APPOINTMENT-SCHEDULE": "Horario de Citas del Doctor",
+        "VIEW-APPOINTMENT": "Ver Cita",
+        "BOOK-APPOINTMENT": "Reservar Cita",
+        "EDIT-APPOINTMENT": "Editar Cita"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "Empleado",
+      "LIST": {
+        "ALL-DOCTOR": "Todos los Empleados",
+        "DOCTOR-SCHEDULE": "Horario del Doctor",
+        "EMPLOYEE-BREAKS": "Pausas de Empleados",
+        "ADD-DOCTOR": "Agregar Empleado",
+        "EDIT-DOCTOR": "Editar Empleado",
+        "ASSIGN-DEPARTMENT": "Asignar Departamento",
+        "ASSIGN-SHIFT": "Asignar Turno",
+        "PROFILE": "Perfil del Empleado",
+        "DOCTOR-ID-CARD-TEMPLATE": "Plantilla de Tarjeta de Identificación del Doctor",
+        "GENERATE-ID-CARD": "Generar Tarjeta de Identificación",
+        "CREAT-ID-CARD-TEMPLATE": "Crear Plantilla de Tarjeta de Identificación",
+        "OVERVIEW": "Resumen",
+        "CASE": "Caso",
+        "OPD-VISIT": "Visita OPD",
+        "PATIENT-ADMISSIONS": "Admisiones de Pacientes",
+        "SCHEDULE": "Horario",
+        "APPOINTMENTS": "Citas"
+      }
+    },
+    "HOSPITAL-BUILDING": {
+      "TEXT": "Edificio del Hospital",
+      "LIST": {
+        "HOSPITAL-BUILDING": "Edificio del Hospital"
+      }
+    },
+    "HOSPITAL-FLOOR": {
+      "TEXT": "Piso del Hospital",
+      "LIST": {
+        "HOSPITAL-FLOOR": "Piso del Hospital"
+      }
+    },
+    "WARD": {
+      "TEXT": "Gestión de Sala",
+      "LIST": {
+        "WARD": "Sala"
+      }
+    },
+    "SHIFT-MANAGEMENT": {
+      "TEXT": "Gestión de Turnos",
+      "LIST": {
+        "ALL-SHIFT": "Todos los Turnos",
+        "SHIFTS": "Turnos",
+        "ADD-SHIFT": "Agregar Turno",
+        "EDIT-SHIFT": "Editar Turno",
+        "SHIFT-MANAGEMENT": "Gestión de Turnos"
+      }
+    },
+    "EMAIL-SETTINGS": {
+      "TEXT": "Configuración de Correo Electrónico",
+      "LIST": {}
+    },
+    "STAFF": {
+      "TEXT": "Personal",
+      "LIST": {
+        "ALL-STAFF": "Todo el Personal",
+        "ADD-STAFF": "Agregar Personal",
+        "EDIT-STAFF": "Editar Personal",
+        "PROFILE": "Perfil del Personal"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "Pacientes",
+      "LIST": {
+        "SETTINGS": "Configuraciones",
+        "PATIENT-SETTINGS": "Configuraciones de Pacientes",
+        "ALL-CASE": "Todos los Casos",
+        "CASE": "Caso",
+        "ALL-PATIENT": "Todos los Pacientes",
+        "PATIENT-ADMISSION": "Admisión de Pacientes",
+        "PATIENT-ID-CARD-TEMPLATE": "Plantilla de Tarjeta de Identificación del Paciente",
+        "ID-CARD-TEMPLATE": "Plantilla de Tarjeta de Identificación",
+        "GENERATE-PATIENT-ID-CARD": "Generar Tarjeta de Identificación del Paciente",
+        "PASSCARD-TEMPLATE": "Plantilla de Pase",
+        "GENERATE-PASSCARD": "Generar Pase",
+        "PATIENTS-OVERVIEW": "Resumen",
+        "PATIENT-CASE": "Caso",
+        "FAMILY-INFO": "Información Familiar",
+        "FAMILY-HISTORY": "Historial Familiar",
+        "SOCIAL-HABITS": "Hábitos Sociales",
+        "OPD-VISIT": "Visita OPD",
+        "DIAGNOSIS": "Diagnóstico",
+        "VITALS": "Signos Vitales",
+        "ALLERGIES": "Alergias",
+        "PROBLEMS": "Problemas",
+        "PATIENT-PRESCRIPTION": "Prescripciones",
+        "PATIENT-ADMISSIONS": "Admisiones de Pacientes",
+        "DOCUMENT": "Documento",
+        "VACCINATION": "Vacunación",
+        "APPOINTMENT": "Cita",
+        "REPORT": "Informe",
+        "CASE-OVERVIEW": "Resumen del Caso",
+        "CASE-OPD-VISIT": "Caso Visita OPD",
+        "CASE-IPD": "Caso IPD",
+        "CASE-APPOINTMENT": "Cita del Caso"
+      }
+    },
+    "IPD": {
+      "TEXT": "Gestión IPD",
+      "LIST": {
+        "IPD": "IPD",
+        "IPD-PATIENT": "Pacientes IPD",
+        "IPD-OVERVIEW": "Resumen",
+        "CHARGES": "Cargos",
+        "PROBLEM": "Problema",
+        "ALLERGY": "Alergia",
+        "IPDPRESCRIPTION": "Prescripciones",
+        "DIAGNOSIS": "Diagnóstico",
+        "VITALS": "Signos Vitales",
+        "DAILY-CHECKUPS": "Chequeos Diarios",
+        "DOCTORSROUNDS": "Rondas del Doctor",
+        "HOUSEKEEPING": "Limpieza",
+        "CONSULTANT-INSTRUCTION": "Instrucción del Consultor",
+        "TIMELINE": "Cronología",
+        "BILLING": "Facturación"
+      }
+    },
+    "OPD": {
+      "TEXT": "Gestión OPD",
+      "LIST": {
+        "OPD": "OPD",
+        "OPD-PATIENT": "Pacientes OPD",
+        "OVERVIEW": "Resumen",
+        "VISITS": "Visitas",
+        "CHARGES": "Cargos",
+        "BILLING": "Facturación",
+        "PROBLEM": "Problema",
+        "ALLERGY": "Alergia",
+        "PRESCRIPTIONS": "Prescripciones",
+        "DIAGNOSIS": "Diagnóstico",
+        "VITALS": "Signos Vitales",
+        "TIMELINE": "Cronología"
+      }
+    },
+    "OT-MANAGEMENT": {
+      "TEXT": "Gestión OT",
+      "LIST": {
+        "OT": "OT",
+        "PROCEDURES": "Procedimientos",
+        "SCHEDULE-CALENDER": "Calendario de Horarios",
+        "SCHEDULE-TABLE": "Tabla de Horarios",
+        "OT-SCHEDULE": "Horario OT"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "Informes",
+      "LIST": {
+        "BIRTH-REPORT": "Informe de Nacimiento",
+        "DEATH-REPORT": "Informe de Fallecimiento",
+        "INVESTIGATION-REPORT": "Informe de Investigación",
+        "OPERATION-REPORT": "Informe de Operación"
+      }
+    },
+    "BRANCH": {
+      "TEXT": "Sucursal",
+      "LIST": {
+        "ALL-BRANCH": "Todas las Sucursales",
+        "ADD-BRANCH": "Agregar Sucursal"
+      }
+    },
+    "ALLERGY-MASTER": {
+      "TEXT": "Maestro de Alergias",
+      "LIST": {
+        "ALLERGY-CATEGORY": "Categoría de Alergias",
+        "ALLERGIES": "Alergias",
+        "ALLERGY-REACTION": "Reacción alérgica"
+      }
+    },
+    "DATA-MANAGEMENT": {
+      "TEXT": "Gestión de Datos"
+    },
+    "ROOMS": {
+      "TEXT": "Habitación del Hospital",
+      "LIST": {
+        "ROOM-TYPE": "Tipo de Habitación",
+        "ROOM-MASTER": "Maestro de Habitaciones",
+        "ROOM-MASTER-LIST": "Lista de Maestros de Habitaciones",
+        "ROOM-INVENTORY": "Inventario de Habitaciones"
+      }
+    },
+    "BED": {
+      "TEXT": "Cama",
+      "LIST": {
+        "BED-TYPE": "Tipo de Cama",
+        "BED": "Cama",
+        "BED-ASSIGN": "Asignación de Cama",
+        "CASES": "Casos"
+      }
+    },
+    "PROBLEM-MASTER": {
+      "TEXT": "Maestro de Problemas",
+      "LIST": {
+        "PROBLEM-CATEGORY": "Categoría de Problemas",
+        "PROBLEMS": "Problemas",
+        "ALL-PROBLEMS": "Todos los Problemas"
+      }
+    },
+    "HOSPITAL-CHARGES": {
+      "TEXT": "Tarifas / Cargos",
+      "LIST": {
+        "CHARGES-TYPE": "Categoría de Cargos",
+        "CHARGES-CATEGORIES": "Categorías de Cargos",
+        "CHARGES": "Cargos",
+        "DOCOTORCHARGES": "Cargos del Empleado",
+        "TAX-MASTER": "Maestro de Impuestos"
+      }
+    },
+    "PATHOLOGY": {
+      "TEXT": "Patología",
+      "LIST": {
+        "PATHOLOGY-CATEGORY": "Categoría de Patología",
+        "PATHOLOGY-CATEGORY-LIST": "Lista de Categorías de Patología",
+        "PATHOLOGY-UNITS": "Unidades de Patología",
+        "PATHOLOGY-UNITS-LIST": "Lista de Unidades de Patología",
+        "PATHOLOGY-PARAMETERS": "Parámetros de Patología",
+        "PATHOLOGY-PARAMETERS-LIST": "Lista de Parámetros de Patología",
+        "PATHOLOGY-TESTS": "Pruebas de Patología",
+        "PATHOLOGY-TESTS-LIST": "Lista de Pruebas de Patología"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "Cuentas",
+      "LIST": {
+        "BILL-LIST": "Lista de Facturas",
+        "ADD-BILL": "Agregar Factura",
+        "INCOME": "Ingresos",
+        "EXPENSES": "Gastos",
+        "INCOME-REPORT": "Informe de Ingresos",
+        "INCOME-CHART": "Gráfico de Ingresos",
+        "INVOICE": "Factura"
+      }
+    },
+    "RECORDS": {
+      "TEXT": "Registros",
+      "LIST": {
+        "BIRTH-RECORDS": "Registros de Nacimiento",
+        "DEATH-RECORDS": "Registros de Fallecimiento"
+      }
+    },
+    "AMBULANCE": {
+      "TEXT": "Ambulancia",
+      "LIST": {
+        "AMBULANCE-CALL-LIST": "Lista de Llamadas de Ambulancia",
+        "AMBULANCE-LIST": "Lista de Ambulancias"
+      }
+    },
+    "PHARMACY": {
+      "TEXT": "Farmacia",
+      "LIST": {
+        "MEDICINE-LIST": "Lista de Medicamentos",
+        "ADD-MEDICINE": "Agregar Medicamento"
+      }
+    },
+    "BLOOD-BANK": {
+      "TEXT": "Banco de Sangre",
+      "LIST": {
+        "BLOOD-BANK": "Banco de Sangre",
+        "BLOOD-DONATIONS": "Donaciones de Sangre",
+        "BLOOD-DONOR": "Donante de Sangre",
+        "BLOOD-ISSUED": "Sangre Entregada"
+      }
+    },
+    "DOCUMENTS": {
+      "TEXT": "Documentos",
+      "LIST": {
+        "ALL-DOCUMENTS": "Todos los Documentos",
+        "DOCUMENTS": "Documentos",
+        "DOCUMENTS-TYPE": "Tipo de Documentos"
+      }
+    },
+    "RADIOLOGY": {
+      "TEXT": "Radiología",
+      "LIST": {
+        "RADIOLOGY-TEST": "Prueba de Radiología",
+        "RADIOLOGY": "Radiología",
+        "RADIOLOGY-CATEGORIE": "Categoría de Radiología"
+      }
+    },
+    "SERVICES": {
+      "TEXT": "Servicios",
+      "LIST": {
+        "INSURANCE": "Seguro",
+        "CASES": "Casos",
+        "PACKAGES": "Paquetes",
+        "SERVICES": "Servicios",
+        "AMBULANCE": "Ambulancia",
+        "AMBULANCE-CALLS": "Llamadas de Ambulancia"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "Departamentos",
+      "LIST": {
+        "DEPARTMENT-LIST": "Lista de Departamentos",
+        "ASSIGN-DEPARTMENT": "Asignar Departamento",
+        "ADD-DEPARTMENT": "Agregar Departamento",
+        "VIEW-DEPARTMENT-CASE": "Ver Caso de Departamento",
+        "VIEW-DEPARTMENT-EMPLOYEE": "Ver Empleado de Departamento",
+        "VIEW-DEPARTMENT-OPD-PATIENT": "Ver Pacientes OPD de Departamento",
+        "VIEW-DEPARTMENT-IPD-PATIENTS": "Ver Pacientes IPD de Departamento"
+      }
+    },
+    "INVENTORY": {
+      "TEXT": "Inventario",
+      "LIST": {
+        "ITEM-STOCK-LIST": "Lista de Stock de Artículos",
+        "SUPPLIER": "Proveedor",
+        "ITEM-CATEGORY": "Categoría de Artículos",
+        "STORE": "Almacén",
+        "ITEMS": "Artículos",
+        "PURCHASE-ITEMS": "Comprar Artículos",
+        "ISSUED-ITEMS": "Artículos Emitidos"
+      }
+    },
+    "MEDICINES": {
+      "TEXT": "Medicamentos",
+      "LIST": {
+        "MEDICINE-CATEGORIES": "Categorías de Medicamentos",
+        "MEDICINE-BRANDS": "Marcas de Medicamentos",
+        "MEDICINES": "Medicamentos",
+        "ALL-MEDICINES": "Todos los Medicamentos",
+        "PURCHASE-MEDICINE": "Comprar Medicamento",
+        "CREATE-MEDICINE-BILL": "Crear Factura de Medicamento",
+        "PURCHASE-MEDICINE-BILL": "Factura de Compra de Medicamento",
+        "MEDICINE-BILL": "Factura de Medicamento"
+      }
+    },
+    "VACCINATION": {
+      "TEXT": "Vacunaciones",
+      "LIST": {
+        "VACCINATION": "Vacunación",
+        "VACCINATED-PATIENTS": "Pacientes Vacunados",
+        "VACCINATED-EMPLOYEES": "Empleados Vacunados"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "Configuraciones",
+      "LIST": {
+        "DATE-FORMAT-SETTINGS": "Configuración de Formato de Fecha",
+        "PATIENT-SETTINGS": "Configuración de Pacientes"
+      }
+    },
+    "PERMISSION-MANAGEMENT": {
+      "TEXT": "Gestión de Permisos",
+      "LIST": {
+        "MODULES": "Módulos",
+        "ACTIONS": "Acciones",
+        "MODULE-ACTIONS": "Acciones del Módulo",
+        "PERMISSION-ASSIGNEMNT": "Asignación de Permisos"
+      }
+    },
+    "PRESCRIPTIONS": {
+      "TEXT": "Prescripciones",
+      "LIST": {
+        "PRESCRIPTIONS": "Prescripciones",
+        "DURATION": "Duración",
+        "DOES-INTERVAL": "Intervalo de Dosis",
+        "TIME": "Tiempo"
+      }
+    },
+    "HR": {
+      "TEXT": "Recursos Humanos",
+      "LIST": {
+        "EMPLOYEE-LEAVE": "Permiso de Empleado",
+        "LEAVE-REQUESTS": "Solicitudes de Permiso",
+        "LEAVE-BALANCE": "Saldo de Permiso",
+        "LEAVE-TYPES": "Tipos de Permiso",
+        "HOLIDAYS": "Días Festivos",
+        "TODAY-ATTENDANCE": "Asistencia de Hoy",
+        "EMP-ATTENDANCE": "Asistencia de Empleados",
+        "ATTENDANCE-SHEET": "Hoja de Asistencia",
+        "EMPLOYEE-SALARY": "Salario de Empleado",
+        "PAYROLL": "Nómina",
+        "PAYSLIP": "Recibo de Pago"
+      }
+    },
+    "INSURANCE": {
+      "TEXT": "Seguro",
+      "LIST": {
+        "PATIENT-INSURANCE": "Seguro de Paciente",
+        "NEW-CLAIM": "Nueva Reclamación",
+        "CLAIM-STATUS": "Estado de Reclamación",
+        "INSURANCE-PROVIDER": "Proveedor de Seguro"
+      }
+    },
+    "SITEADMIN": {
+      "DASHBOARD": "Tablero",
+      "HOSPITAL": "Hospital",
+      "DOCTORS": "Doctores",
+      "PATIENTS": "Pacientes",
+      "SETTINGS": "Configuraciones",
+      "TEXT": "Administrador del Sitio",
+      "LIST": {},
+      "CHAT": "Chat"
+    },
+    "DOCTOR": {
+      "DASHBOARD": "Tablero",
+      "APPOINTMENTS": "Citas",
+      "DOCTORS": "Doctores",
+      "PATIENTS": "Pacientes",
+      "SETTINGS": "Configuraciones",
+      "CHAT": "Chat"
+    },
+    "PATIENT": {
+      "TEXT": "Paciente",
+      "DASHBOARD": "Tablero",
+      "APPOINTMENTS": {
+        "TEXT": "Citas",
+        "LIST": {
+          "BOOK-APPOINTMENT": "Reservar Cita",
+          "TODAY": "Citas de Hoy",
+          "UPCOMING": "Próximas Citas",
+          "PAST": "Citas Pasadas"
+        }
+      },
+      "PRESCRIPTIONS": "Prescripciones",
+      "MEDICAL-RECORD": "Registro Médico",
+      "BILLING": "Facturación",
+      "CHAT": "Chat",
+      "SETTINGS": "Configuraciones"
+    },
+    "APPS": {
+      "TEXT": "-- Aplicaciones"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendario"
+    },
+    "TASK": {
+      "TEXT": "Tarea"
+    },
+    "CONTACTS": {
+      "TEXT": "Contactos"
+    },
+    "TEMPLATE": {
+      "TEXT": "Gestión de Plantillas",
+      "LIST": {
+        "TEMPLATE-KEYWORD": "Palabra Clave de Plantilla",
+        "TEMPLATE": "Plantilla"
+      }
+    },
+    "FINANCIALYEAR": {
+      "TEXT": "Año Fiscal"
+    },
+    "ACCOUNTGROUPS": {
+      "TEXT": "Grupos de Cuentas"
+    },
+    "ACCOUNTSUBGROUPS": {
+      "TEXT": "Subgrupos de Cuentas"
+    },
+    "APPOINTMENT_TYPE": {
+      "TEXT": "Tipo de Cita"
+    },
+    "APPOINTMENT_TYPE_PATIENT": {
+      "TEXT": "Paciente"
+    },
+    "APPOINTMENT_TYPE_VISITOR": {
+      "TEXT": "Visitante"
+    },
+    "APPOINTMENT_TYPE_FOLLOW_UP": {
+      "TEXT": "Seguimiento"
+    },
+    "APPOINTMENT_TYPE_SPECIALIST_REFERRAL": {
+      "TEXT": "Referencia a Especialista"
+    },
+    "APPOINTMENT_TYPE_DIAGNOSTIC_TEST": {
+      "TEXT": "Prueba Diagnóstica"
+    },
+    "APPOINTMENT_TYPE_TELEMEDICINE": {
+      "TEXT": "Telemedicina"
+    },
+    "APPOINTMENT_TYPE_PATIENT_ATTENDANT": {
+      "TEXT": "Acompañante del Paciente/Familiar"
+    },
+    "APPOINTMENT_TYPE_HEALTH_CHECK_UP": {
+      "TEXT": "Chequeo de Salud"
+    },
+    "APPOINTMENT_TYPE_SURGERY_BOOKING": {
+      "TEXT": "Reserva de Cirugía"
+    },
+    "APPOINTMENT_TYPE_HOME_VISIT": {
+      "TEXT": "Visita a Domicilio"
+    },
+    "DEPARTMENT": {
+      "TEXT": "Departamento"
+    },
+    "CONSULTING_DOCTOR": {
+      "TEXT": "Doctor Consultor"
+    },
+    "NEW_DOCTOR": {
+      "TEXT": "Nuevo Doctor"
+    },
+    "DATE": {
+      "TEXT": "Fecha"
+    },
+    "REASON_FOR_TRANSFER": {
+      "TEXT": "Razón de la Transferencia"
+    },
+    "APPOINTMENT_CHARGES": {
+      "TEXT": "Cargos por Cita"
+    },
+    "REFERENCE_DOCTOR": {
+      "TEXT": "Doctor Referente"
+    },
+    "DESCRIPTION": {
+      "TEXT": "Descripción"
+    },
+    "STATUS": {
+      "TEXT": "Estado"
+    },
+    "TIME_OF_APPOINTMENT": {
+      "TEXT": "Hora de la Cita"
+    },
+    "ACTIONS": {
+      "TEXT": "Acciones"
+    },
+    "SUBMIT": {
+      "TEXT": "Enviar"
+    },
+    "CANCEL": {
+      "TEXT": "Cancelar"
+    },
+    "PATIENTNAME": {
+      "TEXT": "Paciente"
+    },
+    "DOCTORNAME": {
+      "TEXT": "Doctor"
+    },
+    "DOCTOR_DEPARTMENT": {
+      "TEXT": "Departamento del Doctor"
+    },
+    "TIME": {
+      "TEXT": "Hora"
+    },
+    "CASE_PRICE_TYPE": {
+      "TEXT": "Tipo de Precio de Caso"
+    },
+    "CASE_PRICE_TYPE_DEFAULT": {
+      "TEXT": "Predeterminado"
+    },
+    "CASE_PRICE_TYPE_DOCTOR_WISE": {
+      "TEXT": "Por Doctor"
+    },
+    "CASE_PRICE": {
+      "TEXT": "Precio del Caso"
+    },
+    "CASE_PRICE_REQUIRED": {
+      "TEXT": "El precio del caso es obligatorio para el tipo predeterminado"
+    },
+    "UPDATE": {
+      "TEXT": "Actualizar"
+    },
+    "CREATE": {
+      "TEXT": "Crear"
+    },
+    "PROCESSING": {
+      "TEXT": "Procesando..."
+    },
+    "REGISTRATION_NO": {
+      "TEXT": "Número de Registro"
+    },
+    "GENDER": {
+      "TEXT": "Género"
+    },
+    "MOBILE": {
+      "TEXT": "Móvil"
+    },
+    "AGE": {
+      "TEXT": "Edad"
+    },
+    "EMAIL": {
+      "TEXT": "Correo Electrónico"
+    },
+    "MRN": {
+      "TEXT": "MRN"
+    },
+    "FIRST_NAME": {
+      "TEXT": "Nombre"
+    },
+    "MIDDLE_NAME": {
+      "TEXT": "Segundo Nombre"
+    },
+    "LAST_NAME": {
+      "TEXT": "Apellido"
+    },
+    "DATE_OF_BIRTH": {
+      "TEXT": "Fecha de Nacimiento"
+    },
+    "MARITAL_STATUS": {
+      "TEXT": "Estado Civil"
+    },
+    "BLOOD_GROUP": {
+      "TEXT": "Grupo Sanguíneo"
+    },
+    "NATIONAL_ID_TYPE": {
+      "TEXT": "Tipo de Identificación Nacional"
+    },
+    "NATIONAL_ID_NUMBER": {
+      "TEXT": "Número de Identificación Nacional"
+    },
+    "UPLOAD": {
+      "TEXT": "Subir"
+    },
+    "PRESENT_ADDRESS": {
+      "TEXT": "Dirección Actual"
+    },
+    "PRESENT_COUNTRY": {
+      "TEXT": "País Actual"
+    },
+    "PRESENT_STATE": {
+      "TEXT": "Estado Actual"
+    },
+    "PRESENT_CITY": {
+      "TEXT": "Ciudad Actual"
+    },
+    "ZIP": {
+      "TEXT": "Código Postal"
+    },
+    "PERMANENT_ADDRESS": {
+      "TEXT": "Dirección Permanente"
+    },
+    "PERMANENT_COUNTRY": {
+      "TEXT": "País Permanente"
+    },
+    "PERMANENT_STATE": {
+      "TEXT": "Estado Permanente"
+    },
+    "PERMANENT_CITY": {
+      "TEXT": "Ciudad Permanente"
+    },
+    "PERMANENT_ZIP": {
+      "TEXT": "Código Postal Permanente"
+    },
+    "COPY_ADDRESS": {
+      "TEXT": "Copiar a Dirección Permanente"
+    },
+    "TREATMENTS_CONSENT": {
+      "TEXT": "Consentimiento de Tratamiento"
+    },
+    "SURGERY_CONSENT": {
+      "TEXT": "Consentimiento de Cirugía"
+    },
+    "ANESTHESIA_CONSENT": {
+      "TEXT": "Consentimiento de Anestesia"
+    },
+    "BLOOD_CONSENT": {
+      "TEXT": "Consentimiento de Sangre"
+    },
+    "DATA_SHARING_CONSENT": {
+      "TEXT": "Consentimiento de Compartir Datos"
+    },
+    "RESEARCH_CONSENT": {
+      "TEXT": "Consentimiento de Investigación"
+    },
+    "USERNAME": {
+      "TEXT": "Nombre de Usuario"
+    },
+    "PASSWORD": {
+      "TEXT": "Contraseña"
+    },
+    "SEARCH": {
+      "TEXT": "Buscar"
+    },
+    "PATIENT_NAME": {
+      "TEXT": "Paciente"
+    },
+    "CASE_ID": {
+      "TEXT": "ID del Caso"
+    },
+    "DOCTOR_NAME": {
+      "TEXT": "Doctor"
+    },
+    "PHONE": {
+      "TEXT": "Teléfono"
+    },
+    "CASE_DATE": {
+      "TEXT": "Fecha del Caso"
+    },
+    "FEE": {
+      "TEXT": "Tarifa"
+    },
+    "PHONE_NUMBER": {
+      "TEXT": "Número de Teléfono"
+    },
+    "SAVE": {
+      "TEXT": "Guardar"
+    },
+    "PATIENT_REQUIRED": {
+      "TEXT": "El paciente es obligatorio"
+    },
+    "DOCTOR_REQUIRED": {
+      "TEXT": "El doctor es obligatorio"
+    },
+    "DEPARTMENT_REQUIRED": {
+      "TEXT": "Seleccionar Cualquier Departamento"
+    },
+    "CASE_DATE_REQUIRED": {
+      "TEXT": "La fecha del caso es obligatoria"
+    },
+    "FEE_REQUIRED": {
+      "TEXT": "La tarifa es obligatoria"
+    },
+    "DESCRIPTION_REQUIRED": {
+      "TEXT": "La descripción es obligatoria"
+    },
+    "ADMISSION_DATE": {
+      "TEXT": "Fecha de Admisión"
+    },
+    "DISCHARGE_DATE": {
+      "TEXT": "Fecha de Alta"
+    },
+    "PACKAGE_NAME": {
+      "TEXT": "Paquete"
+    },
+    "INSURANCE_NAME": {
+      "TEXT": "Seguro"
+    },
+    "POLICY_NO": {
+      "TEXT": "Número de Póliza"
+    },
+    "AGENT_NAME": {
+      "TEXT": "Nombre del Agente"
+    },
+    "GUARDIAN_NAME": {
+      "TEXT": "Nombre del Tutor"
+    },
+    "GUARDIAN_RELATION": {
+      "TEXT": "Relación del Tutor"
+    },
+    "GUARDIAN_CONTACT_NO": {
+      "TEXT": "Número de Contacto del Tutor"
+    },
+    "GUARDIAN_ADDRESS": {
+      "TEXT": "Dirección del Tutor"
+    },
+    "ADMISSION_DATE_REQUIRED": {
+      "TEXT": "La fecha de admisión es obligatoria"
+    },
+    "DISCHARGE_DATE_MIN": {
+      "TEXT": "La fecha de alta debe ser desde mañana en adelante"
+    },
+    "HEIGHT": {
+      "TEXT": "Altura"
+    },
+    "WEIGHT": {
+      "TEXT": "Peso"
+    },
+    "BLOOD_PRESSURE": {
+      "TEXT": "Presión Arterial"
+    },
+    "IS_OLD_PATIENT": {
+      "TEXT": "Es Paciente Antiguo"
+    },
+    "YES": {
+      "TEXT": "Sí"
+    },
+    "NO": {
+      "TEXT": "No"
+    },
+    "PACKAGE": {
+      "TEXT": "Paquete"
+    },
+    "SYMPTONS": {
+      "TEXT": "Síntomas"
+    },
+    "NOTES": {
+      "TEXT": "Notas"
+    },
+    "TEMPLATE_NAME": {
+      "TEXT": "Nombre de la Plantilla"
+    },
+    "HEADER_COLOR": {
+      "TEXT": "Color del Encabezado"
+    },
+    "SHOW_EMAIL": {
+      "TEXT": "Mostrar Correo Electrónico"
+    },
+    "SHOW_PHONE": {
+      "TEXT": "Mostrar Teléfono"
+    },
+    "SHOW_DOB": {
+      "TEXT": "Mostrar Fecha de Nacimiento"
+    },
+    "SHOW_BLOOD_GROUP": {
+      "TEXT": "Mostrar Grupo Sanguíneo"
+    },
+    "SHOW_ADDRESS": {
+      "TEXT": "Mostrar Dirección"
+    },
+    "SHOW_PATIENT_ID": {
+      "TEXT": "Mostrar ID del Paciente"
+    },
+    "SHOW_INSURANCE": {
+      "TEXT": "Mostrar Seguro"
+    },
+    "TEMPLATE_NAME_REQUIRED": {
+      "TEXT": "El nombre de la plantilla es obligatorio"
+    },
+    "CREATE_TEMPLATE": {
+      "TEXT": "Crear Plantilla"
+    },
+    "UPDATE_TEMPLATE": {
+      "TEXT": "Actualizar Plantilla"
+    },
+    "LIVE_PREVIEW": {
+      "TEXT": "Vista Previa en Vivo"
+    },
+    "HOSPITAL_NAME": {
+      "TEXT": "Nombre del Hospital"
+    },
+    "HOSPITAL_ADDRESS": {
+      "TEXT": "Dirección"
+    },
+    "DOB": {
+      "TEXT": "Fecha de Nacimiento"
+    },
+    "ADDRESS": {
+      "TEXT": "Dirección"
+    },
+    "PATIENT_ID": {
+      "TEXT": "ID del Paciente"
+    },
+    "SAVING": {
+      "TEXT": "Guardando..."
+    },
+    "CHECKBOX": {
+      "TEXT": "Casilla de Verificación"
+    },
+    "TEMPLATE_REQUIRED": {
+      "TEXT": "La plantilla es obligatoria"
+    },
+    "REQUIRED": {
+      "TEXT": "El nombre de la plantilla es obligatorio"
+    },
+    "ROOM": {
+      "TEXT": "Habitación"
+    },
+    "IPD_NO": {
+      "TEXT": "IPD No"
+    },
+    "BLOODPRESSURE": {
+      "TEXT": "Presión Arterial"
+    },
+    "ADMISSIONDATE": {
+      "TEXT": "Fecha de Admisión",
+      "REQUIRED": "Fecha de admisión es obligatoria"
+    },
+    "ISOLDPATIENT": {
+      "TEXT": "Es Paciente Antiguo"
+    },
+    "ADD": {
+      "TEXT": "Agregar"
+    },
+    "REFRESH": {
+      "TEXT": "Actualizar"
+    },
+    "CASE": {
+      "TEXT": "Caso"
+    },
+    "PATIENT-REQUIRED": {
+      "REQUIRED": "El paciente es obligatorio"
+    },
+    "CASE-REQUIRED": {
+      "REQUIRED": "El caso es obligatorio"
+    },
+    "IPD-REQUIRED": {
+      "REQUIRED": "IPD No es obligatorio"
+    },
+    "HEIGH-REQUIRED": {
+      "REQUIRED": "Altura es obligatoria"
+    },
+    "WEIGHT-REQUIRED": {
+      "REQUIRED": "Peso es obligatorio"
+    },
+    "BLOODPRESSURE-REQUIRED": {
+      "REQUIRED": "Presión arterial es obligatoria"
+    },
+    "ADMISSIONDATE-REQUIRED": {
+      "REQUIRED": "Fecha de admisión es obligatoria"
+    },
+    "DOCTOR_NAME_REQUIRED": {
+      "REQUIRED": "El doctor es obligatorio"
+    },
+    "DEPARTMENT-REQUIRED": {
+      "REQUIRED": "El departamento es obligatorio"
+    },
+    "WARD-REQUIRED": {
+      "REQUIRED": "La sala es obligatoria"
+    },
+    "ROOM-REQUIRED": {
+      "REQUIRED": "La habitación es obligatoria"
+    },
+    "BED-REQUIRED": {
+      "REQUIRED": "La cama es obligatoria",
+      "OCCUPIED": "Ocupada"
+    },
+    "OCCUPIED": {
+      "TEXT": "Ocupada"
+    },
+    "IPD-NO": {
+      "TEXT": "IPD No"
+    },
+    "OPD_NO": {
+      "TEXT": "OPD No"
+    },
+    "APPOINTMENT_DATE": {
+      "TEXT": "Fecha de la cita"
+    },
+    "DOCTOR_OPD_CHARGE": {
+      "TEXT": "Cargo OPD del doctor"
+    },
+    "PAYMENT_MODE": {
+      "TEXT": "Modo de pago",
+      "REQUIRED": "Seleccione el modo de pago",
+      "CASH": "Efectivo",
+      "CHEQUE": "Cheque",
+      "ONLINE": "En línea"
+    },
+    "TOTAL_VISIT": {
+      "TEXT": "Visita total"
+    },
+    "OPD_NO-REQUIRED": {
+      "REQUIRED": "OPD No es obligatorio"
+    },
+    "HEIGHT-REQUIRED": {
+      "REQUIRED": "Altura es obligatoria"
+    },
+    "BLOOD_PRESSURE-REQUIRED": {
+      "REQUIRED": "Presión arterial es obligatoria"
+    },
+    "APPOINTMENT_DATE-REQUIRED": {
+      "REQUIRED": "Fecha de la cita es obligatoria"
+    },
+    "DOCTOR-REQUIRED": {
+      "REQUIRED": "Doctor es obligatorio"
+    },
+    "DOCTOR_OPD_CHARGE_REQUIRED": {
+      "REQUIRED": "Cargo OPD del doctor es obligatorio"
+    },
+    "PAYMENT_MODE-REQUIRED": {
+      "REQUIRED": "Modo de pago es obligatorio"
+    },
+    "PERSONAL_DETAILS": {
+      "TEXT": "Detalles personales"
+    },
+    "ADDRESS_DETAILS": {
+      "TEXT": "Detalles de la dirección"
+    },
+    "CONSENT": {
+      "TEXT": "Consentimiento"
+    },
+    "LOGIN_CREDENTIAL": {
+      "TEXT": "Credencial de inicio de sesión"
+    },
+    "NAME": {
+      "TEXT": "Nombre"
+    },
+    "PROCEDURE-REQUIRED": {
+      "REQUIRED": "Procedimiento es obligatorio"
+    },
+    "OT-SCHEDULE": {
+      "TEXT": "Horario OT"
+    },
+    "PROCEDURE": {
+      "TEXT": "Procedimiento"
+    },
+    "OT-ROOM": {
+      "TEXT": "Sala OT"
+    },
+    "CLOSE": {
+      "TEXT": "Cerrar"
+    },
+    "SCHEDULE": {
+      "TEXT": "Horario"
+    },
+    "START": {
+      "TEXT": "Inicio"
+    },
+    "END": {
+      "TEXT": "Fin"
+    },
+    "SCHEDULED_DATE": {
+      "TEXT": "Fecha programada",
+      "REQUIRED": "Fecha programada es obligatoria"
+    },
+    "START_TIME": {
+      "TEXT": "Hora de inicio",
+      "REQUIRED": "Hora de inicio es obligatoria"
+    },
+    "END_TIME": {
+      "TEXT": "Hora de fin",
+      "REQUIRED": "Hora de fin es obligatoria"
+    },
+    "SHOW_HIDE_COLUMN": {
+      "TEXT": "Mostrar/Ocultar columna"
+    },
+    "DELETE": {
+      "TEXT": "Eliminar"
+    },
+    "DOWNLOAD_XLSX": {
+      "TEXT": "Descargar Xlsx"
+    },
+    "TITLE": {
+      "TEXT": "Título"
+    },
+    "ATTACHMENT": {
+      "TEXT": "Adjunto"
+    },
+    "DOCUMENT_TYPE": {
+      "TEXT": "Tipo de documento"
+    },
+    "TITLE_REQUIRED": {
+      "REQUIRED": "Título es obligatorio"
+    },
+    "DOCUMENT_TYPE_REQUIRED": {
+      "REQUIRED": "Tipo de documento es obligatorio"
+    },
+    "NOTES_REQUIRED": {
+      "REQUIRED": "Notas son obligatorias"
+    },
+    "NAME_REQUIRED": {
+      "REQUIRED": "Nombre es obligatorio"
+    },
+    "DURATION": {
+      "TEXT": "Duración"
+    },
+    "DURATION-REQUIRED": {
+      "REQUIRED": "Duración es obligatoria"
+    },
+    "DOES-INTERVAL": {
+      "TEXT": "Intervalo de dosis"
+    },
+    "DOES-INTERVAL-REQUIRED": {
+      "REQUIRED": "Intervalo de dosis es obligatorio"
+    },
+    "PRESCRIPTION-TIME": {
+      "TEXT": "Tiempo de prescripción"
+    },
+    "PRESCRIPTION-TIME-REQUIRED": {
+      "REQUIRED": "Tiempo de prescripción es obligatorio"
+    },
+    "ADDED-AT": {
+      "TEXT": "Agregado en"
+    },
+    "CREATE-PRESCRIPTION": {
+      "TEXT": "Crear prescripción"
+    },
+    "PRESCRIPTION-DETAILS": {
+      "TEXT": "Detalles de la prescripción"
+    },
+    "HEALTH-INSURANCE": {
+      "TEXT": "Seguro de salud"
+    },
+    "LOW-INCOME": {
+      "TEXT": "Bajo ingreso"
+    },
+    "REFERENCE": {
+      "TEXT": "Referencia"
+    },
+    "PAYMENT-STATUS": {
+      "TEXT": "Estado del pago"
+    },
+    "PAID": {
+      "TEXT": "Pagado"
+    },
+    "UNPAID": {
+      "TEXT": "No pagado"
+    },
+    "MEDICINE": {
+      "TEXT": "Medicamento"
+    },
+    "DOSAGE": {
+      "TEXT": "Dosis"
+    },
+    "DOSE-INTERVAL": {
+      "TEXT": "Intervalo de dosis"
+    },
+    "COMMENT": {
+      "TEXT": "Comentario"
+    },
+    "ADD-MEDICINE": {
+      "TEXT": "Agregar a medicamentos comprados"
+    },
+    "PHYSICAL-INFO": {
+      "TEXT": "Información física"
+    },
+    "HIGH-BLOOD-PRESSURE": {
+      "TEXT": "Presión arterial alta"
+    },
+    "FOOD-ALLERGIES": {
+      "TEXT": "Alergias alimentarias"
+    },
+    "TENDENCY-BLEED": {
+      "TEXT": "Tendencia a sangrar"
+    },
+    "HEART-DISEASE": {
+      "TEXT": "Enfermedad cardíaca"
+    },
+    "DIABETIC": {
+      "TEXT": "Diabético"
+    },
+    "FEMALE-PREGNANCY": {
+      "TEXT": "Embarazo femenino"
+    },
+    "BREAST-FEEDING": {
+      "TEXT": "Lactancia"
+    },
+    "CURRENT-MEDICATION": {
+      "TEXT": "Medicación actual"
+    },
+    "SURGERY": {
+      "TEXT": "Cirugía"
+    },
+    "ACCIDENT": {
+      "TEXT": "Accidente"
+    },
+    "OTHERS": {
+      "TEXT": "Otros"
+    },
+    "PULSE-RATE": {
+      "TEXT": "Frecuencia del pulso"
+    },
+    "TEMPERATURE": {
+      "TEXT": "Temperatura"
+    },
+    "PROBLEM-DESCRIPTION": {
+      "TEXT": "Descripción del problema"
+    },
+    "TEST": {
+      "TEXT": "Prueba"
+    },
+    "ADVICE": {
+      "TEXT": "Consejo"
+    },
+    "NEXT-VISIT": {
+      "TEXT": "Próxima visita"
+    },
+    "NEXT-VISIT-TIME": {
+      "TEXT": "Hora de la próxima visita"
+    },
+    "NEXT-VISIT-DAYS": {
+      "TEXT": "Días"
+    },
+    "NEXT-VISIT-MONTHS": {
+      "TEXT": "Meses"
+    },
+    "NEXT-VISIT-YEARS": {
+      "TEXT": "Años"
+    },
+    "RESET": {
+      "TEXT": "Restablecer"
+    },
+    "STATUS-PAID": {
+      "TEXT": "Pagado"
+    },
+    "STATUS-UNPAID": {
+      "TEXT": "No pagado"
+    },
+    "NEXT-VISIT-TIME-DAYS": {
+      "TEXT": "Días"
+    },
+    "NEXT-VISIT-TIME-MONTHS": {
+      "TEXT": "Meses"
+    },
+    "NEXT-VISIT-TIME-YEARS": {
+      "TEXT": "Años"
+    },
+    "TAX": {
+      "TEXT": "Impuesto"
+    },
+    "TAX-NAME": {
+      "TEXT": "Nombre del Impuesto"
+    },
+    "TAX-NAME-REQUIRED": {
+      "REQUIRED": "El nombre del impuesto es obligatorio"
+    },
+    "TAX-PERCENTAGE": {
+      "TEXT": "Porcentaje de Impuesto"
+    },
+    "TAX-PERCENTAGE-REQUIRED": {
+      "REQUIRED": "El porcentaje de impuesto es obligatorio"
+    },
+    "CHARGE-CATEGORY-NAME": {
+      "TEXT": "Artículos de Categoría",
+      "REQUIRED": "El nombre de la categoría de cargo es obligatorio"
+    },
+    "CATEGORY": {
+      "TEXT": "Categoría de Cargo",
+      "REQUIRED": "La categoría de cargo es obligatoria"
+    },
+    "CATEGORY-ITEM": {
+      "TEXT": "Artículo de Categoría",
+      "REQUIRED": "El artículo de categoría es obligatorio"
+    },
+    "APPLIES_TO": {
+      "TEXT": "Aplica a",
+      "OPD": "OPD",
+      "IPD": "IPD",
+      "BOTH": "Ambos",
+      "REQUIRED": "El campo 'Aplica a' es obligatorio"
+    },
+    "EMPLOYEE_RELATED": {
+      "TEXT": "¿Cargo relacionado con el empleado?"
+    },
+    "CHARGE_CATEGORY": {
+      "TEXT": "Categoría de Cargo",
+      "REQUIRED": "La categoría de cargo es obligatoria"
+    },
+    "CHARGE_TYPE": {
+      "TEXT": "Categoría"
+    },
+    "CHARGE_CATEGORIE": {
+      "TEXT": "Artículos de Categoría"
+    },
+    "CHARGES": {
+      "TEXT": "Cargos Estándar",
+      "REQUIRED": "Los cargos estándar son obligatorios"
+    },
+    "APPOINTMENT_DETAILS": {
+      "TEXT": "Detalles de la Cita"
+    },
+    "MEDICINE-BRAND": {
+      "TEXT": "Marca",
+      "REQUIRED": "La marca es obligatoria"
+    },
+    "PHONE-NO": {
+      "TEXT": "Teléfono",
+      "REQUIRED": "El número de teléfono es obligatorio"
+    },
+    "EMAIL-ID": {
+      "TEXT": "Correo Electrónico",
+      "REQUIRED": "El correo electrónico es obligatorio"
+    },
+    "MEDICINE-NAME": {
+      "TEXT": "Medicamento"
+    },
+    "MEDICINE-BRAND-NAME": {
+      "TEXT": "Marca"
+    },
+    "SELLING-PRICE": {
+      "TEXT": "Precio de Venta",
+      "REQUIRED": "El precio de venta es obligatorio"
+    },
+    "BAYING-PRICE": {
+      "TEXT": "Precio de Compra"
+    },
+    "CATEGORYES": {
+      "TEXT": "Categoría",
+      "REQUIRED": "La categoría es obligatoria"
+    },
+    "BRAND": {
+      "TEXT": "Marca",
+      "REQUIRED": "La marca es obligatoria"
+    },
+    "SALT-COMPOSITION": {
+      "TEXT": "Composición de Sal"
+    },
+    "BUYING-PRICE": {
+      "TEXT": "Precio de Compra",
+      "REQUIRED": "El precio de compra es obligatorio"
+    },
+    "SIDE-EFFECTS": {
+      "TEXT": "Efectos Secundarios"
+    },
+    "PURCHASE-NO": {
+      "TEXT": "Nº de Compra"
+    },
+    "TOTAL": {
+      "TEXT": "Total"
+    },
+    "NET-AMOUNT": {
+      "TEXT": "Importe Neto"
+    },
+    "PAYMENT-TYPE": {
+      "TEXT": "Tipo de Pago"
+    },
+    "PURCHASE-TITLE": {
+      "TEXT": "Comprar Medicamento"
+    },
+    "REFERENCE-NO": {
+      "TEXT": "Nº de Referencia"
+    },
+    "PURCHASE-DATE": {
+      "TEXT": "Fecha de Compra"
+    },
+    "ORDER-ITEMS": {
+      "TEXT": "Artículos del Pedido"
+    },
+    "BATCH-NO": {
+      "TEXT": "Nº de Lote"
+    },
+    "EXPIRY-DATE": {
+      "TEXT": "Fecha de Caducidad"
+    },
+    "SALE-PRICE": {
+      "TEXT": "Precio de Venta"
+    },
+    "PURCHASE-PRICE": {
+      "TEXT": "Precio de Compra"
+    },
+    "QUANTITY": {
+      "TEXT": "Cantidad"
+    },
+    "TAX-PERCENT": {
+      "TEXT": "Impuesto %"
+    },
+    "AMOUNT": {
+      "TEXT": "Importe"
+    },
+    "DISCOUNT": {
+      "TEXT": "Descuento %"
+    },
+    "TAX-AMOUNT": {
+      "TEXT": "Importe del Impuesto"
+    },
+    "PAYMENT-NOTE": {
+      "TEXT": "Nota de Pago"
+    },
+    "ADD-PURCHASE-PRICE-MEDICINE": {
+      "TEXT": "Añadir a medicamentos comprados"
+    },
+    "PAYMENT-CASH": {
+      "TEXT": "Efectivo"
+    },
+    "PAYMENT-CARD": {
+      "TEXT": "Tarjeta"
+    },
+    "PAYMENT-ONLINE": {
+      "TEXT": "En línea"
+    },
+    "PAYMENT-CHEQUE": {
+      "TEXT": "Cheque"
+    },
+    "PAYMENT-UPI": {
+      "TEXT": "UPI"
+    },
+    "BILL-NUMBER": {
+      "TEXT": "Número de factura"
+    },
+    "PATIENT-MAIL": {
+      "TEXT": "Correo del paciente"
+    },
+    "PAYMENT-MODE": {
+      "TEXT": "Modo de pago"
+    },
+    "PURCHASE-BILL-TITLE": {
+      "TEXT": "Crear factura de medicina"
+    },
+    "BILL-DATE": {
+      "TEXT": "Fecha de factura"
+    },
+    "MEDICINE-CATEGORY": {
+      "TEXT": "Categoría de medicina"
+    },
+    "CONFIRM-TITLE": {
+      "TEXT": "¿Estás seguro?"
+    },
+    "PERCENTAGE": {
+      "TEXT": "Porcentaje"
+    },
+    "CHARGE-TYPE": {
+      "TEXT": "Tipo de cargo"
+    },
+    "CHARGE-CATEGORY": {
+      "TEXT": "Categoría de cargo"
+    },
+    "CHARGE-CATEGORIES": {
+      "TEXT": "Categorías de cargo"
+    },
+    "STANDARD-CHARGES": {
+      "TEXT": "Cargos estándar"
+    },
+    "CODE": {
+      "TEXT": "Código"
+    },
+    "LOGOUT": {
+      "TEXT": "Cerrar sesión"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+﻿<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{ dialogTitle }}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="comboForm" (ngSubmit)="submit()">
+      <h4 class="mt-2 mb-3">Combo Information</h4>
+
+      <div class="row">
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Combo Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-icon matSuffix>local_offer</mat-icon>
+            <mat-error *ngIf="comboForm.get('name')?.hasError('required')">Combo name is required</mat-error>
+            <mat-error *ngIf="comboForm.get('name')?.hasError('minlength')">Combo name must be at least 2 characters</mat-error>
+            <mat-error *ngIf="comboForm.get('name')?.hasError('maxlength')">Combo name cannot exceed 120 characters</mat-error>
+            <mat-error *ngIf="comboForm.get('name')?.hasError('pattern')">Leading or trailing spaces are not allowed</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Validity Start</mat-label>
+            <input matInput [matDatepicker]="fromPicker" formControlName="valid_from" required
+                   (click)="fromPicker.open()" readonly>
+            <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+            <mat-datepicker #fromPicker></mat-datepicker>
+            <mat-error *ngIf="comboForm.get('valid_from')?.hasError('required')">Validity start date is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Validity End</mat-label>
+            <input matInput [matDatepicker]="untilPicker" formControlName="valid_to" required
+                   (click)="untilPicker.open()" readonly>
+            <mat-datepicker-toggle matSuffix [for]="untilPicker"></mat-datepicker-toggle>
+            <mat-datepicker #untilPicker></mat-datepicker>
+            <mat-error *ngIf="comboForm.get('valid_to')?.hasError('required')">Validity end date is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-4 col-md-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Combo Price (Rs)</mat-label>
+            <input matInput type="number" formControlName="discount_price" min="0" step="0.01" required>
+            <mat-icon matSuffix>attach_money</mat-icon>
+            <mat-error *ngIf="comboForm.get('discount_price')?.hasError('required')">Combo price is required</mat-error>
+            <mat-error *ngIf="comboForm.get('discount_price')?.hasError('min')">Combo price must be 0 or more</mat-error>
+            <mat-error *ngIf="comboForm.get('discount_price')?.hasError('max')">Combo price is too large</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-4 col-md-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="active" required>
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>toggle_on</mat-icon>
+            <mat-error *ngIf="comboForm.get('active')?.hasError('required')">Status is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <h4 class="mt-4 mb-3">Predefined Products</h4>
+      <div formArrayName="product_slots" class="row">
+        <div class="col-xl-6 mb-3" *ngFor="let slot of productSlots.controls; let i = index" [formGroupName]="i">
+          <div class="slot-form-card">
+            <div class="slot-form-title">Product {{ i + 1 }}</div>
+
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Product Category</mat-label>
+              <mat-select formControlName="category_id" (selectionChange)="onCategoryChange(i)" required>
+                <mat-option *ngFor="let category of categories" [value]="category.id">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="slot.get('category_id')?.hasError('required')">Category is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Product Name</mat-label>
+              <mat-select formControlName="product_id" required>
+                <mat-option *ngFor="let product of getProductsForSlot(i)" [value]="product.id"
+                  [disabled]="isProductSelectedInOtherSlot(i, product.id)">
+                  {{ product.name }} - {{ getCategoryName(product.category_id) }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="slot.get('product_id')?.hasError('required')">Product is required</mat-error>
+            </mat-form-field>
+
+            <div class="slot-hint" *ngIf="!slot.get('category_id')?.value">
+              Select a category first to see products.
+            </div>
+            <div class="slot-hint" *ngIf="slot.get('category_id')?.value && getProductsForSlot(i).length === 0">
+              No products available for this category.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mt-4 mb-3">Combo Image</h4>
+      <div class="row">
+        <div class="col-xl-12 mb-3">
+          <div class="file-drop-area combo-file-drop-area" (click)="triggerImageInput()">
+            <input
+              #imageInput
+              type="file"
+              class="file-input"
+              [accept]="acceptedFileTypes"
+              (change)="onImageSelected($event)">
+
+            <div class="file-msg" *ngIf="!imagePreviewUrl; else comboImagePreviewBlock">
+              <mat-icon class="file-icon">cloud_upload</mat-icon>
+              <span>Drop combo image here or click to browse</span>
+            </div>
+
+            <ng-template #comboImagePreviewBlock>
+              <div class="single-image-preview">
+                <img
+                  [src]="imagePreviewUrl"
+                  [alt]="comboForm.get('name')?.value || 'Combo image'"
+                  (error)="$any($event.target).src='assets/cavero/img/shop/grocery/01.png'">
+              </div>
+            </ng-template>
+          </div>
+          <div class="combo-image-toolbar">
+            <small class="text-muted">Supported formats: JPG, PNG, GIF, WebP. This image will be shown in the shopping cart.</small>
+            <button
+              *ngIf="imagePreviewUrl"
+              mat-stroked-button
+              color="warn"
+              type="button"
+              (click)="removeImage(); $event.stopPropagation()">
+              <mat-icon>delete_outline</mat-icon>
+              Remove Image
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <button mat-flat-button color="primary" type="submit" [disabled]="!comboForm.valid">
+              {{ action === 'edit' ? 'Update Combo' : 'Add Combo' }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

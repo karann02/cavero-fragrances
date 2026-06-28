@@ -1,0 +1,84 @@
+
+/* ── top spacing fix ── */
+:host {
+  display: block;
+  padding-top: 24px;
+}
+
+:host ::ng-deep .column-filter .mat-mdc-select-arrow {
+  display: none;
+}
+:host ::ng-deep .advance-table .mat-mdc-header-cell {
+  font-weight: 500;
+}
+:host ::ng-deep .mat-column-title {
+  min-width: 200px;
+}
+:host ::ng-deep .mat-column-slug {
+  min-width: 150px;
+}
+.mat-icon{
+  height: auto !important;
+}
+
+/* ── materialTableHeader fix ── */
+
+.materialTableHeader {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 72px !important;
+  height: auto !important;
+  padding: 14px 20px !important;
+  gap: 10px !important;
+  background: rgba(255, 244, 226, 0.06) !important;
+  border-bottom: 1px solid rgba(255, 244, 226, 0.10) !important;
+
+  .left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .right {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  .header-buttons-left,
+  .tbl-export-btn {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .tbl-header-btn {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .m-l-10 {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  }
+}
+
+/* end fix */

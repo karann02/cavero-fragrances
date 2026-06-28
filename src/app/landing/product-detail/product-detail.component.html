@@ -1,0 +1,65 @@
+<!-- Header with Shopping Cart and Delivery Options -->
+<app-cavero-navbar variant="solid"></app-cavero-navbar>
+
+<!-- Categories Navigation -->
+
+<!-- Page content -->
+<main class="content-wrapper">
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="container text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading product details...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="container text-center py-5">
+    <i class="ci-close-circle display-4 text-danger mb-3"></i>
+    <h3 class="h4">Error Loading Product</h3>
+    <p class="text-body-secondary">{{ error }}</p>
+    <a routerLink="/catalog" class="btn btn-primary">Back to Catalog</a>
+  </div>
+
+  <!-- Product Content -->
+  <div *ngIf="!loading && !error && product">
+
+    <!-- Breadcrumb -->
+    <app-product-detail-breadcrumb [productName]="product.name" [category]="product.category"
+      [categoryId]="product.category_id || null" [categorySlug]="product.category_slug || ''">
+    </app-product-detail-breadcrumb>
+
+    <!-- Product gallery + Product details -->
+    <section class="container product-detail-main-section pt-md-4 pb-5 mt-md-2 mt-lg-3 mb-2 mb-sm-3 mb-lg-4 mb-xl-5">
+      <div class="row align-items-start">
+
+        <!-- Product gallery -->
+        <div class="col-md-6 col-lg-7 sticky-md-top z-1 mb-4 mb-md-0 product-detail-gallery-col">
+          <app-product-detail-gallery [images]="product.images" [productId]="productId" [refreshToken]="galleryRefreshToken" [discountPercent]="getDiscountPercentage()">
+          </app-product-detail-gallery>
+        </div>
+
+        <!-- Product details -->
+        <div class="col-md-6 col-lg-5 position-relative">
+          <app-product-detail-info [product]="product" (addToCartEvent)="addToCart($event)">
+          </app-product-detail-info>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="container pb-5 mb-2 mb-sm-3 mb-lg-4 mb-xl-5">
+      <app-product-reviews [productId]="productId"></app-product-reviews>
+    </section>
+
+    <!-- Related products -->
+    <app-product-detail-related [productId]="productId" [categoryId]="product.category_id">
+    </app-product-detail-related>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<app-cavero-footer></app-cavero-footer>

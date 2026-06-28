@@ -1,0 +1,689 @@
+:host {
+  display: block;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CAVERO PRODUCT-DETAIL · INFO PANEL
+   Light theme — matches catalog: white surface, dark-green ink
+   (#1A322D), teal accent (#418576), red compare/discount (#D64545).
+   Staggered entrance reveal (reduced-motion safe).
+   ───────────────────────────────────────────────────────────── */
+
+.cavero-pd-info {
+  padding-left: 0;
+
+  @media (min-width: 992px) {
+    padding-left: 1.75rem;
+  }
+}
+
+/* ── Entrance stagger (the whole panel rises in on load) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .cavero-pd-info > * {
+    opacity: 0;
+    animation: cav-pd-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @for $i from 1 through 12 {
+    .cavero-pd-info > *:nth-child(#{$i}) { animation-delay: #{0.06 * $i}s; }
+  }
+}
+
+@keyframes cav-pd-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Category label */
+.cavero-pd-category {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #418576;
+  margin-bottom: 0.5rem;
+}
+
+/* Product name */
+.cavero-pd-name {
+  position: relative;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.625rem, 3.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #1A322D;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.85rem;
+
+  /* animated accent rule that draws in under the name */
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 56px;
+    background: linear-gradient(90deg, #418576, #8DCFB4);
+    border-radius: 2px;
+    transform-origin: left center;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transform: scaleX(0);
+      animation: cav-pd-underline 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+    }
+  }
+}
+
+@keyframes cav-pd-underline {
+  to { transform: scaleX(1); }
+}
+
+/* Spec badges */
+.cavero-pd-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.cavero-pd-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(65, 133, 118, 0.08);
+  border: 1px solid rgba(65, 133, 118, 0.28);
+  color: #418576;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.675rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(65, 133, 118, 0.14);
+    border-color: rgba(65, 133, 118, 0.5);
+  }
+}
+
+/* Price row */
+.cavero-pd-price-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.625rem;
+}
+
+.cavero-pd-price {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1.625rem, 4vw, 2.125rem);
+  font-weight: 800;
+  color: #418576;
+  line-height: 1;
+}
+
+.cavero-pd-mrp {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #D64545;
+  text-decoration: line-through;
+  text-decoration-color: rgba(214, 69, 69, 0.6);
+}
+
+.cavero-pd-off-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(214, 69, 69, 0.1);
+  border: 1px solid rgba(214, 69, 69, 0.3);
+  color: #D64545;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* Stock indicator */
+.cavero-pd-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cavero-stock-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cav-pd-pulse 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes cav-pd-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.35); opacity: 0.6; }
+}
+
+.cavero-pd-stock--in  { color: #2e9e5b; .cavero-stock-dot { background: #2e9e5b; box-shadow: 0 0 6px rgba(46,158,91,0.5); } }
+.cavero-pd-stock--low { color: #e07b1a; .cavero-stock-dot { background: #e07b1a; box-shadow: 0 0 6px rgba(224,123,26,0.5); } }
+.cavero-pd-stock--out { color: #D64545; .cavero-stock-dot { background: #D64545; animation: none; } }
+
+/* Variant selector */
+.cavero-pd-variants {
+  margin-bottom: 1.5rem;
+}
+
+.cavero-pd-variants-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: rgba(26, 50, 45, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
+}
+
+.cavero-pd-selected-size {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #418576;
+}
+
+.cavero-pd-variant-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cavero-pd-variant-btn {
+  display: inline-flex;
+  align-items: center;
+  min-width: 3.5rem;
+  height: 2.6rem;
+  padding: 0 1.1rem;
+  border-radius: 9px;
+  border: 1.5px solid rgba(65, 133, 118, 0.3);
+  background: #ffffff;
+  color: #1A322D;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease,
+              box-shadow 0.18s ease, transform 0.18s ease;
+
+  &:hover:not(:disabled) {
+    border-color: #418576;
+    background: rgba(65, 133, 118, 0.06);
+    color: #418576;
+    transform: translateY(-1px);
+  }
+
+  &--active {
+    border-color: #418576;
+    background: #418576;
+    color: #FFF7E4;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(65, 133, 118, 0.28);
+
+    /* keep the selected button readable on hover — green text on a light fill */
+    &:hover:not(:disabled) {
+      background: rgba(65, 133, 118, 0.12);
+      color: #418576;
+      border-color: #418576;
+    }
+  }
+
+  &--soldout {
+    border-color: rgba(220, 38, 38, 0.45);
+    background: rgba(220, 38, 38, 0.07);
+    color: #dc2626;
+    cursor: not-allowed;
+    text-decoration: line-through;
+
+    &:hover { transform: none; }
+  }
+}
+
+.cavero-sold-out-label {
+  font-size: 0.68em;
+  font-weight: 700;
+  margin-left: 0.2em;
+  color: #dc2626;
+  text-decoration: none;   /* keep the "(Sold Out)" tag readable, not struck through */
+}
+
+.cavero-pd-size-hint {
+  margin-top: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(26, 50, 45, 0.45);
+  margin-bottom: 0;
+}
+
+/* Add to Cart actions */
+.cavero-pd-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: stretch;
+  margin-bottom: 0.875rem;
+
+  @media (max-width: 575.98px) {
+    flex-direction: column;
+  }
+}
+
+.cavero-pd-qty {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid rgba(65, 133, 118, 0.3);
+  border-radius: 9px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #ffffff;
+}
+
+.cavero-qty-btn {
+  width: 44px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: rgba(26, 50, 45, 0.6);
+  font-size: 1.35rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  line-height: 1;
+
+  &:hover:not(:disabled) {
+    background: rgba(65, 133, 118, 0.08);
+    color: #418576;
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+
+  /* reached available stock — looks disabled but stays clickable to surface the message */
+  &--maxed {
+    opacity: 0.3;
+    cursor: not-allowed;
+    color: rgba(26, 50, 45, 0.4);
+
+    &:hover { background: transparent; color: rgba(26, 50, 45, 0.4); }
+  }
+
+  @media (max-width: 575.98px) {
+    height: 50px;
+  }
+}
+
+.cavero-qty-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 56px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1A322D;
+  border-left: 1px solid rgba(65, 133, 118, 0.18);
+  border-right: 1px solid rgba(65, 133, 118, 0.18);
+  user-select: none;
+
+  @media (max-width: 575.98px) {
+    height: 50px;
+  }
+}
+
+.cavero-pd-atc-btn {
+  flex: 1;
+  height: 56px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #1A322D 0%, #418576 50%, #1A322D 100%);
+  background-size: 200% 100%;
+  color: #FFF7E4;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-position 0.5s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 22px rgba(65, 133, 118, 0.28);
+  position: relative;
+  overflow: hidden;
+
+  span { position: relative; z-index: 1; }
+
+  /* shimmer sweep */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,247,228,0.28) 50%, transparent 100%);
+    transform: translateX(-130%);
+    transition: transform 0.6s ease;
+  }
+
+  &:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(65, 133, 118, 0.4);
+
+    &::before { transform: translateX(130%); }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 14px rgba(65, 133, 118, 0.28);
+  }
+
+  @media (max-width: 575.98px) {
+    height: 50px;
+    font-size: 0.875rem;
+  }
+}
+
+.cavero-pd-oos-btn {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  border: 1.5px solid rgba(214, 69, 69, 0.25);
+  background: rgba(214, 69, 69, 0.05);
+  color: #D64545;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin-bottom: 0.875rem;
+}
+
+/* Secondary actions */
+.cavero-pd-secondary {
+  display: flex;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.cavero-pd-wishlist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 1.1rem;
+  height: 42px;
+  border-radius: 9px;
+  border: 1.5px solid rgba(26, 50, 45, 0.14);
+  background: #ffffff;
+  color: rgba(26, 50, 45, 0.6);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.15s ease;
+
+  svg { transition: fill 0.18s ease, stroke 0.18s ease, transform 0.18s ease; }
+
+  &:hover {
+    border-color: rgba(65, 133, 118, 0.4);
+    color: #418576;
+    svg { transform: scale(1.12); }
+  }
+
+  &--active {
+    border-color: rgba(214, 69, 69, 0.4);
+    color: #D64545;
+    background: rgba(214, 69, 69, 0.05);
+
+    svg { fill: #D64545; stroke: #D64545; }
+  }
+}
+
+.cavero-pd-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 1.1rem;
+  height: 42px;
+  border-radius: 9px;
+  border: 1.5px solid rgba(37, 211, 102, 0.3);
+  background: rgba(37, 211, 102, 0.06);
+  color: #1c8a45;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+
+  &:hover {
+    border-color: rgba(37, 211, 102, 0.55);
+    color: #128a38;
+    background: rgba(37, 211, 102, 0.12);
+    text-decoration: none;
+  }
+}
+
+/* Free gift teaser */
+.cavero-pd-gift-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.7rem 0.95rem;
+  border-radius: 10px;
+  background: linear-gradient(100deg, rgba(141, 207, 180, 0.16), rgba(65, 133, 118, 0.08));
+  border: 1px solid rgba(65, 133, 118, 0.2);
+  margin-bottom: 1.25rem;
+  position: relative;
+  overflow: hidden;
+
+  /* gentle gift-bar shimmer */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    transform: translateX(-100%);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: cav-pd-shimmer 3.6s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes cav-pd-shimmer {
+  0%, 65% { transform: translateX(-100%); }
+  100%    { transform: translateX(100%); }
+}
+
+.cavero-gift-icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+  margin-top: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.cavero-gift-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(26, 50, 45, 0.7);
+  position: relative;
+  z-index: 1;
+
+  strong {
+    color: #418576;
+    font-weight: 700;
+  }
+}
+
+/* Divider */
+.cavero-pd-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(65,133,118,0.28), rgba(65,133,118,0.08), transparent);
+  margin: 1.75rem 0;
+}
+
+/* ── Fragrance Story · collapsible accordion ── */
+.cavero-pd-story {
+  padding-bottom: 2rem;
+}
+
+.cavero-acc-item {
+  border-bottom: 1px solid rgba(65, 133, 118, 0.16);
+
+  &:first-child { border-top: 1px solid rgba(65, 133, 118, 0.16); }
+}
+
+.cavero-acc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.05rem 0.15rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.18s ease;
+
+  &:focus { outline: none; }
+
+  &:hover .cavero-acc-title { color: #418576; }
+
+  &.open .cavero-acc-title { color: #418576; }
+  &.open .cavero-acc-chevron { transform: rotate(180deg); }
+}
+
+.cavero-acc-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #1A322D;
+  transition: color 0.18s ease;
+  letter-spacing: 0.01em;
+}
+
+.cavero-acc-chevron {
+  flex-shrink: 0;
+  color: #418576;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cavero-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.open { grid-template-rows: 1fr; }
+}
+
+.cavero-acc-inner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+  padding: 0 0.15rem;
+}
+
+.cavero-acc-panel.open .cavero-acc-inner {
+  opacity: 1;
+  transform: translateY(0);
+  padding-bottom: 1.15rem;
+}
+
+.cavero-story-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: rgba(26, 50, 45, 0.72);
+  margin: 0;
+}
+
+.cavero-detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(26, 50, 45, 0.72);
+    padding-left: 1.2rem;
+    position: relative;
+
+    &::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: #418576;
+      font-size: 0.42em;
+      top: 0.5em;
+    }
+  }
+}
+
+/* Specs table */
+.cavero-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(65, 133, 118, 0.14);
+}
+
+.cavero-spec-key {
+  padding: 0.6rem 0.85rem;
+  background: rgba(65, 133, 118, 0.07);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #418576;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  width: 42%;
+  border-bottom: 1px solid rgba(65, 133, 118, 0.1);
+}
+
+.cavero-spec-val {
+  padding: 0.6rem 0.85rem;
+  background: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(26, 50, 45, 0.78);
+  border-bottom: 1px solid rgba(65, 133, 118, 0.1);
+}
+
+.cavero-specs-table tr:last-child .cavero-spec-key,
+.cavero-specs-table tr:last-child .cavero-spec-val {
+  border-bottom: none;
+}

@@ -1,0 +1,58 @@
+﻿<!-- form-dialog.component.html -->
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{dialogTitle}}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="producttypeForm" (ngSubmit)="submit()">
+
+      <!-- producttype Information Section -->
+      <h4 class="mt-2 mb-3">ProductType Information</h4>
+      <div class="row">
+        <!-- ProductType Name -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>ProductType Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-icon matSuffix>local_offer</mat-icon>
+            <mat-error *ngIf="producttypeForm.get('name')?.hasError('required')">ProductType name is required</mat-error>
+            <mat-error *ngIf="producttypeForm.get('name')?.hasError('minlength')">ProductType name must be at least 2 characters</mat-error>
+            <mat-error *ngIf="producttypeForm.get('name')?.hasError('maxlength')">ProductType name cannot exceed 100 characters</mat-error>
+            <mat-error *ngIf="producttypeForm.get('name')?.hasError('pattern')">Leading or trailing spaces are not allowed</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="active" required>
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>toggle_on</mat-icon>
+            <mat-error *ngIf="producttypeForm.get('active')?.hasError('required')">Status is required</mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>
+      <!-- Form Buttons -->
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <button mat-flat-button color="primary" type="submit" [disabled]="!producttypeForm.valid">
+              {{ action === 'edit' ? 'Update ProductType' : 'Add ProductType' }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+export const PERMISSIONS: Record<string, any> = {};

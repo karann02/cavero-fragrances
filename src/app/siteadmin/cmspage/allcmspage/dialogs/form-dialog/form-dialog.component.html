@@ -1,0 +1,137 @@
+﻿<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{dialogTitle}}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="cmsForm" (ngSubmit)="submit()">
+
+      <!-- Page Information Section -->
+      <h4 class="mt-2 mb-3">Page Information</h4>
+      <div class="row">
+        <!-- Page Title -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Page Title</mat-label>
+            <input matInput formControlName="title" required (blur)="generateSlug()">
+            <mat-icon matSuffix>title</mat-icon>
+            <mat-error *ngIf="cmsForm.get('title')?.hasError('required')">Page title is required</mat-error>
+            <mat-error *ngIf="cmsForm.get('title')?.hasError('minlength')">Page title must be at least 2 characters</mat-error>
+            <mat-error *ngIf="cmsForm.get('title')?.hasError('maxlength')">Page title cannot exceed 160 characters</mat-error>
+            <mat-error *ngIf="cmsForm.get('title')?.hasError('pattern')">Leading or trailing spaces are not allowed</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Slug -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Slug</mat-label>
+            <input matInput formControlName="slug" required>
+            <mat-icon matSuffix>link</mat-icon>
+            <mat-error *ngIf="cmsForm.get('slug')?.hasError('required')">Slug is required</mat-error>
+            <mat-error *ngIf="cmsForm.get('slug')?.hasError('pattern')">Slug must use lowercase letters, numbers, and hyphens only</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="row">
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" required>
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>toggle_on</mat-icon>
+            <mat-error *ngIf="cmsForm.get('status')?.hasError('required')">Status is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Content -->
+     <h4 class="mt-4 mb-3">Page Content</h4>
+<div class="row">
+  <div class="col-xl-12 mb-2">
+    <div class="ckeditor-container">
+      <label class="ckeditor-label">Page Content <span class="required-asterisk">*</span></label>
+      
+      <!-- Loading state -->
+      <div *ngIf="!isEditorLoaded" class="editor-loading">
+        Loading editor...
+      </div>
+      
+      <!-- For decoupled editor -->
+      <div *ngIf="isEditorLoaded && Editor" class="document-editor">
+        <div class="document-editor__toolbar"></div>
+        <div class="editor-container">
+          <ckeditor
+            [editor]="Editor"
+            formControlName="content"
+            [config]="editorConfig"
+            (ready)="onEditorReady($event)">
+          </ckeditor>
+        </div>
+      </div>
+      
+      <!-- Fallback textarea -->
+      <textarea 
+        *ngIf="!isEditorLoaded"
+        class="fallback-textarea"
+        formControlName="content"
+        placeholder="Enter page content..."
+        rows="8">
+      </textarea>
+      
+      <div class="error-message" *ngIf="cmsForm.get('content')?.invalid && cmsForm.get('content')?.touched">
+        {{ cmsForm.get('content')?.hasError('required') ? 'Content is required' : 'Content must be at least 20 characters' }}
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- SEO Information -->
+      <h4 class="mt-4 mb-3">SEO Information</h4>
+      <div class="row">
+        <!-- Meta Title -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Meta Title</mat-label>
+            <input matInput formControlName="meta_title">
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-error *ngIf="cmsForm.get('meta_title')?.hasError('maxlength')">Meta title cannot exceed 160 characters</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Meta Description -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Meta Description</mat-label>
+            <textarea matInput formControlName="meta_description" rows="2"></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+            <mat-error *ngIf="cmsForm.get('meta_description')?.hasError('maxlength')">Meta description cannot exceed 320 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Form Buttons -->
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <button mat-flat-button color="primary" type="submit" [disabled]="!cmsForm.valid">
+              {{ action === 'edit' ? 'Update Page' : 'Add Page' }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

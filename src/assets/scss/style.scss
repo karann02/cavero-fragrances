@@ -1,0 +1,1286 @@
+@use "sass:meta";
+/*
+ *  Document   : style.css
+ *  Author     : RedStar Template
+ *  Description: This is a main style scss file for import all scss files.
+ *
+ *  Structure (with shortcodes):
+                 [1. Common ]
+                 [2. Fonts ]                   
+                 [3. Components ]       
+                 [4. Apps]                   
+                 [5. Pages ]    
+                 [6. Pugins ]        
+                 [7. UI ]     
+                 [8. Browser ]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+
+/*                 [1. Common ]                   			*/
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@include meta.load-css("common/_variables");
+@include meta.load-css("common/_mixins");
+@include meta.load-css("common/_customanimate.scss");
+@include meta.load-css("common/_general.scss");
+@include meta.load-css("common/_demo.scss");
+@include meta.load-css("common/_helpers.scss");
+@include meta.load-css("common/_media.scss");
+@include meta.load-css("common/_animation.scss");
+@include meta.load-css("common/_rtl.scss");
+
+
+/*                 [2. Fonts]                   				*/
+// @import "fonts/_material.scss";
+@include meta.load-css("fonts/fontawesome/fontawesome.scss");
+@include meta.load-css("fonts/fontawesome/regular.scss");
+@include meta.load-css("fonts/fontawesome/solid.scss");
+@include meta.load-css("fonts/fontawesome/brands.scss");
+
+/*                 [3. Components ]                   		*/
+@include meta.load-css("components/_breadcrumbs.scss");
+@include meta.load-css("components/_checkboxradio.scss");
+@include meta.load-css("components/_dropdownmenu.scss");
+@include meta.load-css("components/_feed.scss");
+@include meta.load-css("components/_formcomponents.scss");
+@include meta.load-css("components/_infobox.scss");
+@include meta.load-css("components/_inputformgroup.scss");
+@include meta.load-css("components/_labels.scss");
+@include meta.load-css("components/_leftsidebaroverlay.scss");
+@include meta.load-css("components/_navbar");
+@include meta.load-css("components/_navtabs.scss");
+@include meta.load-css("components/_noticeboard.scss");
+@include meta.load-css("components/_rightsidebar.scss");
+@include meta.load-css("components/_searchbar.scss");
+@include meta.load-css("components/_switch.scss");
+@include meta.load-css("components/_thumbnails.scss");
+@include meta.load-css("components/_todo.scss");
+@include meta.load-css("components/_settingSidebar.scss");
+
+/*                 [4. Apps]                   				*/
+@include meta.load-css("apps/_calendar.scss");
+@include meta.load-css("apps/_chat.scss");
+@include meta.load-css("apps/_contactlist.scss");
+@include meta.load-css("apps/_contactgrid.scss");
+@include meta.load-css("apps/_dragdrop.scss");
+@include meta.load-css("apps/_task.scss");
+
+/*                 [5. Pages ]                   				*/
+@include meta.load-css("pages/_dashboard.scss");
+@include meta.load-css("pages/_inbox.scss");
+@include meta.load-css("pages/_pricing.scss");
+@include meta.load-css("pages/_profile.scss");
+// @include meta.load-css("pages/_timeline.scss");
+// @import "pages/_extra_pages.scss";
+@include meta.load-css("pages/_auth.scss");
+@include meta.load-css("pages/_payslip.scss");
+
+/*                 [6. Pugins ]                   				*/
+@include meta.load-css("plugins/_carousel.scss");
+@include meta.load-css("plugins/_charts.scss");
+@include meta.load-css("plugins/_formwizard.scss");
+@include meta.load-css("plugins/_imagegallery.scss");
+@include meta.load-css("plugins/_maps.scss");
+@include meta.load-css("plugins/_tables.scss");
+
+/*                 [7. UI ]                   */
+@include meta.load-css("ui/_alerts.scss");
+@include meta.load-css("ui/_badgelistgroupitem.scss");
+@include meta.load-css("ui/_buttons.scss");
+@include meta.load-css("ui/_card.scss");
+@include meta.load-css("ui/_collapse.scss");
+@include meta.load-css("ui/_dialogs.scss");
+@include meta.load-css("ui/_expansion.scss");
+@include meta.load-css("ui/_mediaobject.scss");
+@include meta.load-css("ui/_modals.scss");
+@include meta.load-css("ui/_pageloader.scss");
+@include meta.load-css("ui/_pagination.scss");
+@include meta.load-css("ui/_panels.scss");
+@include meta.load-css("ui/_preloaders.scss");
+@include meta.load-css("ui/_progressbars.scss");
+@include meta.load-css("ui/_slider.scss");
+@include meta.load-css("ui/_snackbar.scss");
+@include meta.load-css("ui/_tabs.scss");
+@include meta.load-css("ui/_tooltippopovers.scss");
+@include meta.load-css("ui/_ckeditor.scss");
+
+/*                 [8. Browser ]                   			*/
+@include meta.load-css("browser/_ie10.scss");
+@include meta.load-css("browser/_ie11.scss");
+
+/* Cavero theme */
+.offcanvas-backdrop { background-color: #4f2922 !important; }
+.offcanvas-backdrop.show { opacity: 0.28 !important; }
+
+/* -- Delivery offcanvas: light mode -- */
+#deliveryOptions {
+  --bs-offcanvas-bg: #fff;
+  --bs-offcanvas-color: #1a1d23;
+  background-color: #fff !important;
+  color: #1a1d23 !important;
+}
+#deliveryOptions .offcanvas-title { color: #1a1d23 !important; font-size: 1.25rem; font-weight: 700; }
+#deliveryOptions .nav-pills { --bs-nav-link-color: #1a1d23; }
+#deliveryOptions .nav-pills .nav-link {
+  color: #1a1d23 !important;
+  background: transparent !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 2rem !important;
+  font-size: 0.9375rem;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none !important;
+}
+#deliveryOptions .nav-pills .nav-link.active {
+  background: transparent !important;
+  border-color: #1a1d23 !important;
+  color: #1a1d23 !important;
+  font-weight: 600;
+}
+#deliveryOptions .form-check-label { color: #1a1d23 !important; font-weight: 600; }
+#deliveryOptions .text-body-secondary { color: #6c757d !important; }
+#deliveryOptions .btn-primary,
+#deliveryOptions .offcanvas-header .btn-primary {
+  background-color: #418576 !important;
+  border-color: #418576 !important;
+  color: #fff !important;
+  border-radius: 2rem !important;
+}
+#deliveryOptions .btn-primary:hover { background-color: #e84420 !important; border-color: #e84420 !important; }
+
+/* -- Delivery offcanvas: dark mode -- */
+[data-bs-theme="dark"] #deliveryOptions {
+  --bs-offcanvas-bg: #1e2128;
+  --bs-offcanvas-color: #e2e8f0;
+  background-color: #1e2128 !important;
+  color: #e2e8f0 !important;
+}
+[data-bs-theme="dark"] #deliveryOptions * {
+  color: #e2e8f0 !important;
+}
+[data-bs-theme="dark"] #deliveryOptions .offcanvas-header,
+[data-bs-theme="dark"] #deliveryOptions .offcanvas-body {
+  background-color: #1e2128 !important;
+}
+[data-bs-theme="dark"] #deliveryOptions .offcanvas-header {
+  border-bottom-color: rgba(255,255,255,0.08) !important;
+}
+[data-bs-theme="dark"] #deliveryOptions .nav-pills .nav-link {
+  border-color: rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.04) !important;
+}
+[data-bs-theme="dark"] #deliveryOptions .nav-pills .nav-link.active {
+  border-color: rgba(255,255,255,0.7) !important;
+  background: rgba(255,255,255,0.1) !important;
+  font-weight: 600;
+}
+[data-bs-theme="dark"] #deliveryOptions .btn-primary,
+[data-bs-theme="dark"] #deliveryOptions .btn-primary * {
+  color: #fff !important;
+  background-color: #418576 !important;
+  border-color: #418576 !important;
+}
+[data-bs-theme="dark"] #deliveryOptions .btn-close {
+  filter: invert(1) grayscale(1);
+  color: transparent !important;
+}
+/* -- Shopping cart + nav drawer offcanvas -- */
+#shoppingCart { background-color: var(--cz-body-bg, #fff) !important; color: var(--cz-body-color) !important; }
+#navbarNav { background-color: var(--cz-body-bg, #fff) !important; color: var(--cz-body-color) !important; }
+/* Search button in header � light grey circle matching live site */
+app-cavero-header .btn-ghost.btn-secondary,
+app-cavero-header .btn.btn-icon.btn-ghost {
+  background-color: #e8e8e8 !important;
+  color: #333d4c !important;
+  border: none !important;
+  border-radius: 50% !important;
+}
+app-cavero-header .btn-ghost.btn-secondary:hover,
+app-cavero-header .btn.btn-icon.btn-ghost:hover {
+  background-color: #d8d8d8 !important;
+}
+
+/* Cavero theme */
+.breadcrumb {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap;
+  gap: 0.125rem;
+  margin-bottom: 0;
+}
+.breadcrumb-item {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+  color: #1A322D;
+}
+.breadcrumb-item a,
+.breadcrumb-item.active {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.25rem;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "" !important;
+  display: inline-flex !important;
+  flex: 0 0 1rem;
+  width: 1rem;
+  height: 1rem;
+  align-self: center !important;
+  margin-right: 0.45rem;
+  padding: 0 !important;
+  line-height: 1;
+  background: center / 0.95rem 0.95rem no-repeat
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M9 6l6 6-6 6' stroke='%231A322D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+/* dark mode: use light-colored arrow + correct text colors */
+[data-bs-theme="dark"] .breadcrumb-item + .breadcrumb-item::before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M9 6l6 6-6 6' stroke='%23b7bfca' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+[data-bs-theme="dark"] .breadcrumb-item a {
+  color: rgba(255,255,255,0.65) !important;
+  text-decoration: none;
+}
+[data-bs-theme="dark"] .breadcrumb-item.active,
+[data-bs-theme="dark"] .breadcrumb-item {
+  color: rgba(255,255,255,0.5) !important;
+}
+
+@media (max-width: 575.98px) {
+  .breadcrumb {
+    gap: 0;
+  }
+
+  .breadcrumb-item {
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    margin-right: 0.35rem;
+    background-size: 0.88rem 0.88rem !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Light Theme Palette Override (Client: Clay / Rose / Cream)                */
+/* -------------------------------------------------------------------------- */
+:root,
+html[data-bs-theme="light"],
+html:not([data-bs-theme="dark"]) {
+  --cz-primary: #1A322D !important;
+  --cz-primary-rgb: 26, 50, 45 !important;
+  --cz-link-color: #1A322D !important;
+  --cz-link-color-rgb: 26, 50, 45 !important;
+  --cz-link-hover-color: #418576 !important;
+  --cz-link-hover-color-rgb: 173, 97, 89 !important;
+  --cz-body-bg: #f8eee7 !important;
+  --cz-body-color: #6e362e !important;
+  --cz-heading-color: #1A322D !important;
+  --cz-secondary-bg: #f2dfd3 !important;
+  --cz-tertiary-bg: #f7e8de !important;
+  --cz-border-color: #d9b3a4 !important;
+}
+
+html[data-bs-theme="light"] body,
+html:not([data-bs-theme="dark"]) body {
+  background-color: #f8eee7 !important;
+  color: #6e362e !important;
+}
+
+/* Force content links dark on light theme — but NOT button-styled links
+   (.btn or any *-btn class), which carry their own colour. Without this
+   exclusion, custom button-links like "Continue Shopping" turn dark-on-dark
+   and become invisible. */
+html[data-bs-theme="light"] a:not(.btn):not([class*="-btn"]),
+html:not([data-bs-theme="dark"]) a:not(.btn):not([class*="-btn"]) {
+  color: #1A322D !important;
+}
+
+html[data-bs-theme="light"] a:not(.btn):not([class*="-btn"]):hover,
+html:not([data-bs-theme="dark"]) a:not(.btn):not([class*="-btn"]):hover {
+  color: #418576 !important;
+}
+
+/* The footer is a dark surface on EVERY page — keep its links light so the
+   light-theme anchor rule above can't darken them into invisibility. */
+html[data-bs-theme="light"] .cavero-footer a:not(.btn):not([class*="-btn"]),
+html:not([data-bs-theme="dark"]) .cavero-footer a:not(.btn):not([class*="-btn"]) {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+html[data-bs-theme="light"] .cavero-footer a:not(.btn):not([class*="-btn"]):hover,
+html:not([data-bs-theme="dark"]) .cavero-footer a:not(.btn):not([class*="-btn"]):hover {
+  color: #8DCFB4 !important;
+}
+
+/* The admin console (.cv-shell) is its own dark-glass surface — exempt its
+   sidebar nav links from the storefront light-theme anchor darkening above,
+   which would otherwise render the menu labels dark-on-dark (#1A322D). */
+html[data-bs-theme="light"] .cv-shell .cv-nav-item:not(.is-active),
+html:not([data-bs-theme="dark"]) .cv-shell .cv-nav-item:not(.is-active) {
+  color: #FFFFFF !important;
+}
+
+/* The customer sign-in / sign-up form panel (.cavero-auth-card) is a DARK
+   surface — keep its action links (Create one / Forgot password / Admin sign in)
+   teal so the light-theme anchor rule can't darken them into invisibility. */
+html[data-bs-theme="light"] .cavero-auth-card a:not(.btn):not([class*="-btn"]),
+html:not([data-bs-theme="dark"]) .cavero-auth-card a:not(.btn):not([class*="-btn"]) {
+  color: #8DCFB4 !important;
+}
+
+html[data-bs-theme="light"] .cavero-auth-card a:not(.btn):not([class*="-btn"]):hover,
+html:not([data-bs-theme="dark"]) .cavero-auth-card a:not(.btn):not([class*="-btn"]):hover {
+  color: #B7EAD3 !important;
+}
+
+html[data-bs-theme="light"] .btn-primary,
+html[data-bs-theme="light"] .badge.text-bg-primary,
+html:not([data-bs-theme="dark"]) .btn-primary,
+html:not([data-bs-theme="dark"]) .badge.text-bg-primary {
+  background-color: #1A322D !important;
+  border-color: #1A322D !important;
+  color: #ffffff !important;
+}
+
+html[data-bs-theme="light"] .btn-primary:hover,
+html:not([data-bs-theme="dark"]) .btn-primary:hover {
+  background-color: #6f342b !important;
+  border-color: #6f342b !important;
+}
+
+/* NOTE: The previous light-cream header override was removed — the header is
+   intentionally a DARK luxury bar (see header.component.scss .cavero-header).
+   Forcing it light here made the dark-glass search/categories/icons invisible. */
+                                                                              
+
+/* ─────────────────────────────────────────────────────────────
+   Flying "add to cart" animation (CartAnimationService)
+   ───────────────────────────────────────────────────────────── */
+.cavero-fly-clone {
+  position: fixed;
+  z-index: 2147483000;
+  pointer-events: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f4f4f2;
+  box-shadow: 0 10px 30px rgba(26, 50, 45, 0.35), 0 0 0 3px rgba(255, 255, 255, 0.85);
+  will-change: transform, opacity;
+}
+
+.cvr-cart-btn.cavero-cart-bounce {
+  animation: cavero-cart-bounce 0.6s cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@keyframes cavero-cart-bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.32); }
+  55%  { transform: scale(0.9); }
+  75%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvr-cart-btn.cavero-cart-bounce { animation: none; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Admin Material dialogs — universal scroll fix
+   Every add / edit / update popup must never exceed the viewport
+   and must scroll its body. Applies to all admin dialogs.
+   ───────────────────────────────────────────────────────────── */
+.mat-mdc-dialog-container .mat-mdc-dialog-surface {
+  max-height: 92vh !important;            /* never taller than the screen */
+}
+
+/* Default: any dialog content area scrolls within a sane bound
+   (covers excel-import, delete confirmations, and any dialog
+   that does NOT use the .addContainer form shell). */
+.mat-mdc-dialog-surface .mat-mdc-dialog-content,
+.mat-mdc-dialog-surface [mat-dialog-content] {
+  max-height: 80vh;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Shared admin form-dialog shell → fixed header + scrollable body */
+.mat-mdc-dialog-surface .addContainer {
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: 92vh !important;
+  min-height: 0;
+}
+.mat-mdc-dialog-surface .addContainer > .modalHeader {
+  flex: 0 0 auto;
+}
+.mat-mdc-dialog-surface .addContainer .mat-mdc-dialog-content,
+.mat-mdc-dialog-surface .addContainer [mat-dialog-content] {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none !important;            /* flex controls the height here */
+  overflow-y: auto !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Admin Material dialogs — Cavero brand-green THEME
+   (scroll/flex shell is handled by the block above; this adds the
+   dark theme, field styling, and a sticky footer so Save is always
+   visible). Renders in the global CDK overlay → defined globally.
+   ───────────────────────────────────────────────────────────── */
+.cdk-overlay-container .cdk-overlay-dark-backdrop {
+  background: rgba(8, 16, 13, 0.6);
+}
+
+.mat-mdc-dialog-container .mat-mdc-dialog-surface {
+  border-radius: 20px !important;
+  border: 1px solid rgba(141, 207, 180, 0.18) !important;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5) !important;
+  background: linear-gradient(180deg, #14302a, #0f2420) !important;
+  color: #EAF3EE !important;
+  overflow: hidden !important;
+}
+
+.mat-mdc-dialog-surface .addContainer { background: transparent; color: #EAF3EE; }
+
+.mat-mdc-dialog-surface .addContainer > .modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 26px;
+  background: rgba(13, 32, 28, 0.97);
+  border-bottom: 1px solid rgba(141, 207, 180, 0.16);
+}
+.mat-mdc-dialog-surface .addContainer .modalTitle {
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+/* themed scrollbar on the body */
+.mat-mdc-dialog-surface .addContainer [mat-dialog-content] {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(141, 207, 180, 0.4) transparent;
+}
+.mat-mdc-dialog-surface .addContainer [mat-dialog-content]::-webkit-scrollbar { width: 10px; }
+.mat-mdc-dialog-surface .addContainer [mat-dialog-content]::-webkit-scrollbar-thumb {
+  background: rgba(141, 207, 180, 0.35);
+  border-radius: 99px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.mat-mdc-dialog-surface .addContainer .register-form { margin: 0 !important; padding: 26px 26px 0; }
+.mat-mdc-dialog-surface .addContainer .register-form h4 {
+  margin: 6px 0 18px !important;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8DCFB4;
+}
+
+/* Form fields → teal / mint */
+.mat-mdc-dialog-surface .addContainer .mat-mdc-form-field { width: 100%; }
+.mat-mdc-dialog-surface .addContainer .mdc-text-field--outlined {
+  background: rgba(255, 255, 255, 0.035) !important;
+  border-radius: 12px !important;
+}
+.mat-mdc-dialog-surface .addContainer .mdc-notched-outline__leading,
+.mat-mdc-dialog-surface .addContainer .mdc-notched-outline__notch,
+.mat-mdc-dialog-surface .addContainer .mdc-notched-outline__trailing { border-color: rgba(141, 207, 180, 0.22) !important; }
+.mat-mdc-dialog-surface .addContainer .mat-mdc-form-field:hover .mdc-notched-outline__leading,
+.mat-mdc-dialog-surface .addContainer .mat-mdc-form-field:hover .mdc-notched-outline__notch,
+.mat-mdc-dialog-surface .addContainer .mat-mdc-form-field:hover .mdc-notched-outline__trailing { border-color: rgba(141, 207, 180, 0.45) !important; }
+.mat-mdc-dialog-surface .addContainer .mat-focused .mdc-notched-outline__leading,
+.mat-mdc-dialog-surface .addContainer .mat-focused .mdc-notched-outline__notch,
+.mat-mdc-dialog-surface .addContainer .mat-focused .mdc-notched-outline__trailing { border-color: #8DCFB4 !important; }
+.mat-mdc-dialog-surface .addContainer .mat-mdc-input-element,
+.mat-mdc-dialog-surface .addContainer .mat-mdc-select-value,
+.mat-mdc-dialog-surface .addContainer textarea.mat-mdc-input-element { color: #FFFFFF !important; }
+.mat-mdc-dialog-surface .addContainer .mat-mdc-input-element::placeholder,
+.mat-mdc-dialog-surface .addContainer textarea.mat-mdc-input-element::placeholder { color: rgba(234, 243, 238, 0.45) !important; }
+.mat-mdc-dialog-surface .addContainer .mdc-floating-label,
+.mat-mdc-dialog-surface .addContainer .mat-mdc-form-field-icon-suffix,
+.mat-mdc-dialog-surface .addContainer .mat-mdc-select-arrow,
+.mat-mdc-dialog-surface .addContainer .mat-mdc-select-placeholder { color: rgba(234, 243, 238, 0.7) !important; }
+.mat-mdc-dialog-surface .addContainer .mat-focused .mdc-floating-label { color: #8DCFB4 !important; }
+
+/* Upload / drop areas */
+.mat-mdc-dialog-surface .addContainer .file-drop-area,
+.mat-mdc-dialog-surface .addContainer .upload-area {
+  border: 1.5px dashed rgba(141, 207, 180, 0.45) !important;
+  border-radius: 16px !important;
+  background: rgba(141, 207, 180, 0.05) !important;
+}
+.mat-mdc-dialog-surface .addContainer .file-drop-area:hover,
+.mat-mdc-dialog-surface .addContainer .upload-area:hover {
+  border-color: #8DCFB4 !important;
+  background: rgba(141, 207, 180, 0.1) !important;
+}
+.mat-mdc-dialog-surface .addContainer .file-msg,
+.mat-mdc-dialog-surface .addContainer .upload-label,
+.mat-mdc-dialog-surface .addContainer .upload-text { color: rgba(234, 243, 238, 0.72) !important; }
+.mat-mdc-dialog-surface .addContainer .upload-icon,
+.mat-mdc-dialog-surface .addContainer .file-icon { color: #8DCFB4 !important; }
+
+/* Sticky footer — Save always visible */
+.mat-mdc-dialog-surface .addContainer .example-button-row {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 18px -26px 0 !important;
+  padding: 16px 26px;
+  background: rgba(13, 32, 28, 0.97);
+  border-top: 1px solid rgba(141, 207, 180, 0.16);
+  flex-wrap: wrap;
+}
+.mat-mdc-dialog-surface .addContainer .mat-mdc-raised-button.mat-primary,
+.mat-mdc-dialog-surface .addContainer button[mat-flat-button][color="primary"] {
+  background: linear-gradient(135deg, #418576, #8DCFB4) !important;
+  color: #0F2420 !important;
+  font-weight: 700 !important;
+}
+.mat-mdc-dialog-surface .addContainer .formCancelBtn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #EAF3EE !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+.mat-mdc-dialog-surface .addContainer .modal-close-button {
+  color: rgba(234, 243, 238, 0.8) !important;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.mat-mdc-dialog-surface .addContainer .modal-close-button:hover {
+  background: rgba(214, 69, 69, 0.16);
+  color: #ffffff !important;
+}
+
+@media (max-width: 575px) {
+  .mat-mdc-dialog-surface .addContainer .register-form { padding: 18px 18px 0; }
+  .mat-mdc-dialog-surface .addContainer .example-button-row { margin: 14px -18px 0 !important; padding: 14px 18px; }
+}
+
+/* ============================================================
+   ADMIN PANEL THEME — Cavero dark-green (moved from the dead
+   src/styles.scss, which the build never compiled). Themes the
+   sidebar, content, cards, tables, badges & buttons consistently.
+   ============================================================ */
+app-main-layout {
+
+  --admin-bg: #1A322D;
+  --admin-card: #1A322D;
+  --admin-border: rgba(65, 133, 118, 0.15);
+  --admin-text: #FFF7E4;
+  --admin-muted: #C4B28A;
+  --admin-primary: #418576;
+  --admin-primary-soft: rgba(65, 133, 118, 0.12);
+  --admin-accent: #8DCFB4;
+  --admin-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  --admin-radius: 18px;
+
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  color: var(--admin-text);
+
+  // Admin navbar — dark luxury
+  &:not(.dark-layout) .navbar,
+  .navbar {
+    background: rgba(26, 50, 45, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(65, 133, 118, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar .navbar-brand .logo-name {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .navbar .nav-notification-icons,
+  .navbar .mat-mdc-icon-button {
+    border-radius: 12px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .navbar .nav-notification-icons:hover,
+  .navbar .mat-mdc-icon-button:hover {
+    background: rgba(65, 133, 118, 0.12);
+    transform: translateY(-1px);
+  }
+
+  // Admin sidebar — Cavero dark luxury gold
+  body:not(.dark) & .sidebar,
+  .sidebar {
+    background: linear-gradient(180deg, #1A322D 0%, #1A322D 100%);
+    border-right: 1px solid rgba(65, 133, 118, 0.12);
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .sidebar .menu .list {
+    padding: 18px 16px 60px;
+  }
+
+  .sidebar .menu .list .header {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 18px 12px 8px;
+  }
+
+  .sidebar .menu .list a {
+    color: rgba(255, 247, 228, 0.72);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin: 4px 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  }
+
+  .sidebar .menu .list a:hover {
+    background: rgba(65, 133, 118, 0.08);
+    color: #8DCFB4;
+    transform: translateX(4px);
+  }
+
+  .sidebar .menu .list li.active > a,
+  .sidebar .menu .list li.active-top > a {
+    background: rgba(65, 133, 118, 0.14);
+    border-left: 3px solid #418576;
+    color: #8DCFB4;
+    box-shadow: 0 4px 20px rgba(65, 133, 118, 0.15);
+  }
+
+  .sidebar .menu .list .ml-menu a,
+  .sidebar .menu .list .ml-menu-2 a,
+  .sidebar .menu .list .ml-menu-3 a {
+    background: transparent;
+    padding-left: 26px;
+  }
+
+  .sidebar-user-panel {
+    background: rgba(65, 133, 118, 0.06);
+    border: 1px solid rgba(65, 133, 118, 0.12);
+    border-radius: 16px;
+    padding: 16px 14px;
+    margin: 12px 10px 20px;
+  }
+
+  .sidebar-userpic-name,
+  .profile-usertitle-job {
+    color: #ffffff;
+  }
+
+  .content {
+    background: #1A322D;
+    min-height: calc(100vh - 60px);
+  }
+
+  .content-block {
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
+    padding-top: 28px !important;
+  }
+
+  .mat-mdc-card,
+  .mat-card {
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
+    border: 1px solid var(--admin-border);
+  }
+
+  .mat-mdc-form-field-subscript-wrapper {
+    padding-top: 2px;
+  }
+
+  .mat-mdc-raised-button,
+  .mat-mdc-outlined-button {
+    border-radius: 12px;
+    font-weight: 600;
+  }
+
+  .mat-mdc-raised-button.mat-primary {
+    background: linear-gradient(135deg, #418576, #8DCFB4);
+    color: #1A322D;
+  }
+
+
+  .table-responsive,
+  .mat-elevation-z8 {
+    border-radius: var(--admin-radius);
+    overflow: hidden;
+    box-shadow: var(--admin-shadow);
+  }
+
+  // ── Deep table overrides — dark luxury gold ──
+  .mat-mdc-table {
+    background: #1A322D !important;
+    box-shadow: none !important;
+  }
+
+  .mdc-data-table__row:hover .mdc-data-table__cell {
+    background: rgba(65, 133, 118, 0.06) !important;
+  }
+
+  .mdc-data-table__header-cell {
+    font-weight: 700 !important;
+    color: #418576 !important;
+    font-size: 13px !important;
+    background: #252017 !important;
+    border-bottom: 1px solid rgba(65, 133, 118, 0.20) !important;
+  }
+
+  .mdc-data-table__cell {
+    font-size: 13.5px !important;
+    color: #FFF7E4 !important;
+    border-bottom-color: rgba(65, 133, 118, 0.08) !important;
+  }
+
+  // Dark alternating rows
+  .mdc-data-table__content .mat-mdc-row:nth-of-type(2n+1) {
+    background-color: #252017 !important;
+  }
+
+  .mdc-data-table__content .mat-mdc-row:nth-of-type(2n) {
+    background-color: #1A322D !important;
+  }
+
+  // Force materialTableHeader to stay horizontal
+  .materialTableHeader {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    height: auto !important;
+    min-height: 74px !important;
+    padding: 16px 20px !important;
+    gap: 10px !important;
+    background: #1A322D;
+    border-bottom: 1px solid rgba(65, 133, 118, 0.15);
+    .left {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+    }
+
+    .center { display: none !important; }
+
+    .right {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      flex: 0 0 auto !important;
+      margin-left: auto !important;
+    }
+
+    .header-buttons-left {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      align-items: center !important;
+      gap: 8px !important;
+
+    .tbl-export-btn {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+  }
+
+  .card {
+    overflow: hidden;
+  }
+
+  .overflow-auto,
+  .responsive_table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable both-edges;
+  }
+
+  .responsive_table {
+    border-radius: 0 0 18px 18px;
+  }
+
+  .advance-table {
+    width: 100%;
+    min-width: 980px;
+  }
+
+  .advance-table .mat-mdc-header-cell,
+  .advance-table .mat-mdc-cell,
+  .advance-table mat-header-cell,
+  .advance-table mat-cell {
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .advance-table .mobile-label {
+    display: none;
+  }
+
+  .materialTableHeader .tbl-search-box,
+  .materialTableHeader .tbl-header-btn,
+  .materialTableHeader .export-button {
+    flex-shrink: 0;
+  }
+
+  .materialTableHeader .header-buttons-left,
+  .materialTableHeader .tbl-export-btn {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.65rem;
+  }
+
+  .materialTableHeader .tbl-title {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-right: 0.45rem;
+  }
+
+  .materialTableHeader .tbl-title .card-page-title,
+  .materialTableHeader .tbl-title h1.card-page-title {
+    margin: 0 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+    color: #FFF7E4 !important;
+  }
+
+  .content-block > .row:first-of-type {
+    margin-top: 0.95rem !important;
+  }
+
+  .card.no-extra-top-gap .materialTableHeader {
+    min-height: 60px !important;
+    padding-top: 6px !important;
+  }
+
+  .materialTableHeader .tbl-header-btn .m-l-10,
+  .materialTableHeader .export-button.m-l-10 {
+    margin-left: 0 !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button,
+  .materialTableHeader .export-button button {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(65, 133, 118, 0.22) !important;
+    background: rgba(65, 133, 118, 0.06) !important;
+    color: #C4B28A !important;
+    box-shadow: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .materialTableHeader .tbl-header-btn button:hover,
+  .materialTableHeader .export-button button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(65, 133, 118, 0.55) !important;
+    color: #418576 !important;
+    box-shadow: 0 8px 20px rgba(65, 133, 118, 0.15);
+  }
+
+  .materialTableHeader .tbl-header-btn button .mat-icon,
+  .materialTableHeader .tbl-header-btn button mat-icon,
+  .materialTableHeader .export-button button .mat-icon,
+  .materialTableHeader .export-button button mat-icon {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 22px !important;
+    line-height: 22px !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    color: inherit !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button[color='primary'],
+  .materialTableHeader .tbl-header-btn button.mat-primary {
+    color: #4f46e5 !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button.col-green {
+    color: #16a34a !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button.col-purple {
+    color: #7c3aed !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button.col-red {
+    color: #dc2626 !important;
+  }
+
+  .materialTableHeader .export-button button.col-blue,
+  .materialTableHeader .tbl-header-btn button.col-blue {
+    color: #2563eb !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button:hover.col-green {
+    color: #15803d !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button:hover.col-purple {
+    color: #6d28d9 !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button:hover.col-red {
+    color: #b91c1c !important;
+  }
+
+  .materialTableHeader .export-button button:hover.col-blue,
+  .materialTableHeader .tbl-header-btn button:hover.col-blue {
+    color: #1d4ed8 !important;
+  }
+
+  .materialTableHeader .tbl-header-btn button[disabled],
+  .materialTableHeader .export-button button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .materialTableHeader .search-field {
+    min-width: 220px;
+  }
+
+  .mat-mdc-paginator,
+  mat-paginator {
+    width: 100%;
+    background: #1A322D !important;
+    color: #C4B28A !important;
+  }
+
+  .mat-mdc-paginator-container {
+    row-gap: 0.75rem;
+  }
+
+  .mat-mdc-paginator .mat-mdc-select-value,
+  .mat-mdc-paginator .mat-mdc-paginator-range-label,
+  .mat-mdc-paginator .mat-mdc-icon-button {
+    color: #C4B28A !important;
+  }
+
+  @media (max-width: 1200px) {
+    .content {
+      padding: 0 12px;
+    }
+
+    .materialTableHeader {
+      height: auto !important;
+      min-height: 68px !important;
+      padding: 0.75rem 1rem 0.65rem !important;
+    }
+
+    .materialTableHeader .search-field {
+      min-width: 180px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .sidebar {
+      box-shadow: 10px 0 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .content {
+      padding: 0 10px;
+    }
+
+    .materialTableHeader {
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      gap: 0.9rem;
+      height: auto !important;
+      min-height: 0 !important;
+      padding: 0.85rem 1rem !important;
+    }
+
+    .materialTableHeader .left,
+    .materialTableHeader .right {
+      width: 100%;
+      min-width: 0 !important;
+    }
+
+    .materialTableHeader .left {
+      order: 1;
+    }
+
+    .materialTableHeader .right {
+      order: 2;
+      margin-left: 0 !important;
+      justify-content: flex-end;
+    }
+
+    .materialTableHeader .header-buttons-left {
+      width: 100%;
+      flex-wrap: wrap !important;
+      gap: 0.75rem;
+    }
+
+    .materialTableHeader .tbl-title {
+      margin-right: auto;
+    }
+
+    .materialTableHeader .tbl-search-box {
+      flex: 1 1 260px;
+      min-width: min(100%, 260px);
+    }
+
+    .materialTableHeader .tbl-search-box .search-field {
+      width: 100% !important;
+      min-width: 0;
+    }
+
+    .materialTableHeader .tbl-export-btn {
+      width: 100%;
+      justify-content: flex-end;
+      flex-wrap: wrap !important;
+      gap: 0.4rem;
+    }
+
+    .responsive_table {
+      border-radius: 0 0 16px 16px;
+    }
+
+    .advance-table {
+      min-width: 860px;
+    }
+
+    .mat-mdc-paginator-container {
+      justify-content: space-between;
+      padding-inline: 0.75rem !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar .container-fluid {
+      padding: 0 12px;
+    }
+
+    .sidebar-user-panel {
+      margin: 10px 8px 16px;
+    }
+
+    .materialTableHeader {
+      padding: 0.85rem 0.85rem !important;
+    }
+
+    .materialTableHeader .tbl-title h2 {
+      font-size: 1.05rem !important;
+    }
+
+    .materialTableHeader .tbl-title .card-page-title,
+    .materialTableHeader .tbl-title h1.card-page-title {
+      font-size: 0.78rem !important;
+    }
+
+    .materialTableHeader .tbl-search-box {
+      flex-basis: 100%;
+      min-width: 100%;
+    }
+
+    .materialTableHeader .tbl-export-btn {
+      justify-content: flex-start;
+    }
+
+    .advance-table {
+      min-width: 760px;
+    }
+
+    .mat-mdc-paginator-container {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .content-block {
+      padding: 14px;
+      padding-top: 12px;
+    }
+
+    .materialTableHeader {
+      padding: 0.8rem 0.75rem 0.7rem !important;
+      gap: 0.75rem;
+    }
+
+    .materialTableHeader .header-buttons-left,
+    .materialTableHeader .tbl-export-btn {
+      gap: 0.5rem;
+    }
+
+    .materialTableHeader .tbl-title,
+    .materialTableHeader .tbl-search-box,
+    .materialTableHeader .tbl-header-btn,
+    .materialTableHeader .export-button {
+      margin: 0 !important;
+    }
+
+    .materialTableHeader .tbl-title h2 {
+      font-size: 1rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    .materialTableHeader .tbl-title .card-page-title,
+    .materialTableHeader .tbl-title h1.card-page-title {
+      font-size: 0.74rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    .materialTableHeader .tbl-search-box label {
+      left: 0.8rem;
+    }
+
+    .materialTableHeader .search-field {
+      height: 40px !important;
+      min-width: 0 !important;
+      padding-left: 2.35rem !important;
+      font-size: 0.92rem !important;
+    }
+
+    .responsive_table {
+      border-radius: 0 0 14px 14px;
+    }
+
+    .advance-table {
+      min-width: 680px;
+    }
+
+    .advance-table .mat-mdc-header-cell,
+    .advance-table .mat-mdc-cell,
+    .advance-table mat-header-cell,
+    .advance-table mat-cell {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+      font-size: 13px !important;
+    }
+
+    .mat-mdc-paginator-container {
+      padding-inline: 0.5rem !important;
+      gap: 0.4rem;
+    }
+  }
+
+  // ── Dark mode passthrough — defaults are already dark ──
+  &.dark-mode-active,
+  body.dark & {
+    --admin-bg:   #1A322D;
+    --admin-card: #1A322D;
+    --admin-border: rgba(65,133,118,0.15);
+    --admin-text: #FFF7E4;
+    --admin-muted: #C4B28A;
+    --admin-shadow: 0 4px 24px rgba(0,0,0,0.6);
+  }
+}
+}
+
+/* ============================================================
+   ADMIN POLISH — brand-align badges, paginator & action icons
+   ============================================================ */
+app-main-layout {
+  /* Category / status pills → brand teal (was bootstrap danger red) */
+  .badge.badge-danger,
+  .badge.bg-danger,
+  .truncate-text.badge {
+    background: rgba(141, 207, 180, 0.16) !important;
+    color: #8DCFB4 !important;
+    border: 1px solid rgba(141, 207, 180, 0.3) !important;
+    font-weight: 600;
+  }
+
+  /* Material paginator → dark */
+  .mat-mdc-paginator,
+  .mat-mdc-paginator-container {
+    background: #1A322D !important;
+    color: rgba(255, 247, 228, 0.82) !important;
+  }
+  .mat-mdc-paginator .mat-mdc-select-value,
+  .mat-mdc-paginator .mat-mdc-select-arrow,
+  .mat-mdc-paginator .mat-mdc-paginator-range-label,
+  .mat-mdc-paginator .mat-mdc-icon-button { color: rgba(255, 247, 228, 0.82) !important; }
+  .mat-mdc-paginator .mat-mdc-icon-button:disabled { color: rgba(255, 247, 228, 0.3) !important; }
+
+  /* Row action / edit icons → mint */
+  .mat-mdc-table .mat-mdc-icon-button,
+  .mat-mdc-table .mat-mdc-icon-button.mat-primary,
+  .mat-mdc-table a[color="primary"] { color: #8DCFB4 !important; }
+
+  /* Cards & header band → dark (was Material white, causing a white strip
+     above the dark table) */
+  .mat-mdc-card,
+  .card,
+  .content-block,
+  .materialTableHeader {
+    background: #1A322D !important;
+    color: #FFF7E4;
+  }
+  .materialTableHeader { border-bottom: 1px solid rgba(141, 207, 180, 0.12); }
+  .materialTableHeader .tbl-title,
+  .materialTableHeader .card-page-title,
+  .materialTableHeader h1 { color: #FFF7E4 !important; }
+
+  /* Search box inside header → dark field */
+  .materialTableHeader .tbl-search-box input,
+  .mat-mdc-form-field input.mat-mdc-input-element {
+    color: #FFF7E4 !important;
+  }
+
+  /* Table cell text → readable cream (was faded) */
+  .mat-mdc-table .mat-mdc-cell,
+  .mat-mdc-table .mdc-data-table__cell {
+    color: rgba(255, 247, 228, 0.92) !important;
+  }
+  .mat-mdc-table .mat-mdc-header-cell {
+    color: #8DCFB4 !important;
+  }
+
+  /* Sidebar links → brighter, icons mint */
+  .sidebar .menu .list a {
+    color: rgba(255, 247, 228, 0.9) !important;
+  }
+  .sidebar .menu .list a i,
+  .sidebar .menu .list a .material-icons,
+  .sidebar .menu .list a mat-icon { color: rgba(141, 207, 180, 0.85) !important; }
+  .sidebar .menu .list li.active > a,
+  .sidebar .menu .list li.active-top > a { color: #8DCFB4 !important; }
+
+  /* Component-level light strips (status filter bar, header) → dark.
+     Higher specificity to beat the per-component encapsulated styles. */
+  .card .materialTableHeader,
+  .content-block .materialTableHeader,
+  .status-filter-bar {
+    background: #16322b !important;
+    border-bottom-color: rgba(141, 207, 180, 0.14) !important;
+  }
+  .status-filter-bar .sf-chip {
+    background: rgba(255, 247, 228, 0.05) !important;
+    color: rgba(255, 247, 228, 0.7) !important;
+  }
+  /* keep status colours but on a dark chip when active */
+  .status-filter-bar .sf-chip.sf-active { color: #fff !important; }
+}
+
+/* ===== Cavero ATELIER — new from-scratch admin shell + dashboard (.cv-shell) =====
+   Imported into the REAL build entry (this file). Loads last so the new shell
+   wins. src/styles.scss is dead (only the test target uses it). ===== */
+@import 'atelier';

@@ -1,0 +1,190 @@
+<!-- Toolbar: found count + sort -->
+<div class="cavero-toolbar">
+  <span class="cavero-found-count">
+    Found <strong>{{ filteredProducts.length }}</strong> item{{ filteredProducts.length === 1 ? '' : 's' }}
+  </span>
+
+  <div class="sort-dropdown">
+    <button type="button" class="cavero-sort-toggle"
+      [class.open]="sortOpen"
+      (click)="sortOpen = !sortOpen">
+      <span>{{ sortBy }}</span>
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
+    <ul class="cavero-sort-menu" [class.show]="sortOpen">
+      <li *ngFor="let opt of sortOptions">
+        <button type="button" class="cavero-sort-item"
+          [class.selected]="sortBy === opt"
+          (click)="selectSort(opt)">
+          <span>{{ opt }}</span>
+          <svg *ngIf="sortBy === opt" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Active filter tags -->
+<div class="cavero-active-tags" *ngIf="activeFilters?.labels?.length > 0">
+  <button type="button" class="cavero-tag"
+    *ngFor="let label of activeFilters.labels"
+    (click)="removeFilterLabel(label)">
+    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+    {{ label }}
+  </button>
+  <button type="button" class="cavero-tag-clear" (click)="clearAllFilters()">Clear all</button>
+</div>
+
+<!-- Loading state -->
+<div *ngIf="loading" class="cavero-loading-grid">
+  <div class="cavero-skeleton-card" *ngFor="let i of [1,2,3,4,5,6]">
+    <div class="cavero-skeleton-img"></div>
+    <div class="cavero-skeleton-line wide"></div>
+    <div class="cavero-skeleton-line narrow"></div>
+  </div>
+</div>
+
+<!-- Product grid -->
+<div *ngIf="!loading && filteredProducts.length > 0" class="cavero-catalog-grid"
+  appAnimateOnScroll animationType="fade-up" [staggerDelay]="60">
+  <div class="cavero-product-card" *ngFor="let product of paginatedProducts">
+
+    <!-- Image Wrapper -->
+    <div class="cavero-product-img-wrap">
+      <a [routerLink]="['/product', getProductRouteParam(product)]" class="cavero-img-link" tabindex="-1">
+        <img
+          class="cavero-img-lazy"
+          [src]="product.image"
+          [alt]="product.name"
+          (error)="product.image = 'assets/images/cavero-logo.png'"
+          (load)="$any($event.target).classList.add('cavero-img-loaded')"
+          loading="lazy">
+      </a>
+
+      <!-- Discount badge -->
+      <span class="cavero-badge-discount" *ngIf="product.discount">{{ product.discountAmount }}</span>
+
+      <!-- Wishlist button -->
+      <button type="button" class="cavero-wishlist-btn"
+        (click)="addToWishlist(product)"
+        aria-label="Add to wishlist">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.75"
+          [attr.stroke]="product.isFavorite ? '#418576' : 'currentColor'"
+          [attr.fill]="product.isFavorite ? '#418576' : 'none'">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </button>
+
+      <!-- Quick add overlay -->
+      <div class="cavero-quick-overlay">
+        <ng-container *ngIf="(product.stock ?? 0) > 0">
+          <ng-container *ngIf="product.quantity === 0">
+            <button type="button" class="cavero-quick-btn" (click)="incrementQuantity(product, $event)">
+              Quick Add
+            </button>
+          </ng-container>
+          <ng-container *ngIf="product.quantity > 0">
+            <div class="cavero-qty-stepper">
+              <button type="button" class="cavero-qty-btn" (click)="decrementQuantity(product)" aria-label="Remove">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </button>
+              <span class="cavero-qty-count">{{ product.quantity }}</span>
+              <button type="button" class="cavero-qty-btn" (click)="incrementQuantity(product, $event)" aria-label="Add">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </button>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <!-- Sold out overlay -->
+      <div class="cavero-soldout-overlay" *ngIf="(product.stock ?? 0) <= 0">
+        <span>Sold Out</span>
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="cavero-product-info">
+
+      <!-- Concentration badge -->
+      <span class="cavero-concentration-badge" *ngIf="product.specifications?.concentration">
+        {{ product.specifications!.concentration }}
+      </span>
+
+      <h3 class="cavero-product-name">
+        <a [routerLink]="['/product', getProductRouteParam(product)]">{{ product.name }}</a>
+      </h3>
+
+      <div class="cavero-product-price-row">
+        <span class="cavero-product-price">&#8377;{{ product.price | number:'1.0-0' }}</span>
+        <del class="cavero-product-mrp" *ngIf="(product.originalPrice ?? 0) > product.price">
+          &#8377;{{ product.originalPrice | number:'1.0-0' }}
+        </del>
+      </div>
+
+      <!-- Variant count -->
+      <div class="cavero-variant-count" *ngIf="(product.variantCount ?? 0) > 1">
+        {{ product.variantCount }} sizes available
+      </div>
+
+      <!-- Low stock -->
+      <div class="cavero-stock-low" *ngIf="(product.stock ?? 0) > 0 && (product.stock ?? 0) < 5">
+        Only {{ product.stock }} left
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Empty state -->
+<div *ngIf="!loading && filteredProducts.length === 0" class="cavero-empty-state">
+  <div class="cavero-empty-icon">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+  </div>
+  <h3 class="cavero-empty-title">No products found</h3>
+  <p class="cavero-empty-text">Try adjusting your search or filters to find what you're looking for.</p>
+  <button type="button" class="cavero-empty-btn" (click)="clearAllFilters()">Clear Filters</button>
+</div>
+
+<!-- Pagination -->
+<nav *ngIf="filteredProducts.length > itemsPerPage" class="cavero-pagination" aria-label="Catalog pagination">
+  <button type="button" class="cavero-page-arrow"
+    [class.disabled]="currentPage === 1"
+    (click)="onPageChange(currentPage - 1)"
+    aria-label="Previous page">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+
+  <ul class="cavero-page-list">
+    <li *ngFor="let page of getPageNumbers()"
+      [class.active]="page === currentPage"
+      [class.ellipsis]="page === '...'">
+      <a *ngIf="page !== '...'" href="javascript:void(0)" (click)="onPageChange(page)">{{ page }}</a>
+      <span *ngIf="page === '...'">{{ page }}</span>
+    </li>
+  </ul>
+
+  <button type="button" class="cavero-page-arrow"
+    [class.disabled]="currentPage * itemsPerPage >= filteredProducts.length"
+    (click)="onPageChange(currentPage + 1)"
+    aria-label="Next page">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+  </button>
+</nav>

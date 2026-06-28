@@ -1,0 +1,121 @@
+<section class="content">
+  <div class="content-block">
+    <div class="row" *ngIf="!isLoading">
+      <div class="col-12 col-xl-7">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Site Logo</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="pt-3">
+
+            <h6 class="section-label">Current Logo</h6>
+            <p class="section-help">
+              This logo appears in the main storefront header across the site.
+            </p>
+
+            <div class="logo-preview-box">
+              <img [src]="previewUrl || currentLogo" alt="Site logo preview" class="logo-preview-img">
+            </div>
+            <div class="logo-state">
+              <span *ngIf="previewUrl" class="pill pill-new">New logo selected — not saved yet</span>
+              <span *ngIf="!previewUrl && hasCustomLogo" class="pill pill-live">Custom logo is live</span>
+              <span *ngIf="!previewUrl && !hasCustomLogo" class="pill pill-default">Using the default logo</span>
+            </div>
+
+            <h6 class="section-label mt-4">Upload a New Logo</h6>
+
+            <div class="upload-row">
+              <label class="file-btn">
+                <mat-icon>upload</mat-icon>
+                <span>Choose Image</span>
+                <input type="file" [accept]="ACCEPT" (change)="onFileSelected($event)" hidden>
+              </label>
+              <span class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+              <button *ngIf="selectedFile" type="button" class="link-btn" (click)="clearSelection()">Clear</button>
+            </div>
+
+            <p class="file-error" *ngIf="fileError">
+              <mat-icon>error_outline</mat-icon> {{ fileError }}
+            </p>
+
+          </mat-card-content>
+          <mat-card-actions class="px-4 pb-4 actions-row">
+            <button mat-raised-button color="primary"
+                    (click)="upload()" [disabled]="!selectedFile || isSaving">
+              <mat-icon>save</mat-icon> {{ isSaving ? 'Saving...' : 'Save Logo' }}
+            </button>
+            <button mat-stroked-button
+                    (click)="resetToDefault()" [disabled]="isSaving || !hasCustomLogo">
+              <mat-icon>restart_alt</mat-icon> Reset to Default
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <!-- INSTRUCTIONS / GUIDELINES -->
+      <div class="col-12 col-xl-5">
+        <mat-card class="guide-card">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon class="guide-title-icon">info</mat-icon> Logo Guidelines
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="pt-3">
+            <p class="section-help">
+              Following these specs is <strong>mandatory for the best visibility</strong> and a
+              crisp logo on all screens (including high-resolution / retina displays).
+            </p>
+
+            <ul class="guide-list">
+              <li>
+                <mat-icon>aspect_ratio</mat-icon>
+                <div>
+                  <strong>Recommended size: {{ REC_WIDTH }} × {{ REC_HEIGHT }} px</strong>
+                  <span>A horizontal wordmark works best (about a 3:1 width-to-height ratio).</span>
+                </div>
+              </li>
+              <li>
+                <mat-icon>hd</mat-icon>
+                <div>
+                  <strong>Resolution: upload at 2× size</strong>
+                  <span>Export at double the display size so the logo stays sharp on retina screens.</span>
+                </div>
+              </li>
+              <li>
+                <mat-icon>image</mat-icon>
+                <div>
+                  <strong>Format: PNG or SVG (transparent background)</strong>
+                  <span>Transparency keeps the logo clean over the cream header. JPG/WEBP are also accepted.</span>
+                </div>
+              </li>
+              <li>
+                <mat-icon>data_usage</mat-icon>
+                <div>
+                  <strong>File size: under {{ MAX_MB }} MB</strong>
+                  <span>Smaller files load faster and keep the site snappy.</span>
+                </div>
+              </li>
+              <li>
+                <mat-icon>crop_free</mat-icon>
+                <div>
+                  <strong>Keep a little padding</strong>
+                  <span>Leave small clear space around the mark so it isn't cropped at the edges.</span>
+                </div>
+              </li>
+            </ul>
+
+            <p class="guide-note">
+              <mat-icon>tips_and_updates</mat-icon>
+              Tip: a light or white-edged logo reads best on the dark header; a dark logo on the
+              light cream header. Test it on the live site after saving.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="text-center py-5">
+      <div class="spinner-border text-primary"></div>
+    </div>
+  </div>
+</section>

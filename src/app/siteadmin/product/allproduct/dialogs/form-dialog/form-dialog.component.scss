@@ -1,0 +1,144 @@
+.file-drop-area {
+  border: 1px dashed rgba(125, 146, 186, 0.7);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  &.dragging {
+    border-color: rgba(96, 165, 250, 0.95);
+    background: linear-gradient(180deg, rgba(96, 165, 250, 0.12), rgba(255, 255, 255, 0.04));
+  }
+
+  .file-msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(226, 232, 240, 0.8);
+
+    .file-icon {
+      font-size: 3rem;
+      width: 3rem;
+      height: 3rem;
+      color: #8fb3ff;
+    }
+  }
+
+  .file-input {
+    display: none;
+  }
+}
+
+.image-preview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.image-preview-item {
+  position: relative;
+  border: 1px solid rgba(77, 92, 115, 0.16);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 244, 226, 0.06);
+  box-shadow: 0 10px 22px rgba(16, 24, 40, 0.16);
+
+  img {
+    width: 100%;
+    height: 112px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .remove-image-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: linear-gradient(135deg, #ff5b6e, #ff7849);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    padding: 0;
+    border-radius: 50%;
+    // center the icon regardless of mat-icon-button's default internal padding
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 26px;
+    box-shadow: 0 10px 24px rgba(255, 91, 110, 0.35);
+
+    // neutralise Material's icon-button sizing so the glyph sits dead-centre
+    ::ng-deep .mat-mdc-button-touch-target {
+      width: 26px;
+      height: 26px;
+    }
+
+    ::ng-deep .mat-mdc-button-persistent-ripple,
+    ::ng-deep .mat-mdc-focus-indicator {
+      border-radius: 50%;
+    }
+
+    mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .image-info {
+    padding: 0.45rem 0.55rem 0.55rem;
+    background: rgba(255, 244, 226, 0.06);
+
+    small {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: rgba(255,244,226,0.62);
+      line-height: 1.25;
+    }
+
+    small:first-child {
+      font-weight: 600;
+      color: #FFF4E2;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.profit-info {
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  &.negative {
+    background: rgba(255, 91, 110, 0.08);
+  }
+
+  .text-success {
+    color: #28a745;
+  }
+
+  .text-danger {
+    color: #dc3545;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .image-preview-container {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}

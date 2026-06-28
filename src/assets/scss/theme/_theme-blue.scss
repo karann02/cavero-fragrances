@@ -1,0 +1,338 @@
+﻿/*
+ *  Document   : theme-blue.scss
+ *  Author     : RedStar Template
+ *  Description: This scss file for blue theme style classes
+ */
+@use "theme-color-variables" as themeColVar;
+
+.theme-blue {
+  .navbar {
+    background-color: transparent;
+
+    .icon-color {
+      color: #fff;
+    }
+
+    .navbar-nav.navbar-right .user_profile span {
+      color: #fff;
+    }
+  }
+
+  .navbar.active {
+    // background-color: themeColVar.$theme-blue !important;
+    background: #00b4db;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,
+        #048efb,
+        #08b1d6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,
+        #048efb,
+        #08b1d6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+
+    .nav {
+      >li {
+        >a {
+          color: #fff;
+        }
+      }
+    }
+
+    .collapse-menu-icon .mat-icon {
+      color: #fff;
+    }
+
+    .navbar-right .mat-icon {
+      color: #fff;
+    }
+  }
+
+  .nav {
+    >li {
+      >a {
+        &:hover {
+          background-color: themeColVar.$theme-blue-nav-anchor_hover;
+          text-decoration: none;
+        }
+
+        &:focus {
+          background-color: themeColVar.$theme-blue-nav-anchor_focus;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .bars {
+    color: themeColVar.$theme-blue-bar;
+  }
+
+  .sidebar {
+    .menu {
+      .list {
+        li {
+          &.active {
+            background-color: themeColVar.$theme-blue-menu-list-active;
+          }
+
+          a {
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+
+            i,
+            span {
+              -moz-transition: all 0.3s;
+              -o-transition: all 0.3s;
+              -webkit-transition: all 0.3s;
+              transition: all 0.3s;
+            }
+          }
+        }
+
+        .ml-menu {
+          background-color: themeColVar.$theme-blue-menu-list-submenu;
+        }
+      }
+    }
+
+    .legal {
+      background-color: themeColVar.$theme-blue-legal-bg;
+
+      .copyright {
+        a {
+          color: themeColVar.$theme-blue !important;
+        }
+      }
+    }
+  }
+
+  .breadcrumb li a {
+    color: themeColVar.$theme-blue !important;
+  }
+
+  .page-item.active .page-link {
+    background-color: themeColVar.$theme-blue;
+    border-color: themeColVar.$theme-blue;
+    color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-primary {
+    background-color: themeColVar.$theme-blue !important;
+    color: #fff !important;
+    border-color: themeColVar.$theme-blue !important;
+
+    &:hover {
+      background-color: themeColVar.$theme-blue !important;
+      color: #fff !important;
+    }
+
+    &:active {
+      background-color: themeColVar.$theme-blue !important;
+      color: #fff !important;
+    }
+
+    &:focus {
+      background-color: themeColVar.$theme-blue !important;
+      color: #fff !important;
+    }
+
+    &:disabled {
+      background-color: themeColVar.$theme-blue !important;
+      color: #fff !important;
+    }
+  }
+
+  .btn-outline-primary {
+    background: 0 0 !important;
+    color: themeColVar.$theme-blue !important;
+    border: 1px solid themeColVar.$theme-blue !important;
+
+    &:hover {
+      background: themeColVar.$theme-blue !important;
+      color: #fff !important;
+      border: 1px solid themeColVar.$theme-blue !important;
+    }
+  }
+
+  .timelineLabelColor strong {
+    color: themeColVar.$theme-blue !important;
+  }
+
+  .top-sidebar {
+    .horizontal-menu {
+      li {
+        &.active {
+          >a {
+            color: themeColVar.$theme-blue;
+          }
+        }
+
+        a {
+          -moz-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+
+          &:hover {
+            color: themeColVar.$theme-blue;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-tabs>li>a:before {
+    border-bottom: 2px solid themeColVar.$theme-blue;
+  }
+
+  .appointment-card .appointment-details .appointment-item.income {
+    background: linear-gradient(to right, #048efb, #08b1d6);
+    text-align: center;
+    background-color: #048efb;
+  }
+
+  .mat-mdc-card-header {
+    background: linear-gradient(to right, #048efb, #08b1d6);
+  }
+
+  .mat-mdc-card-header {
+    color: #fff;
+  }
+
+  .mat-mdc-card-header .mat-mdc-button:not(:disabled) {
+    color: #fff;
+  }
+
+  .fc .fc-button-primary:disabled {
+    color: #fff !important;
+    background-color: #048efb !important;
+    border-color: #048efb !important;
+  }
+
+  .card .header {
+    background: linear-gradient(to right, #048efb, #08b1d6);
+  }
+
+  .card .header h2 {
+    color: #fff;
+  }
+  .card .header h1 {
+    color: #fff !important;
+   
+  }
+  .card .headerCount h2 {
+    color: #048efb !important;
+   
+  }
+  .card .header p {
+    color: #fff;
+  }
+  .card .header .icon-holder{
+    color: #fff;
+  }
+  .card .header .mat-mdc-icon-button {
+    color: #fff;
+  }
+
+  .profile-header.bg-dark {
+    background: linear-gradient(to right, #048efb, #08b1d6);
+  }
+
+  .mat-mdc-tab .mdc-tab-indicator__content--underline {
+    border-color: #048efb;
+    border-top-width: var(--mdc-tab-indicator-active-indicator-height, 2px);
+    border-radius: var(--mdc-tab-indicator-active-indicator-shape, 0);
+  }
+
+  .mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline {
+    border-color: #048efb;
+  }
+
+  .mat-mdc-unelevated-button:not(:disabled) {
+    color: var(--mdc-filled-button-label-text-color, var(--mat-sys-on-primary));
+    background-color: #048efb;
+  }
+
+  .nfc-menu .nfc-header {
+    background-color: #048efb;
+  }
+
+  // Top-hd-select-dropdown
+
+  .hospital-group-list .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece {
+    border-color: #fff;
+  }
+
+  .hospital-group-list .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece {
+    border-color: var(--mdc-outlined-text-field-outline-color, #ffffffc4);
+    border-width: var(--mdc-outlined-text-field-outline-width, 1px);
+  }
+
+  .hospital-group-list .mat-mdc-select {
+    color: #fff;
+  }
+
+  .hospital-group-list .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--mdc-outlined-text-field-label-text-color, #ffffffc4);
+  }
+
+  .hospital-group-list .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mat-mdc-notch-piece {
+    border-color: var(--mdc-outlined-text-field-hover-outline-color, #fff);
+  }
+
+  .hospital-group-list .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-floating-label {
+    color: var(--mdc-outlined-text-field-hover-label-text-color, #fff);
+  }
+
+  .hospital-group-list .mat-mdc-select-arrow {
+    color: var(--mat-select-enabled-arrow-color, #fff);
+  }
+
+  .hospital-group-list .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mat-mdc-notch-piece {
+    border-color: var(--mdc-outlined-text-field-focus-outline-color, #fff);
+  }
+
+  .hospital-group-list .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label {
+    color: var(--mdc-outlined-text-field-focus-label-text-color, #fff);
+  }
+
+  .hospital-group-list .mat-mdc-form-field.mat-focused .mat-mdc-select-arrow {
+    color: var(--mat-select-focused-arrow-color, #fff);
+  }
+
+  // End-Top-hd-select-dropdown
+
+  .list-group-item.active {
+    background-color: #0594F5 !important;
+    color: white;
+  }
+
+  .list-group .active:hover,
+  .list-group .list-group-item.active:hover {
+    background-color: #0594F5 !important;
+  }
+
+  .badge-solid {
+    color: #0594F5 !important;
+    background-color: #edf8ff !important;
+  }
+
+
+
+}
+
+/*Logo Header Background Color*/
+.logo-blue {
+  .navbar-header {
+    background-color: themeColVar.$theme-blue;
+  }
+}

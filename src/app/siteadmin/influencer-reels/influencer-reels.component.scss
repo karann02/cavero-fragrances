@@ -1,0 +1,129 @@
+
+/* ── top spacing fix ── */
+:host {
+  display: block;
+  padding-top: 24px;
+}
+
+.form-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
+}
+
+.upload-area {
+  border: 2px dashed #dee2e6;
+  border-radius: 10px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  overflow: hidden;
+  position: relative;
+
+  &:hover { border-color: var(--bs-primary, #e84393); }
+}
+
+.remove-media-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 87, 87, 0.95);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #adb5bd;
+  font-size: 0.875rem;
+
+  mat-icon { font-size: 2rem; width: 2rem; height: 2rem; }
+}
+
+.preview-img {
+  max-height: 120px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* ── materialTableHeader fix ── */
+
+.materialTableHeader {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 72px !important;
+  height: auto !important;
+  padding: 14px 20px !important;
+  gap: 10px !important;
+  background: rgba(255, 244, 226, 0.06) !important;
+  border-bottom: 1px solid rgba(255, 244, 226, 0.10) !important;
+
+  .left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .right {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  .header-buttons-left,
+  .tbl-export-btn {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .tbl-header-btn {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .m-l-10 {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  }
+}
+
+/* end fix */

@@ -1,0 +1,79 @@
+<app-cavero-navbar variant="solid"></app-cavero-navbar>
+
+<main class="content-wrapper">
+  <div class="container py-5 mt-n2 mt-lg-0">
+    <div class="row pt-md-2 pt-lg-3 pb-sm-2 pb-md-3 pb-lg-4 pb-xl-5">
+      <aside class="col-lg-3 pe-lg-4 pe-xl-5 mt-n3">
+        <div class="position-lg-sticky top-0">
+          <div class="d-none d-lg-block" style="padding-top: 105px"></div>
+          <div class="offcanvas-lg offcanvas-start" id="sidebarAccount">
+            <div class="offcanvas-header">
+              <h4 class="offcanvas-title">Information</h4>
+              <button class="btn-close" type="button" data-bs-dismiss="offcanvas" data-bs-target="#sidebarAccount" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <nav class="nav flex-column gap-2 pb-2 pb-lg-0">
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/about-us">
+                  <i class="ci-help fs-base opacity-60 me-2"></i>About Us
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/privacy-policy">
+                  <i class="ci-shield-check fs-base opacity-60 me-2"></i>Privacy Policy
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/terms-and-conditions">
+                  <i class="ci-file-text fs-base opacity-60 me-2"></i>Terms &amp; Conditions
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/shipping-policy">
+                  <i class="ci-delivery fs-base opacity-60 me-2"></i>Shipping Policy
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/return-refund-policy">
+                  <i class="ci-return fs-base opacity-60 me-2"></i>Return &amp; Refund Policy
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/cancellation-policy">
+                  <i class="ci-close-circle fs-base opacity-60 me-2"></i>Cancellation Policy
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/cod-policy">
+                  <i class="ci-cash fs-base opacity-60 me-2"></i>COD Policy
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/fragrance-disclaimer">
+                  <i class="ci-info-circle fs-base opacity-60 me-2"></i>Fragrance Disclaimer
+                </a>
+                <a class="nav-link animate-underline fw-normal px-0 py-2" routerLink="/cms/contact">
+                  <i class="ci-mail fs-base opacity-60 me-2"></i>Contact Us
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="col-lg-9">
+        <div class="ps-lg-3 ps-xl-0">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="#!">Information</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{ pageContent?.title || 'Page' }}</li>
+            </ol>
+          </nav>
+
+          <div *ngIf="loading" class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+
+          <div *ngIf="!loading && pageContent">
+            <div class="cms-content" [innerHTML]="pageContent.content"></div>
+          </div>
+
+          <div *ngIf="!loading && !pageContent" class="alert alert-warning">
+            <i class="ci-info-circle fs-lg me-2"></i>
+            Page not found
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-cavero-footer></app-cavero-footer>

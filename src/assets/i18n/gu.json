@@ -1,0 +1,1511 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "મુખ્ય"
+    },
+    "DASHBOARD": {
+      "TEXT": "ડેશબોર્ડ",
+      "LIST": {
+        "DASHBOARD1": "ડેશબોર્ડ 1",
+        "DASHBOARD2": "ડેશબોર્ડ 2",
+        "DOCTOR-DASHBOARD": "ડૉક્ટર ડેશબોર્ડ",
+        "PATIENT-DASHBOARD": "દર્દી ડેશબોર્ડ"
+      }
+    },
+    "LABEL-SETTING": {
+      "TEXT": "લેબલ સેટિંગ",
+      "LIST": {
+        "LABEL-SETTING": "લેબલ સેટિંગ",
+        "CUSTOM-LABEL-SETTING": "કસ્ટમ લેબલ સેટિંગ",
+        "SUB-CUSTOM-LABEL-SETTING": "સબ કસ્ટમ લેબલ સેટિંગ"
+      }
+    },
+    "APPOINTMENTS": {
+      "TEXT": "એપોઇન્ટમેન્ટ્સ",
+      "LIST": {
+        "PERMISSION-ASSIGNEMNT": "પરમિશન એસાઇનમેન્ટ",
+        "APPOINTMENT-CALENDAR": "એપોઇન્ટમેન્ટ કેલેન્ડર",
+        "ALL-APPOINTMENT": "બધા એપોઇન્ટમેન્ટ",
+        "DOCTOR-APPOINTMENT-SCHEDULE": "ડૉક્ટર એપોઇન્ટમેન્ટ શેડ્યૂલ",
+        "VIEW-APPOINTMENT": "એપોઇન્ટમેન્ટ જુઓ",
+        "BOOK-APPOINTMENT": "એપોઇન્ટમેન્ટ બુક કરો",
+        "EDIT-APPOINTMENT": "એપોઇન્ટમેન્ટ સંપાદિત કરો"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "કર્મચારી",
+      "LIST": {
+        "ALL-DOCTOR": "બધા કર્મચારી",
+        "DOCTOR-SCHEDULE": "ડૉક્ટર શેડ્યૂલ",
+        "EMPLOYEE-BREAKS": "કર્મચારી બ્રેક્સ",
+        "ADD-DOCTOR": "કર્મચારી ઉમેરો",
+        "EDIT-DOCTOR": "કર્મચારી સંપાદિત કરો",
+        "ASSIGN-DEPARTMENT": "વિભાગ સોંપો",
+        "ASSIGN-SHIFT": "શિફ્ટ સોંપો",
+        "PROFILE": "કર્મચારી પ્રોફાઇલ",
+        "DOCTOR-ID-CARD-TEMPLATE": "ડૉક્ટર આઈડી કાર્ડ ટેમ્પ્લેટ",
+        "GENERATE-ID-CARD": "આઈડી કાર્ડ જનરેટ કરો",
+        "CREAT-ID-CARD-TEMPLATE": "આઈડી કાર્ડ ટેમ્પ્લેટ બનાવો",
+        "OVERVIEW": "ઓવરવ્યૂ",
+        "CASE": "કેસ",
+        "OPD-VISIT": "OPD / મુલાકાત",
+        "PATIENT-ADMISSIONS": "દર્દી પ્રવેશ",
+        "SCHEDULE": "શેડ્યૂલ",
+        "APPOINTMENTS": "એપોઇન્ટમેન્ટ્સ"
+      }
+    },
+    "HOSPITAL-BUILDING": {
+      "TEXT": "હોસ્પિટલ બિલ્ડિંગ",
+      "LIST": {
+        "HOSPITAL-BUILDING": "હોસ્પિટલ બિલ્ડિંગ"
+      }
+    },
+    "HOSPITAL-FLOOR": {
+      "TEXT": "હોસ્પિટલ ફ્લોર",
+      "LIST": {
+        "HOSPITAL-FLOOR": "હોસ્પિટલ ફ્લોર"
+      }
+    },
+    "WARD": {
+      "TEXT": "વોર્ડ મેનેજમેન્ટ",
+      "LIST": {
+        "WARD": "વોર્ડ"
+      }
+    },
+    "SHIFT-MANAGEMENT": {
+      "TEXT": "શિફ્ટ મેનેજમેન્ટ",
+      "LIST": {
+        "ALL-SHIFT": "બધી શિફ્ટ",
+        "SHIFTS": "શિફ્ટ્સ",
+        "ADD-SHIFT": "શિફ્ટ ઉમેરો",
+        "EDIT-SHIFT": "શિફ્ટ સંપાદિત કરો",
+        "SHIFT-MANAGEMENT": "શિફ્ટ મેનેજમેન્ટ"
+      }
+    },
+    "EMAIL-SETTINGS": {
+      "TEXT": "ઇમેઇલ સેટિંગ્સ",
+      "LIST": {}
+    },
+    "STAFF": {
+      "TEXT": "સ્ટાફ",
+      "LIST": {
+        "ALL-STAFF": "બધો સ્ટાફ",
+        "ADD-STAFF": "સ્ટાફ ઉમેરો",
+        "EDIT-STAFF": "સ્ટાફ સંપાદિત કરો",
+        "PROFILE": "સ્ટાફ પ્રોફાઇલ"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "દર્દીઓ",
+      "LIST": {
+        "SETTINGS": "સેટિંગ્સ",
+        "PATIENT-SETTINGS": "દર્દી સેટિંગ્સ",
+        "ALL-CASE": "બધા કેસ",
+        "CASE": "કેસ",
+        "ALL-PATIENT": "બધા દર્દી",
+        "PATIENT-ADMISSION": "દર્દી પ્રવેશ",
+        "PATIENT-ID-CARD-TEMPLATE": "દર્દી આઈડી કાર્ડ ટેમ્પ્લેટ",
+        "ID-CARD-TEMPLATE": "આઈડી કાર્ડ ટેમ્પ્લેટ",
+        "GENERATE-PATIENT-ID-CARD": "દર્દી આઈડી કાર્ડ જનરેટ કરો",
+        "PASSCARD-TEMPLATE": "પાસકાર્ડ ટેમ્પ્લેટ",
+        "GENERATE-PASSCARD": "પાસકાર્ડ જનરેટ કરો",
+        "PATIENTS-OVERVIEW": "ઓવરવ્યૂ",
+        "PATIENT-CASE": "કેસ",
+        "FAMILY-INFO": "પરિવાર માહિતી",
+        "FAMILY-HISTORY": "પરિવાર ઇતિહાસ",
+        "SOCIAL-HABITS": "સામાજિક આદતો",
+        "OPD-VISIT": "OPD / મુલાકાત",
+        "DIAGNOSIS": "નિદાન",
+        "VITALS": "વાઇટલ્સ",
+        "ALLERGIES": "એલર્જીઓ",
+        "PROBLEMS": "સમસ્યાઓ",
+        "PATIENT-PRESCRIPTION": "નુસખાઓ",
+        "PATIENT-ADMISSIONS": "દર્દી પ્રવેશ",
+        "DOCUMENT": "દસ્તાવેજ",
+        "VACCINATION": "રસીકરણ",
+        "APPOINTMENT": "એપોઇન્ટમેન્ટ",
+        "REPORT": "રિપોર્ટ",
+        "CASE-OVERVIEW": "કેસ ઓવરવ્યૂ",
+        "CASE-OPD-VISIT": "કેસ OPD / મુલાકાત",
+        "CASE-IPD": "કેસ IPD",
+        "CASE-APPOINTMENT": "કેસ એપોઇન્ટમેન્ટ"
+      }
+    },
+    "IPD": {
+      "TEXT": "IPD મેનેજમેન્ટ",
+      "LIST": {
+        "IPD": "IPD",
+        "IPD-PATIENT": "IPD દર્દીઓ",
+        "IPD-OVERVIEW": "ઓવરવ્યૂ",
+        "CHARGES": "ચાર્જીસ",
+        "PROBLEM": "સમસ્યા",
+        "ALLERGY": "એલર્જી",
+        "IPDPRESCRIPTION": "નુસખાઓ",
+        "DIAGNOSIS": "નિદાન",
+        "VITALS": "વાઇટલ્સ",
+        "DAILY-CHECKUPS": "દૈનિક તપાસ",
+        "DOCTORSROUNDS": "ડૉક્ટર રાઉન્ડ્સ",
+        "HOUSEKEEPING": "હાઉસકીપિંગ",
+        "CONSULTANT-INSTRUCTION": "કન્સલ્ટન્ટ સૂચના",
+        "TIMELINE": "ટાઇમલાઇન",
+        "BILLING": "બિલિંગ",
+        "OT": "OT"
+      }
+    },
+    "OPD": {
+      "TEXT": "OPD મેનેજમેન્ટ",
+      "LIST": {
+        "OPD": "OPD",
+        "OPD-PATIENT": "OPD દર્દીઓ",
+        "OVERVIEW": "ઓવરવ્યૂ",
+        "VISITS": "મુલાકાતો",
+        "CHARGES": "ચાર્જીસ",
+        "BILLING": "બિલિંગ",
+        "PROBLEM": "સમસ્યા",
+        "ALLERGY": "એલર્જી",
+        "PRESCRIPTIONS": "નુસખાઓ",
+        "DIAGNOSIS": "નિદાન",
+        "VITALS": "વાઇટલ્સ",
+        "TIMELINE": "ટાઇમલાઇન"
+      }
+    },
+    "OT-MANAGEMENT": {
+      "TEXT": "OT મેનેજમેન્ટ",
+      "LIST": {
+        "OT": "OT",
+        "PROCEDURES": "પ્રોસીજર્સ",
+        "SCHEDULE-CALENDER": "શેડ્યૂલ કેલેન્ડર",
+        "SCHEDULE-TABLE": "શેડ્યૂલ ટેબલ",
+        "OT-SCHEDULE": "OT શેડ્યૂલ",
+        "CALENDER": "કેલેન્ડર"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "રિપોર્ટ્સ",
+      "LIST": {
+        "BIRTH-REPORT": "જન્મ રિપોર્ટ",
+        "DEATH-REPORT": "મૃત્યુ રિપોર્ટ",
+        "INVESTIGATION-REPORT": "તપાસ રિપોર્ટ",
+        "OPERATION-REPORT": "ઓપરેશન રિપોર્ટ"
+      }
+    },
+    "BRANCH": {
+      "TEXT": "બ્રાન્ચ",
+      "LIST": {
+        "ALL-BRANCH": "બધી બ્રાન્ચ",
+        "ADD-BRANCH": "બ્રાન્ચ ઉમેરો"
+      }
+    },
+    "ALLERGY-MASTER": {
+      "TEXT": "એલર્જી માસ્ટર",
+      "LIST": {
+        "ALLERGY-CATEGORY": "એલર્જી કેટેગરી",
+        "ALLERGIES": "એલર્જીઓ",
+        "ALLERGY-REACTION": "એલર્જી રીએક્શન"
+      }
+    },
+    "DATA-MANAGEMENT": {
+      "TEXT": "ડેટા મેનેજમેન્ટ"
+    },
+    "ROOMS": {
+      "TEXT": "હોસ્પિટલ રૂમ",
+      "LIST": {
+        "ROOM-TYPE": "રૂમ ટાઇપ",
+        "ROOM-MASTER": "રૂમ માસ્ટર",
+        "ROOM-MASTER-LIST": "રૂમ માસ્ટર લિસ્ટ",
+        "ROOM-INVENTORY": "રૂમ ઇન્વેન્ટરી"
+      }
+    },
+    "BED": {
+      "TEXT": "બેડ",
+      "LIST": {
+        "BED-TYPE": "બેડ ટાઇપ",
+        "BED": "બેડ",
+        "BED-ASSIGN": "બેડ એસાઇન",
+        "CASES": "કેસીસ"
+      }
+    },
+    "PROBLEM-MASTER": {
+      "TEXT": "સમસ્યા માસ્ટર",
+      "LIST": {
+        "PROBLEM-CATEGORY": "સમસ્યા કેટેગરી",
+        "PROBLEMS": "સમસ્યાઓ",
+        "ALL-PROBLEMS": "બધી સમસ્યાઓ"
+      }
+    },
+    "HOSPITAL-CHARGES": {
+      "TEXT": "ફીઝ / ચાર્જીસ",
+      "LIST": {
+        "CHARGES-TYPE": "ચાર્જ કેટેગરી",
+        "CHARGES-CATEGORIES": "ચાર્જ કેટેગરી આઇટમ્સ",
+        "CHARGES": "ચાર્જીસ",
+        "DOCOTORCHARGES": "કર્મચારી ચાર્જીસ",
+        "TAX-MASTER": "ટેક્સ માસ્ટર"
+      }
+    },
+    "PATHOLOGY": {
+      "TEXT": "પેથોલોજી",
+      "LIST": {
+        "PATHOLOGY-CATEGORY": "પેથોલોજી કેટેગરી",
+        "PATHOLOGY-CATEGORY-LIST": "પેથોલોજી કેટેગરી લિસ્ટ",
+        "PATHOLOGY-UNITS": "પેથોલોજી યુનિટ્સ",
+        "PATHOLOGY-UNITS-LIST": "પેથોલોજી યુનિટ્સ લિસ્ટ",
+        "PATHOLOGY-PARAMETERS": "પેથોલોજી પેરામીટર્સ",
+        "PATHOLOGY-PARAMETERS-LIST": "પેથોલોજી પેરામીટર્સ લિસ્ટ",
+        "PATHOLOGY-TESTS": "પેથોલોજી ટેસ્ટ્સ",
+        "PATHOLOGY-TESTS-LIST": "પેથોલોજી ટેસ્ટ્સ લિસ્ટ"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "એકાઉન્ટ્સ",
+      "LIST": {
+        "BILL-LIST": "બિલ લિસ્ટ",
+        "ADD-BILL": "બિલ ઉમેરો",
+        "INCOME": "આવક",
+        "EXPENSES": "ખર્ચ",
+        "INCOME-REPORT": "આવક રિપોર્ટ",
+        "INCOME-CHART": "આવક ચાર્ટ",
+        "INVOICE": "ઇન્વૉઇસ"
+      }
+    },
+    "RECORDS": {
+      "TEXT": "રેકોર્ડ્સ",
+      "LIST": {
+        "BIRTH-RECORDS": "જન્મ રેકોર્ડ્સ",
+        "DEATH-RECORDS": "મૃત્યુ રેકોર્ડ્સ"
+      }
+    },
+    "AMBULANCE": {
+      "TEXT": "એમ્બ્યુલન્સ",
+      "LIST": {
+        "AMBULANCE-CALL-LIST": "એમ્બ્યુલન્સ કોલ લિસ્ટ",
+        "AMBULANCE-LIST": "એમ્બ્યુલન્સ લિસ્ટ"
+      }
+    },
+    "PHARMACY": {
+      "TEXT": "ફાર્મસી",
+      "LIST": {
+        "MEDICINE-LIST": "દવા લિસ્ટ",
+        "ADD-MEDICINE": "દવા ઉમેરો"
+      }
+    },
+    "BLOOD-BANK": {
+      "TEXT": "બ્લડ બેંક",
+      "LIST": {
+        "BLOOD-BANK": "બ્લડ બેંક",
+        "BLOOD-DONATIONS": "બ્લડ ડોનેશન્સ",
+        "BLOOD-DONOR": "બ્લડ ડોનર",
+        "BLOOD-ISSUED": "બ્લડ ઇશ્યુડ"
+      }
+    },
+    "DOCUMENTS": {
+      "TEXT": "દસ્તાવેજો",
+      "LIST": {
+        "ALL-DOCUMENTS": "બધા દસ્તાવેજો",
+        "DOCUMENTS": "દસ્તાવેજો",
+        "DOCUMENTS-TYPE": "દસ્તાવેજો ટાઇપ"
+      }
+    },
+    "RADIOLOGY": {
+      "TEXT": "રેડિયોલોજી",
+      "LIST": {
+        "RADIOLOGY-TEST": "રેડિયોલોજી ટેસ્ટ",
+        "RADIOLOGY": "રેડિયોલોજી",
+        "RADIOLOGY-CATEGORIE": "રેડિયોલોજી કેટેગરી"
+      }
+    },
+    "SERVICES": {
+      "TEXT": "સર્વિસીસ",
+      "LIST": {
+        "INSURANCE": "ઇન્શ્યોરન્સ",
+        "CASES": "કેસીસ",
+        "PACKAGES": "પેકેજીસ",
+        "SERVICES": "સર્વિસીસ",
+        "AMBULANCE": "એમ્બ્યુલન્સ",
+        "AMBULANCE-CALLS": "એમ્બ્યુલન્સ કોલ્સ"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "વિભાગો",
+      "LIST": {
+        "DEPARTMENT-LIST": "વિભાગ લિસ્ટ",
+        "ASSIGN-DEPARTMENT": "વિભાગ સોંપો",
+        "ADD-DEPARTMENT": "વિભાગ ઉમેરો",
+        "VIEW-DEPARTMENT-CASE": "વિભાગ કેસ જુઓ",
+        "VIEW-DEPARTMENT-EMPLOYEE": "વિભાગ કર્મચારી જુઓ",
+        "VIEW-DEPARTMENT-OPD-PATIENT": "વિભાગ OPD દર્દી જુઓ",
+        "VIEW-DEPARTMENT-IPD-PATIENTS": "વિભાગ IPD દર્દીઓ જુઓ"
+      }
+    },
+    "INVENTORY": {
+      "TEXT": "ઇન્વેન્ટરી",
+      "LIST": {
+        "ITEM-STOCK-LIST": "આઇટમ સ્ટોક લિસ્ટ",
+        "SUPPLIER": "સપ્લાયર",
+        "ITEM-CATEGORY": "આઇટમ કેટેગરી",
+        "STORE": "સ્ટોર",
+        "ITEMS": "આઇટમ્સ",
+        "PURCHASE-ITEMS": "ખરીદી આઇટમ્સ",
+        "ISSUED-ITEMS": "ઇશ્યુડ આઇટમ્સ"
+      }
+    },
+    "MEDICINES": {
+      "TEXT": "દવાઓ",
+      "LIST": {
+        "MEDICINE-CATEGORIES": "દવા કેટેગરીઝ",
+        "MEDICINE-BRANDS": "દવા બ્રાન્ડ્સ",
+        "MEDICINES": "દવાઓ",
+        "ALL-MEDICINES": "બધી દવાઓ",
+        "PURCHASE-MEDICINE": "દવા ખરીદો",
+        "CREATE-MEDICINE-BILL": "દવા બિલ બનાવો",
+        "PURCHASE-MEDICINE-BILL": "દવા ખરીદી બિલ"
+      }
+    },
+    "VACCINATION": {
+      "TEXT": "રસીકરણ",
+      "LIST": {
+        "VACCINATION": "રસીકરણ",
+        "VACCINATED-PATIENTS": "રસીકરણ દર્દીઓ",
+        "VACCINATED-EMPLOYEES": "રસીકરણ કર્મચારીઓ"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "સેટિંગ્સ",
+      "LIST": {
+        "DATE-FORMAT-SETTINGS": "તારીખ ફોર્મેટ સેટિંગ્સ",
+        "PATIENT-SETTINGS": "દર્દી સેટિંગ્સ"
+      }
+    },
+    "PERMISSION-MANAGEMENT": {
+      "TEXT": "પરમિશન મેનેજમેન્ટ",
+      "LIST": {
+        "MODULES": "મોડ્યુલ્સ",
+        "ACTIONS": "એક્શન્સ",
+        "MODULE-ACTIONS": "મોડ્યુલ એક્શન",
+        "PERMISSION-ASSIGNEMNT": "પરમિશન એસાઇનમેન્ટ"
+      }
+    },
+    "PRESCRIPTIONS": {
+      "TEXT": "નુસખો",
+      "LIST": {
+        "PRESCRIPTIONS": "નુસખાઓ",
+        "DURATION": "સમયગાળો",
+        "DOES-INTERVAL": "ડોઝ અંતરાલ",
+        "TIME": "સમય"
+      }
+    },
+    "HR": {
+      "TEXT": "હ્યુમન રિસોર્સીસ",
+      "LIST": {
+        "EMPLOYEE-LEAVE": "કર્મચારી લીવ",
+        "LEAVE-REQUESTS": "લીવ વિનંતીઓ",
+        "LEAVE-BALANCE": "લીવ બેલેન્સ",
+        "LEAVE-TYPES": "લીવ ટાઇપ્સ",
+        "HOLIDAYS": "રજાઓ",
+        "TODAY-ATTENDANCE": "આજની હાજરી",
+        "EMP-ATTENDANCE": "કર્મચારી હાજરી",
+        "ATTENDANCE-SHEET": "હાજરી શીટ",
+        "EMPLOYEE-SALARY": "કર્મચારી પગાર",
+        "PAYROLL": "પેરોલ",
+        "PAYSLIP": "પેસ્લિપ"
+      }
+    },
+    "INSURANCE": {
+      "TEXT": "ઇન્શ્યોરન્સ",
+      "LIST": {
+        "PATIENT-INSURANCE": "દર્દી ઇન્શ્યોરન્સ",
+        "NEW-CLAIM": "નવો ક્લેમ",
+        "CLAIM-STATUS": "ક્લેમ સ્ટેટસ",
+        "INSURANCE-PROVIDER": "ઇન્શ્યોરન્સ પ્રોવાઇડર"
+      }
+    },
+    "SITEADMIN": {
+      "DASHBOARD": "ડેશબોર્ડ",
+      "HOSPITAL": "હોસ્પિટલ",
+      "DOCTORS": "ડૉક્ટર્સ",
+      "PATIENTS": "દર્દીઓ",
+      "SETTINGS": "સેટિંગ્સ",
+      "TEXT": "સાઇટએડમિન",
+      "LIST": {},
+      "CHAT": "ચેટ"
+    },
+    "DOCTOR": {
+      "DASHBOARD": "ડેશબોર્ડ",
+      "APPOINTMENTS": "એપોઇન્ટમેન્ટ્સ",
+      "DOCTORS": "ડૉક્ટર્સ",
+      "PATIENTS": "દર્દીઓ",
+      "SETTINGS": "સેટિંગ્સ",
+      "CHAT": "ચેટ"
+    },
+    "PATIENT": {
+      "TEXT": "દર્દી",
+      "DASHBOARD": "ડેશબોર્ડ",
+      "APPOINTMENTS": {
+        "TEXT": "એપોઇન્ટમેન્ટ્સ",
+        "LIST": {
+          "BOOK-APPOINTMENT": "એપોઇન્ટમેન્ટ બુક કરો",
+          "TODAY": "આજના એપોઇન્ટમેન્ટ્સ",
+          "UPCOMING": "આગામી એપોઇન્ટમેન્ટ્સ",
+          "PAST": "ભૂતકાળના એપોઇન્ટમેન્ટ્સ"
+        }
+      },
+      "PRESCRIPTIONS": "નુસખાઓ",
+      "MEDICAL-RECORD": "મેડિકલ રેકોર્ડ",
+      "BILLING": "બિલિંગ",
+      "CHAT": "ચેટ",
+      "SETTINGS": "સેટિંગ્સ"
+    },
+    "APPS": {
+      "TEXT": "-- એપ્સ"
+    },
+    "CALENDAR": {
+      "TEXT": "કેલેન્ડર"
+    },
+    "TASK": {
+      "TEXT": "ટાસ્ક"
+    },
+    "CONTACTS": {
+      "TEXT": "કોન્ટેક્ટ્સ"
+    },
+    "TEMPLATE": {
+      "TEXT": "ટેમ્પ્લેટ મેનેજમેન્ટ",
+      "LIST": {
+        "TEMPLATE-KEYWORD": "ટેમ્પ્લેટ કીવર્ડ",
+        "TEMPLATE": "ટેમ્પ્લેટ"
+      }
+    },
+    "FINANCIALYEAR": {
+      "TEXT": "આર્થિક વર્ષ"
+    },
+    "ACCOUNTGROUPS": {
+      "TEXT": "એકાઉન્ટ ગ્રુપ્સ"
+    },
+    "ACCOUNTSUBGROUPS": {
+      "TEXT": "એકાઉન્ટ સબ ગ્રુપ્સ"
+    },
+    "APPOINTMENT_TYPE": {
+      "TEXT": "એપોઇન્ટમેન્ટ ટાઇપ"
+    },
+    "APPOINTMENT_TYPE_PATIENT": {
+      "TEXT": "દર્દી"
+    },
+    "APPOINTMENT_TYPE_VISITOR": {
+      "TEXT": "મુલાકાતી"
+    },
+    "APPOINTMENT_TYPE_FOLLOW_UP": {
+      "TEXT": "ફોલો અપ"
+    },
+    "APPOINTMENT_TYPE_SPECIALIST_REFERRAL": {
+      "TEXT": "સ્પેશ્યાલિસ્ટ રેફરલ"
+    },
+    "APPOINTMENT_TYPE_DIAGNOSTIC_TEST": {
+      "TEXT": "ડાયગ્નોસ્ટિક ટેસ્ટ"
+    },
+    "APPOINTMENT_TYPE_TELEMEDICINE": {
+      "TEXT": "ટેલિમેડિસિન"
+    },
+    "APPOINTMENT_TYPE_PATIENT_ATTENDANT": {
+      "TEXT": "દર્દી સહાયક/પરિવાર સભ્ય"
+    },
+    "APPOINTMENT_TYPE_HEALTH_CHECK_UP": {
+      "TEXT": "હેલ્થ ચેક અપ"
+    },
+    "APPOINTMENT_TYPE_SURGERY_BOOKING": {
+      "TEXT": "સર્જરી બુકિંગ"
+    },
+    "APPOINTMENT_TYPE_HOME_VISIT": {
+      "TEXT": "હોમ વિઝિટ"
+    },
+    "DEPARTMENT": {
+      "TEXT": "વિભાગ"
+    },
+    "CONSULTING_DOCTOR": {
+      "TEXT": "કન્સલ્ટિંગ ડૉક્ટર"
+    },
+    "NEW_DOCTOR": {
+      "TEXT": "નવો ડૉક્ટર"
+    },
+    "DATE": {
+      "TEXT": "તારીખ"
+    },
+    "REASON_FOR_TRANSFER": {
+      "TEXT": "ટ્રાન્સફરનું કારણ"
+    },
+    "APPOINTMENT_CHARGES": {
+      "TEXT": "એપોઇન્ટમેન્ટ ચાર્જીસ"
+    },
+    "REFERENCE_DOCTOR": {
+      "TEXT": "રેફરન્સ ડૉક્ટર"
+    },
+    "DESCRIPTION": {
+      "TEXT": "વર્ણન"
+    },
+    "STATUS": {
+      "TEXT": "સ્ટેટસ"
+    },
+    "TIME_OF_APPOINTMENT": {
+      "TEXT": "એપોઇન્ટમેન્ટનો સમય"
+    },
+    "ACTIONS": {
+      "TEXT": "ક્રિયાઓ"
+    },
+    "SUBMIT": {
+      "TEXT": "સબમિટ"
+    },
+    "CANCEL": {
+      "TEXT": "રદ કરો"
+    },
+    "PATIENTNAME": {
+      "TEXT": "દર્દી"
+    },
+    "DOCTORNAME": {
+      "TEXT": "ડૉક્ટર"
+    },
+    "DOCTOR_DEPARTMENT": {
+      "TEXT": "ડૉક્ટર વિભાગ"
+    },
+    "TIME": {
+      "TEXT": "સમય"
+    },
+    "CASE_PRICE_TYPE": {
+      "TEXT": "કેસ કિંમત ટાઇપ"
+    },
+    "CASE_PRICE_TYPE_DEFAULT": {
+      "TEXT": "ડિફોલ્ટ"
+    },
+    "CASE_PRICE_TYPE_DOCTOR_WISE": {
+      "TEXT": "ડૉક્ટર વાઇઝ"
+    },
+    "CASE_PRICE": {
+      "TEXT": "કેસ કિંમત"
+    },
+    "CASE_PRICE_REQUIRED": {
+      "TEXT": "ડિફોલ્ટ ટાઇપ માટે કેસ કિંમત જરૂરી છે"
+    },
+    "UPDATE": {
+      "TEXT": "અપડેટ"
+    },
+    "CREATE": {
+      "TEXT": "બનાવો"
+    },
+    "PROCESSING": {
+      "TEXT": "પ્રોસેસિંગ..."
+    },
+    "REGISTRATION_NO": {
+      "TEXT": "રજિસ્ટ્રેશન નંબર"
+    },
+    "GENDER": {
+      "TEXT": "લિંગ"
+    },
+    "MOBILE": {
+      "TEXT": "મોબાઇલ"
+    },
+    "AGE": {
+      "TEXT": "ઉંમર"
+    },
+    "EMAIL": {
+      "TEXT": "ઇમેઇલ"
+    },
+    "MRN": {
+      "TEXT": "MRN"
+    },
+    "FIRST_NAME": {
+      "TEXT": "પ્રથમ નામ"
+    },
+    "MIDDLE_NAME": {
+      "TEXT": "મધ્ય નામ"
+    },
+    "LAST_NAME": {
+      "TEXT": "અંતિમ નામ"
+    },
+    "DATE_OF_BIRTH": {
+      "TEXT": "જન્મ તારીખ"
+    },
+    "MARITAL_STATUS": {
+      "TEXT": "વૈવાહિક સ્થિતિ"
+    },
+    "BLOOD_GROUP": {
+      "TEXT": "બ્લડ ગ્રુપ"
+    },
+    "NATIONAL_ID_TYPE": {
+      "TEXT": "રાષ્ટ્રીય આઈડી ટાઇપ"
+    },
+    "NATIONAL_ID_NUMBER": {
+      "TEXT": "રાષ્ટ્રીય આઈડી નંબર"
+    },
+    "UPLOAD": {
+      "TEXT": "અપલોડ"
+    },
+    "PRESENT_ADDRESS": {
+      "TEXT": "હાલનું સરનામું"
+    },
+    "PRESENT_COUNTRY": {
+      "TEXT": "હાલનું દેશ"
+    },
+    "PRESENT_STATE": {
+      "TEXT": "હાલનું રાજ્ય"
+    },
+    "PRESENT_CITY": {
+      "TEXT": "હાલનું શહેર"
+    },
+    "ZIP": {
+      "TEXT": "ઝિપ"
+    },
+    "PERMANENT_ADDRESS": {
+      "TEXT": "કાયમી સરનામું"
+    },
+    "PERMANENT_COUNTRY": {
+      "TEXT": "કાયમી દેશ"
+    },
+    "PERMANENT_STATE": {
+      "TEXT": "કાયમી રાજ્ય"
+    },
+    "PERMANENT_CITY": {
+      "TEXT": "કાયમી શહેર"
+    },
+    "PERMANENT_ZIP": {
+      "TEXT": "કાયમી ઝિપ"
+    },
+    "COPY_ADDRESS": {
+      "TEXT": "કાયમી સરનામાં પર કૉપિ કરો"
+    },
+    "TREATMENTS_CONSENT": {
+      "TEXT": "સારવાર સંમતિ"
+    },
+    "SURGERY_CONSENT": {
+      "TEXT": "શસ્ત્રક્રિયા સંમતિ"
+    },
+    "ANESTHESIA_CONSENT": {
+      "TEXT": "એનેસ્થેશિયા સંમતિ"
+    },
+    "BLOOD_CONSENT": {
+      "TEXT": "રક્ત સંમતિ"
+    },
+    "DATA_SHARING_CONSENT": {
+      "TEXT": "ડેટા શેરિંગ સંમતિ"
+    },
+    "RESEARCH_CONSENT": {
+      "TEXT": "સંશોધન સંમતિ"
+    },
+    "USERNAME": {
+      "TEXT": "વપરાશકર્તા નામ"
+    },
+    "PASSWORD": {
+      "TEXT": "પાસવર્ડ"
+    },
+    "SEARCH": {
+      "TEXT": "શોધ"
+    },
+    "PATIENT_NAME": {
+      "TEXT": "દર્દી"
+    },
+    "CASE_ID": {
+      "TEXT": "કેસ આઈડી"
+    },
+    "DOCTOR_NAME": {
+      "TEXT": "ડૉક્ટર"
+    },
+    "PHONE": {
+      "TEXT": "ફોન"
+    },
+    "CASE_DATE": {
+      "TEXT": "કેસ તારીખ"
+    },
+    "FEE": {
+      "TEXT": "ફી"
+    },
+    "PHONE_NUMBER": {
+      "TEXT": "ફોન નંબર"
+    },
+    "SAVE": {
+      "TEXT": "સાચવો"
+    },
+    "PATIENT_REQUIRED": {
+      "TEXT": "દર્દી જરૂરી છે"
+    },
+    "DOCTOR_REQUIRED": {
+      "TEXT": "ડૉક્ટર જરૂરી છે"
+    },
+    "DEPARTMENT_REQUIRED": {
+      "TEXT": "કોઈપણ વિભાગ પસંદ કરો"
+    },
+    "CASE_DATE_REQUIRED": {
+      "TEXT": "કેસ તારીખ જરૂરી છે"
+    },
+    "FEE_REQUIRED": {
+      "TEXT": "ફી જરૂરી છે"
+    },
+    "DESCRIPTION_REQUIRED": {
+      "TEXT": "વર્ણન જરૂરી છે"
+    },
+    "ADMISSION_DATE": {
+      "TEXT": "પ્રવેશ તારીખ"
+    },
+    "DISCHARGE_DATE": {
+      "TEXT": "ડિસ્ચાર્જ તારીખ"
+    },
+    "PACKAGE_NAME": {
+      "TEXT": "પેકેજ"
+    },
+    "INSURANCE_NAME": {
+      "TEXT": "ઇન્શ્યોરન્સ"
+    },
+    "POLICY_NO": {
+      "TEXT": "પોલિસી નંબર"
+    },
+    "AGENT_NAME": {
+      "TEXT": "એજન્ટ નામ"
+    },
+    "GUARDIAN_NAME": {
+      "TEXT": "ગાર્ડિયન નામ"
+    },
+    "GUARDIAN_RELATION": {
+      "TEXT": "ગાર્ડિયન સંબંધ"
+    },
+    "GUARDIAN_CONTACT_NO": {
+      "TEXT": "ગાર્ડિયન સંપર્ક નંબર"
+    },
+    "GUARDIAN_ADDRESS": {
+      "TEXT": "ગાર્ડિયન સરનામું"
+    },
+    "ADMISSION_DATE_REQUIRED": {
+      "TEXT": "પ્રવેશ તારીખ જરૂરી છે"
+    },
+    "DISCHARGE_DATE_MIN": {
+      "TEXT": "ડિસ્ચાર્જ તારીખ આવતીકાલથી હોવી જોઈએ"
+    },
+    "HEIGHT": {
+      "TEXT": "ઊંચાઈ"
+    },
+    "WEIGHT": {
+      "TEXT": "વજન"
+    },
+    "BLOOD_PRESSURE": {
+      "TEXT": "રક્તચાપ"
+    },
+    "IS_OLD_PATIENT": {
+      "TEXT": "જૂનો દર્દી છે"
+    },
+    "YES": {
+      "TEXT": "હા"
+    },
+    "NO": {
+      "TEXT": "ના"
+    },
+    "PACKAGE": {
+      "TEXT": "પેકેજ"
+    },
+    "SYMPTONS": {
+      "TEXT": "લક્ષણો"
+    },
+    "NOTES": {
+      "TEXT": "નોંધો"
+    },
+    "TEMPLATE_NAME": {
+      "TEXT": "ટેમ્પ્લેટ નામ"
+    },
+    "HEADER_COLOR": {
+      "TEXT": "હેડર રંગ"
+    },
+    "SHOW_EMAIL": {
+      "TEXT": "ઇમેઇલ બતાવો"
+    },
+    "SHOW_PHONE": {
+      "TEXT": "ફોન બતાવો"
+    },
+    "SHOW_DOB": {
+      "TEXT": "જન્મતારીખ બતાવો"
+    },
+    "SHOW_BLOOD_GROUP": {
+      "TEXT": "બ્લડ ગ્રુપ બતાવો"
+    },
+    "SHOW_ADDRESS": {
+      "TEXT": "સરનામું બતાવો"
+    },
+    "SHOW_PATIENT_ID": {
+      "TEXT": "દર્દી આઈડી બતાવો"
+    },
+    "SHOW_INSURANCE": {
+      "TEXT": "ઇન્શ્યોરન્સ બતાવો"
+    },
+    "TEMPLATE_NAME_REQUIRED": {
+      "TEXT": "ટેમ્પ્લેટ નામ જરૂરી છે"
+    },
+    "CREATE_TEMPLATE": {
+      "TEXT": "ટેમ્પ્લેટ બનાવો"
+    },
+    "UPDATE_TEMPLATE": {
+      "TEXT": "ટેમ્પ્લેટ અપડેટ કરો"
+    },
+    "LIVE_PREVIEW": {
+      "TEXT": "લાઇવ પ્રીવ્યૂ"
+    },
+    "HOSPITAL_NAME": {
+      "TEXT": "હોસ્પિટલ નામ"
+    },
+    "HOSPITAL_ADDRESS": {
+      "TEXT": "સરનામું"
+    },
+    "DOB": {
+      "TEXT": "જન્મતારીખ"
+    },
+    "ADDRESS": {
+      "TEXT": "સરનામું"
+    },
+    "PATIENT_ID": {
+      "TEXT": "દર્દી આઈડી"
+    },
+    "SAVING": {
+      "TEXT": "સાચવી રહ્યું છે..."
+    },
+    "CHECKBOX": {
+      "TEXT": "ચેકબોક્સ"
+    },
+    "TEMPLATE_REQUIRED": {
+      "TEXT": "ટેમ્પ્લેટ જરૂરી છે"
+    },
+    "REQUIRED": {
+      "TEXT": "ટેમ્પ્લેટ નામ જરૂરી છે"
+    },
+    "ROOM": {
+      "TEXT": "રૂમ"
+    },
+    "IPD_NO": {
+      "TEXT": "IPD નંબર"
+    },
+    "BLOODPRESSURE": {
+      "TEXT": "રક્તચાપ"
+    },
+    "ADMISSIONDATE": {
+      "TEXT": "પ્રવેશ તારીખ",
+      "REQUIRED": "પ્રવેશ તારીખ જરૂરી છે"
+    },
+    "ISOLDPATIENT": {
+      "TEXT": "જૂનો દર્દી છે"
+    },
+    "ADD": {
+      "TEXT": "ઉમેરો"
+    },
+    "REFRESH": {
+      "TEXT": "રિફ્રેશ"
+    },
+    "CASE": {
+      "TEXT": "કેસ"
+    },
+    "PATIENT-REQUIRED": {
+      "REQUIRED": "દર્દી જરૂરી છે"
+    },
+    "CASE-REQUIRED": {
+      "REQUIRED": "કેસ જરૂરી છે"
+    },
+    "IPD-REQUIRED": {
+      "REQUIRED": "IPD નંબર જરૂરી છે"
+    },
+    "HEIGH-REQUIRED": {
+      "REQUIRED": "ઊંચાઈ જરૂરી છે"
+    },
+    "WEIGHT-REQUIRED": {
+      "REQUIRED": "વજન જરૂરી છે"
+    },
+    "BLOODPRESSURE-REQUIRED": {
+      "REQUIRED": "રક્તચાપ જરૂરી છે"
+    },
+    "ADMISSIONDATE-REQUIRED": {
+      "REQUIRED": "પ્રવેશ તારીખ જરૂરી છે"
+    },
+    "DOCTOR_NAME_REQUIRED": {
+      "REQUIRED": "ડૉક્ટર જરૂરી છે"
+    },
+    "DEPARTMENT-REQUIRED": {
+      "REQUIRED": "વિભાગ જરૂરી છે"
+    },
+    "WARD-REQUIRED": {
+      "REQUIRED": "વોર્ડ જરૂરી છે"
+    },
+    "ROOM-REQUIRED": {
+      "REQUIRED": "રૂમ જરૂરી છે"
+    },
+    "BED-REQUIRED": {
+      "REQUIRED": "બેડ જરૂરી છે",
+      "OCCUPIED": "કબ્જે"
+    },
+    "OCCUPIED": {
+      "TEXT": "કબ્જે"
+    },
+    "IPD-NO": {
+      "TEXT": "IPD નંબર"
+    },
+    "OPD_NO": {
+      "TEXT": "OPD નંબર"
+    },
+    "APPOINTMENT_DATE": {
+      "TEXT": "એપોઇન્ટમેન્ટ તારીખ"
+    },
+    "DOCTOR_OPD_CHARGE": {
+      "TEXT": "ડૉક્ટર OPD ચાર્જ"
+    },
+    "PAYMENT_MODE": {
+      "TEXT": "ચુકવણી મોડ",
+      "REQUIRED": "ચુકવણી મોડ પસંદ કરો",
+      "CASH": "રોકડ",
+      "CHEQUE": "ચેક",
+      "ONLINE": "ઓનલાઇન"
+    },
+    "TOTAL_VISIT": {
+      "TEXT": "કુલ મુલાકાત"
+    },
+    "OPD_NO-REQUIRED": {
+      "REQUIRED": "OPD નંબર જરૂરી છે"
+    },
+    "HEIGHT-REQUIRED": {
+      "REQUIRED": "ઊંચાઈ જરૂરી છે"
+    },
+    "BLOOD_PRESSURE-REQUIRED": {
+      "REQUIRED": "રક્તચાપ જરૂરી છે"
+    },
+    "APPOINTMENT_DATE-REQUIRED": {
+      "REQUIRED": "એપોઇન્ટમેન્ટ તારીખ જરૂરી છે"
+    },
+    "DOCTOR-REQUIRED": {
+      "REQUIRED": "ડૉક્ટર જરૂરી છે"
+    },
+    "DOCTOR_OPD_CHARGE_REQUIRED": {
+      "REQUIRED": "ડૉક્ટર OPD ચાર્જ જરૂરી છે"
+    },
+    "PAYMENT_MODE-REQUIRED": {
+      "REQUIRED": "ચુકવણી મોડ જરૂરી છે"
+    },
+    "PERSONAL_DETAILS": {
+      "TEXT": "વ્યક્તિગત વિગતો"
+    },
+    "ADDRESS_DETAILS": {
+      "TEXT": "સરનામું વિગતો"
+    },
+    "CONSENT": {
+      "TEXT": "સંમતિ"
+    },
+    "LOGIN_CREDENTIAL": {
+      "TEXT": "લોગિન ઓળખાણ"
+    },
+    "NAME": {
+      "TEXT": "નામ"
+    },
+    "PROCEDURE-REQUIRED": {
+      "REQUIRED": "પ્રક્રિયા જરૂરી છે"
+    },
+    "OT-SCHEDULE": {
+      "TEXT": "OT શેડ્યૂલ"
+    },
+    "PROCEDURE": {
+      "TEXT": "પ્રક્રિયા"
+    },
+    "OT-ROOM": {
+      "TEXT": "OT રૂમ"
+    },
+    "CLOSE": {
+      "TEXT": "બંધ કરો"
+    },
+    "SCHEDULE": {
+      "TEXT": "શેડ્યૂલ"
+    },
+    "START": {
+      "TEXT": "શરૂ"
+    },
+    "END": {
+      "TEXT": "સમાપ્ત"
+    },
+    "SCHEDULED_DATE": {
+      "TEXT": "શેડ્યૂલ તારીખ",
+      "REQUIRED": "શેડ્યૂલ તારીખ જરૂરી છે"
+    },
+    "START_TIME": {
+      "TEXT": "શરૂ સમય",
+      "REQUIRED": "શરૂ સમય જરૂરી છે"
+    },
+    "END_TIME": {
+      "TEXT": "સમાપ્ત સમય",
+      "REQUIRED": "સમાપ્ત સમય જરૂરી છે"
+    },
+    "SHOW_HIDE_COLUMN": {
+      "TEXT": "કૉલમ બતાવો/છુપાવો"
+    },
+    "DELETE": {
+      "TEXT": "કાઢી નાખો"
+    },
+    "DOWNLOAD_XLSX": {
+      "TEXT": "Xlsx ડાઉનલોડ"
+    },
+    "TITLE": {
+      "TEXT": "શીર્ષક"
+    },
+    "ATTACHMENT": {
+      "TEXT": "જોડાણ"
+    },
+    "DOCUMENT_TYPE": {
+      "TEXT": "દસ્તાવેજ પ્રકાર"
+    },
+    "TITLE_REQUIRED": {
+      "REQUIRED": "શીર્ષક જરૂરી છે"
+    },
+    "DOCUMENT_TYPE_REQUIRED": {
+      "REQUIRED": "દસ્તાવેજ પ્રકાર જરૂરી છે"
+    },
+    "NOTES_REQUIRED": {
+      "REQUIRED": "નોંધો જરૂરી છે"
+    },
+    "NAME_REQUIRED": {
+      "REQUIRED": "નામ જરૂરી છે"
+    },
+    "DURATION": {
+      "TEXT": "સમયગાળો"
+    },
+    "DURATION-REQUIRED": {
+      "REQUIRED": "સમયગાળો જરૂરી છે"
+    },
+    "DOES-INTERVAL": {
+      "TEXT": "ડોઝ અંતરાલ"
+    },
+    "DOES-INTERVAL-REQUIRED": {
+      "REQUIRED": "ડોઝ અંતરાલ જરૂરી છે"
+    },
+    "PRESCRIPTION-TIME": {
+      "TEXT": "સમય"
+    },
+    "PRESCRIPTION-TIME-REQUIRED": {
+      "REQUIRED": "સમય જરૂરી છે"
+    },
+    "ADDED-AT": {
+      "TEXT": "ઉમેર્યું"
+    },
+    "CREATE-PRESCRIPTION": {
+      "TEXT": "નુસખા બનાવો"
+    },
+    "PRESCRIPTION-DETAILS": {
+      "TEXT": "નુસખા વિગતો"
+    },
+    "HEALTH-INSURANCE": {
+      "TEXT": "હેલ્થ ઇન્શ્યોરન્સ"
+    },
+    "LOW-INCOME": {
+      "TEXT": "નીચી આવક"
+    },
+    "REFERENCE": {
+      "TEXT": "સંદર્ભ"
+    },
+    "PAYMENT-STATUS": {
+      "TEXT": "ચુકવણી સ્થિતિ"
+    },
+    "PAID": {
+      "TEXT": "ચૂકવેલ"
+    },
+    "UNPAID": {
+      "TEXT": "બાકી"
+    },
+    "MEDICINE": {
+      "TEXT": "દવા"
+    },
+    "DOSAGE": {
+      "TEXT": "માત્રા"
+    },
+    "DOSE-INTERVAL": {
+      "TEXT": "ડોઝ અંતરાલ"
+    },
+    "COMMENT": {
+      "TEXT": "ટિપ્પણી"
+    },
+    "ADD-MEDICINE": {
+      "TEXT": "ખરીદેલી દવાઓમાં ઉમેરો"
+    },
+    "PHYSICAL-INFO": {
+      "TEXT": "શારીરિક માહિતી"
+    },
+    "HIGH-BLOOD-PRESSURE": {
+      "TEXT": "ઉચ્ચ બ્લડ પ્રેશર"
+    },
+    "FOOD-ALLERGIES": {
+      "TEXT": "ખોરાક એલર્જીઝ"
+    },
+    "TENDENCY-BLEED": {
+      "TEXT": "રક્તસ્ત્રાવની ટેન્ડન્સી"
+    },
+    "HEART-DISEASE": {
+      "TEXT": "હૃદય રોગ"
+    },
+    "DIABETIC": {
+      "TEXT": "મધુમેહી"
+    },
+    "FEMALE-PREGNANCY": {
+      "TEXT": "સ્ત્રી ગર્ભાવસ્થા"
+    },
+    "BREAST-FEEDING": {
+      "TEXT": "સ્તનપાન"
+    },
+    "CURRENT-MEDICATION": {
+      "TEXT": "હાલની દવા"
+    },
+    "SURGERY": {
+      "TEXT": "શસ્ત્રક્રિયા"
+    },
+    "ACCIDENT": {
+      "TEXT": "અકસ્માત"
+    },
+    "OTHERS": {
+      "TEXT": "અન્ય"
+    },
+    "PULSE-RATE": {
+      "TEXT": "પલ્સ રેટ"
+    },
+    "TEMPERATURE": {
+      "TEXT": "તાપમાન"
+    },
+    "PROBLEM-DESCRIPTION": {
+      "TEXT": "સમસ્યા વર્ણન"
+    },
+    "TEST": {
+      "TEXT": "ટેસ્ટ"
+    },
+    "ADVICE": {
+      "TEXT": "સલાહ"
+    },
+    "NEXT-VISIT": {
+      "TEXT": "આગામી મુલાકાત"
+    },
+    "NEXT-VISIT-TIME": {
+      "TEXT": "આગામી મુલાકાત સમય"
+    },
+    "NEXT-VISIT-DAYS": {
+      "TEXT": "દિવસ"
+    },
+    "NEXT-VISIT-MONTHS": {
+      "TEXT": "મહિના"
+    },
+    "NEXT-VISIT-YEARS": {
+      "TEXT": "વર્ષ"
+    },
+    "RESET": {
+      "TEXT": "રીસેટ કરો"
+    },
+    "STATUS-PAID": {
+      "TEXT": "ચૂકવેલ"
+    },
+    "STATUS-UNPAID": {
+      "TEXT": "બાકી"
+    },
+    "NEXT-VISIT-TIME-DAYS": {
+      "TEXT": "દિવસ"
+    },
+    "NEXT-VISIT-TIME-MONTHS": {
+      "TEXT": "મહિના"
+    },
+    "NEXT-VISIT-TIME-YEARS": {
+      "TEXT": "વર્ષ"
+    },
+    "TAX": {
+      "TEXT": "કર"
+    },
+    "TAX-NAME": {
+      "TEXT": "કર નામ"
+    },
+    "TAX-NAME-REQUIRED": {
+      "REQUIRED": "કર નામ જરૂરી છે"
+    },
+    "TAX-PERCENTAGE": {
+      "TEXT": "કર ટકાવારી"
+    },
+    "TAX-PERCENTAGE-REQUIRED": {
+      "REQUIRED": "કર ટકાવારી જરૂરી છે"
+    },
+    "CHARGE-CATEGORY-NAME": {
+      "TEXT": "કેટેગરી આઇટમ્સ",
+      "REQUIRED": "ચાર્જ કેટેગરી નામ જરૂરી છે"
+    },
+    "CATEGORY": {
+      "TEXT": "ચાર્જ કેટેગરી",
+      "REQUIRED": "ચાર્જ કેટેગરી જરૂરી છે"
+    },
+    "CATEGORY-ITEM": {
+      "TEXT": "કેટેગરી આઇટમ",
+      "REQUIRED": "કેટેગરી આઇટમ જરૂરી છે"
+    },
+    "APPLIES_TO": {
+      "TEXT": "લાગુ પડે છે",
+      "OPD": "OPD",
+      "IPD": "IPD",
+      "BOTH": "બંને",
+      "REQUIRED": "લાગુ પડે છે જરૂરી છે"
+    },
+    "EMPLOYEE_RELATED": {
+      "TEXT": "કર્મચારી સંબંધિત ચાર્જ?"
+    },
+    "CHARGE_CATEGORY": {
+      "TEXT": "ચાર્જ કેટેગરી",
+      "REQUIRED": "ચાર્જ કેટેગરી જરૂરી છે"
+    },
+    "CHARGE_TYPE": {
+      "TEXT": "કેટેગરી"
+    },
+    "CHARGE_CATEGORIE": {
+      "TEXT": "કેટેગરી આઇટમ્સ"
+    },
+    "CHARGES": {
+      "TEXT": "સ્ટાન્ડર્ડ ચાર્જીસ",
+      "REQUIRED": "સ્ટાન્ડર્ડ ચાર્જીસ જરૂરી છે"
+    },
+    "APPOINTMENT_DETAILS": {
+      "TEXT": "એપોઇન્ટમેન્ટ વિગતો"
+    },
+    "MEDICINE-BRAND": {
+      "TEXT": "બ્રાન્ડ",
+      "REQUIRED": "બ્રાન્ડ જરૂરી છે"
+    },
+    "PHONE-NO": {
+      "TEXT": "ફોન",
+      "REQUIRED": "ફોન નંબર જરૂરી છે"
+    },
+    "EMAIL-ID": {
+      "TEXT": "ઈમેલ",
+      "REQUIRED": "ઈમેલ જરૂરી છે"
+    },
+    "MEDICINE-NAME": {
+      "TEXT": "દવા"
+    },
+    "MEDICINE-BRAND-NAME": {
+      "TEXT": "બ્રાન્ડ"
+    },
+    "SELLING-PRICE": {
+      "TEXT": "વેચાણ કિંમત",
+      "REQUIRED": "વેચાણ કિંમત જરૂરી છે"
+    },
+    "BAYING-PRICE": {
+      "TEXT": "ખરીદ કિંમત"
+    },
+    "CATEGORYES": {
+      "TEXT": "શ્રેણી",
+      "REQUIRED": "શ્રેણી જરૂરી છે"
+    },
+    "BRAND": {
+      "TEXT": "બ્રાન્ડ",
+      "REQUIRED": "બ્રાન્ડ જરૂરી છે"
+    },
+    "SALT-COMPOSITION": {
+      "TEXT": "મીઠાની રચના"
+    },
+    "BUYING-PRICE": {
+      "TEXT": "ખરીદ કિંમત",
+      "REQUIRED": "ખરીદ કિંમત જરૂરી છે"
+    },
+    "SIDE-EFFECTS": {
+      "TEXT": "આડઅસરો"
+    },
+    "PURCHASE-NO": {
+      "TEXT": "ખરીદી નંબર"
+    },
+    "TOTAL": {
+      "TEXT": "કુલ"
+    },
+    "NET-AMOUNT": {
+      "TEXT": "ચોખ્ખી રકમ"
+    },
+    "PAYMENT-TYPE": {
+      "TEXT": "ચુકવણીનો પ્રકાર"
+    },
+    "PURCHASE-TITLE": {
+      "TEXT": "દવા ખરીદો"
+    },
+    "REFERENCE-NO": {
+      "TEXT": "સંદર્ભ નંબર"
+    },
+    "PURCHASE-DATE": {
+      "TEXT": "ખરીદીની તારીખ"
+    },
+    "ORDER-ITEMS": {
+      "TEXT": "ઓર્ડર વસ્તુઓ"
+    },
+    "BATCH-NO": {
+      "TEXT": "બેચ નંબર"
+    },
+    "EXPIRY-DATE": {
+      "TEXT": "સમાપ્તિ તારીખ"
+    },
+    "SALE-PRICE": {
+      "TEXT": "વેચાણ કિંમત"
+    },
+    "PURCHASE-PRICE": {
+      "TEXT": "ખરીદ કિંમત"
+    },
+    "QUANTITY": {
+      "TEXT": "જથ્થો"
+    },
+    "TAX-PERCENT": {
+      "TEXT": "કર %"
+    },
+    "AMOUNT": {
+      "TEXT": "રકમ"
+    },
+    "DISCOUNT": {
+      "TEXT": "ડિસ્કાઉન્ટ %"
+    },
+    "TAX-AMOUNT": {
+      "TEXT": "કરની રકમ"
+    },
+    "PAYMENT-NOTE": {
+      "TEXT": "ચુકવણી નોંધ"
+    },
+    "ADD-PURCHASE-PRICE-MEDICINE": {
+      "TEXT": "ખરીદેલી દવાઓમાં ઉમેરો"
+    },
+    "PAYMENT-CASH": {
+      "TEXT": "રોકડ"
+    },
+    "PAYMENT-CARD": {
+      "TEXT": "કાર્ડ"
+    },
+    "PAYMENT-ONLINE": {
+      "TEXT": "ઓનલાઇન"
+    },
+    "PAYMENT-CHEQUE": {
+      "TEXT": "ચેક"
+    },
+    "PAYMENT-UPI": {
+      "TEXT": "UPI"
+    },
+    "BILL-NUMBER": {
+      "TEXT": "બિલ નંબર"
+    },
+    "TOTAL-AMOUNT": {
+      "TEXT": "કુલ રકમ"
+    },
+    "PATIENT-MAIL": {
+      "TEXT": "પેશન્ટ મેઇલ"
+    },
+    "PAYMENT-MODE": {
+      "TEXT": "ચુકવણી રીત"
+    },
+    "PURCHASE-BILL-TITLE": {
+      "TEXT": "દવા બિલ બનાવો"
+    },
+    "BILL-DATE": {
+      "TEXT": "બિલ તારીખ"
+    },
+    "MEDICINE-CATEGORY": {
+      "TEXT": "દવા શ્રેણી"
+    },
+    "CONFIRM-TITLE": {
+      "TEXT": "શું તમે ખાતરી કરો છો?"
+    },
+    "PERCENTAGE": {
+      "TEXT": "ટકા"
+    },
+    "CHARGE-TYPE": {
+      "TEXT": "ચાર્જ પ્રકાર"
+    },
+    "CHARGE-CATEGORY": {
+      "TEXT": "ચાર્જ શ્રેણી"
+    },
+    "CHARGE-CATEGORIES": {
+      "TEXT": "ચાર્જ શ્રેણીઓ"
+    },
+    "STANDARD-CHARGES": {
+      "TEXT": "માનક ચાર્જ"
+    },
+    "CODE": {
+      "TEXT": "કોડ"
+    },
+    "LOGOUT": {
+      "TEXT": "લૉગ આઉટ"
+    },
+    "MANUFACTURED-BY": {
+      "TEXT": "નિર્માતા દ્વારા",
+      "REQUIRED": "નિર્માતા દ્વારા જરૂરી છે"
+    },
+    "ACTIVE": {
+      "TEXT": "સક્રિય"
+    },
+    "INACTIVE": {
+      "TEXT": "નિષ્ક્રિય"
+    },
+    "VACCINE": {
+      "TEXT": "રસી",
+      "REQUIRED": "રસી જરૂરી છે"
+    },
+    "SERIAL-NO": {
+      "TEXT": "સીરીયલ નંબર"
+    },
+    "DOSE-NO": {
+      "TEXT": "ડોઝ નંબર",
+      "REQUIRED": "ડોઝ નંબર જરૂરી છે"
+    },
+    "DOSE-GIVEN-DATE": {
+      "TEXT": "ડોઝ આપ્યાની તારીખ",
+      "REQUIRED": "ડોઝ આપ્યાની તારીખ જરૂરી છે"
+    },
+    "ARE-YOU-SURE": {
+      "TEXT": "શું તમે ખાતરી કરો છો?"
+    },
+    "EMPLOYEE": {
+      "TEXT": "કર્મચારી",
+      "REQUIRED": "કર્મચારી જરૂરી છે"
+    },
+    "USERS": {
+      "TEXT": "વપરાશકર્તાઓ",
+      "REQUIRED": "વપરાશકર્તા પ્રકાર જરૂરી છે"
+    },
+    "BLOOD-GROUP": {
+      "TEXT": "રક્ત જૂથ",
+      "REQUIRED": "રક્ત જૂથ જરૂરી છે"
+    },
+    "REMAINED-BAGS": {
+      "TEXT": "બચેલા બેગ"
+    },
+    "DONOR-NAME": {
+      "TEXT": "દાતાનું નામ",
+      "REQUIRED": "દાતાનું નામ જરૂરી છે"
+    },
+    "LAST-DONATION-DATE": {
+      "TEXT": "અંતિમ દાન તારીખ",
+      "REQUIRED": "અંતિમ દાન તારીખ જરૂરી છે"
+    },
+    "MALE": {
+      "TEXT": "પુરુષ"
+    },
+    "FEMALE": {
+      "TEXT": "સ્ત્રી"
+    },
+    "BAGS": {
+      "TEXT": "બેગ"
+    },
+    "DONOR": {
+      "REQUIRED": "દાતાનું નામ જરૂરી છે"
+    },
+    "DOCTOR-NAME": {
+      "TEXT": "ડૉક્ટરનું નામ"
+    },
+    "PATIENT-NAME": {
+      "TEXT": "દર્દીનું નામ"
+    },
+    "ISSUE-DATE": {
+      "TEXT": "જારી તારીખ"
+    },
+    "ISSUE-DATE-REQUIRED": {
+      "TEXT": "જારી તારીખ જરૂરી છે"
+    },
+    "DOCTOR-NAME-REQUIRED": {
+      "TEXT": "ડૉક્ટરનું નામ જરૂરી છે"
+    },
+    "PATIENT-NAME-REQUIRED": {
+      "TEXT": "દર્દીનું નામ જરૂરી છે"
+    },
+    "DONOR-NAME-REQUIRED": {
+      "TEXT": "દાતાનું નામ જરૂરી છે"
+    },
+    "BLOOD-GROUP-REQUIRED": {
+      "TEXT": "રક્ત જૂથ જરૂરી છે"
+    },
+    "REMARKS": {
+      "TEXT": "ટિપ્પણીઓ"
+    },
+    "REMARKS-REQUIRED": {
+      "TEXT": "ટિપ્પણીઓ જરૂરી છે"
+    }
+  }
+}

@@ -1,0 +1,464 @@
+// ===========================================================================
+//  CAVERO ADMIN — "EMERALD ZENITH" LIQUID-GLASS THEME  (unified DARK system)
+//  Scoped ENTIRELY under `app-main-layout` so the customer storefront is
+//  never affected. Palette: #1A312C / #428475 / #8DCFB4 / #FFF4E2.
+//
+//  Single source of truth for the WHOLE admin panel. Built on the approved
+//  dashboard look (dashboard.component.scss): one continuous dark emerald
+//  backdrop, frosted cream-glass cards, mint accents, Playfair display titles.
+//  Every inner page (cards, tables, toolbars, buttons, badges) inherits this.
+//  Float + reveal motion with a reduced-motion kill-switch (also disables
+//  under Playwright/webdriver via prefers-reduced-motion).
+// ===========================================================================
+
+@keyframes ez-float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+@keyframes ez-reveal {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes ez-row-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+app-main-layout {
+  // ---- palette tokens (dark liquid glass — matches dashboard) --------------
+  --ez-bg:        #1A312C;          // emerald-black base
+  --ez-bg-2:      #142621;          // deepest pocket
+  --ez-primary:   #1A312C;
+  --ez-teal:      #428475;
+  --ez-teal-d:    #2C5F53;
+  --ez-mint:      #8DCFB4;
+  --ez-cream:     #FFF4E2;
+  --ez-text:      #FFF4E2;          // primary text — cream on dark
+  --ez-text-2:    rgba(255, 244, 226, 0.82);
+  --ez-muted:     rgba(255, 244, 226, 0.55);
+  --ez-faint:     rgba(255, 244, 226, 0.40);
+  --ez-font-display: 'Playfair Display', Georgia, serif;
+  --ez-line:      rgba(255, 244, 226, 0.10);
+
+  // frosted cream-on-dark glass (identical recipe to dashboard `.glass`)
+  --ez-glass:        rgba(255, 244, 226, 0.06);
+  --ez-glass-strong: rgba(255, 244, 226, 0.10);
+  --ez-glass-border: rgba(255, 244, 226, 0.20);
+  --ez-glass-shadow: 0 18px 48px rgba(8, 20, 16, 0.45), inset 0 1px 1px rgba(255, 244, 226, 0.22);
+  --ez-radius:    18px;
+  --ez-radius-sm: 12px;
+
+  position: relative;
+  display: block;
+  min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  color: var(--ez-text);
+
+  // ---- living emerald backdrop (every admin page, behind all glass) -------
+  //  z-index:-2 so the dashboard's own animated SVG waves (z-index:-1) layer
+  //  on top of it on the dashboard route; identical base colour either way.
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(1100px 760px at 8% -10%,  rgba(66, 132, 117, 0.30) 0%, transparent 58%),
+      radial-gradient(1000px 720px at 100% 0%,  rgba(141, 207, 180, 0.16) 0%, transparent 55%),
+      radial-gradient(900px 900px  at 90% 110%, rgba(66, 132, 117, 0.22) 0%, transparent 60%),
+      linear-gradient(160deg, var(--ez-bg) 0%, var(--ez-bg-2) 100%);
+  }
+
+  // ---- transparent page surface so glass blurs the backdrop ---------------
+  section.content,
+  .content,
+  .content-block {
+    background: transparent !important;
+  }
+  .content-block { box-shadow: none !important; }
+
+  // ===========================================================================
+  //  TOP NAVBAR — dark frosted glass (mobile only; hidden ≥768px, see bottom)
+  // ===========================================================================
+  .navbar {
+    background: rgba(20, 38, 33, 0.86) !important;
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    border-bottom: 1px solid var(--ez-glass-border) !important;
+    box-shadow: 0 8px 24px rgba(8, 20, 16, 0.40) !important;
+
+    .logo-name,
+    .navbar-brand { color: var(--ez-cream) !important; font-weight: 700; }
+
+    .icon-color,
+    .material-icons,
+    .material-icons-outlined { color: var(--ez-cream) !important; }
+
+    .nav-notification-icons:hover .material-icons,
+    .nav-notification-icons:hover .material-icons-outlined { color: var(--ez-mint) !important; }
+
+    .notification-view { background: #E0544F !important; color: #fff !important; }
+  }
+
+  // ===========================================================================
+  //  LEFT SIDEBAR — transparent liquid / frozen glass
+  // ===========================================================================
+  #leftsidebar,
+  .sidebar {
+    background: rgba(255, 244, 226, 0.05) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
+    backdrop-filter: blur(14px) saturate(135%);
+    border: 1px solid var(--ez-glass-border) !important;
+    border-right: 1px solid var(--ez-glass-border) !important;
+    box-shadow: 0 18px 48px rgba(8, 20, 16, 0.40), inset 0 1px 1px rgba(255, 244, 226, 0.20) !important;
+    border-radius: 18px;
+    overflow: hidden;
+
+    &::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0;
+      background: linear-gradient(180deg, rgba(255, 244, 226, 0.08), transparent 38%);
+    }
+    // diagonal sheen sweep on hover
+    &::after {
+      content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%; pointer-events: none; z-index: 0;
+      background: linear-gradient(100deg, transparent, rgba(255, 244, 226, 0.16), transparent);
+      transform: skewX(-18deg); transition: left .8s ease;
+    }
+    &:hover::after { left: 135%; }
+    .menu { position: relative; z-index: 1; }
+  }
+
+  .sidebar-brand {
+    padding: 24px 22px 14px; margin-bottom: 4px;
+    .brand-word { font-family: var(--ez-font-display); font-size: 26px; font-weight: 700; color: var(--ez-cream); line-height: 1; letter-spacing: .01em; }
+    .brand-sub  { margin-top: 7px; font-size: 11px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: rgba(141, 207, 180, 0.85); }
+  }
+
+  .menu .list,
+  .sidebar .menu .list {
+    padding: 6px 8px 60px;
+
+    // section group headers (groupTitle:true in routes.json)
+    .header {
+      color: var(--ez-faint) !important;
+      font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      padding: 18px 18px 7px; margin: 0;
+    }
+
+    > li > a,
+    a.menu-top {
+      color: var(--ez-text-2) !important;
+      border-radius: 14px; margin: 2px 8px; padding: 11px 14px;
+      font-weight: 500; display: flex; align-items: center; gap: 2px;
+      transition: background-color .3s ease, color .3s ease, transform .15s ease;
+
+      i.material-icons, i.material-icons-outlined { color: rgba(255, 244, 226, 0.62) !important; margin-right: 12px; }
+
+      &:hover {
+        background: rgba(255, 244, 226, 0.07) !important;
+        color: var(--ez-cream) !important;
+        transform: translateX(2px);
+        i { color: var(--ez-mint) !important; }
+      }
+      &:active { transform: scale(0.98); }
+    }
+
+    .ml-menu a { color: var(--ez-text-2) !important; padding-left: 44px; }
+    .ml-menu a:hover { color: var(--ez-mint) !important; }
+  }
+
+  li.active > a.menu-top,
+  li.active-top > a.menu-top,
+  li.active > a {
+    background: rgba(255, 244, 226, 0.11) !important;
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    color: var(--ez-cream) !important;
+    border: 1px solid rgba(255, 244, 226, 0.22);
+    box-shadow: 0 6px 18px rgba(8, 20, 16, 0.30), inset 0 0 0 1px rgba(141, 207, 180, 0.10);
+    i.material-icons, i.material-icons-outlined { color: var(--ez-mint) !important; }
+  }
+
+  // ===========================================================================
+  //  GLASS CARDS  (generic .card + Angular Material card)
+  // ===========================================================================
+  .card,
+  .mat-mdc-card,
+  mat-card {
+    background: var(--ez-glass) !important;
+    backdrop-filter: blur(12px) saturate(135%);
+    -webkit-backdrop-filter: blur(12px) saturate(135%);
+    color: var(--ez-text) !important;
+    border: 1px solid var(--ez-glass-border) !important;
+    border-radius: var(--ez-radius) !important;
+    box-shadow: var(--ez-glass-shadow) !important;
+    position: relative; overflow: hidden;
+    transition: box-shadow .4s ease, transform .4s ease, background .4s ease;
+  }
+  // top highlight on glass cards
+  .card::before,
+  .mat-mdc-card::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(180deg, rgba(255, 244, 226, 0.08), transparent 36%);
+  }
+  .card:hover,
+  .mat-mdc-card:hover,
+  mat-card:hover {
+    background: var(--ez-glass-strong) !important;
+    box-shadow: 0 22px 56px rgba(8, 20, 16, 0.50), inset 0 1px 1px rgba(255, 244, 226, 0.24), 0 0 22px rgba(66, 132, 117, 0.14) !important;
+  }
+
+  .mat-mdc-card-title,
+  mat-card-title { color: var(--ez-cream) !important; }
+
+  // generic text colour normalisation inside admin
+  h1, h2, h3, h4, h5, h6 { color: var(--ez-cream); }
+  p, span, label, li, td, .text-dark { color: var(--ez-text-2); }
+  a { color: var(--ez-mint); }
+
+  // ===========================================================================
+  //  BREADCRUMB / PAGE TITLES
+  // ===========================================================================
+  .breadcrumb,
+  .block-header { background: transparent !important; }
+
+  .card-page-title,
+  .materialTableHeader .tbl-title h1,
+  .materialTableHeader .tbl-title h2 {
+    color: var(--ez-cream) !important;
+    font-family: var(--ez-font-display);
+    font-weight: 700;
+  }
+
+  // numeric/data cells use tabular figures to prevent column shift
+  .mat-mdc-cell, .amount, .price, td, .num { font-variant-numeric: tabular-nums; }
+
+  // visible focus rings for keyboard users (accessibility)
+  a:focus-visible,
+  button:focus-visible,
+  .table-toolbar-btn:focus-visible,
+  .mat-mdc-row:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--ez-mint) !important;
+    outline-offset: 2px;
+  }
+
+  // ===========================================================================
+  //  TABLES  (Angular Material mat-table) — dark glass surface
+  // ===========================================================================
+  .materialTableHeader {
+    background: transparent !important;
+    border-bottom: 1px solid var(--ez-glass-border);
+
+    .search-field {
+      background: rgba(255, 244, 226, 0.06) !important;
+      border: 1px solid var(--ez-glass-border) !important;
+      border-radius: 999px !important;
+      color: var(--ez-text) !important;
+      padding: 9px 16px 9px 38px !important;
+      backdrop-filter: blur(6px);
+
+      &::placeholder { color: var(--ez-faint) !important; }
+      &:focus {
+        border-color: var(--ez-mint) !important;
+        box-shadow: 0 0 0 3px rgba(141, 207, 180, 0.18) !important;
+        outline: none;
+      }
+    }
+    .search-icon { color: var(--ez-muted) !important; }
+  }
+
+  table.mat-mdc-table,
+  .mat-mdc-table,
+  .advance-table,
+  table[mat-table] { background: transparent !important; width: 100%; box-shadow: none !important; }
+
+  .mat-mdc-header-row,
+  mat-header-row {
+    background: rgba(255, 244, 226, 0.05) !important;
+    border-bottom: 1px solid var(--ez-glass-border) !important;
+    min-height: 48px;
+  }
+
+  .mat-mdc-header-cell,
+  mat-header-cell,
+  .mdc-data-table__header-cell {
+    color: var(--ez-muted) !important;
+    background: transparent !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-bottom-color: var(--ez-glass-border) !important;
+  }
+
+  .mat-mdc-row,
+  mat-row {
+    background: transparent !important;
+    border-bottom: 1px solid var(--ez-line) !important;
+    transition: background-color .25s ease;
+
+    &:hover { background: rgba(255, 244, 226, 0.06) !important; }
+  }
+
+  .mat-mdc-cell,
+  mat-cell,
+  .mdc-data-table__cell {
+    color: var(--ez-text-2) !important;
+    background: transparent !important;
+    border-bottom-color: var(--ez-line) !important;
+    font-size: 13.5px;
+  }
+  .mat-mdc-cell strong, mat-cell strong { color: var(--ez-cream) !important; }
+
+  .mdc-data-table__row:hover .mdc-data-table__cell { background: rgba(255, 244, 226, 0.06) !important; }
+
+  .mat-sort-header-arrow { color: var(--ez-mint) !important; }
+  .mat-sort-header-content { color: var(--ez-muted) !important; }
+
+  .mat-mdc-paginator {
+    background: transparent !important;
+    color: var(--ez-text-2) !important;
+    border-top: 1px solid var(--ez-glass-border);
+    .mat-mdc-select-value, .mat-mdc-paginator-range-label, .mat-mdc-icon-button { color: var(--ez-text-2) !important; }
+  }
+
+  // table wrappers — kill the old white elevation boxes
+  .table-responsive,
+  .mat-elevation-z8 {
+    border-radius: var(--ez-radius);
+    overflow: hidden;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  // ===========================================================================
+  //  BUTTONS
+  // ===========================================================================
+  .table-toolbar-btn {
+    color: var(--ez-text-2) !important;
+    background: rgba(255, 244, 226, 0.06) !important;
+    border: 1px solid var(--ez-glass-border) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(6px);
+    transition: transform .15s ease, background-color .2s ease, color .2s ease;
+
+    &:hover { transform: translateY(-1px); color: var(--ez-mint) !important; background: rgba(255, 244, 226, 0.12) !important; }
+    &.col-green:hover  { color: var(--ez-mint) !important; }
+    &.col-red:hover    { color: #FF8A82 !important; }
+    &.col-blue:hover   { color: #7FB2FF !important; }
+    &.col-purple:hover { color: #C3A7FF !important; }
+  }
+
+  .mat-mdc-raised-button.mat-primary,
+  button[color="primary"].mat-mdc-raised-button,
+  .ez-btn-primary {
+    background: linear-gradient(135deg, var(--ez-teal), var(--ez-teal-d)) !important;
+    color: var(--ez-cream) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 244, 226, 0.18) !important;
+    box-shadow: 0 10px 24px rgba(8, 20, 16, 0.40) !important;
+    font-weight: 700;
+    &:hover { filter: brightness(1.08); }
+  }
+
+  .mat-mdc-outlined-button {
+    border-radius: 12px !important;
+    color: var(--ez-text) !important;
+    border-color: var(--ez-glass-border) !important;
+  }
+
+  // ===========================================================================
+  //  BADGES / STATUS PILLS
+  // ===========================================================================
+  .badge,
+  .status-pill {
+    border-radius: 999px;
+    font-weight: 700;
+    padding: 4px 11px;
+
+    &.bg-success { background: rgba(141, 207, 180, 0.16) !important; color: var(--ez-mint) !important; }
+    &.bg-warning { background: rgba(244, 191, 99, 0.16) !important; color: #F4C56B !important; }
+    &.bg-primary { background: rgba(66, 132, 117, 0.22) !important; color: var(--ez-mint) !important; }
+    &.bg-info    { background: rgba(127, 178, 255, 0.16) !important; color: #9FC4FF !important; }
+    &.bg-danger,
+    &.badge-danger { background: rgba(224, 84, 79, 0.18) !important; color: #FF9A93 !important; }
+  }
+
+  .text-success { color: var(--ez-mint) !important; }
+  .text-muted { color: var(--ez-muted) !important; }
+  .no-results .text-muted,
+  .empty-state { color: var(--ez-muted) !important; }
+
+  // form inputs inside admin (non-dialog) → dark glass fields
+  input.form-control,
+  select.form-control,
+  textarea.form-control,
+  .browser-default {
+    background: rgba(255, 244, 226, 0.06) !important;
+    border: 1px solid var(--ez-glass-border) !important;
+    color: var(--ez-text) !important;
+    border-radius: 12px !important;
+    &::placeholder { color: var(--ez-faint) !important; }
+    &:focus { border-color: var(--ez-mint) !important; box-shadow: 0 0 0 3px rgba(141, 207, 180, 0.18) !important; outline: none; }
+  }
+
+  // staggered row reveal (motion with purpose) — gated by reduced-motion below
+  .mat-mdc-row { animation: ez-row-in .4s var(--ease-smooth, cubic-bezier(.4,0,.2,1)) both; }
+  @for $i from 1 through 12 {
+    .mat-mdc-row:nth-child(#{$i}) { animation-delay: #{$i * 0.03}s; }
+  }
+
+  // ===========================================================================
+  //  RESPONSIVE
+  // ===========================================================================
+  .overflow-auto,
+  .responsive_table { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  @media (max-width: 1199.98px) {
+    .content, .content-block { padding: 18px; }
+  }
+
+  @media (max-width: 767.98px) {
+    .content, .content-block { padding: 12px !important; }
+
+    .materialTableHeader {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      .left, .right { width: 100% !important; margin-left: 0 !important; }
+      .right { justify-content: flex-start !important; flex-wrap: wrap !important; }
+      .tbl-search-box, .search-field { width: 100% !important; min-width: 0 !important; }
+    }
+
+    .mat-mdc-paginator .mat-mdc-paginator-container { flex-wrap: wrap; justify-content: center; gap: 6px; }
+    table.mat-mdc-table, .advance-table { min-width: 640px; }
+  }
+
+  @media (max-width: 575.98px) {
+    .materialTableHeader .table-toolbar-btn { width: 38px !important; height: 38px !important; }
+    table.mat-mdc-table, .advance-table { min-width: 540px; }
+  }
+}
+
+// ---- reduced-motion / Playwright kill-switch -------------------------------
+@media (prefers-reduced-motion: reduce) {
+  app-main-layout .animate-float,
+  app-main-layout .reveal-on-load,
+  app-main-layout .mat-mdc-row,
+  app-main-layout .card,
+  app-main-layout .mat-mdc-card { animation: none !important; }
+  app-main-layout .reveal-on-load { opacity: 1 !important; transform: none !important; }
+  app-main-layout #leftsidebar::after,
+  app-main-layout .sidebar::after { display: none !important; }
+}
+
+// ---- ADMIN: remove the shared white top header (navbar + CAVERO logo) -------
+//  Hidden on ALL admin pages on desktop. Kept on mobile (<768px) so the
+//  hamburger can still open the off-canvas sidebar.
+@media (min-width: 768px) {
+  app-main-layout app-header,
+  app-main-layout .navbar { display: none !important; }
+  // reclaim the fixed-header offset so content + sidebar start at the very top
+  app-main-layout section.content { padding-top: 0 !important; margin-top: 0 !important; }
+  app-main-layout #leftsidebar { top: 0 !important; height: 100vh !important; }
+}

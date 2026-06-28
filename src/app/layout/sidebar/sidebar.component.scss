@@ -1,0 +1,77 @@
+:host {
+  display: block;
+}
+
+:host ::ng-deep .sidebar {
+  .sidebar-user-panel .user-panel .image {
+    width: min(88%, 180px);
+    max-width: 180px;
+  }
+
+  .sidebar-user-panel .user-panel .image .user-img-circle {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 18px;
+    padding: 4px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+  }
+
+  .sidebar-user-panel .user-panel .image .user-img-circle.brand-user-img {
+    width: 150px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 16px;
+    padding: 8px 12px;
+  }
+
+  .profile-usertitle .sidebar-userpic-name {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .profile-usertitle-job {
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .menu .list {
+    a.menu-top,
+    .ml-menu a,
+    .ml-menu-2 a,
+    .ml-menu-3 a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 44px;
+    }
+
+    a.menu-top i.material-icons,
+    a.menu-top i.material-icons-outlined,
+    > li > a i.material-icons,
+    > li > a i.material-icons-outlined {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      min-width: 22px;
+      height: 22px;
+      font-size: 22px;
+      line-height: 1;
+      font-family: 'Material Icons Outlined' !important;
+      text-rendering: optimizeLegibility;
+    }
+
+    .hide-menu {
+      flex: 1 1 auto;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

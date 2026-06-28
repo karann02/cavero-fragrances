@@ -1,0 +1,153 @@
+<section class="content">
+  <div class="content-block" style="padding-top: 12px;">
+    <div class="row" style="margin-top: 14px;">
+      <div class="col-lg-12">
+        <div class="card">
+
+          <div class="materialTableHeader" style="padding: 14px 16px 12px;">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h1 class="card-page-title" style="margin:0;font-size:1.1rem;font-weight:700;color:#243247;">
+                    Return Requests
+                  </h1>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input placeholder="Search by order, customer..." type="text"
+                    (keyup)="applyFilter($event)" class="browser-default search-field" aria-label="Search">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <button mat-icon-button (click)="loadData()" matTooltip="Refresh" class="table-toolbar-btn">
+                    <mat-icon>refresh</mat-icon>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
+
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="order_number">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Order #</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <strong>{{ row.order_number || '—' }}</strong>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="customer">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <div>
+                      <div class="fw-semibold">{{ row.customer_name || '—' }}</div>
+                      <div style="font-size:12px;color:#666;">{{ row.customer_email || '' }}</div>
+                    </div>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="reason">
+                  <mat-header-cell *matHeaderCellDef>Reason</mat-header-cell>
+                  <mat-cell *matCellDef="let row"
+                    style="max-width:200px; white-space:normal; word-break:break-word; font-size:13px;">
+                    {{ row.reason || '—' }}
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Order Amt</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span>₹{{ row.final_amount | number:'1.2-2' }}</span>
+                    <span *ngIf="row.refund_amount" style="display:block;font-size:11px;color:#2e7d32;">
+                      Refund: ₹{{ row.refund_amount | number:'1.2-2' }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="badge rounded-pill px-3 py-1"
+                      [ngStyle]="{
+                        'background': row.status === 'requested' ? 'rgba(244,191,99,0.14)' :
+                                      row.status === 'approved'  ? 'rgba(123,224,176,0.16)' :
+                                      row.status === 'rejected'  ? 'rgba(242,163,156,0.16)' :
+                                      row.status === 'refunded'  ? 'rgba(143,195,242,0.16)' : 'rgba(243,238,225,0.08)',
+                        'color':      row.status === 'requested' ? '#F4C56B' :
+                                      row.status === 'approved'  ? '#7BE0B0' :
+                                      row.status === 'rejected'  ? '#EF9A9A' :
+                                      row.status === 'refunded'  ? '#8FC3F2' : 'rgba(243,238,225,0.62)',
+                        'font-size':  '12px',
+                        'font-weight': '700'
+                      }">
+                      {{ row.status | titlecase }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Requested</mat-header-cell>
+                  <mat-cell *matCellDef="let row" style="font-size:12px;">
+                    {{ row.createdAt | date:'dd MMM yyyy, h:mm a' }}
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <div class="d-flex gap-1 flex-wrap">
+                      <button *ngIf="row.status === 'requested'"
+                        mat-stroked-button color="primary" style="font-size:11px; padding:2px 10px;"
+                        (click)="approve(row)" matTooltip="Approve return">
+                        Approve
+                      </button>
+                      <button *ngIf="row.status === 'requested'"
+                        mat-stroked-button color="warn" style="font-size:11px; padding:2px 10px;"
+                        (click)="reject(row)" matTooltip="Reject return">
+                        Reject
+                      </button>
+                      <button *ngIf="row.status === 'approved'"
+                        mat-flat-button color="primary" style="font-size:11px; padding:2px 10px;"
+                        (click)="refund(row)" matTooltip="Mark as refunded">
+                        Refund
+                      </button>
+                      <span *ngIf="row.status === 'rejected' || row.status === 'refunded'"
+                        style="font-size:12px; color:rgba(243,238,225,0.5); font-style:italic;">
+                        {{ row.status === 'refunded' ? 'Completed' : 'No action' }}
+                      </span>
+                    </div>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row [@rowsAnimation]="" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </table>
+
+              @if (!isLoading && dataSource.data.length === 0) {
+                <div class="no-results text-center py-5">
+                  <mat-icon class="display-1 text-muted mb-3">assignment_return</mat-icon>
+                  <h4 class="text-muted">No return requests yet</h4>
+                </div>
+              }
+
+
+            </div>
+          </div>
+          <mat-paginator [length]="dataSource.filteredData.length" [pageIndex]="0"
+                [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+              </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

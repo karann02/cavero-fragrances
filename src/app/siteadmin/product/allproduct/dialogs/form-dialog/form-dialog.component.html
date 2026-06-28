@@ -1,0 +1,475 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{dialogTitle}}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="productForm" (ngSubmit)="submit()">
+
+      <!-- Product Information Section -->
+      <h4 class="mt-2 mb-3">Product Information</h4>
+      <div class="row">
+        <!-- Product Name -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-icon matSuffix>inventory_2</mat-icon>
+            <mat-error *ngIf="productForm.get('name')?.hasError('required')">Product name is required</mat-error>
+            <mat-error *ngIf="productForm.get('name')?.hasError('minlength')">Product name must be at least 2 characters</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Product Slug -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Product Slug (auto)</mat-label>
+            <input matInput formControlName="slug" readonly
+                   matTooltip="Generated automatically from the product name" style="cursor:default;">
+            <mat-icon matSuffix>link</mat-icon>
+            <mat-hint>From the product name</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- SKU, Category, and Status -->
+      <div class="row">
+        <!-- SKU -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>SKU (auto-generated)</mat-label>
+            <input matInput formControlName="sku" readonly
+                   matTooltip="Generated automatically — no need to enter it"
+                   style="cursor:default;">
+            <mat-icon matSuffix>qr_code</mat-icon>
+            <mat-hint>Created automatically</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <!-- Category -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="parent_category_id" (selectionChange)="onParentCategoryChange($event.value)">
+              <mat-option>-- Select Category --</mat-option>
+              @for (category of parentCategories; track category.id) {
+              <mat-option [value]="category.id">{{category.name}}</mat-option>
+              }
+            </mat-select>
+            <mat-icon matSuffix>folder</mat-icon>
+            <mat-error *ngIf="productForm.get('parent_category_id')?.hasError('required')">Category is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Status -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>toggle_on</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Short Description and Featured -->
+      <div class="row">
+        <!-- Short Description -->
+        <div class="col-xl-9 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Short Description</mat-label>
+            <textarea matInput formControlName="short_description" rows="2"
+              placeholder="Brief product description for listings..."></textarea>
+            <mat-icon matSuffix>short_text</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Featured Checkbox -->
+        <div class="col-xl-3 mb-2 d-flex align-items-center">
+          <mat-checkbox formControlName="is_featured">
+            Featured Product
+          </mat-checkbox>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Product Description</mat-label>
+            <textarea matInput formControlName="description" rows="4"
+              placeholder="Enter detailed product description..."></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Pricing Information -->
+      <h4 class="mt-4 mb-3">Pricing & Inventory</h4>
+      <div class="row">
+        <!-- Selling Price -->
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Selling Price (₹)</mat-label>
+            <input matInput type="number" formControlName="price" min="0" step="0.01" required (focus)="$any($event.target).select()">
+            <mat-icon matSuffix>currency_rupee</mat-icon>
+            <mat-error *ngIf="productForm.get('price')?.hasError('required')">Price is required</mat-error>
+            <mat-error *ngIf="productForm.get('price')?.hasError('min')">Price must be greater than 0</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Compare Price -->
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Compare Price (₹)</mat-label>
+            <input matInput type="number" formControlName="compare_price" min="0" step="0.01"
+              placeholder="Original price for discounts" (focus)="$any($event.target).select()">
+            <mat-icon matSuffix>compare_arrows</mat-icon>
+            <mat-error *ngIf="productForm.hasError('comparePriceTooLow')">Compare price must be greater than or equal to selling price</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Weight -->
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Weight</mat-label>
+            <input matInput type="number" formControlName="weight" min="0" step="0.01" (focus)="$any($event.target).select()">
+            <mat-icon matSuffix>fitness_center</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Bottle Size / Weight Unit -->
+      <div class="row">
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Volume Unit</mat-label>
+            <mat-select formControlName="weight_unit">
+              @for (unit of weightUnits; track unit) {
+              <mat-option [value]="unit">{{ unit }}</mat-option>
+              }
+            </mat-select>
+            <mat-icon matSuffix>straighten</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Fragrance Details Section -->
+      <h4 class="mt-4 mb-3">Fragrance Details</h4>
+      <div class="row">
+        <!-- Concentration -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Concentration</mat-label>
+            <mat-select formControlName="concentration">
+              <mat-option value="">-- Select --</mat-option>
+              @for (c of concentrationOptions; track c) {
+                <mat-option [value]="c">{{ c }}</mat-option>
+              }
+            </mat-select>
+            <mat-icon matSuffix>science</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Fragrance Family -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Fragrance Family</mat-label>
+            <mat-select formControlName="fragrance_family">
+              <mat-option value="">-- Select --</mat-option>
+              @for (f of fragranceFamilies; track f) {
+                <mat-option [value]="f">{{ f }}</mat-option>
+              }
+            </mat-select>
+            <mat-icon matSuffix>spa</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Gender -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="">-- Select --</mat-option>
+              <mat-option value="Men">Men</mat-option>
+              <mat-option value="Women">Women</mat-option>
+              <mat-option value="Unisex">Unisex</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Fragrance Notes -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Fragrance Notes (Top / Middle / Base)</mat-label>
+            <textarea matInput formControlName="ingredients" rows="3"
+              placeholder="Top: Bergamot, Lemon&#10;Middle: Rose, Oud&#10;Base: Sandalwood, Musk"></textarea>
+            <mat-icon matSuffix>emoji_nature</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- How To Apply -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>How To Apply</mat-label>
+            <textarea matInput formControlName="calories" rows="3"
+              placeholder="Spray on pulse points (wrists, neck, behind ears)..."></textarea>
+            <mat-icon matSuffix>auto_fix_high</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Delivery Information -->
+      <!-- <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>How To Use?</mat-label>
+            <textarea matInput formControlName="delivery_info" rows="2"
+              placeholder="How To Use"></textarea>
+            <mat-icon matSuffix>local_shipping</mat-icon>
+            <mat-error *ngIf="productForm.get('delivery_info')?.hasError('maxlength')">How To Use field cannot exceed 500 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div> -->
+
+      <!-- ========== PRODUCT VARIANTS MODULE ========== -->
+      <div class="variants-module mt-2 mb-4">
+        <!-- Quick Add from predefined sizes -->
+        <div *ngIf="variantTypes.length > 0" class="mb-3 p-3 rounded" style="background:rgba(255,244,226,0.06); border:1px solid rgba(255,244,226,0.18);">
+          <small class="fw-bold d-block mb-2" style="font-size:0.7rem; letter-spacing:.06em; color:#FFF4E2; text-transform:uppercase;">
+            Quick Add Predefined Sizes
+          </small>
+          <div class="d-flex flex-wrap gap-2">
+            <button *ngFor="let t of variantTypes" type="button"
+                    class="btn btn-sm"
+                    [style.background]="isTypeAdded(t.name) ? '#418576' : 'rgba(255,244,226,0.08)'"
+                    [style.color]="isTypeAdded(t.name) ? '#fff' : '#FFF4E2'"
+                    [style.border]="isTypeAdded(t.name) ? '1px solid #418576' : '1px solid #418576'"
+                    [style.opacity]="isTypeAdded(t.name) ? '0.7' : '1'"
+                    [disabled]="isTypeAdded(t.name)"
+                    (click)="addVariantFromType(t)"
+                    style="border-radius:20px; font-weight:600; font-size:12px; padding:4px 14px;">
+              <span *ngIf="isTypeAdded(t.name)" style="margin-right:4px;">&#10003;</span>{{ t.name }}
+            </button>
+          </div>
+          <small class="text-muted mt-1 d-block" style="font-size:0.7rem;">Click a size to add it as a variant row below. Set price &amp; stock after adding.</small>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <div class="d-flex align-items-center gap-3">
+            <h4 class="mb-0">Product Variants</h4>
+            <span *ngIf="variants.length > 0" class="badge rounded-pill" style="background:#418576;color:#fff;">{{ variants.length }}</span>
+          </div>
+          <small class="text-muted" style="font-size:0.72rem;">Add sizes from the chips above — names are managed in Variant Types.</small>
+        </div>
+
+        <!-- Empty state -->
+        <div *ngIf="variants.length === 0" class="variants-empty p-3 rounded text-center" style="border:2px dashed rgba(255,244,226,0.22);background:rgba(255,244,226,0.05);">
+          <mat-icon style="font-size:36px;height:36px;width:36px;color:#8DCFB4;">inventory_2</mat-icon>
+          <p class="mb-1 mt-2 fw-semibold" style="color:#FFF4E2;">No variants added</p>
+          <small class="text-muted">Product sells as a single size at the base price above.<br>
+            Add variants if it comes in different sizes or prices (e.g. 3ml, 30ml, 50ml, 100ml).</small>
+        </div>
+
+        <!-- Column headers -->
+        <div *ngIf="variants.length > 0" class="variant-header row g-1 mb-1 px-1">
+          <div class="col-2"><small class="text-muted fw-bold" style="font-size:0.7rem;letter-spacing:.04em;">SIZE / NAME</small></div>
+          <div class="col-2"><small class="text-muted fw-bold" style="font-size:0.7rem;letter-spacing:.04em;">SKU</small></div>
+          <div class="col-2"><small class="text-muted fw-bold" style="font-size:0.7rem;letter-spacing:.04em;">PRICE (₹)</small></div>
+          <div class="col-2"><small class="text-muted fw-bold" style="font-size:0.7rem;letter-spacing:.04em;">MRP (₹)</small></div>
+          <div class="col-1"><small class="text-muted fw-bold" style="font-size:0.7rem;letter-spacing:.04em;">STOCK&nbsp;/&nbsp;+ADD</small></div>
+          <div class="col-1"><small class="text-muted fw-bold" style="font-size:0.7rem;letter-spacing:.04em;">ALERT</small></div>
+          <div class="col-1 text-center"><small class="text-muted fw-bold" style="font-size:0.7rem;letter-spacing:.04em;">ACTIVE</small></div>
+          <div class="col-1"></div>
+        </div>
+
+        <!-- Variant rows -->
+        <div *ngFor="let v of variants; let i = index"
+          class="variant-row row g-1 align-items-center mb-1 px-1 py-1 rounded"
+          [style.opacity]="v.is_active ? '1' : '0.55'"
+          style="background:rgba(159,227,197,0.045);border:1px solid rgba(159,227,197,0.12);">
+
+          <!-- Name (locked to the selected size — not editable) -->
+          <div class="col-2">
+            <mat-form-field appearance="outline" floatLabel="always" class="example-full-width" subscriptSizing="dynamic">
+              <mat-label>Size</mat-label>
+              <input matInput [ngModel]="v.name" [ngModelOptions]="{standalone: true}" readonly
+                style="cursor:default;"
+                matTooltip="Size is set from the variant you selected above and cannot be changed here">
+              <mat-icon matSuffix style="font-size:16px;height:16px;width:16px;color:#9aa;">lock</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <!-- SKU -->
+          <div class="col-2">
+            <mat-form-field appearance="outline" floatLabel="always" class="example-full-width" subscriptSizing="dynamic">
+              <mat-label>SKU</mat-label>
+              <input matInput [ngModel]="v.sku" [ngModelOptions]="{standalone: true}" readonly
+                     matTooltip="Generated automatically from the product SKU + size" style="cursor:default;">
+              <mat-icon matSuffix style="font-size:15px;height:15px;width:15px;color:#9aa;">lock</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <!-- Price -->
+          <div class="col-2">
+            <mat-form-field appearance="outline" floatLabel="always" class="example-full-width" subscriptSizing="dynamic">
+              <mat-label>Price (₹)</mat-label>
+              <input matInput type="number" [(ngModel)]="v.price" [ngModelOptions]="{standalone: true}" min="0" step="1" (focus)="$any($event.target).select()">
+            </mat-form-field>
+          </div>
+
+          <!-- MRP -->
+          <div class="col-2">
+            <mat-form-field appearance="outline" floatLabel="always" class="example-full-width" subscriptSizing="dynamic">
+              <mat-label>MRP (₹)</mat-label>
+              <input matInput type="number" [(ngModel)]="v.compare_price" [ngModelOptions]="{standalone: true}" min="0" step="1" (focus)="$any($event.target).select()">
+            </mat-form-field>
+          </div>
+
+          <!-- Stock (current) + Add new (sums into current via the + button) -->
+          <div class="col-1 stock-col">
+            <mat-form-field appearance="outline" floatLabel="always" class="example-full-width" subscriptSizing="dynamic">
+              <mat-label>Stock</mat-label>
+              <input matInput type="number" [(ngModel)]="v.stock" [ngModelOptions]="{standalone: true}" min="0" (focus)="$any($event.target).select()">
+            </mat-form-field>
+            <!-- Add-stock: clean custom control (input + mint Add button) -->
+            <div class="cv-addstock"
+                 matTooltip="Type units to add to the current stock, then press Add (or Enter)">
+              <input type="number" class="cv-addstock-in" [(ngModel)]="v.addStock"
+                     [ngModelOptions]="{standalone: true}" min="0" placeholder="Add units"
+                     (keydown.enter)="applyVariantStockAdd(v)">
+              <button type="button" class="cv-addstock-btn" (click)="applyVariantStockAdd(v)"
+                      [disabled]="!v.addStock" aria-label="Add to current stock">
+                <mat-icon>add</mat-icon><span>Add</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Low stock alert -->
+          <div class="col-1">
+            <mat-form-field appearance="outline" floatLabel="always" class="example-full-width" subscriptSizing="dynamic">
+              <mat-label>Alert</mat-label>
+              <input matInput type="number" [(ngModel)]="v.low_stock_threshold" [ngModelOptions]="{standalone: true}" min="0" (focus)="$any($event.target).select()">
+            </mat-form-field>
+          </div>
+
+          <!-- Active toggle -->
+          <div class="col-1 d-flex align-items-center justify-content-center pt-1">
+            <mat-slide-toggle [(ngModel)]="v.is_active" [ngModelOptions]="{standalone: true}" color="primary"></mat-slide-toggle>
+          </div>
+
+          <!-- Delete -->
+          <div class="col-1 d-flex align-items-center justify-content-center">
+            <button type="button" mat-icon-button color="warn" (click)="removeVariant(i)" title="Remove variant">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- Total stock (derived from variants) -->
+        <div *ngIf="variants.length > 0" class="mt-3 p-3 rounded d-flex justify-content-between align-items-center"
+             style="background:rgba(255,244,226,0.06); border:1.5px solid rgba(255,244,226,0.18);">
+          <small class="fw-bold" style="font-size:0.72rem; letter-spacing:.04em; text-transform:uppercase; color:#FFF4E2;">
+            Total Stock
+          </small>
+          <small class="fw-bold" style="color:#8DCFB4;">
+            {{ totalVariantStock }} in stock&nbsp;(sum of all variants)
+          </small>
+        </div>
+
+        <!-- Info note -->
+        <div *ngIf="variants.length > 0" class="mt-2 d-flex align-items-start gap-1" style="font-size:0.78rem;color:#6c757d;">
+          <mat-icon style="font-size:14px;height:14px;width:14px;flex-shrink:0;margin-top:2px;">info</mat-icon>
+          <span>When variants exist the product page shows a size selector. Customers must choose a size before adding to cart.
+            Variant price overrides the base price. Set ACTIVE to off to hide a variant without deleting it.
+            ALERT triggers a "low stock" notice when remaining stock ≤ that number.</span>
+        </div>
+      </div>
+      <!-- ========== END VARIANTS MODULE ========== -->
+
+      <!-- Image Upload Section -->
+      <h4 class="mt-4 mb-3">Product Images</h4>
+      <div class="row">
+        <div class="col-xl-12 mb-3">
+          <div class="file-drop-area" [class.dragging]="isDragging" (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)" (drop)="onDrop($event)" (click)="triggerFileInput()">
+            <input #fileInput type="file" id="uploadFile" class="file-input" multiple accept="image/*"
+              (change)="onFileSelected($event)">
+            <div class="file-msg">
+              <mat-icon class="file-icon">cloud_upload</mat-icon>
+              <span>Drop product images here or click to browse</span>
+            </div>
+          </div>
+          <small class="text-muted">Supported formats: JPG, PNG, GIF, WebP. You can upload multiple images.</small>
+        </div>
+      </div>
+
+      <!-- Image Previews -->
+      <div class="row" *ngIf="uploadedImages.length > 0">
+        <div class="col-xl-12 mb-3">
+          <h5>Selected Images ({{ uploadedImages.length }})</h5>
+          <div class="image-preview-container">
+            <div class="image-preview-item" *ngFor="let image of uploadedImages; let i = index">
+              <img [src]="image.url || image.path" [alt]="image.originalname">
+              <button type="button" class="remove-image-btn" (click)="removeImage(i, image)" mat-icon-button>
+                <mat-icon>close</mat-icon>
+              </button>
+              <div class="image-info">
+                <small>{{ image.originalname }}</small>
+                <small>{{ (image.size / 1024).toFixed(2) }} KB</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Information -->
+      <h4 class="mt-4 mb-3">SEO Information</h4>
+      <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>SEO Title</mat-label>
+            <input matInput formControlName="seo_title" placeholder="Optimized title for search engines">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>SEO Description</mat-label>
+            <textarea matInput formControlName="seo_description" rows="2"
+              placeholder="Meta description for search engines (155 characters recommended)"></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Form Buttons -->
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <!-- 🆕 FIX: Typo in 'action' variable -->
+            <button mat-flat-button color="primary" type="submit" [disabled]="!productForm.valid">
+              {{ action === 'edit' ? 'Update Product' : 'Add Product' }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,284 @@
+<!-- @dsCard group="Dashboard" name="Cavero Admin Dashboard" subtitle="Botanic Luxe + Liquid Glass — frosted cards, flowing backdrop" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cavero Admin — Dashboard (Liquid Glass)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          emerald: '#1A312C', teal: '#428475', tealLite: '#5FA08F',
+          mint: '#8DCFB4', mintSoft: '#E3F1EA', cream: '#FFF7E4',
+          canvas: '#F2F7F3', line: '#ECE3D6', ink: '#1A312C', muted: '#5B6B66',
+          amber: '#B4760A', amberSoft: '#FBEFD6', danger: '#B23B3B', dangerSoft: '#F8E4E1',
+        },
+        fontFamily: { display: ['"Playfair Display"', 'serif'], sans: ['"DM Sans"', 'sans-serif'] },
+        borderRadius: { xl2: '24px' },
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'DM Sans', sans-serif; }
+  .ms { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; line-height: 1; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---- Liquid background: drifting emerald/mint blobs ---- */
+  .liquid-bg { position: fixed; inset: 0; z-index: -2; overflow: hidden;
+    background: linear-gradient(135deg, #EAF4EE 0%, #F6F1E6 60%, #E6F1EA 100%); }
+  .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; mix-blend-mode: multiply; }
+  .blob.b1 { width: 520px; height: 520px; background: #8DCFB4; top: -120px; left: -80px; animation: drift1 18s ease-in-out infinite; }
+  .blob.b2 { width: 460px; height: 460px; background: #428475; bottom: -140px; right: -60px; animation: drift2 22s ease-in-out infinite; }
+  .blob.b3 { width: 380px; height: 380px; background: #B7E3CF; top: 35%; left: 55%; animation: drift3 26s ease-in-out infinite; }
+  @keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(80px,60px) scale(1.12)} }
+  @keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-70px,-50px) scale(1.1)} }
+  @keyframes drift3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-60px,40px) scale(0.9)} }
+
+  /* ---- Liquid glass surface ---- */
+  .glass {
+    background: rgba(255,255,255,0.42);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.55);
+    box-shadow: 0 10px 36px rgba(26,49,44,0.10), inset 0 1px 0 rgba(255,255,255,0.65);
+    position: relative; overflow: hidden;
+    transition: box-shadow .35s cubic-bezier(.2,.9,.3,1.2), transform .35s cubic-bezier(.2,.9,.3,1.2), background .35s ease;
+  }
+  /* specular sheen sweep on hover */
+  .glass::after { content:""; position:absolute; top:0; left:-60%; width:50%; height:100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
+    transform: skewX(-18deg); transition: left .7s ease; pointer-events:none; }
+  .glass:hover::after { left: 130%; }
+  .glass:hover { transform: translateY(-3px); box-shadow: 0 22px 50px rgba(26,49,44,0.16), 0 0 24px rgba(66,132,117,0.18), inset 0 1px 0 rgba(255,255,255,0.7); }
+
+  .glass-emerald {
+    background: linear-gradient(140deg, rgba(26,49,44,0.92), rgba(36,80,70,0.86));
+    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 18px 48px rgba(26,49,44,0.32), inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+  .glass-dark {
+    background: rgba(26,49,44,0.62);
+    -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%);
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .float { animation: floaty 7s ease-in-out infinite; }
+  @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  .navitem:hover { background: rgba(255,255,255,0.08); }
+  @media (prefers-reduced-motion: reduce) { .blob,.float{animation:none} .glass::after{display:none} }
+</style>
+</head>
+<body class="text-ink">
+<!-- Liquid backdrop -->
+<div class="liquid-bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar (dark frosted glass) -->
+  <aside class="glass-dark w-64 shrink-0 text-cream/80 flex flex-col p-5 sticky top-0 h-screen">
+    <div class="px-2 py-3 mb-4">
+      <div class="font-display text-2xl text-cream tracking-wide">Cavero</div>
+      <div class="text-[11px] uppercase tracking-[0.25em] text-mint/70 mt-1">Fragrances · Admin</div>
+    </div>
+    <nav class="flex flex-col gap-1 mt-2">
+      <a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/15 border border-white/20 text-cream font-semibold backdrop-blur">
+        <span class="ms text-[20px]">grid_view</span> Dashboard</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">inventory_2</span> Products</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">shopping_bag</span> Orders</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">group</span> Customers</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">category</span> Categories</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">redeem</span> Coupons</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">slideshow</span> Sliders</a>
+    </nav>
+    <div class="mt-auto flex flex-col gap-1 pt-4 border-t border-white/10">
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">settings</span> Settings</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-xl transition"><span class="ms text-[20px]">logout</span> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="flex-1 min-w-0">
+
+    <!-- Topbar (frosted) -->
+    <header class="glass flex items-center justify-between gap-4 px-8 py-5 sticky top-0 z-20 !rounded-none border-x-0 border-t-0">
+      <div>
+        <h1 class="font-display text-[26px] leading-tight text-emerald">Dashboard</h1>
+        <p class="text-sm text-muted">Tuesday, 22 June 2026</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="relative hidden md:block">
+          <span class="ms absolute left-3 top-1/2 -translate-y-1/2 text-muted text-[20px]">search</span>
+          <input placeholder="Search products, orders…" class="w-72 pl-10 pr-4 py-2.5 rounded-full bg-white/50 border border-white/60 text-sm outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 backdrop-blur" />
+        </div>
+        <button class="w-11 h-11 rounded-full bg-white/50 border border-white/60 grid place-items-center relative backdrop-blur">
+          <span class="ms text-emerald text-[20px]">notifications</span>
+          <span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-danger"></span>
+        </button>
+        <div class="flex items-center gap-3 pl-2">
+          <div class="text-right hidden lg:block">
+            <p class="text-sm font-semibold text-emerald leading-tight">Manthan Gadara</p>
+            <p class="text-[11px] uppercase tracking-widest text-muted">Super Admin</p>
+          </div>
+          <div class="w-11 h-11 rounded-2xl glass-emerald text-cream grid place-items-center font-display text-lg">M</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="p-8 space-y-6 max-w-[1280px]">
+
+      <!-- Greeting + CTA -->
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h2 class="font-display text-3xl text-emerald">Good morning, Manthan</h2>
+          <p class="text-muted mt-1">Here's how Cavero is performing today.</p>
+        </div>
+        <button class="inline-flex items-center gap-2 glass-emerald text-cream px-5 py-3 rounded-2xl font-semibold transition hover:brightness-110">
+          <span class="ms text-[20px]">add</span> Add Product
+        </button>
+      </div>
+
+      <!-- Bento KPI grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-5">
+        <!-- Feature tile -->
+        <div class="glass-emerald float lg:col-span-2 lg:row-span-2 rounded-xl2 p-7 text-cream relative overflow-hidden">
+          <div class="absolute -right-12 -top-12 w-52 h-52 rounded-full bg-mint/25 blur-3xl"></div>
+          <div class="flex items-center justify-between relative">
+            <div class="w-12 h-12 rounded-2xl bg-white/15 grid place-items-center backdrop-blur"><span class="ms text-[22px]">payments</span></div>
+            <span class="text-mint text-sm font-semibold inline-flex items-center gap-1"><span class="ms text-[16px]">trending_up</span> +18.2%</span>
+          </div>
+          <p class="text-cream/70 text-sm uppercase tracking-widest mt-7">Total Revenue</p>
+          <div class="font-display text-5xl mt-2 num">₹2,48,592</div>
+          <p class="text-cream/60 text-sm mt-1">vs ₹2,10,300 last month</p>
+          <svg class="w-full h-20 mt-6" viewBox="0 0 320 80" preserveAspectRatio="none">
+            <defs><linearGradient id="sp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8DCFB4" stop-opacity="0.5"/><stop offset="1" stop-color="#8DCFB4" stop-opacity="0"/></linearGradient></defs>
+            <path d="M0 60 C 40 50, 60 30, 100 38 S 170 20, 210 30 S 280 8, 320 18 L320 80 L0 80 Z" fill="url(#sp)"/>
+            <path d="M0 60 C 40 50, 60 30, 100 38 S 170 20, 210 30 S 280 8, 320 18" fill="none" stroke="#8DCFB4" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- Stat tiles (frosted glass) -->
+        <div class="glass float rounded-xl2 p-6" style="animation-delay:.4s">
+          <div class="flex items-center justify-between">
+            <div class="w-11 h-11 rounded-2xl bg-mintSoft/70 grid place-items-center text-teal backdrop-blur"><span class="ms text-[20px]">shopping_bag</span></div>
+            <span class="text-teal text-xs font-semibold">+5.2%</span>
+          </div>
+          <p class="text-muted text-xs uppercase tracking-widest mt-5">Total Orders</p>
+          <div class="font-display text-3xl text-emerald mt-1 num">1,450</div>
+        </div>
+        <div class="glass float rounded-xl2 p-6" style="animation-delay:.8s">
+          <div class="flex items-center justify-between">
+            <div class="w-11 h-11 rounded-2xl bg-mintSoft/70 grid place-items-center text-teal backdrop-blur"><span class="ms text-[20px]">inventory_2</span></div>
+            <span class="text-teal text-xs font-semibold">+2.1%</span>
+          </div>
+          <p class="text-muted text-xs uppercase tracking-widest mt-5">Products</p>
+          <div class="font-display text-3xl text-emerald mt-1 num">312</div>
+        </div>
+        <div class="glass float rounded-xl2 p-6" style="animation-delay:.2s">
+          <div class="flex items-center justify-between">
+            <div class="w-11 h-11 rounded-2xl bg-mintSoft/70 grid place-items-center text-teal backdrop-blur"><span class="ms text-[20px]">group</span></div>
+            <span class="text-teal text-xs font-semibold">+12%</span>
+          </div>
+          <p class="text-muted text-xs uppercase tracking-widest mt-5">Customers</p>
+          <div class="font-display text-3xl text-emerald mt-1 num">8,234</div>
+        </div>
+        <div class="glass float rounded-xl2 p-6" style="animation-delay:.6s">
+          <div class="flex items-center justify-between">
+            <div class="w-11 h-11 rounded-2xl bg-amberSoft/80 grid place-items-center text-amber backdrop-blur"><span class="ms text-[20px]">warning</span></div>
+            <span class="text-amber text-xs font-semibold">7 items</span>
+          </div>
+          <p class="text-muted text-xs uppercase tracking-widest mt-5">Low Stock</p>
+          <div class="font-display text-3xl text-emerald mt-1 num">7</div>
+        </div>
+      </div>
+
+      <!-- Trend + Donut -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div class="glass lg:col-span-2 rounded-xl2 p-7">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h3 class="font-display text-xl text-emerald">Revenue Overview</h3>
+              <p class="text-muted text-sm">Last 7 days</p>
+            </div>
+            <div class="flex gap-1 bg-white/40 border border-white/60 rounded-full p-1 text-xs font-semibold backdrop-blur">
+              <button class="px-3 py-1.5 rounded-full text-muted">Daily</button>
+              <button class="px-3 py-1.5 rounded-full bg-teal text-white">Weekly</button>
+              <button class="px-3 py-1.5 rounded-full text-muted">Monthly</button>
+            </div>
+          </div>
+          <svg class="w-full h-64" viewBox="0 0 640 260" preserveAspectRatio="none">
+            <defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#428475" stop-opacity="0.30"/><stop offset="1" stop-color="#428475" stop-opacity="0"/></linearGradient></defs>
+            <line x1="0" y1="40"  x2="640" y2="40"  stroke="rgba(26,49,44,0.08)"/><line x1="0" y1="110" x2="640" y2="110" stroke="rgba(26,49,44,0.08)"/>
+            <line x1="0" y1="180" x2="640" y2="180" stroke="rgba(26,49,44,0.08)"/><line x1="0" y1="240" x2="640" y2="240" stroke="rgba(26,49,44,0.08)"/>
+            <path d="M20 200 C 90 180, 130 120, 200 140 S 320 90, 390 110 S 500 40, 560 70 L620 60 L620 240 L20 240 Z" fill="url(#area)"/>
+            <path d="M20 200 C 90 180, 130 120, 200 140 S 320 90, 390 110 S 500 40, 560 70 L620 60" fill="none" stroke="#428475" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="390" cy="110" r="5" fill="#fff" stroke="#428475" stroke-width="3"/>
+          </svg>
+          <div class="flex justify-between text-xs text-muted mt-3 px-1 num">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl2 p-7">
+          <h3 class="font-display text-xl text-emerald mb-1">Sales by Category</h3>
+          <p class="text-muted text-sm mb-5">This month</p>
+          <div class="relative w-40 h-40 mx-auto">
+            <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="14"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#1A312C" stroke-width="14" stroke-dasharray="118 146" stroke-dashoffset="0"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#428475" stroke-width="14" stroke-dasharray="79 185" stroke-dashoffset="-118"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#8DCFB4" stroke-width="14" stroke-dasharray="40 224" stroke-dashoffset="-197"/>
+            </svg>
+            <div class="absolute inset-0 grid place-content-center text-center">
+              <div class="font-display text-2xl text-emerald num">₹84.2k</div>
+              <div class="text-[11px] text-muted">total</div>
+            </div>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm">
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-2.5 h-2.5 rounded-sm bg-emerald inline-block"></i> Oud / Attar</span><span class="font-semibold num">45%</span></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-2.5 h-2.5 rounded-sm bg-teal inline-block"></i> Eau de Parfum</span><span class="font-semibold num">30%</span></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-2.5 h-2.5 rounded-sm bg-mint inline-block"></i> Combos</span><span class="font-semibold num">15%</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Orders + Low stock -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div class="glass lg:col-span-2 rounded-xl2 overflow-hidden">
+          <div class="flex items-center justify-between px-7 py-5 border-b border-white/40">
+            <h3 class="font-display text-xl text-emerald">Recent Orders</h3>
+            <a class="text-teal text-sm font-semibold inline-flex items-center gap-1">View all <span class="ms text-[16px]">arrow_forward</span></a>
+          </div>
+          <table class="w-full text-sm">
+            <thead><tr class="text-muted text-[11px] uppercase tracking-widest bg-white/30">
+              <th class="text-left px-7 py-3 font-semibold">Order</th><th class="text-left px-7 py-3 font-semibold">Customer</th>
+              <th class="text-left px-7 py-3 font-semibold">Amount</th><th class="text-left px-7 py-3 font-semibold">Status</th></tr></thead>
+            <tbody>
+              <tr class="border-t border-white/40"><td class="px-7 py-4 num font-semibold text-emerald">#72910</td><td class="px-7 py-4">Saffron Clarke</td><td class="px-7 py-4 num font-bold text-emerald">₹1,240</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-mintSoft/80 text-teal">Delivered</span></td></tr>
+              <tr class="border-t border-white/40"><td class="px-7 py-4 num font-semibold text-emerald">#72911</td><td class="px-7 py-4">Amara Lane</td><td class="px-7 py-4 num font-bold text-emerald">₹3,400</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-amberSoft/80 text-amber">Processing</span></td></tr>
+              <tr class="border-t border-white/40"><td class="px-7 py-4 num font-semibold text-emerald">#72912</td><td class="px-7 py-4">Robert Wade</td><td class="px-7 py-4 num font-bold text-emerald">₹750</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-dangerSoft/80 text-danger">Cancelled</span></td></tr>
+              <tr class="border-t border-white/40"><td class="px-7 py-4 num font-semibold text-emerald">#72913</td><td class="px-7 py-4">Elena Park</td><td class="px-7 py-4 num font-bold text-emerald">₹920</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-mintSoft/80 text-teal">Delivered</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="glass rounded-xl2 p-7">
+          <h3 class="font-display text-xl text-emerald mb-5">Products to Restock</h3>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-center gap-3"><span class="w-10 h-10 rounded-xl bg-white/50 border border-white/60 grid place-items-center text-teal backdrop-blur"><span class="ms text-[18px]">spa</span></span><div class="flex-1"><div class="font-semibold text-emerald">Royal Oud 50ml</div><div class="text-muted text-xs">SKU CV-OUD-050</div></div><span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amberSoft/80 text-amber num">4 left</span></li>
+            <li class="flex items-center gap-3"><span class="w-10 h-10 rounded-xl bg-white/50 border border-white/60 grid place-items-center text-teal backdrop-blur"><span class="ms text-[18px]">spa</span></span><div class="flex-1"><div class="font-semibold text-emerald">Amber Noir 100ml</div><div class="text-muted text-xs">SKU CV-AMB-100</div></div><span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-dangerSoft/80 text-danger num">0 left</span></li>
+            <li class="flex items-center gap-3"><span class="w-10 h-10 rounded-xl bg-white/50 border border-white/60 grid place-items-center text-teal backdrop-blur"><span class="ms text-[18px]">spa</span></span><div class="flex-1"><div class="font-semibold text-emerald">Musk Élixir 30ml</div><div class="text-muted text-xs">SKU CV-MSK-030</div></div><span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amberSoft/80 text-amber num">6 left</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

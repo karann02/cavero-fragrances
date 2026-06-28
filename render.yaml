@@ -1,0 +1,67 @@
+# Render Blueprint — Cavero Fragrances (all-in-one: Express serves the Angular build)
+# Import this from the Render dashboard: New + → Blueprint → pick your GitHub repo.
+# It provisions a free Postgres + a Node web service and wires DATABASE_URL automatically.
+# Secrets (sync:false) are left blank on purpose — paste them in the Render dashboard once.
+
+databases:
+  - name: cavero-db
+    plan: free
+    databaseName: cavero
+    user: cavero
+
+services:
+  - type: web
+    name: cavero
+    runtime: node
+    plan: free
+    region: singapore            # closest to India; change if you prefer
+    buildCommand: npm install && npm run build && npm install --prefix backend/auth-service
+    startCommand: node backend/auth-service/server.js
+    healthCheckPath: /api/categories
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      # DB — wired automatically from the managed Postgres above (enables SSL via db.js)
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cavero-db
+          property: connectionString
+      # Auth — let Render generate a strong secret
+      - key: JWT_SECRET
+        generateValue: true
+      # Payments
+      - key: RAZORPAY_MODE
+        value: test               # flip to "live" at go-live
+      - key: RAZORPAY_TEST_KEY_ID
+        sync: false
+      - key: RAZORPAY_TEST_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_LIVE_KEY_ID
+        sync: false
+      - key: RAZORPAY_LIVE_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false               # set after you create the webhook (post-deploy)
+      # Media
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      # Google OAuth
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      # Transactional email (Gmail app password) + contact inbox
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: CONTACT_RECEIVER_EMAIL
+        sync: false
+      # Lets the server know its own public origin (used for CORS allow-list & links)
+      - key: FRONTEND_URL
+        sync: false               # e.g. https://cavero.onrender.com (set after first deploy)

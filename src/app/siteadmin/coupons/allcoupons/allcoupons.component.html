@@ -1,0 +1,258 @@
+<section class="content">
+  <div class="content-block" style="padding-top: 12px;">
+    <div class="row" style="margin-top: 14px;">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="materialTableHeader" style="padding: 14px 16px 12px;">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h1 class="card-page-title" style="margin: 0; font-size: 1.1rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; color: #243247;">Coupons</h1>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="coupon-search-input" aria-label="Search coupons">
+                    <mat-icon class="search-icon">search</mat-icon>
+                  </label>
+                  <input
+                    id="coupon-search-input"
+                    placeholder="Search"
+                    type="text"
+                    #filter
+                    (keyup)="applyFilter($event)"
+                    class="browser-default search-field"
+                    aria-label="Search box">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10 toolbar-select-anchor">
+                    <button mat-icon-button color="primary" class="table-toolbar-btn" (click)="select.open()" matTooltip="Show/Hide Column" aria-label="Show or hide columns">
+                      <mat-icon>filter_list</mat-icon>
+                    </button>
+                    <mat-select #select [(ngModel)]="filter.value" class="column-filter toolbar-hidden-select">
+                      <span class="table-column-label">Show/Hide Column</span>
+                      @for (cd of columnDefinitions; track cd; let i = $index) {
+                      <div>
+                        <mat-option>
+                          <mat-checkbox (click)="$event.stopPropagation()" [(ngModel)]="cd.visible" color="primary">
+                            {{ cd.label }}
+                          </mat-checkbox>
+                        </mat-option>
+                      </div>
+                      }
+                    </mat-select>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="addNew()" class="table-toolbar-btn col-green" matTooltip="Add Coupon" aria-label="Add coupon">
+                      <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="refresh()" class="table-toolbar-btn" matTooltip="Refresh" aria-label="Refresh coupons">
+                      <mat-icon>refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="exportExcel()" class="table-toolbar-btn col-blue" matTooltip="Export Excel" aria-label="Export Excel">
+                      <mat-icon class="material-icons-outlined">file_download</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
+                <ng-container matColumnDef="code">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Coupon Code</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row.code">
+                    <span class="mobile-label">Coupon Code:</span>
+                    <span class="truncate-text">{{ row.code }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="type">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Type</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row" [matTooltip]="row.type">
+                    <span class="mobile-label">Type:</span>
+                    <span class="truncate-text">{{ row.type }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="value">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Discount</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Discount:</span>
+                    <span class="truncate-text">{{ row.value }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="min_order_amount">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Minimum Cart Value</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Minimum Cart Value:</span>
+                    <span class="truncate-text">&#8377;{{ row.min_order_amount || 0 }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="usage_limit">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Usage Limit</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Usage Limit:</span>
+                    <span class="truncate-text">{{ row.usage_limit || 'Unlimited' }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="used_count">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Redeemed</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Redeemed:</span>
+                    <button
+                      mat-button
+                      class="coupon-usage-trigger"
+                      [matMenuTriggerFor]="usageMenu"
+                      (click)="loadCouponUsageDetails(row)"
+                      [disabled]="row.used_count === 0"
+                      aria-label="Show redeemed customer details">
+                      <span class="truncate-text">{{ row.used_count }}</span>
+                      <mat-icon>expand_more</mat-icon>
+                    </button>
+
+                    <mat-menu #usageMenu="matMenu" class="coupon-usage-overlay">
+                      <div class="coupon-usage-menu-overlay" (click)="$event.stopPropagation()">
+                        <div class="coupon-usage-header">
+                          <span>Redeemed by</span>
+                          <span class="usage-count">{{ row.used_count || 0 }}</span>
+                        </div>
+                        <div class="coupon-usage-loading" *ngIf="loadingUsageCouponId === row.id">
+                          <mat-progress-spinner diameter="24" mode="indeterminate"></mat-progress-spinner>
+                          <span>Loading usage details...</span>
+                        </div>
+                        <div class="coupon-usage-empty" *ngIf="loadingUsageCouponId !== row.id && getCouponUsageDetails(row).length === 0">
+                          No redemption details available.
+                        </div>
+                        <div class="coupon-usage-list" *ngIf="loadingUsageCouponId !== row.id && getCouponUsageDetails(row).length > 0">
+                          <div class="coupon-usage-item" *ngFor="let usage of getCouponUsageDetails(row)">
+                            <div class="usage-main">
+                              <span class="usage-name">{{ usage.name || 'Unknown Customer' }}</span>
+                              <span class="usage-count-badge">{{ usage.usage_count }}</span>
+                            </div>
+                            <div class="usage-meta">
+                              <span>{{ usage.phone || 'No phone' }}</span>
+                              <span>{{ usage.email || 'No email' }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </mat-menu>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="valid_until">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Valid Until</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Valid Until:</span>
+                    <span class="truncate-text">{{ row.valid_until }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Status</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Status:</span>
+                    <span class="truncate-text badge clickable-badge" 
+                          [ngClass]="row.status === 'Active' ? 'badge-success' : 'badge-danger'"
+                          (click)="toggleCouponStatus(row)"
+                          [matTooltip]="'Click to toggle status'"
+                          [style.opacity]="togglingId === row.id ? '0.6' : '1'">
+                      {{ row.status }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+                <mat-row
+                  [@rowsAnimation]="''"
+                  *matRowDef="let row; columns: getDisplayedColumns();"
+                  [style.cursor]="'pointer'"
+                  matRipple>
+                </mat-row>
+              </table>
+
+              @if (isLoading) {
+              <div class="tbl-spinner">
+                <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate"></mat-progress-spinner>
+              </div>
+              }
+
+              <div
+                style="visibility: hidden; position: fixed"
+                [style.left]="contextMenuPosition.x"
+                [style.top]="contextMenuPosition.y"
+                [matMenuTriggerFor]="contextMenu">
+              </div>
+              <mat-menu #contextMenu="matMenu">
+                <ng-template matMenuContent let-item="item">
+                  <button mat-menu-item (click)="addNew()">
+                    <mat-icon>add_box</mat-icon>
+                    <span>Add Coupon</span>
+                  </button>
+                  <button mat-menu-item (click)="refresh()">
+                    <mat-icon>refresh</mat-icon>
+                    <span>Refresh</span>
+                  </button>
+                </ng-template>
+              </mat-menu>
+
+              @if (!isLoading && dataSource.data.length === 0) {
+              <div class="no-results text-center py-5">
+                <mat-icon class="display-1 text-muted mb-3">inventory_2</mat-icon>
+                <h4 class="text-muted">No coupon found</h4>
+                <p class="text-muted">Get started by adding your first coupon</p>
+                <button mat-raised-button color="primary" (click)="addNew()">
+                  <mat-icon>add</mat-icon>
+                  Add First Coupon
+                </button>
+              </div>
+              }
+
+
+            </div>
+          </div>
+          <mat-paginator
+                #paginator
+                [length]="dataSource.filteredData.length"
+                [pageIndex]="0"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+              </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

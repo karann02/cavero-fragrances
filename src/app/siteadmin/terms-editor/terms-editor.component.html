@@ -1,0 +1,122 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <app-breadcrumb [title]="'Terms & Conditions Editor'" [active_item]="'Terms Editor'"></app-breadcrumb>
+    </div>
+
+    @if (isLoading) {
+      <div class="text-center py-5">
+        <mat-spinner diameter="48" class="mx-auto"></mat-spinner>
+        <p class="text-muted mt-3">Loading content...</p>
+      </div>
+    } @else {
+      <form [formGroup]="form">
+        <div class="row g-4">
+
+          <!-- Page meta -->
+          <div class="col-12">
+            <mat-card class="editor-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon class="me-2 align-middle">info_outline</mat-icon>Page Info
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="pt-3">
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Last Updated Date</mat-label>
+                      <input matInput formControlName="lastUpdated" placeholder="e.g. June 26, 2024">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Introduction paragraph</mat-label>
+                      <textarea matInput formControlName="intro" rows="3"
+                        placeholder="Welcome paragraph shown at the top of the page..."></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <!-- Sections -->
+          <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h5 class="mb-0 fw-semibold">
+                <mat-icon class="me-2 align-middle">list_alt</mat-icon>
+                Sections ({{ sections.length }})
+              </h5>
+              <button mat-raised-button color="primary" type="button" (click)="addSection()">
+                <mat-icon>add</mat-icon> Add Section
+              </button>
+            </div>
+
+            <div formArrayName="sections">
+              @for (section of sections.controls; track section; let i = $index) {
+                <mat-card class="editor-card section-card mb-3" [formGroupName]="i">
+                  <mat-card-header>
+                    <mat-card-title class="section-header">
+                      <span class="section-number">{{ i + 1 }}</span>
+                      <span class="section-title-preview">
+                        {{ section.get('title')?.value || 'Untitled Section' }}
+                      </span>
+                    </mat-card-title>
+                    <div class="section-actions ms-auto">
+                      <button mat-icon-button type="button" (click)="moveUp(i)" [disabled]="i === 0"
+                        matTooltip="Move up">
+                        <mat-icon>keyboard_arrow_up</mat-icon>
+                      </button>
+                      <button mat-icon-button type="button" (click)="moveDown(i)"
+                        [disabled]="i === sections.length - 1" matTooltip="Move down">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                      </button>
+                      <button mat-icon-button type="button" color="warn" (click)="removeSection(i)"
+                        matTooltip="Remove section">
+                        <mat-icon>delete_outline</mat-icon>
+                      </button>
+                    </div>
+                  </mat-card-header>
+                  <mat-card-content class="pt-3">
+                    <mat-form-field appearance="outline" class="w-100 mb-2">
+                      <mat-label>Section Title</mat-label>
+                      <input matInput formControlName="title" placeholder="e.g. 1. Overview">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Section Content</mat-label>
+                      <textarea matInput formControlName="content" rows="6"
+                        placeholder="Write the content for this section..."></textarea>
+                      <mat-hint>Supports plain text. Use line breaks to separate paragraphs.</mat-hint>
+                    </mat-form-field>
+                  </mat-card-content>
+                </mat-card>
+              }
+            </div>
+
+            @if (sections.length === 0) {
+              <div class="empty-state text-center py-5">
+                <mat-icon class="display-1 text-muted">article</mat-icon>
+                <p class="text-muted mt-2">No sections yet. Click "Add Section" to get started.</p>
+              </div>
+            }
+          </div>
+
+          <!-- Save button -->
+          <div class="col-12">
+            <div class="save-bar">
+              <button mat-raised-button color="primary" type="button" (click)="save()"
+                [disabled]="form.invalid || isSaving" class="save-btn">
+                <mat-spinner *ngIf="isSaving" diameter="20" class="me-2 d-inline-block"></mat-spinner>
+                <mat-icon *ngIf="!isSaving" class="me-1">save</mat-icon>
+                {{ isSaving ? 'Saving...' : 'Save Changes' }}
+              </button>
+              <span class="text-muted fs-sm ms-3">Changes will be reflected on the Terms & Conditions page immediately.</span>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    }
+  </div>
+</section>

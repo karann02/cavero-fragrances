@@ -1,0 +1,1906 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "मुख्य"
+    },
+    "DASHBOARD": {
+      "TEXT": "डैशबोर्ड",
+      "LIST": {
+        "DASHBOARD1": "डैशबोर्ड 1",
+        "DASHBOARD2": "डैशबोर्ड 2",
+        "DOCTOR-DASHBOARD": "डॉक्टर डैशबोर्ड",
+        "PATIENT-DASHBOARD": "मरीज़ डैशबोर्ड"
+      }
+    },
+    "LABEL-SETTING": {
+      "TEXT": "लेबल सेटिंग",
+      "LIST": {
+        "LABEL-SETTING": "लेबल सेटिंग",
+        "CUSTOM-LABEL-SETTING": "कस्टम लेबल सेटिंग",
+        "SUB-CUSTOM-LABEL-SETTING": "सब कस्टम लेबल सेटिंग"
+      }
+    },
+    "APPOINTMENTS": {
+      "TEXT": "अपॉइंटमेंट",
+      "LIST": {
+        "PERMISSION-ASSIGNEMNT": "अनुमति असाइनमेंट",
+        "APPOINTMENT-CALENDAR": "अपॉइंटमेंट कैलेंडर",
+        "ALL-APPOINTMENT": "सभी अपॉइंटमेंट",
+        "DOCTOR-APPOINTMENT-SCHEDULE": "डॉक्टर अपॉइंटमेंट शेड्यूल",
+        "VIEW-APPOINTMENT": "अपॉइंटमेंट देखें",
+        "BOOK-APPOINTMENT": "अपॉइंटमेंट बुक करें",
+        "EDIT-APPOINTMENT": "अपॉइंटमेंट संपादित करें"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "कर्मचारी",
+      "LIST": {
+        "ALL-DOCTOR": "सभी कर्मचारी",
+        "DOCTOR-SCHEDULE": "डॉक्टर शेड्यूल",
+        "EMPLOYEE-BREAKS": "कर्मचारी ब्रेक",
+        "ADD-DOCTOR": "कर्मचारी जोड़ें",
+        "EDIT-DOCTOR": "कर्मचारी संपादित करें",
+        "ASSIGN-DEPARTMENT": "विभाग असाइन करें",
+        "ASSIGN-SHIFT": "शिफ्ट असाइन करें",
+        "PROFILE": "कर्मचारी प्रोफाइल",
+        "DOCTOR-ID-CARD-TEMPLATE": "डॉक्टर आईडी कार्ड टेम्प्लेट",
+        "GENERATE-ID-CARD": "आईडी कार्ड जनरेट करें",
+        "CREAT-ID-CARD-TEMPLATE": "आईडी कार्ड टेम्प्लेट बनाएं",
+        "OVERVIEW": "अवलोकन",
+        "CASE": "केस",
+        "OPD-VISIT": "OPD / विजिट",
+        "PATIENT-ADMISSIONS": "मरीज़ एडमिशन",
+        "SCHEDULE": "शेड्यूल",
+        "APPOINTMENTS": "अपॉइंटमेंट"
+      }
+    },
+    "HOSPITAL-BUILDING": {
+      "TEXT": "हॉस्पिटल बिल्डिंग",
+      "LIST": {
+        "HOSPITAL-BUILDING": "हॉस्पिटल बिल्डिंग"
+      }
+    },
+    "HOSPITAL-FLOOR": {
+      "TEXT": "हॉस्पिटल फ्लोर",
+      "LIST": {
+        "HOSPITAL-FLOOR": "हॉस्पिटल फ्लोर"
+      }
+    },
+    "WARD": {
+      "TEXT": "वार्ड प्रबंधन",
+      "LIST": {
+        "WARD": "वार्ड"
+      }
+    },
+    "SHIFT-MANAGEMENT": {
+      "TEXT": "शिफ्ट प्रबंधन",
+      "LIST": {
+        "ALL-SHIFT": "सभी शिफ्ट",
+        "SHIFTS": "शिफ्ट",
+        "ADD-SHIFT": "शिफ्ट जोड़ें",
+        "EDIT-SHIFT": "शिफ्ट संपादित करें",
+        "SHIFT-MANAGEMENT": "शिफ्ट प्रबंधन"
+      }
+    },
+    "EMAIL-SETTINGS": {
+      "TEXT": "ईमेल सेटिंग्स",
+      "LIST": {}
+    },
+    "STAFF": {
+      "TEXT": "स्टाफ",
+      "LIST": {
+        "ALL-STAFF": "सभी स्टाफ",
+        "ADD-STAFF": "स्टाफ जोड़ें",
+        "EDIT-STAFF": "स्टाफ संपादित करें",
+        "PROFILE": "स्टाफ प्रोफाइल"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "मरीज़",
+      "LIST": {
+        "SETTINGS": "सेटिंग्स",
+        "PATIENT-SETTINGS": "मरीज़ सेटिंग्स",
+        "ALL-CASE": "सभी केस",
+        "CASE": "केस",
+        "ALL-PATIENT": "सभी मरीज़",
+        "PATIENT-ADMISSION": "मरीज़ एडमिशन",
+        "PATIENT-ID-CARD-TEMPLATE": "मरीज़ आईडी कार्ड टेम्प्लेट",
+        "ID-CARD-TEMPLATE": "आईडी कार्ड टेम्प्लेट",
+        "GENERATE-PATIENT-ID-CARD": "मरीज़ आईडी कार्ड जनरेट करें",
+        "PASSCARD-TEMPLATE": "पासकार्ड टेम्प्लेट",
+        "GENERATE-PASSCARD": "पासकार्ड जनरेट करें",
+        "PATIENTS-OVERVIEW": "अवलोकन",
+        "PATIENT-CASE": "केस",
+        "FAMILY-INFO": "परिवार की जानकारी",
+        "FAMILY-HISTORY": "परिवार का इतिहास",
+        "SOCIAL-HABITS": "सामाजिक आदतें",
+        "OPD-VISIT": "OPD / विजिट",
+        "DIAGNOSIS": "निदान",
+        "VITALS": "वाइटल",
+        "ALLERGIES": "एलर्जी",
+        "PROBLEMS": "समस्याएं",
+        "PATIENT-PRESCRIPTION": "नुस्खे",
+        "PATIENT-ADMISSIONS": "मरीज़ एडमिशन",
+        "DOCUMENT": "दस्तावेज",
+        "VACCINATION": "टीकाकरण",
+        "APPOINTMENT": "अपॉइंटमेंट",
+        "REPORT": "रिपोर्ट",
+        "CASE-OVERVIEW": "केस अवलोकन",
+        "CASE-OPD-VISIT": "केस OPD / विजिट",
+        "CASE-IPD": "केस IPD",
+        "CASE-APPOINTMENT": "केस अपॉइंटमेंट"
+      }
+    },
+    "IPD": {
+      "TEXT": "IPD प्रबंधन",
+      "LIST": {
+        "IPD": "IPD",
+        "IPD-PATIENT": "IPD मरीज़",
+        "IPD-OVERVIEW": "अवलोकन",
+        "CHARGES": "चार्ज",
+        "PROBLEM": "समस्या",
+        "ALLERGY": "एलर्जी",
+        "IPDPRESCRIPTION": "नुस्खे",
+        "DIAGNOSIS": "निदान",
+        "VITALS": "वाइटल",
+        "DAILY-CHECKUPS": "दैनिक जांच",
+        "DOCTORSROUNDS": "डॉक्टर राउंड",
+        "HOUSEKEEPING": "हाउसकीपिंग",
+        "CONSULTANT-INSTRUCTION": "कंसल्टेंट निर्देश",
+        "TIMELINE": "टाइमलाइन",
+        "BILLING": "बिलिंग",
+        "OT": "OT"
+      }
+    },
+    "OPD": {
+      "TEXT": "OPD प्रबंधन",
+      "LIST": {
+        "OPD": "OPD",
+        "OPD-PATIENT": "OPD मरीज़",
+        "OVERVIEW": "अवलोकन",
+        "VISITS": "विजिट",
+        "CHARGES": "चार्ज",
+        "BILLING": "बिलिंग",
+        "PROBLEM": "समस्या",
+        "ALLERGY": "एलर्जी",
+        "PRESCRIPTIONS": "नुस्खे",
+        "DIAGNOSIS": "निदान",
+        "VITALS": "वाइटल",
+        "TIMELINE": "टाइमलाइन"
+      }
+    },
+    "OT-MANAGEMENT": {
+      "TEXT": "OT प्रबंधन",
+      "LIST": {
+        "OT": "OT",
+        "PROCEDURES": "प्रक्रियाएं",
+        "SCHEDULE-CALENDER": "शेड्यूल कैलेंडर",
+        "SCHEDULE-TABLE": "शेड्यूल टेबल",
+        "OT-SCHEDULE": "OT शेड्यूल",
+        "CALENDER": "कैलेंडर"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "रिपोर्ट",
+      "LIST": {
+        "BIRTH-REPORT": "जन्म रिपोर्ट",
+        "DEATH-REPORT": "मृत्यु रिपोर्ट",
+        "INVESTIGATION-REPORT": "जांच रिपोर्ट",
+        "OPERATION-REPORT": "सर्जरी रिपोर्ट"
+      }
+    },
+    "BRANCH": {
+      "TEXT": "शाखा",
+      "LIST": {
+        "ALL-BRANCH": "सभी शाखा",
+        "ADD-BRANCH": "शाखा जोड़ें"
+      }
+    },
+    "ALLERGY-MASTER": {
+      "TEXT": "एलर्जी मास्टर",
+      "LIST": {
+        "ALLERGY-CATEGORY": "एलर्जी श्रेणी",
+        "ALLERGIES": "एलर्जी",
+        "ALLERGY-REACTION": "एलर्जी प्रतिक्रिया"
+      }
+    },
+    "DATA-MANAGEMENT": {
+      "TEXT": "डेटा प्रबंधन"
+    },
+    "ROOMS": {
+      "TEXT": "हॉस्पिटल कमरा",
+      "LIST": {
+        "ROOM-TYPE": "कमरा प्रकार",
+        "ROOM-MASTER": "कमरा मास्टर",
+        "ROOM-MASTER-LIST": "कमरा मास्टर सूची",
+        "ROOM-INVENTORY": "कमरा इन्वेंटरी"
+      }
+    },
+    "BED": {
+      "TEXT": "बिस्तर",
+      "LIST": {
+        "BED-TYPE": "बिस्तर प्रकार",
+        "BED": "बिस्तर",
+        "BED-ASSIGN": "बिस्तर असाइन",
+        "CASES": "केस"
+      }
+    },
+    "PROBLEM-MASTER": {
+      "TEXT": "समस्या मास्टर",
+      "LIST": {
+        "PROBLEM-CATEGORY": "समस्या श्रेणी",
+        "PROBLEMS": "समस्याएं",
+        "ALL-PROBLEMS": "सभी समस्याएं"
+      }
+    },
+    "HOSPITAL-CHARGES": {
+      "TEXT": "फीस / चार्ज",
+      "LIST": {
+        "CHARGES-TYPE": "चार्ज श्रेणी",
+        "CHARGES-CATEGORIES": "चार्ज श्रेणी आइटम",
+        "CHARGES": "चार्ज",
+        "DOCOTORCHARGES": "कर्मचारी चार्ज",
+        "TAX-MASTER": "टैक्स मास्टर"
+      }
+    },
+    "PATHOLOGY": {
+      "TEXT": "पैथोलॉजी",
+      "LIST": {
+        "PATHOLOGY-CATEGORY": "पैथोलॉजी श्रेणी",
+        "PATHOLOGY-CATEGORY-LIST": "पैथोलॉजी श्रेणी सूची",
+        "PATHOLOGY-UNITS": "पैथोलॉजी यूनिट",
+        "PATHOLOGY-UNITS-LIST": "पैथोलॉजी यूनिट सूची",
+        "PATHOLOGY-PARAMETERS": "पैथोलॉजी पैरामीटर",
+        "PATHOLOGY-PARAMETERS-LIST": "पैथोलॉजी पैरामीटर सूची",
+        "PATHOLOGY-TESTS": "पैथोलॉजी टेस्ट",
+        "PATHOLOGY-TESTS-LIST": "पैथोलॉजी टेस्ट सूची"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "खाते",
+      "LIST": {
+        "BILL-LIST": "बिल सूची",
+        "ADD-BILL": "बिल जोड़ें",
+        "INCOME": "आय",
+        "EXPENSES": "व्यय",
+        "INCOME-REPORT": "आय रिपोर्ट",
+        "INCOME-CHART": "आय चार्ट",
+        "INVOICE": "इनवॉइस"
+      }
+    },
+    "RECORDS": {
+      "TEXT": "रिकॉर्ड",
+      "LIST": {
+        "BIRTH-RECORDS": "जन्म रिकॉर्ड",
+        "DEATH-RECORDS": "मृत्यु रिकॉर्ड"
+      }
+    },
+    "AMBULANCE": {
+      "TEXT": "एम्बुलेंस",
+      "LIST": {
+        "AMBULANCE-CALL-LIST": "एम्बुलेंस कॉल सूची",
+        "AMBULANCE-LIST": "एम्बुलेंस सूची"
+      }
+    },
+    "PHARMACY": {
+      "TEXT": "फार्मेसी",
+      "LIST": {
+        "MEDICINE-LIST": "दवा सूची",
+        "ADD-MEDICINE": "दवा जोड़ें"
+      }
+    },
+    "BLOOD-BANK": {
+      "TEXT": "ब्लड बैंक",
+      "LIST": {
+        "BLOOD-BANK": "ब्लड बैंक",
+        "BLOOD-DONATIONS": "ब्लड दान",
+        "BLOOD-DONOR": "ब्लड दाता",
+        "BLOOD-ISSUED": "ब्लड जारी"
+      }
+    },
+    "DOCUMENTS": {
+      "TEXT": "दस्तावेज",
+      "LIST": {
+        "ALL-DOCUMENTS": "सभी दस्तावेज",
+        "DOCUMENTS": "दस्तावेज",
+        "DOCUMENTS-TYPE": "दस्तावेज प्रकार"
+      }
+    },
+    "RADIOLOGY": {
+      "TEXT": "रेडियोलॉजी",
+      "LIST": {
+        "RADIOLOGY-TEST": "रेडियोलॉजी टेस्ट",
+        "RADIOLOGY": "रेडियोलॉजी",
+        "RADIOLOGY-CATEGORIE": "रेडियोलॉजी श्रेणी"
+      }
+    },
+    "SERVICES": {
+      "TEXT": "सेवाएं",
+      "LIST": {
+        "INSURANCE": "बीमा",
+        "CASES": "केस",
+        "PACKAGES": "पैकेज",
+        "SERVICES": "सेवाएं",
+        "AMBULANCE": "एम्बुलेंस",
+        "AMBULANCE-CALLS": "एम्बुलेंस कॉल"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "विभाग",
+      "LIST": {
+        "DEPARTMENT-LIST": "विभाग सूची",
+        "ASSIGN-DEPARTMENT": "विभाग असाइन करें",
+        "ADD-DEPARTMENT": "विभाग जोड़ें",
+        "VIEW-DEPARTMENT-CASE": "विभाग केस देखें",
+        "VIEW-DEPARTMENT-EMPLOYEE": "विभाग कर्मचारी देखें",
+        "VIEW-DEPARTMENT-OPD-PATIENT": "विभाग OPD मरीज़ देखें",
+        "VIEW-DEPARTMENT-IPD-PATIENTS": "विभाग IPD मरीज़ देखें"
+      }
+    },
+    "INVENTORY": {
+      "TEXT": "इन्वेंटरी",
+      "LIST": {
+        "ITEM-STOCK-LIST": "आइटम स्टॉक सूची",
+        "SUPPLIER": "सप्लायर",
+        "ITEM-CATEGORY": "आइटम श्रेणी",
+        "STORE": "स्टोर",
+        "ITEMS": "आइटम",
+        "PURCHASE-ITEMS": "खरीद आइटम",
+        "ISSUED-ITEMS": "जारी आइटम"
+      }
+    },
+    "MEDICINES": {
+      "TEXT": "दवाएं",
+      "LIST": {
+        "MEDICINE-CATEGORIES": "दवा श्रेणी",
+        "MEDICINE-BRANDS": "दवा ब्रांड",
+        "MEDICINES": "दवाएं",
+        "ALL-MEDICINES": "सभी दवाएं",
+        "PURCHASE-MEDICINE": "दवा खरीदें",
+        "CREATE-MEDICINE-BILL": "दवा बिल बनाएं",
+        "PURCHASE-MEDICINE-BILL": "दवा खरीद बिल"
+      }
+    },
+    "VACCINATION": {
+      "TEXT": "टीकाकरण",
+      "LIST": {
+        "VACCINATION": "टीकाकरण",
+        "VACCINATED-PATIENTS": "टीका लगे मरीज़",
+        "VACCINATED-EMPLOYEES": "टीका लगे कर्मचारी"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "सेटिंग्स",
+      "LIST": {
+        "DATE-FORMAT-SETTINGS": "दिनांक प्रारूप सेटिंग्स",
+        "PATIENT-SETTINGS": "मरीज़ सेटिंग्स"
+      }
+    },
+    "PERMISSION-MANAGEMENT": {
+      "TEXT": "अनुमति प्रबंधन",
+      "LIST": {
+        "MODULES": "मॉड्यूल",
+        "ACTIONS": "क्रियाएं",
+        "MODULE-ACTIONS": "मॉड्यूल क्रिया",
+        "PERMISSION-ASSIGNEMNT": "अनुमति असाइनमेंट"
+      }
+    },
+    "PRESCRIPTIONS": {
+      "TEXT": "नुस्खा",
+      "LIST": {
+        "PRESCRIPTIONS": "नुस्खे",
+        "DURATION": "अवधि",
+        "DOES-INTERVAL": "खुराक अंतराल",
+        "TIME": "समय"
+      }
+    },
+    "HR": {
+      "TEXT": "मानव संसाधन",
+      "LIST": {
+        "EMPLOYEE-LEAVE": "कर्मचारी अवकाश",
+        "LEAVE-REQUESTS": "अवकाश अनुरोध",
+        "LEAVE-BALANCE": "अवकाश शेष",
+        "LEAVE-TYPES": "अवकाश प्रकार",
+        "HOLIDAYS": "छुट्टियां",
+        "TODAY-ATTENDANCE": "आज की उपस्थिति",
+        "EMP-ATTENDANCE": "कर्मचारी उपस्थिति",
+        "ATTENDANCE-SHEET": "उपस्थिति पत्रक",
+        "EMPLOYEE-SALARY": "कर्मचारी वेतन",
+        "PAYROLL": "पेरोल",
+        "PAYSLIP": "पेरोल स्लिप"
+      }
+    },
+    "INSURANCE": {
+      "TEXT": "बीमा",
+      "LIST": {
+        "PATIENT-INSURANCE": "मरीज़ बीमा",
+        "NEW-CLAIM": "नया दावा",
+        "CLAIM-STATUS": "दावा स्थिति",
+        "INSURANCE-PROVIDER": "बीमा प्रदाता"
+      }
+    },
+    "SITEADMIN": {
+      "DASHBOARD": "डैशबोर्ड",
+      "HOSPITAL": "हॉस्पिटल",
+      "DOCTORS": "डॉक्टर",
+      "PATIENTS": "मरीज़",
+      "SETTINGS": "सेटिंग्स",
+      "TEXT": "साइटएडमिन",
+      "LIST": {},
+      "CHAT": "चैट"
+    },
+    "DOCTOR": {
+      "DASHBOARD": "डैशबोर्ड",
+      "APPOINTMENTS": "अपॉइंटमेंट",
+      "DOCTORS": "डॉक्टर",
+      "PATIENTS": "मरीज़",
+      "SETTINGS": "सेटिंग्स",
+      "CHAT": "चैट"
+    },
+    "PATIENT": {
+      "TEXT": "मरीज़",
+      "DASHBOARD": "डैशबोर्ड",
+      "APPOINTMENTS": {
+        "TEXT": "अपॉइंटमेंट",
+        "LIST": {
+          "BOOK-APPOINTMENT": "अपॉइंटमेंट बुक करें",
+          "TODAY": "आज के अपॉइंटमेंट",
+          "UPCOMING": "आगामी अपॉइंटमेंट",
+          "PAST": "पिछले अपॉइंटमेंट"
+        }
+      },
+      "PRESCRIPTIONS": "नुस्खे",
+      "MEDICAL-RECORD": "चिकित्सा रिकॉर्ड",
+      "BILLING": "बिलिंग",
+      "CHAT": "चैट",
+      "SETTINGS": "सेटिंग्स"
+    },
+    "APPS": {
+      "TEXT": "-- ऐप्स"
+    },
+    "CALENDAR": {
+      "TEXT": "कैलेंडर"
+    },
+    "TASK": {
+      "TEXT": "कार्य"
+    },
+    "CONTACTS": {
+      "TEXT": "संपर्क"
+    },
+    "TEMPLATE": {
+      "TEXT": "टेम्प्लेट प्रबंधन",
+      "LIST": {
+        "TEMPLATE-KEYWORD": "टेम्प्लेट कीवर्ड",
+        "TEMPLATE": "टेम्प्लेट"
+      }
+    },
+    "FINANCIALYEAR": {
+      "TEXT": "वित्तीय वर्ष"
+    },
+    "ACCOUNTGROUPS": {
+      "TEXT": "खाता समूह"
+    },
+    "ACCOUNTSUBGROUPS": {
+      "TEXT": "खाता उपसमूह"
+    },
+    "APPOINTMENT_TYPE": {
+      "TEXT": "अपॉइंटमेंट प्रकार"
+    },
+    "APPOINTMENT_TYPE_PATIENT": {
+      "TEXT": "मरीज़"
+    },
+    "APPOINTMENT_TYPE_VISITOR": {
+      "TEXT": "आगंतुक"
+    },
+    "APPOINTMENT_TYPE_FOLLOW_UP": {
+      "TEXT": "फॉलो-अप"
+    },
+    "APPOINTMENT_TYPE_SPECIALIST_REFERRAL": {
+      "TEXT": "विशेषज्ञ रेफरल"
+    },
+    "APPOINTMENT_TYPE_DIAGNOSTIC_TEST": {
+      "TEXT": "निदान परीक्षण"
+    },
+    "APPOINTMENT_TYPE_TELEMEDICINE": {
+      "TEXT": "टेलीमेडिसिन"
+    },
+    "APPOINTMENT_TYPE_PATIENT_ATTENDANT": {
+      "TEXT": "मरीज़ सहायक/परिवार सदस्य"
+    },
+    "APPOINTMENT_TYPE_HEALTH_CHECK_UP": {
+      "TEXT": "स्वास्थ्य जांच"
+    },
+    "APPOINTMENT_TYPE_SURGERY_BOOKING": {
+      "TEXT": "सर्जरी बुकिंग"
+    },
+    "APPOINTMENT_TYPE_HOME_VISIT": {
+      "TEXT": "घर विजिट"
+    },
+    "DEPARTMENT": {
+      "TEXT": "विभाग"
+    },
+    "CONSULTING_DOCTOR": {
+      "TEXT": "परामर्शी डॉक्टर"
+    },
+    "NEW_DOCTOR": {
+      "TEXT": "नया डॉक्टर"
+    },
+    "DATE": {
+      "TEXT": "दिनांक"
+    },
+    "REASON_FOR_TRANSFER": {
+      "TEXT": "स्थानांतरण का कारण"
+    },
+    "APPOINTMENT_CHARGES": {
+      "TEXT": "अपॉइंटमेंट चार्ज"
+    },
+    "REFERENCE_DOCTOR": {
+      "TEXT": "संदर्भ डॉक्टर"
+    },
+    "DESCRIPTION": {
+      "TEXT": "विवरण"
+    },
+    "STATUS": {
+      "TEXT": "स्थिति"
+    },
+    "TIME_OF_APPOINTMENT": {
+      "TEXT": "अपॉइंटमेंट का समय"
+    },
+    "ACTIONS": {
+      "TEXT": "क्रियाएं"
+    },
+    "SUBMIT": {
+      "TEXT": "सबमिट करें"
+    },
+    "CANCEL": {
+      "TEXT": "रद्द करें"
+    },
+    "PATIENTNAME": {
+      "TEXT": "मरीज़"
+    },
+    "DOCTORNAME": {
+      "TEXT": "डॉक्टर"
+    },
+    "DOCTOR_DEPARTMENT": {
+      "TEXT": "डॉक्टर विभाग"
+    },
+    "TIME": {
+      "TEXT": "समय"
+    },
+    "CASE_PRICE_TYPE": {
+      "TEXT": "केस मूल्य प्रकार"
+    },
+    "CASE_PRICE_TYPE_DEFAULT": {
+      "TEXT": "डिफ़ॉल्ट"
+    },
+    "CASE_PRICE_TYPE_DOCTOR_WISE": {
+      "TEXT": "डॉक्टर अनुसार"
+    },
+    "CASE_PRICE": {
+      "TEXT": "केस मूल्य"
+    },
+    "CASE_PRICE_REQUIRED": {
+      "TEXT": "डिफ़ॉल्ट प्रकार के लिए केस मूल्य आवश्यक है"
+    },
+    "UPDATE": {
+      "TEXT": "अपडेट करें"
+    },
+    "CREATE": {
+      "TEXT": "बनाएं"
+    },
+    "PROCESSING": {
+      "TEXT": "प्रोसेसिंग..."
+    },
+    "REGISTRATION_NO": {
+      "TEXT": "पंजीकरण संख्या"
+    },
+    "GENDER": {
+      "TEXT": "लिंग"
+    },
+    "MOBILE": {
+      "TEXT": "मोबाइल"
+    },
+    "AGE": {
+      "TEXT": "आयु"
+    },
+    "EMAIL": {
+      "TEXT": "ईमेल"
+    },
+    "MRN": {
+      "TEXT": "MRN"
+    },
+    "FIRST_NAME": {
+      "TEXT": "पहला नाम"
+    },
+    "MIDDLE_NAME": {
+      "TEXT": "मध्य नाम"
+    },
+    "LAST_NAME": {
+      "TEXT": "अंतिम नाम"
+    },
+    "DATE_OF_BIRTH": {
+      "TEXT": "जन्म तिथि"
+    },
+    "MARITAL_STATUS": {
+      "TEXT": "वैवाहिक स्थिति"
+    },
+    "BLOOD_GROUP": {
+      "TEXT": "रक्त समूह"
+    },
+    "NATIONAL_ID_TYPE": {
+      "TEXT": "राष्ट्रीय आईडी प्रकार"
+    },
+    "NATIONAL_ID_NUMBER": {
+      "TEXT": "राष्ट्रीय आईडी संख्या"
+    },
+    "UPLOAD": {
+      "TEXT": "अपलोड करें"
+    },
+    "PRESENT_ADDRESS": {
+      "TEXT": "वर्तमान पता"
+    },
+    "PRESENT_COUNTRY": {
+      "TEXT": "वर्तमान देश"
+    },
+    "PRESENT_STATE": {
+      "TEXT": "वर्तमान राज्य"
+    },
+    "PRESENT_CITY": {
+      "TEXT": "वर्तमान शहर"
+    },
+    "ZIP": {
+      "TEXT": "ज़िप"
+    },
+    "PERMANENT_ADDRESS": {
+      "TEXT": "स्थायी पता"
+    },
+    "PERMANENT_COUNTRY": {
+      "TEXT": "स्थायी देश"
+    },
+    "PERMANENT_STATE": {
+      "TEXT": "स्थायी राज्य"
+    },
+    "PERMANENT_CITY": {
+      "TEXT": "स्थायी शहर"
+    },
+    "PERMANENT_ZIP": {
+      "TEXT": "स्थायी ज़िप"
+    },
+    "COPY_ADDRESS": {
+      "TEXT": "स्थायी पते में कॉपी करें"
+    },
+    "TREATMENTS_CONSENT": {
+      "TEXT": "उपचार सहमति"
+    },
+    "SURGERY_CONSENT": {
+      "TEXT": "सर्जरी सहमति"
+    },
+    "ANESTHESIA_CONSENT": {
+      "TEXT": "एनेस्थीसिया सहमति"
+    },
+    "BLOOD_CONSENT": {
+      "TEXT": "रक्त सहमति"
+    },
+    "DATA_SHARING_CONSENT": {
+      "TEXT": "डेटा साझा करने की सहमति"
+    },
+    "RESEARCH_CONSENT": {
+      "TEXT": "अनुसंधान सहमति"
+    },
+    "USERNAME": {
+      "TEXT": "उपयोगकर्ता नाम"
+    },
+    "PASSWORD": {
+      "TEXT": "पासवर्ड"
+    },
+    "SEARCH": {
+      "TEXT": "खोजें"
+    },
+    "PATIENT_NAME": {
+      "TEXT": "मरीज़"
+    },
+    "CASE_ID": {
+      "TEXT": "केस आईडी"
+    },
+    "DOCTOR_NAME": {
+      "TEXT": "डॉक्टर"
+    },
+    "PHONE": {
+      "TEXT": "फोन"
+    },
+    "CASE_DATE": {
+      "TEXT": "केस दिनांक"
+    },
+    "FEE": {
+      "TEXT": "फीस"
+    },
+    "PHONE_NUMBER": {
+      "TEXT": "फोन संख्या"
+    },
+    "SAVE": {
+      "TEXT": "सेव करें"
+    },
+    "PATIENT_REQUIRED": {
+      "TEXT": "मरीज़ आवश्यक है"
+    },
+    "DOCTOR_REQUIRED": {
+      "TEXT": "डॉक्टर आवश्यक है"
+    },
+    "DEPARTMENT_REQUIRED": {
+      "TEXT": "कोई विभाग चुनें"
+    },
+    "CASE_DATE_REQUIRED": {
+      "TEXT": "केस दिनांक आवश्यक है"
+    },
+    "FEE_REQUIRED": {
+      "TEXT": "फीस आवश्यक है"
+    },
+    "DESCRIPTION_REQUIRED": {
+      "TEXT": "विवरण आवश्यक है"
+    },
+    "ADMISSION_DATE": {
+      "TEXT": "एडमिशन दिनांक"
+    },
+    "DISCHARGE_DATE": {
+      "TEXT": "डिस्चार्ज दिनांक"
+    },
+    "PACKAGE_NAME": {
+      "TEXT": "पैकेज"
+    },
+    "INSURANCE_NAME": {
+      "TEXT": "बीमा"
+    },
+    "POLICY_NO": {
+      "TEXT": "पॉलिसी संख्या"
+    },
+    "AGENT_NAME": {
+      "TEXT": "एजेंट नाम"
+    },
+    "GUARDIAN_NAME": {
+      "TEXT": "गार्डियन नाम"
+    },
+    "GUARDIAN_RELATION": {
+      "TEXT": "गार्डियन संबंध"
+    },
+    "GUARDIAN_CONTACT_NO": {
+      "TEXT": "गार्डियन संपर्क संख्या"
+    },
+    "GUARDIAN_ADDRESS": {
+      "TEXT": "गार्डियन पता"
+    },
+    "ADMISSION_DATE_REQUIRED": {
+      "TEXT": "एडमिशन दिनांक आवश्यक है"
+    },
+    "DISCHARGE_DATE_MIN": {
+      "TEXT": "डिस्चार्ज दिनांक कल से आगे होना चाहिए"
+    },
+    "HEIGHT": {
+      "TEXT": "ऊंचाई"
+    },
+    "WEIGHT": {
+      "TEXT": "वजन"
+    },
+    "BLOOD_PRESSURE": {
+      "TEXT": "रक्तचाप"
+    },
+    "IS_OLD_PATIENT": {
+      "TEXT": "पुराना मरीज़ है"
+    },
+    "YES": {
+      "TEXT": "हाँ"
+    },
+    "NO": {
+      "TEXT": "नहीं"
+    },
+    "PACKAGE": {
+      "TEXT": "पैकेज"
+    },
+    "SYMPTONS": {
+      "TEXT": "लक्षण"
+    },
+    "NOTES": {
+      "TEXT": "नोट्स"
+    },
+    "TEMPLATE_NAME": {
+      "TEXT": "टेम्प्लेट नाम"
+    },
+    "HEADER_COLOR": {
+      "TEXT": "हेडर रंग"
+    },
+    "SHOW_EMAIL": {
+      "TEXT": "ईमेल दिखाएं"
+    },
+    "SHOW_PHONE": {
+      "TEXT": "फोन दिखाएं"
+    },
+    "SHOW_DOB": {
+      "TEXT": "DOB दिखाएं"
+    },
+    "SHOW_BLOOD_GROUP": {
+      "TEXT": "रक्त समूह दिखाएं"
+    },
+    "SHOW_ADDRESS": {
+      "TEXT": "पता दिखाएं"
+    },
+    "SHOW_PATIENT_ID": {
+      "TEXT": "मरीज़ आईडी दिखाएं"
+    },
+    "SHOW_INSURANCE": {
+      "TEXT": "बीमा दिखाएं"
+    },
+    "TEMPLATE_NAME_REQUIRED": {
+      "TEXT": "टेम्प्लेट नाम आवश्यक है"
+    },
+    "CREATE_TEMPLATE": {
+      "TEXT": "टेम्प्लेट बनाएं"
+    },
+    "UPDATE_TEMPLATE": {
+      "TEXT": "टेम्प्लेट अपडेट करें"
+    },
+    "LIVE_PREVIEW": {
+      "TEXT": "लाइव पूर्वावलोकन"
+    },
+    "HOSPITAL_NAME": {
+      "TEXT": "हॉस्पिटल नाम"
+    },
+    "HOSPITAL_ADDRESS": {
+      "TEXT": "पता"
+    },
+    "DOB": {
+      "TEXT": "DOB"
+    },
+    "ADDRESS": {
+      "TEXT": "पता"
+    },
+    "PATIENT_ID": {
+      "TEXT": "मरीज़ आईडी"
+    },
+    "SAVING": {
+      "TEXT": "सेव हो रहा है..."
+    },
+    "CHECKBOX": {
+      "TEXT": "चेकबॉक्स"
+    },
+    "TEMPLATE_REQUIRED": {
+      "TEXT": "टेम्प्लेट आवश्यक है"
+    },
+    "REQUIRED": {
+      "TEXT": "टेम्प्लेट नाम आवश्यक है"
+    },
+    "ROOM": {
+      "TEXT": "कमरा"
+    },
+    "IPD_NO": {
+      "TEXT": "IPD संख्या"
+    },
+    "BLOODPRESSURE": {
+      "TEXT": "रक्तचाप"
+    },
+    "ADMISSIONDATE": {
+      "TEXT": "एडमिशन दिनांक",
+      "REQUIRED": "एडमिशन दिनांक आवश्यक है"
+    },
+    "ISOLDPATIENT": {
+      "TEXT": "पुराना मरीज़"
+    },
+    "ADD": {
+      "TEXT": "जोड़ें"
+    },
+    "REFRESH": {
+      "TEXT": "रीफ्रेश करें"
+    },
+    "CASE": {
+      "TEXT": "केस"
+    },
+    "PATIENT-REQUIRED": {
+      "REQUIRED": "मरीज़ आवश्यक है"
+    },
+    "CASE-REQUIRED": {
+      "REQUIRED": "केस आवश्यक है"
+    },
+    "IPD-REQUIRED": {
+      "REQUIRED": "IPD संख्या आवश्यक है"
+    },
+    "HEIGH-REQUIRED": {
+      "REQUIRED": "ऊंचाई आवश्यक है"
+    },
+    "WEIGHT-REQUIRED": {
+      "REQUIRED": "वजन आवश्यक है"
+    },
+    "BLOODPRESSURE-REQUIRED": {
+      "REQUIRED": "रक्तचाप आवश्यक है"
+    },
+    "ADMISSIONDATE-REQUIRED": {
+      "REQUIRED": "एडमिशन दिनांक आवश्यक है"
+    },
+    "DOCTOR_NAME_REQUIRED": {
+      "REQUIRED": "डॉक्टर आवश्यक है"
+    },
+    "DEPARTMENT-REQUIRED": {
+      "REQUIRED": "विभाग आवश्यक है"
+    },
+    "WARD-REQUIRED": {
+      "REQUIRED": "वार्ड आवश्यक है"
+    },
+    "ROOM-REQUIRED": {
+      "REQUIRED": "कमरा आवश्यक है"
+    },
+    "BED-REQUIRED": {
+      "REQUIRED": "बिस्तर आवश्यक है",
+      "OCCUPIED": "कब्जा"
+    },
+    "OCCUPIED": {
+      "TEXT": "कब्जा"
+    },
+    "IPD-NO": {
+      "TEXT": "IPD संख्या"
+    },
+    "OPD_NO": {
+      "TEXT": "OPD संख्या"
+    },
+    "APPOINTMENT_DATE": {
+      "TEXT": "अपॉइंटमेंट दिनांक"
+    },
+    "DOCTOR_OPD_CHARGE": {
+      "TEXT": "डॉक्टर OPD चार्ज"
+    },
+    "PAYMENT_MODE": {
+      "TEXT": "भुगतान मोड",
+      "REQUIRED": "भुगतान मोड चुनें",
+      "CASH": "नकद",
+      "CHEQUE": "चेक",
+      "ONLINE": "ऑनलाइन"
+    },
+    "TOTAL_VISIT": {
+      "TEXT": "कुल विजिट"
+    },
+    "OPD_NO-REQUIRED": {
+      "REQUIRED": "OPD संख्या आवश्यक है"
+    },
+    "HEIGHT-REQUIRED": {
+      "REQUIRED": "ऊंचाई आवश्यक है"
+    },
+    "BLOOD_PRESSURE-REQUIRED": {
+      "REQUIRED": "रक्तचाप आवश्यक है"
+    },
+    "APPOINTMENT_DATE-REQUIRED": {
+      "REQUIRED": "अपॉइंटमेंट दिनांक आवश्यक है"
+    },
+    "DOCTOR-REQUIRED": {
+      "REQUIRED": "डॉक्टर आवश्यक है"
+    },
+    "DOCTOR_OPD_CHARGE_REQUIRED": {
+      "REQUIRED": "डॉक्टर OPD चार्ज आवश्यक है"
+    },
+    "PAYMENT_MODE-REQUIRED": {
+      "REQUIRED": "भुगतान मोड आवश्यक है"
+    },
+    "PERSONAL_DETAILS": {
+      "TEXT": "व्यक्तिगत विवरण"
+    },
+    "ADDRESS_DETAILS": {
+      "TEXT": "पता विवरण"
+    },
+    "CONSENT": {
+      "TEXT": "सहमति"
+    },
+    "LOGIN_CREDENTIAL": {
+      "TEXT": "लॉगिन क्रेडेंशियल"
+    },
+    "NAME": {
+      "TEXT": "नाम"
+    },
+    "PROCEDURE-REQUIRED": {
+      "REQUIRED": "प्रक्रिया आवश्यक है"
+    },
+    "OT-SCHEDULE": {
+      "TEXT": "OT शेड्यूल"
+    },
+    "PROCEDURE": {
+      "TEXT": "प्रक्रिया"
+    },
+    "OT-ROOM": {
+      "TEXT": "OT कमरा"
+    },
+    "CLOSE": {
+      "TEXT": "बंद करें"
+    },
+    "SCHEDULE": {
+      "TEXT": "शेड्यूल"
+    },
+    "START": {
+      "TEXT": "शुरू"
+    },
+    "END": {
+      "TEXT": "समाप्त"
+    },
+    "SCHEDULED_DATE": {
+      "TEXT": "निर्धारित दिनांक",
+      "REQUIRED": "निर्धारित दिनांक आवश्यक है"
+    },
+    "START_TIME": {
+      "TEXT": "शुरू समय",
+      "REQUIRED": "शुरू समय आवश्यक है"
+    },
+    "END_TIME": {
+      "TEXT": "समाप्त समय",
+      "REQUIRED": "समाप्त समय आवश्यक है"
+    },
+    "SHOW_HIDE_COLUMN": {
+      "TEXT": "कॉलम दिखाएं/छिपाएं"
+    },
+    "DELETE": {
+      "TEXT": "हटाएं"
+    },
+    "DOWNLOAD_XLSX": {
+      "TEXT": "Xlsx डाउनलोड"
+    },
+    "TITLE": {
+      "TEXT": "शीर्षक"
+    },
+    "ATTACHMENT": {
+      "TEXT": "अटैचमेंट"
+    },
+    "DOCUMENT_TYPE": {
+      "TEXT": "दस्तावेज प्रकार"
+    },
+    "TITLE_REQUIRED": {
+      "REQUIRED": "शीर्षक आवश्यक है"
+    },
+    "DOCUMENT_TYPE_REQUIRED": {
+      "REQUIRED": "दस्तावेज प्रकार आवश्यक है"
+    },
+    "NOTES_REQUIRED": {
+      "REQUIRED": "नोट्स आवश्यक है"
+    },
+    "NAME_REQUIRED": {
+      "REQUIRED": "नाम आवश्यक है"
+    },
+    "DURATION": {
+      "TEXT": "अवधि"
+    },
+    "DURATION-REQUIRED": {
+      "REQUIRED": "अवधि आवश्यक है"
+    },
+    "DOES-INTERVAL": {
+      "TEXT": "खुराक अंतराल"
+    },
+    "DOES-INTERVAL-REQUIRED": {
+      "REQUIRED": "खुराक अंतराल आवश्यक है"
+    },
+    "PRESCRIPTION-TIME": {
+      "TEXT": "समय"
+    },
+    "PRESCRIPTION-TIME-REQUIRED": {
+      "REQUIRED": "समय आवश्यक है"
+    },
+    "ADDED-AT": {
+      "TEXT": "जोड़ा गया"
+    },
+    "CREATE-PRESCRIPTION": {
+      "TEXT": "नुस्खे बनाएं"
+    },
+    "PRESCRIPTION-DETAILS": {
+      "TEXT": "नुस्खा विवरण"
+    },
+    "HEALTH-INSURANCE": {
+      "TEXT": "स्वास्थ्य बीमा"
+    },
+    "LOW-INCOME": {
+      "TEXT": "कम आय"
+    },
+    "REFERENCE": {
+      "TEXT": "संदर्भ"
+    },
+    "PAYMENT-STATUS": {
+      "TEXT": "भुगतान स्थिति"
+    },
+    "PAID": {
+      "TEXT": "भुगतान किया"
+    },
+    "UNPAID": {
+      "TEXT": "अभुगतान"
+    },
+    "MEDICINE": {
+      "TEXT": "दवा"
+    },
+    "DOSAGE": {
+      "TEXT": "खुराक"
+    },
+    "DOSE-INTERVAL": {
+      "TEXT": "खुराक अंतराल"
+    },
+    "COMMENT": {
+      "TEXT": "टिप्पणी"
+    },
+    "ADD-MEDICINE": {
+      "TEXT": "खरीदी गई दवाओं में जोड़ें"
+    },
+    "PHYSICAL-INFO": {
+      "TEXT": "शारीरिक जानकारी"
+    },
+    "HIGH-BLOOD-PRESSURE": {
+      "TEXT": "उच्च रक्तचाप"
+    },
+    "FOOD-ALLERGIES": {
+      "TEXT": "खाद्य एलर्जी"
+    },
+    "TENDENCY-BLEED": {
+      "TEXT": "खून बहने की प्रवृत्ति"
+    },
+    "HEART-DISEASE": {
+      "TEXT": "दिल की बीमारी"
+    },
+    "DIABETIC": {
+      "TEXT": "मधुमेह"
+    },
+    "FEMALE-PREGNANCY": {
+      "TEXT": "महिला गर्भावस्था"
+    },
+    "BREAST-FEEDING": {
+      "TEXT": "स्तनपान"
+    },
+    "CURRENT-MEDICATION": {
+      "TEXT": "वर्तमान दवा"
+    },
+    "SURGERY": {
+      "TEXT": "सर्जरी"
+    },
+    "ACCIDENT": {
+      "TEXT": "दुर्घटना"
+    },
+    "OTHERS": {
+      "TEXT": "अन्य"
+    },
+    "PULSE-RATE": {
+      "TEXT": "नाड़ी दर"
+    },
+    "TEMPERATURE": {
+      "TEXT": "तापमान"
+    },
+    "PROBLEM-DESCRIPTION": {
+      "TEXT": "समस्या विवरण"
+    },
+    "TEST": {
+      "TEXT": "परीक्षण"
+    },
+    "ADVICE": {
+      "TEXT": "सलाह"
+    },
+    "NEXT-VISIT": {
+      "TEXT": "अगली विजिट"
+    },
+    "NEXT-VISIT-TIME": {
+      "TEXT": "अगली विजिट समय"
+    },
+    "NEXT-VISIT-DAYS": {
+      "TEXT": "दिन"
+    },
+    "NEXT-VISIT-MONTHS": {
+      "TEXT": "महीने"
+    },
+    "NEXT-VISIT-YEARS": {
+      "TEXT": "साल"
+    },
+    "RESET": {
+      "TEXT": "रीसेट"
+    },
+    "STATUS-PAID": {
+      "TEXT": "भुगतान किया"
+    },
+    "STATUS-UNPAID": {
+      "TEXT": "अभुगतान"
+    },
+    "NEXT-VISIT-TIME-DAYS": {
+      "TEXT": "दिन"
+    },
+    "NEXT-VISIT-TIME-MONTHS": {
+      "TEXT": "महीने"
+    },
+    "NEXT-VISIT-TIME-YEARS": {
+      "TEXT": "साल"
+    },
+    "TAX": {
+      "TEXT": "कर"
+    },
+    "TAX-NAME": {
+      "TEXT": "कर नाम"
+    },
+    "TAX-NAME-REQUIRED": {
+      "REQUIRED": "कर नाम आवश्यक है"
+    },
+    "TAX-PERCENTAGE": {
+      "TEXT": "कर प्रतिशत"
+    },
+    "TAX-PERCENTAGE-REQUIRED": {
+      "REQUIRED": "कर प्रतिशत आवश्यक है"
+    },
+    "CHARGE-CATEGORY-NAME": {
+      "TEXT": "श्रेणी आइटम",
+      "REQUIRED": "चार्ज श्रेणी नाम आवश्यक है"
+    },
+    "CATEGORY": {
+      "TEXT": "चार्ज श्रेणी",
+      "REQUIRED": "चार्ज श्रेणी आवश्यक है"
+    },
+    "CATEGORY-ITEM": {
+      "TEXT": "श्रेणी आइटम",
+      "REQUIRED": "श्रेणी आइटम आवश्यक है"
+    },
+    "APPLIES_TO": {
+      "TEXT": "लागू होता है",
+      "OPD": "OPD",
+      "IPD": "IPD",
+      "BOTH": "दोनों",
+      "REQUIRED": "लागू होता है आवश्यक है"
+    },
+    "EMPLOYEE_RELATED": {
+      "TEXT": "कर्मचारी संबंधित चार्ज?"
+    },
+    "CHARGE_CATEGORY": {
+      "TEXT": "चार्ज श्रेणी",
+      "REQUIRED": "चार्ज श्रेणी आवश्यक है"
+    },
+    "CHARGE_TYPE": {
+      "TEXT": "श्रेणी"
+    },
+    "CHARGE_CATEGORIE": {
+      "TEXT": "श्रेणी आइटम"
+    },
+    "CHARGES": {
+      "TEXT": "मानक चार्ज",
+      "REQUIRED": "मानक चार्ज आवश्यक है"
+    },
+    "APPOINTMENT_DETAILS": {
+      "TEXT": "अपॉइंटमेंट विवरण"
+    },
+    "MEDICINE-BRAND": {
+      "TEXT": "ब्रांड",
+      "REQUIRED": "ब्रांड आवश्यक है"
+    },
+    "PHONE-NO": {
+      "TEXT": "फ़ोन",
+      "REQUIRED": "फ़ोन नंबर आवश्यक है"
+    },
+    "EMAIL-ID": {
+      "TEXT": "ईमेल",
+      "REQUIRED": "ईमेल आवश्यक है"
+    },
+    "MEDICINE-NAME": {
+      "TEXT": "दवा"
+    },
+    "MEDICINE-BRAND-NAME": {
+      "TEXT": "ब्रांड"
+    },
+    "SELLING-PRICE": {
+      "TEXT": "बिक्री मूल्य",
+      "REQUIRED": "बिक्री मूल्य आवश्यक है"
+    },
+    "BAYING-PRICE": {
+      "TEXT": "खरीद मूल्य"
+    },
+    "CATEGORYES": {
+      "TEXT": "श्रेणी",
+      "REQUIRED": "श्रेणी आवश्यक है"
+    },
+    "BRAND": {
+      "TEXT": "ब्रांड",
+      "REQUIRED": "ब्रांड आवश्यक है"
+    },
+    "SALT-COMPOSITION": {
+      "TEXT": "नमक संरचना"
+    },
+    "BUYING-PRICE": {
+      "TEXT": "खरीद मूल्य",
+      "REQUIRED": "खरीद मूल्य आवश्यक है"
+    },
+    "SIDE-EFFECTS": {
+      "TEXT": "दुष्प्रभाव"
+    },
+    "PURCHASE-NO": {
+      "TEXT": "खरीद संख्या"
+    },
+    "TOTAL": {
+      "TEXT": "कुल"
+    },
+    "NET-AMOUNT": {
+      "TEXT": "कुल राशि"
+    },
+    "PAYMENT-TYPE": {
+      "TEXT": "भुगतान प्रकार"
+    },
+    "PURCHASE-TITLE": {
+      "TEXT": "दवा खरीदें"
+    },
+    "REFERENCE-NO": {
+      "TEXT": "संदर्भ संख्या"
+    },
+    "PURCHASE-DATE": {
+      "TEXT": "खरीद की तारीख"
+    },
+    "ORDER-ITEMS": {
+      "TEXT": "आदेश आइटम"
+    },
+    "BATCH-NO": {
+      "TEXT": "बैच संख्या"
+    },
+    "EXPIRY-DATE": {
+      "TEXT": "समाप्ति तिथि"
+    },
+    "SALE-PRICE": {
+      "TEXT": "बिक्री मूल्य"
+    },
+    "PURCHASE-PRICE": {
+      "TEXT": "खरीद मूल्य"
+    },
+    "QUANTITY": {
+      "TEXT": "मात्रा"
+    },
+    "TAX-PERCENT": {
+      "TEXT": "कर %"
+    },
+    "AMOUNT": {
+      "TEXT": "राशि"
+    },
+    "DISCOUNT": {
+      "TEXT": "छूट %"
+    },
+    "TAX-AMOUNT": {
+      "TEXT": "कर राशि"
+    },
+    "PAYMENT-NOTE": {
+      "TEXT": "भुगतान नोट"
+    },
+    "ADD-PURCHASE-PRICE-MEDICINE": {
+      "TEXT": "खरीदी गई दवाओं में जोड़ें"
+    },
+    "PAYMENT-CASH": {
+      "TEXT": "नकद"
+    },
+    "PAYMENT-CARD": {
+      "TEXT": "कार्ड"
+    },
+    "PAYMENT-ONLINE": {
+      "TEXT": "ऑनलाइन"
+    },
+    "PAYMENT-CHEQUE": {
+      "TEXT": "चेक"
+    },
+    "PAYMENT-UPI": {
+      "TEXT": "यूपीआई"
+    },
+    "BILL-NUMBER": {
+      "TEXT": "बिल नंबर"
+    },
+    "PATIENT-MAIL": {
+      "TEXT": "रोगी का मेल"
+    },
+    "PAYMENT-MODE": {
+      "TEXT": "भुगतान का प्रकार"
+    },
+    "PURCHASE-BILL-TITLE": {
+      "TEXT": "दवा बिल बनाएं"
+    },
+    "BILL-DATE": {
+      "TEXT": "बिल की तारीख"
+    },
+    "MEDICINE-CATEGORY": {
+      "TEXT": "दवा श्रेणी"
+    },
+    "CONFIRM-TITLE": {
+      "TEXT": "क्या आपको यकीन है?"
+    },
+    "PERCENTAGE": {
+      "TEXT": "प्रतिशत"
+    },
+    "CHARGE-TYPE": {
+      "TEXT": "शुल्क का प्रकार"
+    },
+    "CHARGE-CATEGORY": {
+      "TEXT": "शुल्क श्रेणी"
+    },
+    "CHARGE-CATEGORIES": {
+      "TEXT": "शुल्क श्रेणियाँ"
+    },
+    "STANDARD-CHARGES": {
+      "TEXT": "मानक शुल्क"
+    },
+    "CODE": {
+      "TEXT": "कोड"
+    },
+    "LOGOUT": {
+      "TEXT": "लॉग आउट"
+    },
+    "MANUFACTURED-BY": {
+      "TEXT": "निर्मितकर्ता द्वारा",
+      "REQUIRED": "निर्मितकर्ता द्वारा आवश्यक है"
+    },
+    "ACTIVE": {
+      "TEXT": "सक्रिय"
+    },
+    "INACTIVE": {
+      "TEXT": "निष्क्रिय"
+    },
+    "VACCINE": {
+      "TEXT": "टीका",
+      "REQUIRED": "टीका आवश्यक है"
+    },
+    "SERIAL-NO": {
+      "TEXT": "क्रम संख्या"
+    },
+    "DOSE-NO": {
+      "TEXT": "खुराक संख्या",
+      "REQUIRED": "खुराक संख्या आवश्यक है"
+    },
+    "DOSE-GIVEN-DATE": {
+      "TEXT": "खुराक दी गई तारीख",
+      "REQUIRED": "खुराक दी गई तारीख आवश्यक है"
+    },
+    "ARE-YOU-SURE": {
+      "TEXT": "क्या आप निश्चित हैं?"
+    },
+    "EMPLOYEE": {
+      "TEXT": "कर्मचारी",
+      "REQUIRED": "कर्मचारी आवश्यक है"
+    },
+    "USERS": {
+      "TEXT": "उपयोगकर्ता",
+      "REQUIRED": "उपयोगकर्ता प्रकार आवश्यक है"
+    },
+    "BLOOD-GROUP": {
+      "TEXT": "रक्त समूह",
+      "REQUIRED": "रक्त समूह आवश्यक है"
+    },
+    "REMAINED-BAGS": {
+      "TEXT": "बचे हुए बैग"
+    },
+    "DONOR-NAME": {
+      "TEXT": "दाता का नाम",
+      "REQUIRED": "दाता का नाम आवश्यक है"
+    },
+    "LAST-DONATION-DATE": {
+      "TEXT": "अंतिम दान तारीख",
+      "REQUIRED": "अंतिम दान तारीख आवश्यक है"
+    },
+    "MALE": {
+      "TEXT": "पुरुष"
+    },
+    "FEMALE": {
+      "TEXT": "महिला"
+    },
+    "BAGS": {
+      "TEXT": "बैग"
+    },
+    "DONOR": {
+      "REQUIRED": "दाता का नाम आवश्यक है"
+    },
+    "DOCTOR-NAME": {
+      "TEXT": "डॉक्टर का नाम"
+    },
+    "PATIENT-NAME": {
+      "TEXT": "मरीज़ का नाम"
+    },
+    "ISSUE-DATE": {
+      "TEXT": "जारी तारीख"
+    },
+    "ISSUE-DATE-REQUIRED": {
+      "TEXT": "जारी तारीख आवश्यक है"
+    },
+    "DOCTOR-NAME-REQUIRED": {
+      "TEXT": "डॉक्टर का नाम आवश्यक है"
+    },
+    "PATIENT-NAME-REQUIRED": {
+      "TEXT": "मरीज़ का नाम आवश्यक है"
+    },
+    "DONOR-NAME-REQUIRED": {
+      "TEXT": "दाता का नाम आवश्यक है"
+    },
+    "BLOOD-GROUP-REQUIRED": {
+      "TEXT": "रक्त समूह आवश्यक है"
+    },
+    "REMARKS": {
+      "TEXT": "टिप्पणियाँ"
+    },
+    "REMARKS-REQUIRED": {
+      "TEXT": "टिप्पणियाँ आवश्यक हैं"
+    },
+    "SEARCH_DEPARTMENT": {
+      "TEXT": "विभाग खोजें"
+    },
+    "SEARCH_ROLE": {
+      "TEXT": "भूमिका खोजें"
+    },
+    "EMPLOYEE_TYPE": {
+      "TEXT": "कर्मचारी प्रकार"
+    },
+    "EMPLOYEE_TITLE": {
+      "TEXT": "डॉ./श्री/श्रीमती"
+    },
+    "EMPLOYEE_TITLE_ERROR": {
+      "TEXT": "कर्मचारी शीर्षक आवश्यक है"
+    },
+    "FIRST_NAME_ERROR": {
+      "TEXT": "पहला नाम आवश्यक है"
+    },
+    "LAST_NAME_ERROR": {
+      "TEXT": "अंतिम नाम आवश्यक है"
+    },
+    "JOINING_DATE": {
+      "TEXT": "जॉइनिंग तिथि"
+    },
+    "JOINING_DATE_ERROR": {
+      "TEXT": "कृपया एक तिथि चुनें"
+    },
+    "DOB_ERROR": {
+      "TEXT": "जन्म तिथि आवश्यक है"
+    },
+    "GENDER_ERROR": {
+      "TEXT": "लिंग आवश्यक है"
+    },
+    "BLOOD_GROUP_ERROR": {
+      "TEXT": "रक्त समूह आवश्यक है"
+    },
+    "BIRTH_PLACE": {
+      "TEXT": "जन्म स्थान"
+    },
+    "MOTHER_TONGUE": {
+      "TEXT": "मातृभाषा"
+    },
+    "EMAIL_ERROR": {
+      "TEXT": "कृपया एक वैध ईमेल पता दर्ज करें"
+    },
+    "HEALTH_ISSUE": {
+      "TEXT": "क्या आपके पास कोई स्वास्थ्य समस्या है?"
+    },
+    "AADHAR_CARD": {
+      "TEXT": "आधार कार्ड"
+    },
+    "PASSPORT_NUMBER": {
+      "TEXT": "पासपोर्ट नंबर"
+    },
+    "PAN_CARD": {
+      "TEXT": "पैन कार्ड"
+    },
+    "RELIGION": {
+      "TEXT": "धर्म"
+    },
+    "CASTE": {
+      "TEXT": "जाति"
+    },
+    "SUB_CASTE": {
+      "TEXT": "उपजाति"
+    },
+    "SEARCH_BLOOD_GROUP": {
+      "TEXT": "रक्त समूह खोजें"
+    },
+    "SINGLE": {
+      "TEXT": "अविवाहित"
+    },
+    "MARRIED": {
+      "TEXT": "विवाहित"
+    },
+    "DIVORCED": {
+      "TEXT": "तलाकशुदा"
+    },
+    "CHOOSE_FILE_PLACEHOLDER": {
+      "TEXT": "एक फाइल चुनें या यहां खींचें और छोड़ें"
+    },
+    "EXPERIENCE_YEARS": {
+      "TEXT": "अनुभव (वर्ष)"
+    },
+    "EXPERIENCE_YEARS_ERROR": {
+      "TEXT": "अनुभव आवश्यक है"
+    },
+    "APPOINTMENT_CHARGE": {
+      "TEXT": "अपॉइंटमेंट शुल्क"
+    },
+    "APPOINTMENT_CHARGE_ERROR": {
+      "TEXT": "अपॉइंटमेंट शुल्क आवश्यक है"
+    },
+    "IPD_CHARGE": {
+      "TEXT": "IPD शुल्क"
+    },
+    "OPD_CHARGE": {
+      "TEXT": "OPD शुल्क"
+    },
+    "DOCTOR_APPOINTMENT_MODE": {
+      "TEXT": "डॉक्टर अपॉइंटमेंट मोड चुनें"
+    },
+    "TOKEN": {
+      "TEXT": "टोकन"
+    },
+    "HOURLY_CHARGE": {
+      "TEXT": "प्रति घंटा शुल्क"
+    },
+    "PER_PATIENT_CHARGE": {
+      "TEXT": "प्रति मरीज़ शुल्क"
+    },
+    "CHARGES_ERROR": {
+      "TEXT": "कृपया प्रति घंटा या प्रति मरीज़ शुल्क चुनें।"
+    },
+    "AVAILABILITY_ERROR": {
+      "TEXT": "उपलब्धता आवश्यक है"
+    },
+    "RATING_ERROR": {
+      "TEXT": "रेटिंग आवश्यक है"
+    },
+    "ADDRESS_REQUIRED": {
+      "TEXT": "पता आवश्यक है"
+    },
+    "COUNTRY_REQUIRED": {
+      "TEXT": "देश आवश्यक है"
+    },
+    "STATE_REQUIRED": {
+      "TEXT": "राज्य आवश्यक है"
+    },
+    "CITY_REQUIRED": {
+      "TEXT": "शहर आवश्यक है"
+    },
+    "MOBILE_REQUIRED": {
+      "TEXT": "मोबाइल आवश्यक है"
+    },
+    "MOBILE_INVALID": {
+      "TEXT": "कम से कम 10 अंकों का वैध मोबाइल नंबर दर्ज करें"
+    },
+    "EMERGENCY_CONTACT_NAME": {
+      "TEXT": "आपातकालीन संपर्क नाम"
+    },
+    "EMERGENCY_CONTACT_NUMBER": {
+      "TEXT": "आपातकालीन संपर्क नंबर"
+    },
+    "CONTACT_DETAILS": {
+      "TEXT": "संपर्क विवरण"
+    },
+    "COPY_TO_PERMANENT_ADDRESS": {
+      "TEXT": "स्थायी पते में कॉपी करें"
+    },
+    "EDUCATION_DETAILS": {
+      "TEXT": "शिक्षा विवरण"
+    },
+    "SPECIALIZATION_REQUIRED": {
+      "TEXT": "विशेषज्ञता आवश्यक है"
+    },
+    "DESIGNATION": {
+      "TEXT": "पदनाम"
+    },
+    "TOTAL_EXPERIENCE": {
+      "TEXT": "कुल अनुभव"
+    },
+    "QUALIFICATION": {
+      "TEXT": "योग्यता"
+    },
+    "SCHOOL_COLLEGE": {
+      "TEXT": "स्कूल/कॉलेज का नाम"
+    },
+    "BOARD_UNIVERSITY": {
+      "TEXT": "बोर्ड/विश्वविद्यालय का नाम"
+    },
+    "YEAR_OF_PASSING": {
+      "TEXT": "उत्तीर्ण वर्ष"
+    },
+    "PERCENTAGE_CLASS": {
+      "TEXT": "प्रतिशत/श्रेणी"
+    },
+    "ADD_NEW": {
+      "TEXT": "नया जोड़ें"
+    },
+    "SALARY_DETAILS": {
+      "TEXT": "वेतन विवरण"
+    },
+    "BANK_NAME": {
+      "TEXT": "बैंक का नाम"
+    },
+    "BRANCH_NAME": {
+      "TEXT": "शाखा का नाम"
+    },
+    "ACCOUNT_NUMBER": {
+      "TEXT": "खाता नंबर"
+    },
+    "IFSC_CODE": {
+      "TEXT": "IFSC कोड"
+    },
+    "MICR_CODE": {
+      "TEXT": "MICR कोड"
+    },
+    "WORKING_HOURS": {
+      "TEXT": "कार्य घंटे"
+    },
+    "SALARY_TYPE": {
+      "TEXT": "वेतन प्रकार"
+    },
+    "AMOUNT_TYPE": {
+      "TEXT": "राशि प्रकार"
+    },
+    "PER_DAY_SALARY": {
+      "TEXT": "प्रति दिन वेतन"
+    },
+    "GENERATE_SALARY_BY": {
+      "TEXT": "वेतन उत्पन्न करें द्वारा"
+    },
+    "ASSIGN_SALARY_BASED_ON": {
+      "TEXT": "वेतन आधारित असाइन करें"
+    },
+    "PF_SECURITY_FUND": {
+      "TEXT": "PF/सुरक्षा कोष"
+    },
+    "ESI_INSURANCE": {
+      "TEXT": "ESI/बीमा"
+    },
+    "PAYROLL_TYPE": {
+      "TEXT": "पेरोल प्रकार"
+    },
+    "PREVIOUS_HOSPITAL_DETAILS": {
+      "TEXT": "पिछले हॉस्पिटल विवरण"
+    },
+    "PREVIOUS_HOSPITAL": {
+      "TEXT": "पिछले हॉस्पिटल विवरण"
+    },
+    "PREVIOUS_HOSPITAL_ADDRESS": {
+      "TEXT": "पिछले हॉस्पिटल पता"
+    },
+    "CONTACT_NUMBER": {
+      "TEXT": "संपर्क नंबर"
+    },
+    "DOCUMENTS_DETAILS": {
+      "TEXT": "दस्तावेज विवरण"
+    },
+    "UPLOAD_DOCUMENT": {
+      "TEXT": "दस्तावेज अपलोड करें"
+    },
+    "CHOOSE_FILE": {
+      "TEXT": "एक फाइल चुनें या यहां खींचें और छोड़ें"
+    },
+    "FILE_NAME": {
+      "TEXT": "फाइल नाम"
+    },
+    "DOCUMENT_NAME": {
+      "TEXT": "दस्तावेज नाम"
+    },
+    "OTHER_DETAILS": {
+      "TEXT": "अन्य विवरण"
+    },
+    "FACEBOOK_URL": {
+      "TEXT": "फेसबुक URL"
+    },
+    "INSTAGRAM_URL": {
+      "TEXT": "इंस्टाग्राम URL"
+    },
+    "TWITTER_URL": {
+      "TEXT": "ट्विटर URL"
+    },
+    "LINKEDIN_URL": {
+      "TEXT": "लिंक्डइन URL"
+    },
+    "USERNAME_REQUIRED": {
+      "TEXT": "उपयोगकर्ता नाम आवश्यक है"
+    },
+    "PASSWORD_REQUIRED": {
+      "TEXT": "पासवर्ड आवश्यक है"
+    },
+    "PER_PATIENT_TIME": {
+      "TEXT": "प्रति मरीज़ समय"
+    },
+    "SELECT_DOCTOR": {
+      "TEXT": "डॉक्टर चुनें"
+    },
+    "SEARCH_DOCTOR": {
+      "TEXT": "डॉक्टर खोजें"
+    },
+    "SHIFT": {
+      "TEXT": "शिफ्ट",
+      "SEARCH": "शिफ्ट खोजें",
+      "REQUIRED": "शिफ्ट आवश्यक है"
+    },
+    "BREAK_FROM": {
+      "TEXT": "ब्रेक से"
+    },
+    "BREAK_TO": {
+      "TEXT": "ब्रेक तक"
+    },
+    "BREAK_TYPE": {
+      "TEXT": "ब्रेक प्रकार",
+      "EVERYDAY": "हर दिन",
+      "SINGLE_DAY": "एकल दिन",
+      "REQUIRED": "कृपया एक ब्रेक प्रकार चुनें"
+    },
+    "EMPLOYEE_NAME": {
+      "TEXT": "कर्मचारी नाम"
+    },
+    "HOLIDAY_NAME": {
+      "TEXT": "छुट्टी नाम"
+    },
+    "REASON": {
+      "TEXT": "कारण"
+    },
+    "START_DATE": {
+      "TEXT": "शुरू तिथि"
+    },
+    "END_DATE": {
+      "TEXT": "समाप्ति तिथि"
+    },
+    "SELECT_USERS": {
+      "TEXT": "उपयोगकर्ता चुनें"
+    },
+    "SELECT_EMPLOYEE": {
+      "TEXT": "कर्मचारी चुनें"
+    },
+    "HOLIDAY_START_DATE": {
+      "TEXT": "छुट्टी शुरू तिथि"
+    },
+    "HOLIDAY_END_DATE": {
+      "TEXT": "छुट्टी समाप्ति तिथि"
+    },
+    "SELECT_USERS_REQUIRED": {
+      "TEXT": "उपयोगकर्ता आवश्यक है"
+    },
+    "SELECT_EMPLOYEE_REQUIRED": {
+      "TEXT": "कर्मचारी आवश्यक है"
+    },
+    "HOLIDAY_START_DATE_REQUIRED": {
+      "TEXT": "कृपया छुट्टी शुरू तिथि चुनें"
+    },
+    "HOLIDAY_END_DATE_REQUIRED": {
+      "TEXT": "कृपया छुट्टी समाप्ति तिथि चुनें"
+    },
+    "HOLIDAY_END_DATE_VALIDATION": {
+      "TEXT": "समाप्ति तिथि शुरू तिथि के बाद होनी चाहिए।"
+    },
+    "HOLIDAY_NAME_REQUIRED": {
+      "TEXT": "छुट्टी नाम आवश्यक है"
+    },
+    "HOLIDAY_DAY": {
+      "TEXT": "दिन"
+    },
+    "HOLIDAY_DATE": {
+      "TEXT": "तिथि"
+    },
+    "DELETE_BTN": {
+      "TEXT": "हटाएं"
+    },
+    "CANCEL_BTN": {
+      "TEXT": "रद्द करें"
+    },
+    "SHOW_DOCTOR": {
+      "TEXT": "डॉक्टर दिखाएं"
+    },
+    "DOCTOR-TEMPLATE": {
+      "EDIT": "आईडी कार्ड टेम्प्लेट संपादित करें",
+      "CREATE": "आईडी कार्ड टेम्प्लेट बनाएं",
+      "CUSTOMIZE_ID": "अपने मरीज़ आईडी कार्ड को कस्टमाइज़ करें",
+      "NAME": "टेम्प्लेट नाम",
+      "ERROR_NAME_REQUIRED": "टेम्प्लेट नाम आवश्यक है",
+      "HEADER_COLOR": "हेडर रंग",
+      "DISPLAY_OPTIONS": "डिस्प्ले विकल्प",
+      "SHOW_EMAIL": "ईमेल दिखाएं",
+      "SHOW_PHONE": "फोन दिखाएं",
+      "SHOW_DOB": "जन्म तिथि दिखाएं",
+      "SHOW_BLOOD": "रक्त समूह दिखाएं",
+      "SHOW_ADDRESS": "पता दिखाएं",
+      "LIVE_PREVIEW": "लाइव पूर्वावलोकन",
+      "LIVE_PREVIEW_SUBTITLE": "देखें कि आपका आईडी कार्ड कैसा दिखेगा",
+      "EMAIL": "ईमेल",
+      "PHONE": "फोन",
+      "DOB": "जन्म तिथि",
+      "BLOOD_GROUP": "रक्त समूह",
+      "ADDRESS": "पता"
+    },
+    "DOCTOR-TEMPLATE-ACTIONS": {
+      "CANCEL": "रद्द करें",
+      "CREATE": "टेम्प्लेट बनाएं",
+      "UPDATE": "टेम्प्लेट अपडेट करें",
+      "SAVING": "सेव हो रहा है..."
+    },
+    "SELECT_DEPARTMENT": {
+      "TEXT": "विभाग चुनें"
+    },
+    "ALL_EMPLOYEE": {
+      "TEXT": "सभी कर्मचारी"
+    },
+    "SELECT_TYPE": {
+      "TEXT": "प्रकार चुनें"
+    },
+    "FIELD_REQUIRED": {
+      "TEXT": "यह क्षेत्र आवश्यक है"
+    }
+  }
+}

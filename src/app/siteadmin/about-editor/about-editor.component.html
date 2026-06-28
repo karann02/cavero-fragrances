@@ -1,0 +1,202 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <app-breadcrumb [title]="'About Page Editor'" [active_item]="'About Editor'"></app-breadcrumb>
+    </div>
+
+    <div *ngIf="isLoading" class="text-center py-5"><div class="spinner-border text-primary"></div></div>
+
+    <div *ngIf="!isLoading">
+      <mat-tab-group animationDuration="200ms">
+
+        <!-- Tab 1: Hero -->
+        <mat-tab label="Hero Section">
+          <div class="tab-content-pad">
+            <mat-card>
+              <mat-card-content class="pt-3">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Hero Title</mat-label>
+                      <input matInput [(ngModel)]="data.hero_title" placeholder="Welcome to Cavero Fragrances">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-12">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Hero Subtitle</mat-label>
+                      <input matInput [(ngModel)]="data.hero_subtitle" placeholder="We believe that...">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+
+        <!-- Tab 2: Features -->
+        <mat-tab label="Feature Cards">
+          <div class="tab-content-pad">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0 fw-bold">Feature Cards (shown below hero)</h6>
+              <button mat-raised-button color="primary" (click)="addFeature()">
+                <mat-icon>add</mat-icon> Add Feature
+              </button>
+            </div>
+            <mat-card class="mb-3" *ngFor="let f of data.features; let i = index">
+              <mat-card-content class="pt-3">
+                <div class="row g-3 align-items-start">
+                  <div class="col-md-3">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Icon class</mat-label>
+                      <input matInput [(ngModel)]="f.icon" placeholder="ci-leaf">
+                      <mat-hint>e.g. ci-leaf, ci-star, ci-delivery</mat-hint>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-3">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Title</mat-label>
+                      <input matInput [(ngModel)]="f.title">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-5">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Description</mat-label>
+                      <textarea matInput [(ngModel)]="f.text" rows="2"></textarea>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-1 d-flex align-items-center">
+                    <button mat-icon-button color="warn" (click)="removeFeature(i)"><mat-icon>delete_outline</mat-icon></button>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+
+        <!-- Tab 3: Story -->
+        <mat-tab label="Our Story">
+          <div class="tab-content-pad">
+            <mat-card>
+              <mat-card-content class="pt-3">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Section Title</mat-label>
+                      <input matInput [(ngModel)]="data.story_title">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-12">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Story Text</mat-label>
+                      <textarea matInput [(ngModel)]="data.story_text" rows="4"></textarea>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-3">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Stat Value</mat-label>
+                      <input matInput [(ngModel)]="data.story_stat_value" placeholder="500+">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-9">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Stat Label</mat-label>
+                      <input matInput [(ngModel)]="data.story_stat_label" placeholder="products made with natural ingredients">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-12">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Quote</mat-label>
+                      <textarea matInput [(ngModel)]="data.quote" rows="2"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+
+        <!-- Tab 4: Stats -->
+        <mat-tab label="Stats Bar">
+          <div class="tab-content-pad">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0 fw-bold">Stats (shown in dark bar)</h6>
+              <button mat-raised-button color="primary" (click)="addStat()">
+                <mat-icon>add</mat-icon> Add Stat
+              </button>
+            </div>
+            <mat-card class="mb-3" *ngFor="let s of data.stats; let i = index">
+              <mat-card-content class="pt-3">
+                <div class="row g-3 align-items-center">
+                  <div class="col-md-4">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Value</mat-label>
+                      <input matInput [(ngModel)]="s.value" placeholder="50K+">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-7">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Label</mat-label>
+                      <input matInput [(ngModel)]="s.label" placeholder="Happy Customers">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-1">
+                    <button mat-icon-button color="warn" (click)="removeStat(i)"><mat-icon>delete_outline</mat-icon></button>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+
+        <!-- Tab 5: Values -->
+        <mat-tab label="Core Values">
+          <div class="tab-content-pad">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0 fw-bold">Core Values (Why choose us section)</h6>
+              <button mat-raised-button color="primary" (click)="addValue()">
+                <mat-icon>add</mat-icon> Add Value
+              </button>
+            </div>
+            <mat-card class="mb-3" *ngFor="let v of data.values; let i = index">
+              <mat-card-content class="pt-3">
+                <div class="row g-3 align-items-start">
+                  <div class="col-md-3">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Icon class</mat-label>
+                      <input matInput [(ngModel)]="v.icon" placeholder="ci-heart">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-3">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Title</mat-label>
+                      <input matInput [(ngModel)]="v.title">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-5">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Description</mat-label>
+                      <textarea matInput [(ngModel)]="v.text" rows="2"></textarea>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-1 d-flex align-items-center">
+                    <button mat-icon-button color="warn" (click)="removeValue(i)"><mat-icon>delete_outline</mat-icon></button>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+
+      <!-- Save -->
+      <div class="save-bar mt-4">
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="isSaving">
+          <mat-icon>save</mat-icon> {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </button>
+        <span class="text-muted ms-3 fs-sm">Changes reflect on the About Us page immediately.</span>
+      </div>
+    </div>
+
+  </div>
+</section>

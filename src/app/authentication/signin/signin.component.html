@@ -1,0 +1,66 @@
+<div class="cvr-admin-auth">
+  <div class="cvr-admin-card">
+
+    <!-- Logo + Portal label -->
+    <div class="cvr-admin-header">
+      <a routerLink="/" tabindex="-1">
+        <img src="../../../../assets/images/cavero-logo.png"
+             alt="Cavero Fragrances"
+             class="cvr-admin-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'">
+        <span style="display:none; font-family:'Cinzel',serif; font-weight:700; color:#418576; letter-spacing:3px; font-size:0.9rem;">CAVERO</span>
+      </a>
+      <span class="cvr-admin-portal-tag">Admin Portal</span>
+    </div>
+
+    <h1 class="cvr-admin-heading">Sign In</h1>
+    <p class="cvr-admin-sub">Restricted access — authorised personnel only</p>
+
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)" novalidate>
+
+      <!-- Email -->
+      <div class="cavero-field">
+        <input type="email" class="cavero-field-input" placeholder=" "
+               formControlName="username" autocomplete="username">
+        <label class="cavero-field-label">Email Address</label>
+      </div>
+
+      <!-- Password -->
+      <div class="cavero-field">
+        <input [type]="hide ? 'password' : 'text'" class="cavero-field-input" placeholder=" "
+               formControlName="password" autocomplete="current-password"
+               style="padding-right:2.5rem">
+        <label class="cavero-field-label">Password</label>
+        <button type="button" class="cavero-field-eye" (click)="hide = !hide" tabindex="-1">
+          <svg *ngIf="hide" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+          <svg *ngIf="!hide" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Error -->
+      <div class="cvr-admin-error" *ngIf="error">{{ error }}</div>
+
+      <!-- Submit -->
+      <button type="submit" class="cvr-admin-btn"
+              [disabled]="!authForm.get('username')?.valid || !authForm.get('password')?.valid || loading">
+        <span *ngIf="loading" class="cvr-admin-spinner"></span>
+        {{ loading ? 'Signing in...' : 'Sign In' }}
+      </button>
+
+    </form>
+
+    <!-- Google Sign-In -->
+    <div id="google-signin-button" class="cvr-admin-google"></div>
+
+    <div class="cvr-admin-footer">
+      <p>Customer login? <a routerLink="/signin">Go here</a></p>
+      <p>&copy; 2026 Cavero Fragrances</p>
+    </div>
+
+  </div>
+</div>

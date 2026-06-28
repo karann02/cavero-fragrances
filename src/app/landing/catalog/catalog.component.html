@@ -1,0 +1,74 @@
+<!-- Shared homepage navbar (solid variant for inner pages) -->
+<app-cavero-navbar variant="solid"></app-cavero-navbar>
+
+<!-- Slim interactive breadcrumb bar -->
+<section class="cavero-page-hero">
+  <div class="container">
+    <nav class="cavero-breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/" class="cavero-crumb">
+        <svg class="cavero-crumb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9h5v-5h4v5h5v-9"/>
+        </svg>
+        <span>Home</span>
+      </a>
+
+      <span class="cavero-crumb-sep" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </span>
+
+      <ng-container *ngIf="categoryId">
+        <a routerLink="/shop" class="cavero-crumb">Shop</a>
+        <span class="cavero-crumb-sep" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </span>
+      </ng-container>
+
+      <span class="cavero-crumb cavero-crumb-current" aria-current="page">{{ categoryName || 'All Products' }}</span>
+    </nav>
+  </div>
+</section>
+
+<main class="cavero-catalog-main">
+  <div class="container py-4 py-lg-5">
+    <div class="row align-items-start">
+
+      <!-- Sidebar — shown on category AND search-results pages -->
+      <aside class="col-lg-3">
+        <app-catalog-filters
+          [categoryId]="categoryId"
+          (filtersChanged)="onFiltersChanged($event)">
+        </app-catalog-filters>
+      </aside>
+
+      <!-- Product grid -->
+      <div class="col-lg-9">
+        <app-catalog-products
+          [categoryId]="categoryId"
+          [searchQuery]="searchQuery"
+          [activeFilters]="activeFilters"
+          (clearAll)="clearAllFilters()">
+        </app-catalog-products>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<app-cavero-footer></app-cavero-footer>
+
+<!-- Mobile filter button (gold) -->
+<button type="button"
+        class="cavero-mobile-filter-btn d-lg-none"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#filterSidebar"
+        aria-controls="filterSidebar">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+    <line x1="4" y1="6" x2="20" y2="6"/>
+    <line x1="8" y1="12" x2="16" y2="12"/>
+    <line x1="10" y1="18" x2="14" y2="18"/>
+  </svg>
+  Filters
+</button>

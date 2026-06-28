@@ -1,0 +1,111 @@
+
+/* ── top spacing fix ── */
+:host {
+  display: block;
+  padding-top: 24px;
+}
+
+// inherits global admin styles
+
+/* ── materialTableHeader fix ── */
+
+.materialTableHeader {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 72px !important;
+  height: auto !important;
+  padding: 14px 20px !important;
+  gap: 10px !important;
+  background: rgba(255, 244, 226, 0.06) !important;
+  border-bottom: 1px solid rgba(255, 244, 226, 0.10) !important;
+
+  .left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .right {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  .header-buttons-left,
+  .tbl-export-btn {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .tbl-header-btn {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .m-l-10 {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  }
+}
+
+/* end fix */
+
+/* ── Support ticket polish (Atelier) ── */
+:host ::ng-deep .mat-column-subject { flex: 0 0 180px; min-width: 160px; }
+:host ::ng-deep .mat-column-message { flex: 1 1 280px; min-width: 240px; }
+:host ::ng-deep .mat-column-status  { flex: 0 0 150px; min-width: 150px; }
+:host ::ng-deep .mat-column-createdAt { flex: 0 0 150px; min-width: 150px; }
+
+/* clean two-line date / time so it never wraps awkwardly */
+.ticket-date-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.ticket-date-cell .td-date { font-weight: 600; color: #F3EEE1; font-size: 13px; }
+.ticket-date-cell .td-time { font-size: 11.5px; color: rgba(243, 238, 225, 0.55); }
+
+.ticket-subject {
+  display: block; max-width: 100%;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-weight: 600;
+}
+.ticket-msg {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; max-width: 320px; line-height: 1.35;
+  color: rgba(243, 238, 225, 0.72);
+}
+
+/* status chip shown in the select trigger */
+.tstat-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 4px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+}
+.tstat-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.tstat-chip.tstat-open        { background: rgba(244, 191, 99, 0.16);  color: #F4C56B; }
+.tstat-chip.tstat-in_progress { background: rgba(143, 195, 242, 0.16); color: #8FC3F2; }
+.tstat-chip.tstat-resolved    { background: rgba(123, 224, 176, 0.16); color: #7BE0B0; }
+
+:host ::ng-deep .ticket-status-select .mat-mdc-select-arrow { color: rgba(243, 238, 225, 0.5) !important; }
+:host ::ng-deep .ticket-status-select .mat-mdc-select-trigger { min-width: 120px; }

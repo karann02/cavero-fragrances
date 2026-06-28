@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CAVERO PRODUCT-DETAIL · PAGE SHELL
+   White surface to match the catalog, with a soft mint/cream
+   ambient wash behind the gallery for a premium, distinct feel.
+   ───────────────────────────────────────────────────────────── */
+.content-wrapper {
+  position: relative;
+  background: #ffffff;
+
+  /* faint ambient glow — barely-there, keeps the page clean & bright */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 620px;
+    background:
+      radial-gradient(120% 80% at 18% 0%, rgba(141, 207, 180, 0.16), transparent 55%),
+      radial-gradient(90% 70% at 95% 8%, rgba(255, 247, 228, 0.6), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.content-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+.product-detail-main-section {
+  padding-top: 0.35rem;
+}
+
+.product-detail-gallery-col {
+  margin-top: 0;
+}
+
+/* info column fades up as a whole (children stagger inside the info component) */
+@media (prefers-reduced-motion: no-preference) {
+  .product-detail-main-section .position-relative.col-md-6 {
+    animation: cav-pd-col-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  }
+}
+
+@keyframes cav-pd-col-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+  .product-detail-main-section {
+    padding-top: 0;
+  }
+}

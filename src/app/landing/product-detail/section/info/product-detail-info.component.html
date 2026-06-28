@@ -1,0 +1,201 @@
+<div class="cavero-pd-info">
+
+  <!-- Category -->
+  <p class="cavero-pd-category">{{ product?.category }}</p>
+
+  <!-- Name -->
+  <h1 class="cavero-pd-name">{{ product?.name }}</h1>
+
+  <!-- Spec badges -->
+  <div class="cavero-pd-badges" *ngIf="product?.specifications?.concentration || product?.specifications?.fragrance_family || product?.specifications?.gender || product?.weight">
+    <span class="cavero-pd-badge" *ngIf="product?.specifications?.concentration">{{ product?.specifications?.concentration }}</span>
+    <span class="cavero-pd-badge" *ngIf="product?.specifications?.fragrance_family">{{ product?.specifications?.fragrance_family }}</span>
+    <span class="cavero-pd-badge" *ngIf="product?.specifications?.gender">{{ product?.specifications?.gender }}</span>
+    <span class="cavero-pd-badge" *ngIf="product?.weight">{{ getWeightDisplay() }}</span>
+  </div>
+
+  <!-- Price row -->
+  <div class="cavero-pd-price-row">
+    <span class="cavero-pd-price">₹{{ getDisplayPrice() }}</span>
+    <del class="cavero-pd-mrp" *ngIf="hasDiscount()">₹{{ getDisplayComparePrice() }}</del>
+    <span class="cavero-pd-off-badge" *ngIf="hasDiscount()">{{ getDiscountPercentage() }}% OFF</span>
+  </div>
+
+  <!-- Stock indicator -->
+  <div *ngIf="shouldShowOutOfStockNotice()" class="cavero-pd-stock cavero-pd-stock--out">
+    <span class="cavero-stock-dot"></span> Out of stock
+  </div>
+  <div *ngIf="shouldShowLowStockNotice()" class="cavero-pd-stock cavero-pd-stock--low">
+    <span class="cavero-stock-dot"></span> Only {{ getLowStockCount() }} left
+  </div>
+  <div *ngIf="!shouldShowOutOfStockNotice() && !shouldShowLowStockNotice() && getVariants().length > 0 && selectedSizeIndex !== null"
+    class="cavero-pd-stock cavero-pd-stock--in">
+    <span class="cavero-stock-dot"></span> In stock
+  </div>
+
+  <!-- Variant selector -->
+  <div class="cavero-pd-variants" *ngIf="variants.length > 0">
+    <p class="cavero-pd-variants-label">
+      Size
+      <span *ngIf="selectedSizeIndex !== null && variants[selectedSizeIndex!]" class="cavero-pd-selected-size">
+        — {{ variants[selectedSizeIndex!].name || variants[selectedSizeIndex!].label }}
+      </span>
+    </p>
+    <div class="cavero-pd-variant-btns">
+      <button
+        *ngFor="let v of variants; let i = index; trackBy: trackVariant"
+        type="button"
+        class="cavero-pd-variant-btn"
+        [class.cavero-pd-variant-btn--active]="selectedSizeIndex === i"
+        [class.cavero-pd-variant-btn--soldout]="isVariantSoldOut(i)"
+        [disabled]="isVariantSoldOut(i)"
+        (click)="!isVariantSoldOut(i) && selectSize(i)"
+      >
+        {{ v.name || v.label }}<span *ngIf="isVariantSoldOut(i)" class="cavero-sold-out-label"> (Sold Out)</span>
+      </button>
+    </div>
+    <p class="cavero-pd-size-hint" *ngIf="selectedSizeIndex === null">Select a size to continue.</p>
+  </div>
+
+  <!-- Add to Cart + Qty -->
+  <ng-container *ngIf="!isOutOfStock()">
+    <div class="cavero-pd-actions">
+      <div class="cavero-pd-qty">
+        <button type="button" class="cavero-qty-btn" (click)="decrementQuantity()" [disabled]="quantity <= 1" aria-label="Decrease quantity">−</button>
+        <span class="cavero-qty-value">{{ quantity }}</span>
+        <button type="button" class="cavero-qty-btn"
+          [class.cavero-qty-btn--maxed]="isMaxQuantityReached()"
+          [attr.aria-disabled]="isMaxQuantityReached()"
+          (click)="incrementQuantity()" aria-label="Increase quantity">+</button>
+      </div>
+      <button type="button" class="cavero-pd-atc-btn" (click)="addToCart()">
+        <span>Add to Cart</span>
+      </button>
+    </div>
+  </ng-container>
+  <div *ngIf="isOutOfStock()" class="cavero-pd-oos-btn">Currently Out of Stock</div>
+
+  <!-- Secondary: Wishlist + WhatsApp -->
+  <div class="cavero-pd-secondary">
+    <button type="button" class="cavero-pd-wishlist-btn"
+      [class.cavero-pd-wishlist-btn--active]="isWishlisted"
+      (click)="addToWishlist()" aria-label="Add to wishlist">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      <span>{{ isWishlisted ? 'Wishlisted' : 'Wishlist' }}</span>
+    </button>
+    <a class="cavero-pd-wa-btn" [href]="getWhatsAppLink()" target="_blank" rel="noopener noreferrer">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+      </svg>
+      <span>Ask on WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- Free gift teaser -->
+  <div class="cavero-pd-gift-bar" *ngIf="freeGifts.length > 0">
+    <span class="cavero-gift-icon">🎁</span>
+    <span class="cavero-gift-text">
+      <ng-container *ngFor="let g of freeGifts; let i = index; let last = last">
+        Free <strong>{{ g.name }}</strong> on orders above ₹{{ g.min_order_value }}<ng-container *ngIf="!last"> &nbsp;·&nbsp; </ng-container>
+      </ng-container>
+    </span>
+  </div>
+
+  <!-- Divider -->
+  <div class="cavero-pd-divider"></div>
+
+  <!-- Fragrance Story — collapsible accordion (all closed on load) -->
+  <div class="cavero-pd-story cavero-acc">
+
+    <!-- The Story -->
+    <div class="cavero-acc-item" *ngIf="product?.description">
+      <button type="button" class="cavero-acc-head" [class.open]="openSections.story"
+        (click)="toggleSection('story')" [attr.aria-expanded]="openSections.story">
+        <span class="cavero-acc-title">The Story</span>
+        <svg class="cavero-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="cavero-acc-panel" [class.open]="openSections.story">
+        <div class="cavero-acc-inner">
+          <p class="cavero-story-text">{{ product?.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fragrance Notes -->
+    <div class="cavero-acc-item" *ngIf="product?.ingredients && getLines(product?.ingredients).length > 0">
+      <button type="button" class="cavero-acc-head" [class.open]="openSections.notes"
+        (click)="toggleSection('notes')" [attr.aria-expanded]="openSections.notes">
+        <span class="cavero-acc-title">Fragrance Notes</span>
+        <svg class="cavero-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="cavero-acc-panel" [class.open]="openSections.notes">
+        <div class="cavero-acc-inner">
+          <ul class="cavero-detail-list">
+            <li *ngFor="let note of getLines(product?.ingredients)">{{ note }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Apply -->
+    <div class="cavero-acc-item" *ngIf="product?.calories && getLines(product?.calories).length > 0">
+      <button type="button" class="cavero-acc-head" [class.open]="openSections.howto"
+        (click)="toggleSection('howto')" [attr.aria-expanded]="openSections.howto">
+        <span class="cavero-acc-title">How to Apply</span>
+        <svg class="cavero-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="cavero-acc-panel" [class.open]="openSections.howto">
+        <div class="cavero-acc-inner">
+          <ul class="cavero-detail-list">
+            <li *ngFor="let step of getLines(product?.calories)">{{ step }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="cavero-acc-item" *ngIf="hasSpecs()">
+      <button type="button" class="cavero-acc-head" [class.open]="openSections.specs"
+        (click)="toggleSection('specs')" [attr.aria-expanded]="openSections.specs">
+        <span class="cavero-acc-title">Product Details</span>
+        <svg class="cavero-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="cavero-acc-panel" [class.open]="openSections.specs">
+        <div class="cavero-acc-inner">
+          <table class="cavero-specs-table">
+            <tbody>
+              <tr *ngIf="product?.specifications?.concentration">
+                <td class="cavero-spec-key">Concentration</td>
+                <td class="cavero-spec-val">{{ product?.specifications?.concentration }}</td>
+              </tr>
+              <tr *ngIf="product?.specifications?.fragrance_family">
+                <td class="cavero-spec-key">Fragrance Family</td>
+                <td class="cavero-spec-val">{{ product?.specifications?.fragrance_family }}</td>
+              </tr>
+              <tr *ngIf="product?.specifications?.gender">
+                <td class="cavero-spec-key">Gender</td>
+                <td class="cavero-spec-val">{{ product?.specifications?.gender }}</td>
+              </tr>
+              <tr *ngIf="product?.weight">
+                <td class="cavero-spec-key">Volume</td>
+                <td class="cavero-spec-val">{{ getWeightDisplay() }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

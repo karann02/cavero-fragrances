@@ -1,0 +1,115 @@
+<section class="content">
+  <div class="content-block" style="padding-top: 12px;">
+    <div class="row" style="margin-top: 14px;">
+      <div class="col-12">
+        <div class="card">
+          <div class="materialTableHeader" style="padding: 14px 16px 12px;">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h1 class="card-page-title" style="margin: 0; font-size: 1.1rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; color: #243247;">Influencer Reels</h1>
+                </li>
+                <li class="tbl-search-box">
+                  <label><i class="material-icons search-icon">search</i></label>
+                  <input placeholder="Search" type="text" (keyup)="applyFilter($event)" class="browser-default search-field">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="openAdd()" class="table-toolbar-btn col-green" matTooltip="Add Reel">
+                      <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="loadData()" class="table-toolbar-btn" matTooltip="Refresh">
+                      <mat-icon>refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
+
+                <ng-container matColumnDef="sort_order">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{ row.sort_order }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="title">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <div class="fw-medium">{{ row.title }}</div>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="discount_text">
+                  <mat-header-cell *matHeaderCellDef>Discount</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="badge bg-success" *ngIf="row.discount_text">{{ row.discount_text }}</span>
+                    <span class="text-muted" *ngIf="!row.discount_text">—</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="product_image">
+                  <mat-header-cell *matHeaderCellDef>Product</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <img *ngIf="row.product_image" [src]="baseUrl + row.product_image" (error)="onProductImageError(row)"
+                      style="width:44px;height:44px;object-fit:contain;border-radius:6px;border:1px solid #eee;" alt="">
+                    <span *ngIf="!row.product_image" class="text-muted">—</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="is_active">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="badge clickable-badge" 
+                          [class.bg-success]="row.is_active" 
+                          [class.bg-secondary]="!row.is_active"
+                          (click)="toggleReelStatus(row)"
+                          [matTooltip]="'Click to toggle status'"
+                          [style.opacity]="togglingId === row.id ? '0.6' : '1'">
+                      {{ row.is_active ? 'Active' : 'Inactive' }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="accent" (click)="openEdit(row)" matTooltip="Edit"><mat-icon>edit</mat-icon></button>
+                    <button mat-icon-button color="warn" (click)="delete(row)" matTooltip="Delete"><mat-icon>delete_outline</mat-icon></button>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row [@rowsAnimation]="" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </table>
+
+              @if (!isLoading && dataSource.data.length === 0) {
+                <div class="no-results text-center py-5">
+                  <mat-icon style="font-size:3rem;width:3rem;height:3rem;" class="text-muted">video_library</mat-icon>
+                  <h4 class="text-muted mt-2">No reels yet</h4>
+                  <button mat-raised-button color="primary" (click)="openAdd()">Add First Reel</button>
+                </div>
+              }
+
+
+            </div>
+          </div>
+          <mat-paginator [length]="dataSource.filteredData.length" [pageIndex]="0"
+                [pageSize]="5" [pageSizeOptions]="[5,10,25]">
+              </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

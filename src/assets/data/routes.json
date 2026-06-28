@@ -1,0 +1,297 @@
+{
+  "routes": [
+    {
+      "path": "",
+      "title": "Overview",
+      "iconType": "",
+      "icon": "",
+      "class": "",
+      "groupTitle": true,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/dashboard",
+      "title": "Dashboard",
+      "iconType": "material-icons-outlined",
+      "icon": "space_dashboard",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+
+    {
+      "path": "",
+      "title": "Catalog",
+      "iconType": "",
+      "icon": "",
+      "class": "",
+      "groupTitle": true,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/products",
+      "title": "Products",
+      "iconType": "material-icons-outlined",
+      "icon": "inventory",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/inventory",
+      "title": "Inventory",
+      "iconType": "material-icons-outlined",
+      "icon": "tune",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/variant-types",
+      "title": "Variant Types",
+      "iconType": "material-icons-outlined",
+      "icon": "straighten",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/categories",
+      "title": "Categories",
+      "iconType": "material-icons-outlined",
+      "icon": "category",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/combo",
+      "title": "Combos",
+      "iconType": "material-icons-outlined",
+      "icon": "widgets",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+
+    {
+      "path": "",
+      "title": "Sales",
+      "iconType": "",
+      "icon": "",
+      "class": "",
+      "groupTitle": true,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/orders",
+      "title": "Orders",
+      "iconType": "material-icons-outlined",
+      "icon": "shopping_bag",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/returns",
+      "title": "Returns",
+      "iconType": "material-icons-outlined",
+      "icon": "assignment_return",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/coupons",
+      "title": "Coupons",
+      "iconType": "material-icons-outlined",
+      "icon": "local_offer",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/freegifts",
+      "title": "Free Gifts",
+      "iconType": "material-icons-outlined",
+      "icon": "card_giftcard",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+
+    {
+      "path": "",
+      "title": "People",
+      "iconType": "",
+      "icon": "",
+      "class": "",
+      "groupTitle": true,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/customers",
+      "title": "Customers",
+      "iconType": "material-icons-outlined",
+      "icon": "people",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/reviews",
+      "title": "Product Reviews",
+      "iconType": "material-icons-outlined",
+      "icon": "rate_review",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/support-tickets",
+      "title": "Support Tickets",
+      "iconType": "material-icons-outlined",
+      "icon": "support_agent",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+
+    {
+      "path": "",
+      "title": "Storefront",
+      "iconType": "",
+      "icon": "",
+      "class": "",
+      "groupTitle": true,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/sliders",
+      "title": "Sliders",
+      "iconType": "material-icons-outlined",
+      "icon": "view_carousel",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/influencer-reels",
+      "title": "Influencer Reels",
+      "iconType": "material-icons-outlined",
+      "icon": "video_library",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/cms-pages",
+      "title": "CMS Pages",
+      "iconType": "material-icons-outlined",
+      "icon": "article",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+
+    {
+      "path": "",
+      "title": "Settings",
+      "iconType": "",
+      "icon": "",
+      "class": "",
+      "groupTitle": true,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/contact-settings",
+      "title": "Contact Settings",
+      "iconType": "material-icons-outlined",
+      "icon": "contact_page",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    },
+    {
+      "path": "/siteadmin/change-password",
+      "title": "Change Password",
+      "iconType": "material-icons-outlined",
+      "icon": "lock_reset",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["Superuser"],
+      "submenu": []
+    }
+  ]
+}

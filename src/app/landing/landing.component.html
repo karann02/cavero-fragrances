@@ -1,0 +1,93 @@
+<!-- Landing Page — EM5-style light editorial layout -->
+
+<main class="content-wrapper cavero-home cavero-ambient-gradient">
+
+  <!-- Masthead — CoLabs-style floating navbar + rounded hero slider -->
+  <app-cavero-hero-slider></app-cavero-hero-slider>
+
+  <!-- Free Gift Teaser Bar — dynamic from admin (Sales → Free Gifts), max 2 shown -->
+  <div class="cavero-gift-teaser" *ngIf="freeGifts.length">
+    <div class="container">
+      <div class="cavero-gift-teaser-inner">
+        <ng-container *ngFor="let gift of freeGifts; let i = index; let last = last">
+          <div class="cavero-gift-item">
+            <span class="cavero-gift-icon">{{ i === 0 ? '🎁' : '✨' }}</span>
+            <span class="cavero-gift-text">Free <strong>{{ gift.name }}</strong> on orders above ₹{{ gift.min_order_value | number }}</span>
+          </div>
+          <div class="cavero-gift-divider" *ngIf="!last"></div>
+        </ng-container>
+        <a routerLink="/shop" class="cavero-gift-cta">Shop Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- "A Symphony of Fragrance" — dark intro card + category cards -->
+  <app-cavero-featured-categories></app-cavero-featured-categories>
+
+  <!-- Banner Pair — For Him / For Her -->
+  <section class="cavero-banner-pair">
+    <div class="container">
+      <div class="cavero-banner-pair-grid">
+
+        <a routerLink="/shop-category/mens-fragrances" class="cavero-banner-card" aria-label="Shop Fragrances for Him" appAnimateOnScroll animationType="fade-up" data-parallax-scope>
+          <img [src]="uploadsBase + '/uploads/categories/mens-fragrances.png'" alt="Fragrances for Him" class="cavero-banner-img cavero-parallax-media" data-parallax="50" loading="lazy">
+        </a>
+
+        <a routerLink="/shop-category/womens-fragrances" class="cavero-banner-card" aria-label="Shop Fragrances for Her" appAnimateOnScroll animationType="fade-up" [delay]="100" data-parallax-scope>
+          <img [src]="uploadsBase + '/uploads/categories/womens-fragrances.png'" alt="Fragrances for Her" class="cavero-banner-img cavero-parallax-media" data-parallax="50" loading="lazy">
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <app-cavero-popular-products></app-cavero-popular-products>
+
+  <!-- Wide Promo Banner — Find Your Signature Scent -->
+  <section class="cavero-promo-banner">
+    <div class="container">
+      <a routerLink="/shop" class="cavero-promo-card" aria-label="Find your signature scent" appAnimateOnScroll animationType="fade-up" data-parallax-scope>
+        <img [src]="uploadsBase + '/uploads/sliders/slider-cavero-2.png'" alt="Find your signature scent" class="cavero-promo-img cavero-parallax-media" data-parallax="40" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <!-- Signature Collection — dark cards carousel -->
+  <app-cavero-special-products></app-cavero-special-products>
+
+  <!-- Shop by Notes -->
+  <section class="cavero-notes-section">
+    <div class="container">
+      <div class="cavero-notes-card" appAnimateOnScroll animationType="fade-up">
+
+        <!-- Dark intro chip -->
+        <div class="cavero-notes-intro">
+          <h3 class="cavero-notes-title">Shop by Notes</h3>
+          <p class="cavero-notes-text">
+            Indulge in the enchanting world of Cavero — explore fragrances by the notes you love.
+          </p>
+        </div>
+
+        <!-- Note circles -->
+        <div class="cavero-notes-scroll">
+          <a
+            *ngFor="let note of fragranceNotes"
+            routerLink="/shop"
+            class="cavero-note-chip">
+            <span class="cavero-note-circle" [style.background]="note.gradient">{{ note.name.charAt(0) }}</span>
+            <span class="cavero-note-name">{{ note.name }}</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Influencer Reels — Instagram strip -->
+  <app-influencer-reels></app-influencer-reels>
+
+</main>
+
+<!-- Footer -->
+<app-cavero-footer></app-cavero-footer>

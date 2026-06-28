@@ -1,0 +1,162 @@
+﻿<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{dialogTitle}}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="categoryForm" (ngSubmit)="submit()">
+
+      <!-- Category Information Section -->
+      <h4 class="mt-2 mb-3">Category Information</h4>
+      <div class="row">
+        <!-- Category Name -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Category Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-icon matSuffix>category</mat-icon>
+            <mat-error *ngIf="categoryForm.get('name')?.hasError('required')">Category name is required</mat-error>
+            <mat-error *ngIf="categoryForm.get('name')?.hasError('minlength')">Category name must be at least 2 characters</mat-error>
+            <mat-error *ngIf="categoryForm.get('name')?.hasError('maxlength')">Category name cannot exceed 120 characters</mat-error>
+            <mat-error *ngIf="categoryForm.get('name')?.hasError('pattern')">Leading or trailing spaces are not allowed</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Slug -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Slug (auto)</mat-label>
+            <input matInput formControlName="slug" readonly
+                   matTooltip="Generated automatically from the category name" style="cursor:default;">
+            <mat-icon matSuffix>link</mat-icon>
+            <mat-hint>From the category name</mat-hint>
+            <mat-error *ngIf="categoryForm.get('slug')?.hasError('pattern')">Slug must use lowercase letters, numbers, and hyphens only</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Status -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" required>
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>toggle_on</mat-icon>
+            <mat-error *ngIf="categoryForm.get('status')?.hasError('required')">Status is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Is Featured -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Featured Category</mat-label>
+            <mat-select formControlName="is_featured">
+              <mat-option [value]="true">Yes</mat-option>
+              <mat-option [value]="false">No</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>star</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Sort Order -->
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Sort Order</mat-label>
+            <input matInput type="number" formControlName="sort_order" min="0">
+            <mat-icon matSuffix>sort</mat-icon>
+            <mat-error *ngIf="categoryForm.get('sort_order')?.hasError('min')">Sort order cannot be negative</mat-error>
+            <mat-error *ngIf="categoryForm.get('sort_order')?.hasError('sortOrderExists')">This sort order already exists. Please choose a different one.</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Parent Category removed: single-level categories only -->
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="3" placeholder="Enter category description..."></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+            <mat-error *ngIf="categoryForm.get('description')?.hasError('maxlength')">Description cannot exceed 500 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Category Image Upload -->
+      <h4 class="mt-4 mb-3">Category Image</h4>
+      <div class="row">
+        <div class="col-xl-12 mb-3">
+          <div class="file-drop-area" [class.dragging]="isDragging" (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)" (drop)="onDrop($event)" (click)="fileInput.click()">
+            <input #fileInput type="file" id="uploadFile" class="file-input" accept="image/*" (change)="onImageSelected($event)">
+            <div class="file-msg">
+              <mat-icon class="file-icon">cloud_upload</mat-icon>
+              <span>Drop category image here or click to browse</span>
+            </div>
+          </div>
+          <small class="text-muted">Supported formats: JPG, PNG, GIF, WebP.</small>
+        </div>
+      </div>
+      <div class="row" *ngIf="imagePreviewUrl">
+        <div class="col-xl-12 mb-2">
+          <div class="image-preview-container">
+            <div class="image-preview-item">
+              <img [src]="imagePreviewUrl" alt="Category image preview">
+              <button type="button" class="remove-image-btn" (click)="clearSelectedImage()" mat-icon-button>
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Section -->
+      <h4 class="mt-4 mb-3">SEO Information</h4>
+      <div class="row">
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Meta Title</mat-label>
+            <input matInput formControlName="meta_title" placeholder="Meta title for SEO">
+            <mat-icon matSuffix>title</mat-icon>
+            <mat-error *ngIf="categoryForm.get('meta_title')?.hasError('maxlength')">Meta title cannot exceed 160 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Meta Description</mat-label>
+            <textarea matInput formControlName="meta_description" rows="2" placeholder="Meta description for SEO"></textarea>
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-error *ngIf="categoryForm.get('meta_description')?.hasError('maxlength')">Meta description cannot exceed 320 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Form Buttons -->
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <button mat-flat-button color="primary" type="submit" [disabled]="!categoryForm.valid">
+              {{ action === 'edit' ? 'Update Category' : 'Add Category' }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

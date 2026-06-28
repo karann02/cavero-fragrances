@@ -1,0 +1,24 @@
+/* Basic styling for permission management component */
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin: 0.25rem 0;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

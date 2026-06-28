@@ -1,0 +1,324 @@
+<app-cavero-navbar variant="solid"></app-cavero-navbar>
+
+<section class="cavero-checkout">
+  <div class="container">
+
+    <!-- ── Step Progress Bar ── -->
+    <div class="cavero-steps">
+      <div class="cavero-step cavero-step--done">
+        <div class="cavero-step-circle">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7L5.5 10.5L12 3" stroke="#1A322D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="cavero-step-label">Cart</span>
+      </div>
+
+      <div class="cavero-step-connector cavero-step-connector--done"></div>
+
+      <div class="cavero-step cavero-step--active">
+        <div class="cavero-step-circle">2</div>
+        <span class="cavero-step-label">Delivery</span>
+      </div>
+
+      <div class="cavero-step-connector cavero-step-connector--pending"></div>
+
+      <div class="cavero-step cavero-step--pending">
+        <div class="cavero-step-circle">3</div>
+        <span class="cavero-step-label">Payment</span>
+      </div>
+    </div>
+
+    <!-- ── Main Grid ── -->
+    <div class="cavero-checkout-grid">
+
+      <!-- ── LEFT: Form ── -->
+      <form [formGroup]="checkoutForm" (ngSubmit)="placeOrder()">
+
+        <!-- Delivery Details -->
+        <div class="cavero-form-card">
+          <h3 class="cavero-form-section-title">Delivery Details</h3>
+
+          <!-- Saved address selector -->
+          <div class="cavero-saved-addresses" *ngIf="savedAddresses.length > 0">
+            <p class="cavero-saved-addresses-title">Deliver to a saved address</p>
+            <div class="cavero-addr-options">
+              <label class="cavero-addr-card"
+                     *ngFor="let addr of savedAddresses"
+                     [class.active]="selectedAddressId === addr.id">
+                <input type="radio" name="savedAddress" class="visually-hidden"
+                       [checked]="selectedAddressId === addr.id" (change)="selectAddress(addr)">
+                <span class="cavero-addr-card-body">
+                  <span class="cavero-addr-card-head">
+                    <span class="cavero-addr-card-label">{{ addr.label || 'Address' }}</span>
+                    <span class="cavero-addr-card-default" *ngIf="addr.is_default">Default</span>
+                  </span>
+                  <span class="cavero-addr-card-text">{{ formatAddress(addr) }}</span>
+                </span>
+                <span class="cavero-addr-card-dot" [class.checked]="selectedAddressId === addr.id"></span>
+              </label>
+
+              <!-- Add new address option -->
+              <label class="cavero-addr-card cavero-addr-card--new" [class.active]="selectedAddressId === 'new'">
+                <input type="radio" name="savedAddress" class="visually-hidden"
+                       [checked]="selectedAddressId === 'new'" (change)="useNewAddress()">
+                <span class="cavero-addr-card-body">
+                  <span class="cavero-addr-card-label">+ Add a new address</span>
+                  <span class="cavero-addr-card-text">Enter delivery details manually</span>
+                </span>
+                <span class="cavero-addr-card-dot" [class.checked]="selectedAddressId === 'new'"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- New customer (no saved addresses): make the add-address intent explicit -->
+          <div class="cavero-newaddr-intro" *ngIf="savedAddresses.length === 0">
+            <p class="cavero-saved-addresses-title">Add a delivery address</p>
+            <span class="cavero-newaddr-hint">Enter where you'd like this order delivered.</span>
+          </div>
+
+          <div class="cavero-fields-row">
+            <div class="cavero-field">
+              <input type="text" class="cavero-field-input" placeholder=" "
+                     formControlName="firstName"
+                     [class.is-invalid]="f['firstName'].touched && f['firstName'].invalid"
+                     [class.is-valid]="f['firstName'].valid && f['firstName'].touched">
+              <label class="cavero-field-label">First Name</label>
+              <span class="cavero-field-check">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M2.5 7.5L5.5 10.5L12.5 3.5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="cavero-field-error" *ngIf="f['firstName'].touched && f['firstName'].errors?.['required']">Required</span>
+            </div>
+
+            <div class="cavero-field">
+              <input type="text" class="cavero-field-input" placeholder=" "
+                     formControlName="lastName"
+                     [class.is-invalid]="f['lastName'].touched && f['lastName'].invalid"
+                     [class.is-valid]="f['lastName'].valid && f['lastName'].touched">
+              <label class="cavero-field-label">Last Name</label>
+              <span class="cavero-field-check">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M2.5 7.5L5.5 10.5L12.5 3.5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="cavero-field-error" *ngIf="f['lastName'].touched && f['lastName'].errors?.['required']">Required</span>
+            </div>
+          </div>
+
+          <div class="cavero-field">
+            <input type="tel" class="cavero-field-input" placeholder=" "
+                   formControlName="phone"
+                   [class.is-invalid]="f['phone'].touched && f['phone'].invalid"
+                   [class.is-valid]="f['phone'].valid && f['phone'].touched">
+            <label class="cavero-field-label">Phone Number</label>
+            <span class="cavero-field-check">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M2.5 7.5L5.5 10.5L12.5 3.5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="cavero-field-error" *ngIf="f['phone'].touched && f['phone'].errors?.['required']">Required</span>
+            <span class="cavero-field-error" *ngIf="f['phone'].touched && f['phone'].errors?.['pattern']">Enter a valid 10-digit Indian mobile number</span>
+          </div>
+
+          <div class="cavero-field">
+            <input type="email" class="cavero-field-input" placeholder=" "
+                   formControlName="email"
+                   [class.is-invalid]="f['email'].touched && f['email'].invalid"
+                   [class.is-valid]="f['email'].valid && f['email'].touched">
+            <label class="cavero-field-label">Email Address</label>
+            <span class="cavero-field-check">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M2.5 7.5L5.5 10.5L12.5 3.5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="cavero-field-error" *ngIf="f['email'].touched && f['email'].errors?.['required']">Required</span>
+            <span class="cavero-field-error" *ngIf="f['email'].touched && f['email'].errors?.['email']">Enter a valid email address</span>
+          </div>
+
+          <div class="cavero-field">
+            <input type="text" class="cavero-field-input" placeholder=" "
+                   formControlName="address"
+                   [class.is-invalid]="f['address'].touched && f['address'].invalid"
+                   [class.is-valid]="f['address'].valid && f['address'].touched">
+            <label class="cavero-field-label">Full Address</label>
+            <span class="cavero-field-check">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M2.5 7.5L5.5 10.5L12.5 3.5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="cavero-field-error" *ngIf="f['address'].touched && f['address'].errors?.['required']">Required</span>
+          </div>
+
+          <div class="cavero-fields-row">
+            <div class="cavero-field">
+              <input type="text" class="cavero-field-input" placeholder=" "
+                     formControlName="city"
+                     [class.is-invalid]="f['city'].touched && f['city'].invalid"
+                     [class.is-valid]="f['city'].valid && f['city'].touched">
+              <label class="cavero-field-label">City</label>
+              <span class="cavero-field-check">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M2.5 7.5L5.5 10.5L12.5 3.5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="cavero-field-error" *ngIf="f['city'].touched && f['city'].errors?.['required']">Required</span>
+            </div>
+
+            <div class="cavero-field">
+              <input type="text" class="cavero-field-input" placeholder=" "
+                     formControlName="zipCode" maxlength="6"
+                     [class.is-invalid]="f['zipCode'].touched && f['zipCode'].invalid"
+                     [class.is-valid]="f['zipCode'].valid && f['zipCode'].touched">
+              <label class="cavero-field-label">PIN Code</label>
+              <span class="cavero-field-check">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M2.5 7.5L5.5 10.5L12.5 3.5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="cavero-field-error" *ngIf="f['zipCode'].touched && f['zipCode'].errors?.['required']">Required</span>
+              <span class="cavero-field-error" *ngIf="f['zipCode'].touched && f['zipCode'].errors?.['pattern']">Enter a valid 6-digit PIN code</span>
+            </div>
+          </div>
+
+          <!-- Save this new address to the customer's profile -->
+          <label class="cavero-save-addr" *ngIf="selectedAddressId === 'new'">
+            <input type="checkbox" formControlName="saveAddress">
+            <span>Save this address to my profile for faster checkout next time</span>
+          </label>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="cavero-form-card">
+          <h3 class="cavero-form-section-title">Payment Method</h3>
+
+          <div class="cavero-payment-options">
+
+            <!-- Cash on Delivery -->
+            <label class="cavero-payment-card" [class.active]="f['paymentMethod'].value === 'cash_on_delivery'">
+              <input type="radio" class="visually-hidden" formControlName="paymentMethod" value="cash_on_delivery">
+              <span class="cavero-payment-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="6" width="20" height="12" rx="2"/>
+                  <path d="M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                  <path d="M6 12h.01M18 12h.01"/>
+                </svg>
+              </span>
+              <span class="cavero-payment-text">
+                <span class="cavero-payment-title">Cash on Delivery</span>
+                <span class="cavero-payment-sub">Pay when order arrives</span>
+              </span>
+              <span class="cavero-payment-dot" [class.checked]="f['paymentMethod'].value === 'cash_on_delivery'"></span>
+            </label>
+
+            <!-- Online / Razorpay -->
+            <label class="cavero-payment-card" [class.active]="f['paymentMethod'].value === 'online'">
+              <input type="radio" class="visually-hidden" formControlName="paymentMethod" value="online">
+              <span class="cavero-payment-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="2"/>
+                  <path d="M2 10h20"/>
+                  <path d="M7 15h.01M11 15h4"/>
+                </svg>
+              </span>
+              <span class="cavero-payment-text">
+                <span class="cavero-payment-title">Online Payment</span>
+                <span class="cavero-payment-sub">Secured via Razorpay</span>
+              </span>
+              <span class="cavero-payment-dot" [class.checked]="f['paymentMethod'].value === 'online'"></span>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Place Order Button -->
+        <button type="submit" class="cavero-place-order-btn" [disabled]="checkoutForm.invalid || isSubmitting">
+          <ng-container *ngIf="!isSubmitting">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Place Order Securely
+          </ng-container>
+          <ng-container *ngIf="isSubmitting">
+            <span class="cavero-btn-spinner"></span>
+            Processing...
+          </ng-container>
+        </button>
+
+      </form>
+
+      <!-- ── RIGHT: Summary ── -->
+      <aside class="cavero-checkout-summary-col">
+
+        <div class="cavero-summary-card" *ngIf="cart$ | async as cart">
+          <h3 class="cavero-summary-title">Order Summary</h3>
+
+          <ul class="cavero-summary-items">
+            <li *ngFor="let item of cart.items" class="cavero-summary-item">
+              <span class="cavero-summary-item-name">{{ item.product_name }}</span>
+              <span class="cavero-summary-item-qty">× {{ item.quantity }}</span>
+              <span class="cavero-summary-item-price">&#8377;{{ item.total | number:'1.0-0' }}</span>
+            </li>
+          </ul>
+
+          <div class="cavero-summary-totals">
+            <div class="cavero-summary-row">
+              <span>Subtotal</span>
+              <span>&#8377;{{ cart.subtotal | number:'1.0-0' }}</span>
+            </div>
+            <div class="cavero-summary-row cavero-summary-row--discount" *ngIf="cart.coupon_discount > 0">
+              <span>Discount</span>
+              <span>−&#8377;{{ cart.coupon_discount | number:'1.0-0' }}</span>
+            </div>
+            <div class="cavero-summary-row">
+              <span>Delivery</span>
+              <span *ngIf="cart.delivery_fee > 0">&#8377;{{ cart.delivery_fee | number:'1.0-0' }}</span>
+              <span *ngIf="cart.delivery_fee === 0" class="cavero-free-tag">FREE</span>
+            </div>
+            <div class="cavero-summary-total-row">
+              <span>Total</span>
+              <span class="cavero-summary-total-amount">&#8377;{{ cart.total | number:'1.0-0' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="cavero-checkout-trust">
+          <div class="cavero-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <span>Secure</span>
+          </div>
+          <div class="cavero-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>COD Available</span>
+          </div>
+          <div class="cavero-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>Fast Delivery</span>
+          </div>
+          <div class="cavero-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <span>100% Genuine</span>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<app-cavero-footer></app-cavero-footer>

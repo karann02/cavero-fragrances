@@ -1,0 +1,204 @@
+<div class="cavero-filter-panel offcanvas-lg offcanvas-start" id="filterSidebar">
+
+  <!-- Mobile offcanvas header -->
+  <div class="cavero-filter-mobile-header d-lg-none">
+    <span class="cavero-filter-mobile-title">Filter Products</span>
+    <button type="button" class="cavero-filter-close-btn"
+      data-bs-dismiss="offcanvas"
+      data-bs-target="#filterSidebar"
+      aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="offcanvas-body cavero-filter-body">
+
+    <!-- Category Browse -->
+    <div class="cavero-filter-categories" *ngIf="categories.length > 0">
+      <div class="cavero-cat-item" *ngFor="let category of categories; let i = index">
+        <button type="button" class="cavero-cat-btn"
+          [class.open]="isCategoryOpen(category.id)"
+          (click)="toggleCategory(category)">
+          <span class="cavero-cat-icon">
+            <img [src]="getCategoryImageUrl(category.image_url, i)" [alt]="category.name">
+          </span>
+          <span class="cavero-cat-name">{{ category.name }}</span>
+          <svg class="cavero-cat-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="cavero-cat-collapse" [class.open]="isCategoryOpen(category.id)">
+          <ul class="cavero-cat-links">
+            <li *ngIf="loadingCategory[category.id]" class="cavero-cat-loading">
+              <span></span><span></span><span></span>
+            </li>
+            <li *ngFor="let product of categoryProducts[category.id] || []">
+              <a [routerLink]="['/product', getProductRouteParam(product)]">{{ product.name }}</a>
+            </li>
+            <li *ngFor="let child of category.children || []">
+              <a [routerLink]="['/shop-category', getCategoryRouteParam(child)]">{{ child.name }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="loading" class="cavero-filter-spinner">
+      <div class="cavero-spinner-ring"></div>
+    </div>
+
+    <!-- Filter Sections -->
+    <div class="cavero-filter-sections">
+
+      <!-- Price -->
+      <div class="cavero-filter-group">
+        <button type="button" class="cavero-filter-header"
+          [class.open]="isPriceOpen"
+          (click)="togglePriceSection()">
+          <span class="cavero-filter-label">Price</span>
+          <svg class="cavero-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="cavero-filter-collapse" [class.open]="isPriceOpen">
+          <div class="cavero-price-row">
+            <div class="cavero-price-field">
+              <span class="cavero-price-sym">₹</span>
+              <input type="number" class="cavero-price-input" placeholder="Min"
+                min="0"
+                [value]="selectedPriceMin ?? ''"
+                (input)="selectedPriceMin = $any($event.target).value ? +$any($event.target).value : null"
+                (change)="onPriceChange()">
+            </div>
+            <span class="cavero-price-dash">—</span>
+            <div class="cavero-price-field">
+              <span class="cavero-price-sym">₹</span>
+              <input type="number" class="cavero-price-input" placeholder="Max"
+                min="0"
+                [value]="selectedPriceMax ?? ''"
+                (input)="selectedPriceMax = $any($event.target).value ? +$any($event.target).value : null"
+                (change)="onPriceChange()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="cavero-filter-group">
+        <button type="button" class="cavero-filter-header"
+          [class.open]="isStatusOpen"
+          (click)="toggleStatusSection()">
+          <span class="cavero-filter-label">Status</span>
+          <span class="cavero-filter-badge" *ngIf="selectedStatus.length > 0">{{ selectedStatus.length }}</span>
+          <svg class="cavero-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="cavero-filter-collapse" [class.open]="isStatusOpen">
+          <div class="cavero-chip-row">
+            <label class="cavero-chip" [class.active]="selectedStatus.includes('instock')">
+              <input type="checkbox" class="cavero-chip-input"
+                [checked]="selectedStatus.includes('instock')"
+                (change)="onStatusChange('instock', $event)">
+              In Stock
+            </label>
+            <label class="cavero-chip" [class.active]="selectedStatus.includes('sale')">
+              <input type="checkbox" class="cavero-chip-input"
+                [checked]="selectedStatus.includes('sale')"
+                (change)="onStatusChange('sale', $event)">
+              On Sale
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concentration -->
+      <div class="cavero-filter-group">
+        <button type="button" class="cavero-filter-header"
+          [class.open]="isConcentrationOpen"
+          (click)="toggleConcentrationSection()">
+          <span class="cavero-filter-label">Concentration</span>
+          <span class="cavero-filter-badge" *ngIf="selectedConcentration.length > 0">{{ selectedConcentration.length }}</span>
+          <svg class="cavero-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="cavero-filter-collapse" [class.open]="isConcentrationOpen">
+          <div class="cavero-chip-row">
+            <label class="cavero-chip" *ngFor="let opt of concentrationOptions"
+              [class.active]="selectedConcentration.includes(opt)">
+              <input type="checkbox" class="cavero-chip-input"
+                [checked]="selectedConcentration.includes(opt)"
+                (change)="onConcentrationChange(opt, $event)">
+              {{ opt }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fragrance Family -->
+      <div class="cavero-filter-group">
+        <button type="button" class="cavero-filter-header"
+          [class.open]="isFamilyOpen"
+          (click)="toggleFamilySection()">
+          <span class="cavero-filter-label">Fragrance Family</span>
+          <span class="cavero-filter-badge" *ngIf="selectedFamily.length > 0">{{ selectedFamily.length }}</span>
+          <svg class="cavero-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="cavero-filter-collapse" [class.open]="isFamilyOpen">
+          <div class="cavero-chip-row">
+            <label class="cavero-chip" *ngFor="let opt of familyOptions"
+              [class.active]="selectedFamily.includes(opt)">
+              <input type="checkbox" class="cavero-chip-input"
+                [checked]="selectedFamily.includes(opt)"
+                (change)="onFamilyChange(opt, $event)">
+              {{ opt }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="cavero-filter-group">
+        <button type="button" class="cavero-filter-header"
+          [class.open]="isGenderOpen"
+          (click)="toggleGenderSection()">
+          <span class="cavero-filter-label">Gender</span>
+          <span class="cavero-filter-badge" *ngIf="selectedGender.length > 0">{{ selectedGender.length }}</span>
+          <svg class="cavero-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="cavero-filter-collapse" [class.open]="isGenderOpen">
+          <div class="cavero-chip-row">
+            <label class="cavero-chip" *ngFor="let opt of genderOptions"
+              [class.active]="selectedGender.includes(opt)">
+              <input type="checkbox" class="cavero-chip-input"
+                [checked]="selectedGender.includes(opt)"
+                (change)="onGenderChange(opt, $event)">
+              {{ opt }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cavero-filter-sections -->
+
+    <!-- Clear All -->
+    <div class="cavero-filter-clear-wrap" *ngIf="hasActiveFilters">
+      <button type="button" class="cavero-clear-all-btn" (click)="clearFilters()">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        Clear All Filters
+      </button>
+    </div>
+
+  </div>
+</div>

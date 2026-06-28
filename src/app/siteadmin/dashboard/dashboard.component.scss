@@ -1,0 +1,4 @@
+// Cavero Atelier dashboard — all visuals live in the global partial
+// src/assets/scss/_atelier.scss (.cv-* classes), shared with the shell so the
+// page reads as one continuous surface. This component adds nothing local.
+:host { display: block; }

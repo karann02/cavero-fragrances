@@ -1,0 +1,359 @@
+// ── Customer Signup — Cavero Dark Luxury Theme ───────────────────────────────
+// Shares the same design system as signin. Additions: check stack, referral field.
+
+:host { display: flex; min-height: 100vh; }
+
+.cavero-auth {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+// ── Hero Panel (LEFT) ─────────────────────────────────────────────────────────
+
+.cavero-auth-hero {
+  flex: 0 0 42%;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 991px) { display: none; }
+}
+
+.cavero-auth-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.cavero-auth-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 50, 45, 0.25) 0%,
+    rgba(26, 50, 45, 0.12) 35%,
+    rgba(26, 50, 45, 0.6) 75%,
+    rgba(26, 50, 45, 0.92) 100%
+  );
+}
+
+.cavero-auth-hero-content {
+  position: absolute;
+  bottom: 2.75rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  z-index: 2;
+}
+
+.cavero-auth-hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(65, 133, 118, 0.75);
+  margin-bottom: 0.875rem;
+}
+
+.cavero-auth-hero-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-weight: 700;
+  font-style: italic;
+  color: #FFF7E4;
+  line-height: 1.4;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: none;
+}
+
+.cavero-auth-hero-perks {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 247, 228, 0.78);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #8DCFB4;
+      box-shadow: 0 0 0 3px rgba(141, 207, 180, 0.18);
+    }
+  }
+}
+
+.cavero-auth-hero-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 0.625rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(65, 133, 118, 0.55);
+}
+
+// ── Form Column (RIGHT) ───────────────────────────────────────────────────────
+
+.cavero-auth-form-col {
+  flex: 1;
+  background: #1A322D;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 2rem;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.cavero-auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem 0 2rem;
+}
+
+// ── Logo ──────────────────────────────────────────────────────────────────────
+
+.cavero-auth-logo {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+  img { display: block; height: 34px; width: auto; max-width: 150px; }
+}
+
+// ── Heading ───────────────────────────────────────────────────────────────────
+
+.cavero-auth-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  font-style: italic;
+  color: #FFF7E4;
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.cavero-auth-switch {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 247, 228, 0.4);
+  margin: 0 0 1.875rem;
+
+  a {
+    color: #418576;
+    text-decoration: none;
+    font-weight: 600;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// ── Alert ─────────────────────────────────────────────────────────────────────
+
+.cavero-auth-alert {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+
+  &--error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+  }
+
+  &--success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #86efac;
+  }
+}
+
+// ── Floating Label Fields ─────────────────────────────────────────────────────
+
+.cavero-field {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.cavero-field-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 247, 228, 0.15);
+  color: #FFF7E4;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  padding: 1.5rem 2.5rem 0.5rem 0;
+  outline: none;
+  transition: border-color 0.25s;
+  border-radius: 0;
+  -webkit-appearance: none;
+
+  &::placeholder { color: transparent; }
+  &:focus { border-bottom-color: #418576; }
+  &.is-invalid { border-bottom-color: #ef4444 !important; }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 100px #1A322D inset;
+    -webkit-text-fill-color: #FFF7E4;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.cavero-field-label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 247, 228, 0.4);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.cavero-field-input:focus ~ .cavero-field-label,
+.cavero-field-input:not(:placeholder-shown) ~ .cavero-field-label {
+  top: 0.2rem;
+  font-size: 0.625rem;
+  color: #418576;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cavero-field-eye {
+  position: absolute;
+  right: 0;
+  top: 1.125rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 247, 228, 0.3);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  &:hover { color: #418576; }
+}
+
+.cavero-field-error {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+}
+
+// ── Check Stack ───────────────────────────────────────────────────────────────
+
+.cavero-check-stack {
+  margin: 1.375rem 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.cavero-check-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  color: rgba(255, 247, 228, 0.4);
+  cursor: pointer;
+
+  &.align-start { align-items: flex-start; }
+  &.invalid span { color: rgba(239, 68, 68, 0.7); }
+
+  input {
+    width: 15px; height: 15px;
+    accent-color: #418576;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  a {
+    color: #418576;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// ── Submit Button ─────────────────────────────────────────────────────────────
+
+.cavero-auth-btn {
+  width: 100%;
+  height: 52px;
+  background: linear-gradient(90deg, #418576 0%, #E8C96B 50%, #418576 100%);
+  background-size: 200% 100%;
+  color: #1A322D;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background-position 0.5s, opacity 0.2s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.55s ease;
+  }
+
+  &:hover:not(:disabled)::before { left: 150%; }
+  &:hover:not(:disabled) { background-position: right center; }
+  &:disabled { opacity: 0.55; cursor: not-allowed; }
+}
+
+.cavero-btn-spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(26, 50, 45, 0.3);
+  border-top-color: #1A322D;
+  border-radius: 50%;
+  animation: cvr-spin 0.7s linear infinite;
+}
+
+@keyframes cvr-spin { to { transform: rotate(360deg); } }
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+
+.cavero-auth-footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 247, 228, 0.06);
+
+  p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 247, 228, 0.3);
+    margin: 0;
+  }
+}

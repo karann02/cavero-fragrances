@@ -1,0 +1,68 @@
+<!-- form-dialog.component.html -->
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{ dialogTitle }}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="varianttypeForm" (ngSubmit)="submit()">
+
+      <!-- Size / Variant Type Information Section -->
+      <h4 class="mt-2 mb-3">Size / Variant Type</h4>
+      <div class="row">
+        <!-- Name -->
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Size Name</mat-label>
+            <input matInput formControlName="name" required placeholder="e.g. 3ml, 30ml, 100ml">
+            <mat-icon matSuffix>straighten</mat-icon>
+            <mat-error *ngIf="varianttypeForm.get('name')?.hasError('required')">Size name is required</mat-error>
+            <mat-error *ngIf="varianttypeForm.get('name')?.hasError('maxlength')">Size name cannot exceed 50 characters</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Status -->
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="is_active" required>
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>toggle_on</mat-icon>
+            <mat-error *ngIf="varianttypeForm.get('is_active')?.hasError('required')">Status is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Sort Order -->
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Sort Order</mat-label>
+            <input matInput type="number" formControlName="sort_order" min="0" placeholder="0">
+            <mat-icon matSuffix>sort</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Form Buttons -->
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <button mat-flat-button color="primary" type="submit" [disabled]="!varianttypeForm.valid"
+              style="background:#418576;">
+              {{ action === 'edit' ? 'Update Size' : 'Add Size' }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+.modal-close-button,
+.suffix-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-affix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,244,226,0.62);
+}
+
+.dialog-feather-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+:host ::ng-deep .dialog-feather-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.1;
+}
+
+:host ::ng-deep .suffix-icon-btn .mat-mdc-button-touch-target,
+:host ::ng-deep .suffix-icon-btn .mdc-icon-button__ripple {
+  width: 32px;
+  height: 32px;
+}

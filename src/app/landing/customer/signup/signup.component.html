@@ -1,0 +1,145 @@
+<main class="cavero-auth">
+
+  <!-- ── Left: Dark Hero Panel ── -->
+  <aside class="cavero-auth-hero" aria-hidden="true">
+    <img class="cavero-auth-hero-img" src="assets/cavero/img/account/cover.png" alt="">
+    <div class="cavero-auth-hero-overlay"></div>
+    <div class="cavero-auth-hero-content">
+      <div class="cavero-auth-hero-eyebrow">Join Cavero Fragrances</div>
+      <blockquote class="cavero-auth-hero-quote">
+        "Create your account and<br>begin a journey through<br>rare Arabian luxury"
+      </blockquote>
+      <ul class="cavero-auth-hero-perks">
+        <li>Faster checkout &amp; saved addresses</li>
+        <li>Track your orders in real time</li>
+        <li>Members-only offers &amp; free gifts</li>
+      </ul>
+      <div class="cavero-auth-hero-brand">Est. 2020 · Surat, India</div>
+    </div>
+  </aside>
+
+  <!-- ── Right: Form Panel ── -->
+  <section class="cavero-auth-form-col">
+    <div class="cavero-auth-card">
+
+      <a routerLink="/" class="cavero-auth-logo">
+        <img src="assets/images/cavero-logo.png" alt="Cavero Fragrances" height="36" width="140"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'">
+        <span style="display:none; font-family:'Cinzel',serif; font-weight:700; color:#418576; letter-spacing:3px; font-size:0.9rem;">CAVERO</span>
+      </a>
+
+      <h1 class="cavero-auth-heading">Create account</h1>
+      <p class="cavero-auth-switch">
+        Already have an account?
+        <a routerLink="/signin">Sign in</a>
+      </p>
+
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="cavero-auth-alert cavero-auth-alert--error" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <div class="cavero-auth-alert cavero-auth-alert--success" *ngIf="successMessage">{{ successMessage }}</div>
+
+        <!-- Full Name -->
+        <div class="cavero-field">
+          <input type="text" class="cavero-field-input" placeholder=" "
+                 formControlName="name"
+                 [class.is-invalid]="(f['name'].touched || submitted) && f['name'].invalid">
+          <label class="cavero-field-label">Full Name</label>
+          <span class="cavero-field-error" *ngIf="(f['name'].touched || submitted) && f['name'].errors?.['required']">Required</span>
+          <span class="cavero-field-error" *ngIf="(f['name'].touched || submitted) && f['name'].errors?.['minlength']">Minimum 2 characters</span>
+        </div>
+
+        <!-- Phone -->
+        <div class="cavero-field">
+          <input type="tel" class="cavero-field-input" placeholder=" "
+                 formControlName="phone" inputmode="numeric" maxlength="15"
+                 [class.is-invalid]="(f['phone'].touched || submitted) && f['phone'].invalid">
+          <label class="cavero-field-label">Phone Number</label>
+          <span class="cavero-field-error" *ngIf="(f['phone'].touched || submitted) && f['phone'].errors?.['required']">Required</span>
+          <span class="cavero-field-error" *ngIf="(f['phone'].touched || submitted) && f['phone'].errors?.['pattern']">Enter a valid phone number (10–15 digits)</span>
+        </div>
+
+        <!-- Email -->
+        <div class="cavero-field">
+          <input type="email" class="cavero-field-input" placeholder=" "
+                 formControlName="email"
+                 [class.is-invalid]="(f['email'].touched || submitted) && f['email'].invalid">
+          <label class="cavero-field-label">Email Address</label>
+          <span class="cavero-field-error" *ngIf="(f['email'].touched || submitted) && f['email'].errors?.['required']">Required</span>
+          <span class="cavero-field-error" *ngIf="(f['email'].touched || submitted) && f['email'].errors?.['email']">Enter a valid email address</span>
+        </div>
+
+        <!-- Password -->
+        <div class="cavero-field">
+          <input [type]="showPassword ? 'text' : 'password'" class="cavero-field-input" placeholder=" "
+                 formControlName="password"
+                 [class.is-invalid]="(f['password'].touched || submitted) && f['password'].invalid"
+                 style="padding-right:2.5rem">
+          <label class="cavero-field-label">Password (min. 8 characters)</label>
+          <button type="button" class="cavero-field-eye" (click)="togglePasswordVisibility()" tabindex="-1">
+            <svg *ngIf="!showPassword" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg *ngIf="showPassword" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+              <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+          </button>
+          <span class="cavero-field-error" *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['required']">Required</span>
+          <span class="cavero-field-error" *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['minlength']">Minimum 8 characters required</span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="cavero-field">
+          <input [type]="showConfirmPassword ? 'text' : 'password'" class="cavero-field-input" placeholder=" "
+                 formControlName="confirmPassword"
+                 [class.is-invalid]="((f['confirmPassword'].touched || submitted) && f['confirmPassword'].invalid) || (signUpForm.errors?.['passwordMismatch'] && (f['confirmPassword'].touched || submitted))"
+                 style="padding-right:2.5rem">
+          <label class="cavero-field-label">Confirm Password</label>
+          <button type="button" class="cavero-field-eye" (click)="showConfirmPassword = !showConfirmPassword" tabindex="-1">
+            <svg *ngIf="!showConfirmPassword" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg *ngIf="showConfirmPassword" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+              <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+          </button>
+          <span class="cavero-field-error" *ngIf="(f['confirmPassword'].touched || submitted) && f['confirmPassword'].errors?.['required']">Required</span>
+          <span class="cavero-field-error" *ngIf="signUpForm.errors?.['passwordMismatch'] && (f['confirmPassword'].touched || submitted)">Passwords do not match</span>
+        </div>
+
+        <!-- Referral Code (optional) -->
+        <div class="cavero-field">
+          <input type="text" class="cavero-field-input" placeholder=" "
+                 formControlName="referralCode" maxlength="6" style="text-transform:uppercase">
+          <label class="cavero-field-label">Referral Code <span style="text-transform:none; font-weight:400; opacity:0.5">(optional)</span></label>
+        </div>
+
+        <!-- Checkboxes -->
+        <div class="cavero-check-stack">
+          <label class="cavero-check-row">
+            <input type="checkbox" formControlName="savePassword">
+            <span>Save the password</span>
+          </label>
+
+          <label class="cavero-check-row align-start" [class.invalid]="(f['privacyPolicy'].touched || submitted) && f['privacyPolicy'].invalid">
+            <input type="checkbox" formControlName="privacyPolicy">
+            <span>I have read and accept the <a routerLink="/cms/privacy-policy">Privacy Policy</a></span>
+          </label>
+          <span class="cavero-field-error" *ngIf="(f['privacyPolicy'].touched || submitted) && f['privacyPolicy'].invalid">You must accept the Privacy Policy</span>
+        </div>
+
+        <button type="submit" class="cavero-auth-btn" [disabled]="loading">
+          <span *ngIf="loading" class="cavero-btn-spinner"></span>
+          {{ loading ? 'Creating Account...' : 'Create Account' }}
+        </button>
+      </form>
+
+      <footer class="cavero-auth-footer">
+        <p>&copy; 2026 Cavero Fragrances. All rights reserved.</p>
+      </footer>
+
+    </div>
+  </section>
+
+</main>

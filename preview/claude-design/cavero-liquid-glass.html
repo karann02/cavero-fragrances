@@ -1,0 +1,210 @@
+<!-- @dsCard group="Dashboard" name="Cavero Dashboard — Liquid / Frozen Glass" subtitle="Lighter transparent glass · brand palette only" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cavero Admin — Liquid Glass</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { dark:'#1A312C', teal:'#428475', mint:'#8DCFB4', cream:'#FFF4E2' },
+    fontFamily: { sans:['Inter','sans-serif'], display:['"Space Grotesk"','sans-serif'] },
+    borderRadius: { '3xl':'28px', '4xl':'34px' },
+  }}}
+</script>
+<style>
+  body{ font-family:'Inter',sans-serif; }
+  .ms{ font-family:'Material Symbols Outlined'; font-weight:normal; line-height:1; }
+  .num{ font-variant-numeric:tabular-nums; }
+
+  /* ===== Solid dark base + live wavy animation (brand palette) ===== */
+  .ambient{ position:fixed; inset:0; z-index:-2; overflow:hidden; background:#1A312C; }
+  .wave{ position:absolute; left:0; width:200%; bottom:0; will-change:transform; }
+  .wave svg{ display:block; width:100%; height:100%; }
+  .wave.w1{ height:48%; opacity:.22; animation:waveMove 16s linear infinite; }
+  .wave.w2{ height:40%; opacity:.16; animation:waveMove 23s linear infinite reverse; }
+  .wave.w3{ height:32%; opacity:.10; animation:waveMove 30s linear infinite; }
+  .wave.glow{ height:70%; opacity:.10; animation:waveMove 38s linear infinite reverse; }
+  @keyframes waveMove{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* ===== Liquid glass — lighter blur, more transparent (less frozen) ===== */
+  .frost{
+    background: rgba(255,244,226,0.06);
+    -webkit-backdrop-filter: blur(12px) saturate(135%);
+    backdrop-filter: blur(12px) saturate(135%);
+    border: 1px solid rgba(255,244,226,0.20);
+    box-shadow: 0 18px 48px rgba(10,24,20,0.28), inset 0 1px 1px rgba(255,244,226,0.28);
+    position: relative; overflow: hidden;
+    transition: transform .45s cubic-bezier(.2,.9,.3,1.2), box-shadow .45s ease, background .45s ease;
+  }
+  .frost::before{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    background: linear-gradient(180deg, rgba(255,244,226,0.10), transparent 40%); }
+  .frost::after{ content:""; position:absolute; top:0; left:-60%; width:45%; height:100%;
+    background: linear-gradient(100deg, transparent, rgba(255,244,226,0.22), transparent);
+    transform: skewX(-18deg); transition:left .8s ease; pointer-events:none; }
+  .frost:hover::after{ left:135%; }
+  .frost:hover{ transform: translateY(-4px); background: rgba(255,244,226,0.10);
+    box-shadow: 0 26px 60px rgba(10,24,20,0.36), 0 0 26px rgba(141,207,180,0.16), inset 0 1px 1px rgba(255,244,226,0.34); }
+
+  .frost-strong{ background: rgba(255,244,226,0.12); -webkit-backdrop-filter:blur(16px) saturate(140%); backdrop-filter:blur(16px) saturate(140%); }
+
+  .reveal{ opacity:0; transform: translateY(22px) scale(.98); animation: reveal .6s cubic-bezier(.16,1,.3,1) forwards; }
+  @keyframes reveal{ to{ opacity:1; transform:none; } }
+  .float{ animation: floaty 8s ease-in-out infinite; }
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .navitem:hover{ background: rgba(255,244,226,0.07); }
+  *:focus-visible{ outline:2px solid #8DCFB4; outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce){ .wave,.float{animation:none} .reveal{opacity:1;transform:none;animation:none} .frost::after{display:none} }
+</style>
+</head>
+<body class="text-cream min-h-screen">
+<div class="ambient">
+  <div class="wave glow"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path fill="#8DCFB4" d="M0,170 C240,120 480,210 720,160 C960,110 1200,210 1440,170 C1680,120 1920,210 2160,160 C2400,110 2640,210 2880,170 L2880,320 L0,320 Z"/></svg></div>
+  <div class="wave w3"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path fill="#5FA08F" d="M0,150 C240,210 480,110 720,160 C960,210 1200,110 1440,150 C1680,210 1920,110 2160,160 C2400,210 2640,110 2880,150 L2880,320 L0,320 Z"/></svg></div>
+  <div class="wave w2"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path fill="#8DCFB4" d="M0,180 C240,130 480,220 720,170 C960,120 1200,220 1440,180 C1680,130 1920,220 2160,170 C2400,120 2640,220 2880,180 L2880,320 L0,320 Z"/></svg></div>
+  <div class="wave w1"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path fill="#428475" d="M0,200 C240,150 480,250 720,200 C960,150 1200,250 1440,200 C1680,150 1920,250 2160,200 C2400,150 2640,250 2880,200 L2880,320 L0,320 Z"/></svg></div>
+</div>
+
+<div class="flex min-h-screen p-4 gap-4">
+
+  <!-- Sidebar -->
+  <aside class="frost rounded-4xl w-64 shrink-0 flex flex-col p-5 sticky top-4 h-[calc(100vh-2rem)]">
+    <div class="px-2 py-3 mb-5">
+      <div class="font-display text-2xl tracking-wide text-cream">Cavero</div>
+      <div class="text-[11px] uppercase tracking-[0.28em] text-mint mt-1">Fragrances · Admin</div>
+    </div>
+    <nav class="flex flex-col gap-1.5">
+      <a class="frost-strong flex items-center gap-3 px-4 py-3 rounded-2xl text-cream font-semibold border border-cream/25"><span class="ms text-[20px] text-mint">grid_view</span> Dashboard</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-2xl text-cream/65 transition"><span class="ms text-[20px]">inventory_2</span> Products</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-2xl text-cream/65 transition"><span class="ms text-[20px]">shopping_bag</span> Orders</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-2xl text-cream/65 transition"><span class="ms text-[20px]">group</span> Customers</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-2xl text-cream/65 transition"><span class="ms text-[20px]">monitoring</span> Analytics</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-2xl text-cream/65 transition"><span class="ms text-[20px]">redeem</span> Coupons</a>
+    </nav>
+    <div class="mt-auto flex flex-col gap-1.5 pt-4 border-t border-cream/10">
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-2xl text-cream/65 transition"><span class="ms text-[20px]">settings</span> Settings</a>
+      <a class="navitem flex items-center gap-3 px-4 py-3 rounded-2xl text-cream/65 transition"><span class="ms text-[20px]">logout</span> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main column -->
+  <div class="flex-1 min-w-0 flex flex-col gap-4">
+
+    <!-- Header -->
+    <header class="frost rounded-3xl flex items-center justify-between gap-4 px-7 py-4">
+      <div>
+        <h1 class="font-display text-2xl text-cream">Dashboard</h1>
+        <p class="text-sm text-cream/55">Your retail ecosystem at a glance</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="relative hidden md:block">
+          <span class="ms absolute left-3.5 top-1/2 -translate-y-1/2 text-cream/50 text-[20px]">search</span>
+          <input placeholder="Search…" class="w-64 pl-11 pr-4 py-2.5 rounded-full bg-cream/8 border border-cream/20 text-sm text-cream placeholder-cream/45 outline-none focus:bg-cream/14 focus:w-72 transition-all backdrop-blur" />
+        </div>
+        <button class="w-11 h-11 rounded-full bg-cream/8 border border-cream/20 grid place-items-center relative backdrop-blur"><span class="ms text-cream text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-mint"></span></button>
+        <div class="flex items-center gap-3 pl-1">
+          <div class="text-right hidden lg:block"><p class="text-sm font-semibold leading-tight text-cream">Manthan Gadara</p><p class="text-[10px] uppercase tracking-widest text-cream/50">Super Admin</p></div>
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal to-dark grid place-items-center font-display text-lg border border-cream/20 text-cream">M</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stat cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div class="frost float reveal rounded-3xl p-6" style="animation-delay:.05s">
+        <div class="flex items-center justify-between"><div class="w-11 h-11 rounded-2xl bg-cream/10 border border-cream/20 grid place-items-center"><span class="ms text-mint">payments</span></div><span class="text-mint text-xs font-bold">+18.2%</span></div>
+        <p class="text-cream/55 text-xs uppercase tracking-widest mt-5">Total Revenue</p>
+        <div class="font-display text-3xl mt-1 num text-cream">₹2,48,592</div>
+      </div>
+      <div class="frost float reveal rounded-3xl p-6" style="animation-delay:.12s">
+        <div class="flex items-center justify-between"><div class="w-11 h-11 rounded-2xl bg-cream/10 border border-cream/20 grid place-items-center"><span class="ms text-mint">shopping_bag</span></div><span class="text-mint text-xs font-bold">+5.2%</span></div>
+        <p class="text-cream/55 text-xs uppercase tracking-widest mt-5">Total Orders</p>
+        <div class="font-display text-3xl mt-1 num text-cream">1,450</div>
+      </div>
+      <div class="frost float reveal rounded-3xl p-6" style="animation-delay:.19s">
+        <div class="flex items-center justify-between"><div class="w-11 h-11 rounded-2xl bg-cream/10 border border-cream/20 grid place-items-center"><span class="ms text-mint">group</span></div><span class="text-mint text-xs font-bold">+12%</span></div>
+        <p class="text-cream/55 text-xs uppercase tracking-widest mt-5">Customers</p>
+        <div class="font-display text-3xl mt-1 num text-cream">8,234</div>
+      </div>
+      <div class="frost float reveal rounded-3xl p-6" style="animation-delay:.26s">
+        <div class="flex items-center justify-between"><div class="w-11 h-11 rounded-2xl bg-cream/10 border border-cream/20 grid place-items-center"><span class="ms text-cream">warning</span></div><span class="text-cream/80 text-xs font-bold">7 items</span></div>
+        <p class="text-cream/55 text-xs uppercase tracking-widest mt-5">Low Stock</p>
+        <div class="font-display text-3xl mt-1 num text-cream">7</div>
+      </div>
+    </div>
+
+    <!-- Chart + Donut -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div class="frost reveal rounded-3xl p-7 lg:col-span-2" style="animation-delay:.3s">
+        <div class="flex items-center justify-between mb-6">
+          <div><h3 class="font-display text-xl text-cream">Revenue Overview</h3><p class="text-cream/50 text-sm">Last 7 days</p></div>
+          <div class="flex gap-1 bg-cream/8 border border-cream/15 rounded-full p-1 text-xs font-semibold backdrop-blur">
+            <button class="px-3 py-1.5 rounded-full text-cream/55">Daily</button>
+            <button class="px-3 py-1.5 rounded-full bg-mint text-dark">Weekly</button>
+            <button class="px-3 py-1.5 rounded-full text-cream/55">Monthly</button>
+          </div>
+        </div>
+        <svg class="w-full h-60" viewBox="0 0 640 240" preserveAspectRatio="none">
+          <defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8DCFB4" stop-opacity="0.45"/><stop offset="1" stop-color="#8DCFB4" stop-opacity="0"/></linearGradient></defs>
+          <line x1="0" y1="50" x2="640" y2="50" stroke="rgba(255,244,226,0.08)"/><line x1="0" y1="120" x2="640" y2="120" stroke="rgba(255,244,226,0.08)"/><line x1="0" y1="190" x2="640" y2="190" stroke="rgba(255,244,226,0.08)"/>
+          <path d="M20 180 C 90 165, 130 110, 200 128 S 320 80, 390 100 S 500 36, 560 62 L620 54 L620 220 L20 220 Z" fill="url(#ar)"/>
+          <path d="M20 180 C 90 165, 130 110, 200 128 S 320 80, 390 100 S 500 36, 560 62 L620 54" fill="none" stroke="#8DCFB4" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="390" cy="100" r="5" fill="#1A312C" stroke="#8DCFB4" stroke-width="3"/>
+        </svg>
+        <div class="flex justify-between text-xs text-cream/45 mt-3 px-1 num"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+      </div>
+
+      <div class="frost reveal rounded-3xl p-7" style="animation-delay:.36s">
+        <h3 class="font-display text-xl mb-1 text-cream">Sales by Category</h3>
+        <p class="text-cream/50 text-sm mb-5">This month</p>
+        <div class="relative w-40 h-40 mx-auto">
+          <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+            <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,244,226,0.12)" stroke-width="13"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#8DCFB4" stroke-width="13" stroke-dasharray="118 146"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#428475" stroke-width="13" stroke-dasharray="79 185" stroke-dashoffset="-118"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#FFF4E2" stroke-width="13" stroke-dasharray="40 224" stroke-dashoffset="-197"/>
+          </svg>
+          <div class="absolute inset-0 grid place-content-center text-center"><div class="font-display text-2xl num text-cream">₹84.2k</div><div class="text-[11px] text-cream/50">total</div></div>
+        </div>
+        <ul class="mt-6 space-y-3 text-sm">
+          <li class="flex items-center justify-between text-cream/85"><span class="flex items-center gap-2"><i class="w-2.5 h-2.5 rounded-sm bg-mint inline-block"></i> Oud / Attar</span><span class="font-semibold num">45%</span></li>
+          <li class="flex items-center justify-between text-cream/85"><span class="flex items-center gap-2"><i class="w-2.5 h-2.5 rounded-sm bg-teal inline-block"></i> Eau de Parfum</span><span class="font-semibold num">30%</span></li>
+          <li class="flex items-center justify-between text-cream/85"><span class="flex items-center gap-2"><i class="w-2.5 h-2.5 rounded-sm bg-cream inline-block"></i> Combos</span><span class="font-semibold num">15%</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Orders + Activity -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div class="frost reveal rounded-3xl overflow-hidden lg:col-span-2" style="animation-delay:.4s">
+        <div class="flex items-center justify-between px-7 py-5 border-b border-cream/12"><h3 class="font-display text-xl text-cream">Recent Orders</h3><a class="text-mint text-sm font-semibold inline-flex items-center gap-1">View all <span class="ms text-[16px]">arrow_forward</span></a></div>
+        <table class="w-full text-sm">
+          <thead><tr class="text-cream/50 text-[11px] uppercase tracking-widest bg-cream/5"><th class="text-left px-7 py-3 font-semibold">Order</th><th class="text-left px-7 py-3 font-semibold">Customer</th><th class="text-left px-7 py-3 font-semibold">Amount</th><th class="text-left px-7 py-3 font-semibold">Status</th></tr></thead>
+          <tbody class="text-cream/85">
+            <tr class="border-t border-cream/8"><td class="px-7 py-4 num font-semibold">#72910</td><td class="px-7 py-4">Saffron Clarke</td><td class="px-7 py-4 num font-bold text-cream">₹1,240</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-mint/22 text-mint">Delivered</span></td></tr>
+            <tr class="border-t border-cream/8"><td class="px-7 py-4 num font-semibold">#72911</td><td class="px-7 py-4">Amara Lane</td><td class="px-7 py-4 num font-bold text-cream">₹3,400</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-teal/30 text-mint">Processing</span></td></tr>
+            <tr class="border-t border-cream/8"><td class="px-7 py-4 num font-semibold">#72912</td><td class="px-7 py-4">Robert Wade</td><td class="px-7 py-4 num font-bold text-cream">₹750</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-cream/12 text-cream/70">Cancelled</span></td></tr>
+            <tr class="border-t border-cream/8"><td class="px-7 py-4 num font-semibold">#72913</td><td class="px-7 py-4">Elena Park</td><td class="px-7 py-4 num font-bold text-cream">₹920</td><td class="px-7 py-4"><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-mint/22 text-mint">Delivered</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="frost reveal rounded-3xl p-7" style="animation-delay:.46s">
+        <h3 class="font-display text-xl mb-5 text-cream">Recent Activity</h3>
+        <ul class="space-y-5 text-sm">
+          <li class="flex gap-3"><span class="w-9 h-9 rounded-full bg-mint/20 border border-cream/15 grid place-items-center text-mint shrink-0"><span class="ms text-[18px]">shopping_bag</span></span><div><p class="text-cream/85">New order <b class="text-cream">#72914</b> placed</p><p class="text-cream/45 text-xs mt-0.5">2 minutes ago</p></div></li>
+          <li class="flex gap-3"><span class="w-9 h-9 rounded-full bg-cream/12 border border-cream/15 grid place-items-center text-cream shrink-0"><span class="ms text-[18px]">inventory_2</span></span><div><p class="text-cream/85"><b class="text-cream">Amber Noir</b> is out of stock</p><p class="text-cream/45 text-xs mt-0.5">26 minutes ago</p></div></li>
+          <li class="flex gap-3"><span class="w-9 h-9 rounded-full bg-mint/20 border border-cream/15 grid place-items-center text-mint shrink-0"><span class="ms text-[18px]">person_add</span></span><div><p class="text-cream/85"><b class="text-cream">32</b> new customers today</p><p class="text-cream/45 text-xs mt-0.5">1 hour ago</p></div></li>
+          <li class="flex gap-3"><span class="w-9 h-9 rounded-full bg-mint/20 border border-cream/15 grid place-items-center text-mint shrink-0"><span class="ms text-[18px]">star</span></span><div><p class="text-cream/85">New 5★ review on <b class="text-cream">Royal Oud</b></p><p class="text-cream/45 text-xs mt-0.5">3 hours ago</p></div></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

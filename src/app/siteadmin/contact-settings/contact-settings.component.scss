@@ -1,0 +1,54 @@
+.section-label {
+  font-weight: 700;
+  color: #f3eee1;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(159, 227, 197, 0.22);
+}
+
+.section-help {
+  margin: -0.1rem 0 1rem;
+  color: rgba(243, 238, 225, 0.6);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+:host {
+  display: block;
+  padding-top: 24px;
+}
+
+/* The page input is themed light by the legacy admin stylesheet, but textareas
+   are left at the Material default (#1A1B1F) — force every field value light. */
+:host ::ng-deep {
+  textarea.mat-mdc-input-element,
+  input.mat-mdc-input-element,
+  .mdc-text-field__input {
+    color: #f3eee1 !important;
+    -webkit-text-fill-color: #f3eee1 !important;
+    caret-color: #9fe3c5 !important;
+  }
+
+  textarea.mat-mdc-input-element::placeholder,
+  input.mat-mdc-input-element::placeholder {
+    color: rgba(243, 238, 225, 0.4) !important;
+    -webkit-text-fill-color: rgba(243, 238, 225, 0.4) !important;
+  }
+
+  /* field titles (floating labels) + helper hints — readable contrast */
+  .mat-mdc-form-field .mdc-floating-label,
+  .mat-mdc-form-field .mat-mdc-floating-label {
+    color: rgba(243, 238, 225, 0.82) !important;
+  }
+  .mat-focused .mdc-floating-label,
+  .mdc-text-field--focused .mdc-floating-label {
+    color: #9fe3c5 !important;
+  }
+  .mat-mdc-form-field-hint,
+  .mat-mdc-form-field-subscript-wrapper .mat-mdc-form-field-hint-wrapper {
+    color: rgba(243, 238, 225, 0.55) !important;
+  }
+}

@@ -1,0 +1,36 @@
+.angular
+node_modules
+dist
+backend/api-gateway/node_modules
+backend/auth-service/node_modules
+
+# Environment / secrets — never commit
+backend/auth-service/.env
+*.env
+
+# Uploads (local disk — not tracked in git). **/ catches copies under backend/ too.
+src/assets/uploads
+**/assets/uploads/
+
+# Angular environment files
+# NOTE: environment.ts MUST stay tracked — the production build (ng build
+# --configuration production) consumes it. It holds no secrets (empty API base,
+# empty Razorpay key, public Google client ID). Only the dev override is ignored.
+src/environments/environment.development.ts
+
+# Playwright output
+playwright-report/
+test-results/
+
+# Logs
+*.log
+dev-output.log
+
+# QA / test screenshots (regenerated)
+qa-screenshots/
+
+# Source branding assets (large .ai/.cdr/.pdf — keep out of repo)
+CAVERO/
+
+# Old theme backup (removed — never re-commit)
+.theme-backup-src/

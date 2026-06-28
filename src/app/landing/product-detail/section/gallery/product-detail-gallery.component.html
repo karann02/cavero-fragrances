@@ -1,0 +1,76 @@
+<div class="product-gallery-layout">
+  <div class="product-gallery-thumbs-wrap">
+    <button
+      *ngIf="shouldShowThumbScrollControls"
+      type="button"
+      class="thumb-scroll-btn up"
+      [class.visible]="canScrollThumbsUp"
+      (click)="scrollThumbRail('up')"
+      aria-label="Scroll thumbnails up"
+    >
+      <i class="ci-chevron-up"></i>
+    </button>
+
+    <div class="product-gallery-thumbs" #thumbRail (scroll)="onThumbRailScroll()">
+    <button
+      type="button"
+      class="thumb-btn"
+      *ngFor="let thumb of visibleThumbnails; trackBy: trackByThumb"
+      [attr.data-thumb-index]="thumb.index"
+      [class.active]="thumb.index === selectedIndex"
+      [class.thumb-overflow]="thumb.overflow"
+      (click)="onThumbnailClick(thumb.index, thumb.overflow)"
+      [attr.aria-label]="'Select image ' + (thumb.index + 1)"
+    >
+      <img [src]="thumb.url" [alt]="'Thumbnail ' + (thumb.index + 1)" (error)="onThumbImageError(thumb.index)">
+      <span *ngIf="thumb.overflow && !showAllThumbnails" class="thumb-overflow-mask">+{{ thumb.overflowCount }}</span>
+    </button>
+    </div>
+
+    <button
+      *ngIf="shouldShowThumbScrollControls"
+      type="button"
+      class="thumb-scroll-btn down"
+      [class.visible]="canScrollThumbsDown"
+      (click)="scrollThumbRail('down')"
+      aria-label="Scroll thumbnails down"
+    >
+      <i class="ci-chevron-down"></i>
+    </button>
+  </div>
+
+  <div class="product-gallery-main">
+    <span class="cavero-gallery-discount" *ngIf="discountPercent > 0">-{{ discountPercent }}% OFF</span>
+    <button
+      type="button"
+      class="main-image-link"
+      [class.is-dragging]="isMainImageDragging"
+      (click)="onMainImageClick()"
+      (pointerdown)="onMainImagePointerDown($event)"
+      (pointermove)="onMainImagePointerMove($event)"
+      (pointerup)="onMainImagePointerUp($event)"
+      (pointercancel)="onMainImagePointerCancel($event)"
+      (pointerleave)="onMainImagePointerCancel($event)">
+      <img [src]="selectedImage" alt="Product image" (error)="onMainImageError()">
+    </button>
+  </div>
+</div>
+
+<div class="fullscreen-viewer" *ngIf="isViewerOpen" (click)="closeViewer()">
+  <button type="button" class="viewer-close" (click)="closeViewer(); $event.stopPropagation()" aria-label="Close viewer">
+    <i class="ci-close"></i>
+  </button>
+
+  <button type="button" class="viewer-nav prev" (click)="showPrevInViewer(); $event.stopPropagation()" aria-label="Previous image">
+    <i class="ci-chevron-left"></i>
+  </button>
+
+  <div class="viewer-stage" (click)="$event.stopPropagation()" (touchstart)="onViewerTouchStart($event)" (touchend)="onViewerTouchEnd($event)">
+    <img [src]="resolvedImages[viewerIndex] || fallbackImage" alt="Zoomed product image">
+    <div class="viewer-count">{{ viewerIndex + 1 }} / {{ resolvedImages.length }}</div>
+  </div>
+
+  <button type="button" class="viewer-nav next" (click)="showNextInViewer(); $event.stopPropagation()" aria-label="Next image">
+    <i class="ci-chevron-right"></i>
+  </button>
+</div>

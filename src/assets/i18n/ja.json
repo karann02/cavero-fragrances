@@ -1,0 +1,1511 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "メイン"
+    },
+    "DASHBOARD": {
+      "TEXT": "ダッシュボード",
+      "LIST": {
+        "DASHBOARD1": "ダッシュボード 1",
+        "DASHBOARD2": "ダッシュボード 2",
+        "DOCTOR-DASHBOARD": "医師ダッシュボード",
+        "PATIENT-DASHBOARD": "患者ダッシュボード"
+      }
+    },
+    "LABEL-SETTING": {
+      "TEXT": "ラベル設定",
+      "LIST": {
+        "LABEL-SETTING": "ラベル設定",
+        "CUSTOM-LABEL-SETTING": "カスタムラベル設定",
+        "SUB-CUSTOM-LABEL-SETTING": "サブカスタムラベル設定"
+      }
+    },
+    "APPOINTMENTS": {
+      "TEXT": "予約",
+      "LIST": {
+        "PERMISSION-ASSIGNEMNT": "許可割り当て",
+        "APPOINTMENT-CALENDAR": "予約カレンダー",
+        "ALL-APPOINTMENT": "すべての予約",
+        "DOCTOR-APPOINTMENT-SCHEDULE": "医師予約スケジュール",
+        "VIEW-APPOINTMENT": "予約を見る",
+        "BOOK-APPOINTMENT": "予約を予約する",
+        "EDIT-APPOINTMENT": "予約を編集する"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "スタッフ",
+      "LIST": {
+        "ALL-DOCTOR": "すべてのスタッフ",
+        "DOCTOR-SCHEDULE": "医師スケジュール",
+        "EMPLOYEE-BREAKS": "スタッフ休憩",
+        "ADD-DOCTOR": "スタッフを追加",
+        "EDIT-DOCTOR": "スタッフを編集",
+        "ASSIGN-DEPARTMENT": "部門を割り当てる",
+        "ASSIGN-SHIFT": "シフトを割り当てる",
+        "PROFILE": "スタッフプロフィール",
+        "DOCTOR-ID-CARD-TEMPLATE": "医師IDカードテンプレート",
+        "GENERATE-ID-CARD": "IDカードを生成",
+        "CREAT-ID-CARD-TEMPLATE": "IDカードテンプレートを作成",
+        "OVERVIEW": "概要",
+        "CASE": "ケース",
+        "OPD-VISIT": "OPD / 訪問",
+        "PATIENT-ADMISSIONS": "患者入院",
+        "SCHEDULE": "スケジュール",
+        "APPOINTMENTS": "予約"
+      }
+    },
+    "HOSPITAL-BUILDING": {
+      "TEXT": "病院ビル",
+      "LIST": {
+        "HOSPITAL-BUILDING": "病院ビル"
+      }
+    },
+    "HOSPITAL-FLOOR": {
+      "TEXT": "病院フロア",
+      "LIST": {
+        "HOSPITAL-FLOOR": "病院フロア"
+      }
+    },
+    "WARD": {
+      "TEXT": "病棟管理",
+      "LIST": {
+        "WARD": "病棟"
+      }
+    },
+    "SHIFT-MANAGEMENT": {
+      "TEXT": "シフト管理",
+      "LIST": {
+        "ALL-SHIFT": "すべてのシフト",
+        "SHIFTS": "シフト",
+        "ADD-SHIFT": "シフトを追加",
+        "EDIT-SHIFT": "シフトを編集",
+        "SHIFT-MANAGEMENT": "シフト管理"
+      }
+    },
+    "EMAIL-SETTINGS": {
+      "TEXT": "メール設定",
+      "LIST": {}
+    },
+    "STAFF": {
+      "TEXT": "スタッフ",
+      "LIST": {
+        "ALL-STAFF": "すべてのスタッフ",
+        "ADD-STAFF": "スタッフを追加",
+        "EDIT-STAFF": "スタッフを編集",
+        "PROFILE": "スタッフプロフィール"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "患者",
+      "LIST": {
+        "SETTINGS": "設定",
+        "PATIENT-SETTINGS": "患者設定",
+        "ALL-CASE": "すべてのケース",
+        "CASE": "ケース",
+        "ALL-PATIENT": "すべての患者",
+        "PATIENT-ADMISSION": "患者入院",
+        "PATIENT-ID-CARD-TEMPLATE": "患者IDカードテンプレート",
+        "ID-CARD-TEMPLATE": "IDカードテンプレート",
+        "GENERATE-PATIENT-ID-CARD": "患者IDカードを生成",
+        "PASSCARD-TEMPLATE": "パスカードテンプレート",
+        "GENERATE-PASSCARD": "パスカードを生成",
+        "PATIENTS-OVERVIEW": "概要",
+        "PATIENT-CASE": "ケース",
+        "FAMILY-INFO": "家族情報",
+        "FAMILY-HISTORY": "家族歴",
+        "SOCIAL-HABITS": "社会的習慣",
+        "OPD-VISIT": "OPD / 訪問",
+        "DIAGNOSIS": "診断",
+        "VITALS": "バイタル",
+        "ALLERGIES": "アレルギー",
+        "PROBLEMS": "問題",
+        "PATIENT-PRESCRIPTION": "処方箋",
+        "PATIENT-ADMISSIONS": "患者入院",
+        "DOCUMENT": "文書",
+        "VACCINATION": "ワクチン接種",
+        "APPOINTMENT": "予約",
+        "REPORT": "レポート",
+        "CASE-OVERVIEW": "ケース概要",
+        "CASE-OPD-VISIT": "ケース OPD / 訪問",
+        "CASE-IPD": "ケース IPD",
+        "CASE-APPOINTMENT": "ケース予約"
+      }
+    },
+    "IPD": {
+      "TEXT": "IPD 管理",
+      "LIST": {
+        "IPD": "IPD",
+        "IPD-PATIENT": "IPD 患者",
+        "IPD-OVERVIEW": "概要",
+        "CHARGES": "料金",
+        "PROBLEM": "問題",
+        "ALLERGY": "アレルギー",
+        "IPDPRESCRIPTION": "処方箋",
+        "DIAGNOSIS": "診断",
+        "VITALS": "バイタル",
+        "DAILY-CHECKUPS": "日常検査",
+        "DOCTORSROUNDS": "医師ラウンド",
+        "HOUSEKEEPING": "ハウスキーピング",
+        "CONSULTANT-INSTRUCTION": "コンサルタント指示",
+        "TIMELINE": "タイムライン",
+        "BILLING": "請求",
+        "OT": "OT"
+      }
+    },
+    "OPD": {
+      "TEXT": "OPD 管理",
+      "LIST": {
+        "OPD": "OPD",
+        "OPD-PATIENT": "OPD 患者",
+        "OVERVIEW": "概要",
+        "VISITS": "訪問",
+        "CHARGES": "料金",
+        "BILLING": "請求",
+        "PROBLEM": "問題",
+        "ALLERGY": "アレルギー",
+        "PRESCRIPTIONS": "処方箋",
+        "DIAGNOSIS": "診断",
+        "VITALS": "バイタル",
+        "TIMELINE": "タイムライン"
+      }
+    },
+    "OT-MANAGEMENT": {
+      "TEXT": "OT 管理",
+      "LIST": {
+        "OT": "OT",
+        "PROCEDURES": "手順",
+        "SCHEDULE-CALENDER": "スケジュールカレンダー",
+        "SCHEDULE-TABLE": "スケジュールテーブル",
+        "OT-SCHEDULE": "OT スケジュール",
+        "CALENDER": "カレンダー"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "レポート",
+      "LIST": {
+        "BIRTH-REPORT": "出生レポート",
+        "DEATH-REPORT": "死亡レポート",
+        "INVESTIGATION-REPORT": "調査レポート",
+        "OPERATION-REPORT": "手術レポート"
+      }
+    },
+    "BRANCH": {
+      "TEXT": "支店",
+      "LIST": {
+        "ALL-BRANCH": "すべての支店",
+        "ADD-BRANCH": "支店を追加"
+      }
+    },
+    "ALLERGY-MASTER": {
+      "TEXT": "アレルギーマスター",
+      "LIST": {
+        "ALLERGY-CATEGORY": "アレルギーカテゴリ",
+        "ALLERGIES": "アレルギー",
+        "ALLERGY-REACTION": "アレルギー反応"
+      }
+    },
+    "DATA-MANAGEMENT": {
+      "TEXT": "データ管理"
+    },
+    "ROOMS": {
+      "TEXT": "病院部屋",
+      "LIST": {
+        "ROOM-TYPE": "部屋タイプ",
+        "ROOM-MASTER": "部屋マスター",
+        "ROOM-MASTER-LIST": "部屋マスターリスト",
+        "ROOM-INVENTORY": "部屋在庫"
+      }
+    },
+    "BED": {
+      "TEXT": "ベッド",
+      "LIST": {
+        "BED-TYPE": "ベッドタイプ",
+        "BED": "ベッド",
+        "BED-ASSIGN": "ベッド割り当て",
+        "CASES": "ケース"
+      }
+    },
+    "PROBLEM-MASTER": {
+      "TEXT": "問題マスター",
+      "LIST": {
+        "PROBLEM-CATEGORY": "問題カテゴリ",
+        "PROBLEMS": "問題",
+        "ALL-PROBLEMS": "すべての問題"
+      }
+    },
+    "HOSPITAL-CHARGES": {
+      "TEXT": "料金 / 料金",
+      "LIST": {
+        "CHARGES-TYPE": "料金カテゴリ",
+        "CHARGES-CATEGORIES": "料金カテゴリアイテム",
+        "CHARGES": "料金",
+        "DOCOTORCHARGES": "スタッフ料金",
+        "TAX-MASTER": "税マスター"
+      }
+    },
+    "PATHOLOGY": {
+      "TEXT": "病理学",
+      "LIST": {
+        "PATHOLOGY-CATEGORY": "病理カテゴリ",
+        "PATHOLOGY-CATEGORY-LIST": "病理カテゴリリスト",
+        "PATHOLOGY-UNITS": "病理単位",
+        "PATHOLOGY-UNITS-LIST": "病理単位リスト",
+        "PATHOLOGY-PARAMETERS": "病理パラメータ",
+        "PATHOLOGY-PARAMETERS-LIST": "病理パラメータリスト",
+        "PATHOLOGY-TESTS": "病理テスト",
+        "PATHOLOGY-TESTS-LIST": "病理テストリスト"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "会計",
+      "LIST": {
+        "BILL-LIST": "請求リスト",
+        "ADD-BILL": "請求を追加",
+        "INCOME": "収入",
+        "EXPENSES": "費用",
+        "INCOME-REPORT": "収入レポート",
+        "INCOME-CHART": "収入チャート",
+        "INVOICE": "請求書"
+      }
+    },
+    "RECORDS": {
+      "TEXT": "記録",
+      "LIST": {
+        "BIRTH-RECORDS": "出生記録",
+        "DEATH-RECORDS": "死亡記録"
+      }
+    },
+    "AMBULANCE": {
+      "TEXT": "救急車",
+      "LIST": {
+        "AMBULANCE-CALL-LIST": "救急車呼び出しリスト",
+        "AMBULANCE-LIST": "救急車リスト"
+      }
+    },
+    "PHARMACY": {
+      "TEXT": "薬局",
+      "LIST": {
+        "MEDICINE-LIST": "薬リスト",
+        "ADD-MEDICINE": "薬を追加"
+      }
+    },
+    "BLOOD-BANK": {
+      "TEXT": "血液銀行",
+      "LIST": {
+        "BLOOD-BANK": "血液銀行",
+        "BLOOD-DONATIONS": "献血",
+        "BLOOD-DONOR": "献血者",
+        "BLOOD-ISSUED": "血液発行"
+      }
+    },
+    "DOCUMENTS": {
+      "TEXT": "文書",
+      "LIST": {
+        "ALL-DOCUMENTS": "すべての文書",
+        "DOCUMENTS": "文書",
+        "DOCUMENTS-TYPE": "文書タイプ"
+      }
+    },
+    "RADIOLOGY": {
+      "TEXT": "放射線科",
+      "LIST": {
+        "RADIOLOGY-TEST": "放射線テスト",
+        "RADIOLOGY": "放射線科",
+        "RADIOLOGY-CATEGORIE": "放射線カテゴリ"
+      }
+    },
+    "SERVICES": {
+      "TEXT": "サービス",
+      "LIST": {
+        "INSURANCE": "保険",
+        "CASES": "ケース",
+        "PACKAGES": "パッケージ",
+        "SERVICES": "サービス",
+        "AMBULANCE": "救急車",
+        "AMBULANCE-CALLS": "救急車呼び出し"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "部門",
+      "LIST": {
+        "DEPARTMENT-LIST": "部門リスト",
+        "ASSIGN-DEPARTMENT": "部門を割り当てる",
+        "ADD-DEPARTMENT": "部門を追加",
+        "VIEW-DEPARTMENT-CASE": "部門ケースを見る",
+        "VIEW-DEPARTMENT-EMPLOYEE": "部門スタッフを見る",
+        "VIEW-DEPARTMENT-OPD-PATIENT": "部門 OPD 患者を見る",
+        "VIEW-DEPARTMENT-IPD-PATIENTS": "部門 IPD 患者を見る"
+      }
+    },
+    "INVENTORY": {
+      "TEXT": "在庫",
+      "LIST": {
+        "ITEM-STOCK-LIST": "アイテム在庫リスト",
+        "SUPPLIER": "サプライヤー",
+        "ITEM-CATEGORY": "アイテムカテゴリ",
+        "STORE": "ストア",
+        "ITEMS": "アイテム",
+        "PURCHASE-ITEMS": "購入アイテム",
+        "ISSUED-ITEMS": "発行アイテム"
+      }
+    },
+    "MEDICINES": {
+      "TEXT": "薬",
+      "LIST": {
+        "MEDICINE-CATEGORIES": "薬カテゴリ",
+        "MEDICINE-BRANDS": "薬ブランド",
+        "MEDICINES": "薬",
+        "ALL-MEDICINES": "すべての薬",
+        "PURCHASE-MEDICINE": "薬を購入",
+        "CREATE-MEDICINE-BILL": "薬請求を作成",
+        "PURCHASE-MEDICINE-BILL": "薬購入請求"
+      }
+    },
+    "VACCINATION": {
+      "TEXT": "ワクチン接種",
+      "LIST": {
+        "VACCINATION": "ワクチン接種",
+        "VACCINATED-PATIENTS": "ワクチン接種患者",
+        "VACCINATED-EMPLOYEES": "ワクチン接種スタッフ"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "設定",
+      "LIST": {
+        "DATE-FORMAT-SETTINGS": "日付形式設定",
+        "PATIENT-SETTINGS": "患者設定"
+      }
+    },
+    "PERMISSION-MANAGEMENT": {
+      "TEXT": "許可管理",
+      "LIST": {
+        "MODULES": "モジュール",
+        "ACTIONS": "アクション",
+        "MODULE-ACTIONS": "モジュールアクション",
+        "PERMISSION-ASSIGNEMNT": "許可割り当て"
+      }
+    },
+    "PRESCRIPTIONS": {
+      "TEXT": "処方箋",
+      "LIST": {
+        "PRESCRIPTIONS": "処方箋",
+        "DURATION": "期間",
+        "DOES-INTERVAL": "投与間隔",
+        "TIME": "時間"
+      }
+    },
+    "HR": {
+      "TEXT": "人事",
+      "LIST": {
+        "EMPLOYEE-LEAVE": "スタッフ休暇",
+        "LEAVE-REQUESTS": "休暇リクエスト",
+        "LEAVE-BALANCE": "休暇残高",
+        "LEAVE-TYPES": "休暇タイプ",
+        "HOLIDAYS": "休日",
+        "TODAY-ATTENDANCE": "今日の出席",
+        "EMP-ATTENDANCE": "スタッフ出席",
+        "ATTENDANCE-SHEET": "出席シート",
+        "EMPLOYEE-SALARY": "スタッフ給与",
+        "PAYROLL": "給与計算",
+        "PAYSLIP": "給与明細"
+      }
+    },
+    "INSURANCE": {
+      "TEXT": "保険",
+      "LIST": {
+        "PATIENT-INSURANCE": "患者保険",
+        "NEW-CLAIM": "新規請求",
+        "CLAIM-STATUS": "請求ステータス",
+        "INSURANCE-PROVIDER": "保険提供者"
+      }
+    },
+    "SITEADMIN": {
+      "DASHBOARD": "ダッシュボード",
+      "HOSPITAL": "病院",
+      "DOCTORS": "医師",
+      "PATIENTS": "患者",
+      "SETTINGS": "設定",
+      "TEXT": "サイト管理者",
+      "LIST": {},
+      "CHAT": "チャット"
+    },
+    "DOCTOR": {
+      "DASHBOARD": "ダッシュボード",
+      "APPOINTMENTS": "予約",
+      "DOCTORS": "医師",
+      "PATIENTS": "患者",
+      "SETTINGS": "設定",
+      "CHAT": "チャット"
+    },
+    "PATIENT": {
+      "TEXT": "患者",
+      "DASHBOARD": "ダッシュボード",
+      "APPOINTMENTS": {
+        "TEXT": "予約",
+        "LIST": {
+          "BOOK-APPOINTMENT": "予約を予約する",
+          "TODAY": "今日の予約",
+          "UPCOMING": "今後の予約",
+          "PAST": "過去の予約"
+        }
+      },
+      "PRESCRIPTIONS": "処方箋",
+      "MEDICAL-RECORD": "医療記録",
+      "BILLING": "請求",
+      "CHAT": "チャット",
+      "SETTINGS": "設定"
+    },
+    "APPS": {
+      "TEXT": "-- アプリ"
+    },
+    "CALENDAR": {
+      "TEXT": "カレンダー"
+    },
+    "TASK": {
+      "TEXT": "タスク"
+    },
+    "CONTACTS": {
+      "TEXT": "連絡先"
+    },
+    "TEMPLATE": {
+      "TEXT": "テンプレート管理",
+      "LIST": {
+        "TEMPLATE-KEYWORD": "テンプレートキーワード",
+        "TEMPLATE": "テンプレート"
+      }
+    },
+    "FINANCIALYEAR": {
+      "TEXT": "会計年度"
+    },
+    "ACCOUNTGROUPS": {
+      "TEXT": "会計グループ"
+    },
+    "ACCOUNTSUBGROUPS": {
+      "TEXT": "会計サブグループ"
+    },
+    "APPOINTMENT_TYPE": {
+      "TEXT": "予約タイプ"
+    },
+    "APPOINTMENT_TYPE_PATIENT": {
+      "TEXT": "患者"
+    },
+    "APPOINTMENT_TYPE_VISITOR": {
+      "TEXT": "訪問者"
+    },
+    "APPOINTMENT_TYPE_FOLLOW_UP": {
+      "TEXT": "フォローアップ"
+    },
+    "APPOINTMENT_TYPE_SPECIALIST_REFERRAL": {
+      "TEXT": "専門医紹介"
+    },
+    "APPOINTMENT_TYPE_DIAGNOSTIC_TEST": {
+      "TEXT": "診断テスト"
+    },
+    "APPOINTMENT_TYPE_TELEMEDICINE": {
+      "TEXT": "遠隔医療"
+    },
+    "APPOINTMENT_TYPE_PATIENT_ATTENDANT": {
+      "TEXT": "患者付き添い/家族メンバー"
+    },
+    "APPOINTMENT_TYPE_HEALTH_CHECK_UP": {
+      "TEXT": "健康診断"
+    },
+    "APPOINTMENT_TYPE_SURGERY_BOOKING": {
+      "TEXT": "手術予約"
+    },
+    "APPOINTMENT_TYPE_HOME_VISIT": {
+      "TEXT": "自宅訪問"
+    },
+    "DEPARTMENT": {
+      "TEXT": "部門"
+    },
+    "CONSULTING_DOCTOR": {
+      "TEXT": "コンサルティング医師"
+    },
+    "NEW_DOCTOR": {
+      "TEXT": "新規医師"
+    },
+    "DATE": {
+      "TEXT": "日付"
+    },
+    "REASON_FOR_TRANSFER": {
+      "TEXT": "転送理由"
+    },
+    "APPOINTMENT_CHARGES": {
+      "TEXT": "予約料金"
+    },
+    "REFERENCE_DOCTOR": {
+      "TEXT": "参照医師"
+    },
+    "DESCRIPTION": {
+      "TEXT": "説明"
+    },
+    "STATUS": {
+      "TEXT": "ステータス"
+    },
+    "TIME_OF_APPOINTMENT": {
+      "TEXT": "予約時間"
+    },
+    "ACTIONS": {
+      "TEXT": "アクション"
+    },
+    "SUBMIT": {
+      "TEXT": "送信"
+    },
+    "CANCEL": {
+      "TEXT": "キャンセル"
+    },
+    "PATIENTNAME": {
+      "TEXT": "患者"
+    },
+    "DOCTORNAME": {
+      "TEXT": "医師"
+    },
+    "DOCTOR_DEPARTMENT": {
+      "TEXT": "医師部門"
+    },
+    "TIME": {
+      "TEXT": "時間"
+    },
+    "CASE_PRICE_TYPE": {
+      "TEXT": "ケース価格タイプ"
+    },
+    "CASE_PRICE_TYPE_DEFAULT": {
+      "TEXT": "デフォルト"
+    },
+    "CASE_PRICE_TYPE_DOCTOR_WISE": {
+      "TEXT": "医師別"
+    },
+    "CASE_PRICE": {
+      "TEXT": "ケース価格"
+    },
+    "CASE_PRICE_REQUIRED": {
+      "TEXT": "デフォルトタイプのケース価格が必要です"
+    },
+    "UPDATE": {
+      "TEXT": "更新"
+    },
+    "CREATE": {
+      "TEXT": "作成"
+    },
+    "PROCESSING": {
+      "TEXT": "処理中..."
+    },
+    "REGISTRATION_NO": {
+      "TEXT": "登録番号"
+    },
+    "GENDER": {
+      "TEXT": "性別"
+    },
+    "MOBILE": {
+      "TEXT": "モバイル"
+    },
+    "AGE": {
+      "TEXT": "年齢"
+    },
+    "EMAIL": {
+      "TEXT": "メール"
+    },
+    "MRN": {
+      "TEXT": "MRN"
+    },
+    "FIRST_NAME": {
+      "TEXT": "名"
+    },
+    "MIDDLE_NAME": {
+      "TEXT": "ミドルネーム"
+    },
+    "LAST_NAME": {
+      "TEXT": "姓"
+    },
+    "DATE_OF_BIRTH": {
+      "TEXT": "生年月日"
+    },
+    "MARITAL_STATUS": {
+      "TEXT": "婚姻状況"
+    },
+    "BLOOD_GROUP": {
+      "TEXT": "血液型"
+    },
+    "NATIONAL_ID_TYPE": {
+      "TEXT": "国民IDタイプ"
+    },
+    "NATIONAL_ID_NUMBER": {
+      "TEXT": "国民ID番号"
+    },
+    "UPLOAD": {
+      "TEXT": "アップロード"
+    },
+    "PRESENT_ADDRESS": {
+      "TEXT": "現在の住所"
+    },
+    "PRESENT_COUNTRY": {
+      "TEXT": "現在の国"
+    },
+    "PRESENT_STATE": {
+      "TEXT": "現在の州"
+    },
+    "PRESENT_CITY": {
+      "TEXT": "現在の都市"
+    },
+    "ZIP": {
+      "TEXT": "郵便番号"
+    },
+    "PERMANENT_ADDRESS": {
+      "TEXT": "永久住所"
+    },
+    "PERMANENT_COUNTRY": {
+      "TEXT": "永久国"
+    },
+    "PERMANENT_STATE": {
+      "TEXT": "永久州"
+    },
+    "PERMANENT_CITY": {
+      "TEXT": "永久都市"
+    },
+    "PERMANENT_ZIP": {
+      "TEXT": "永久郵便番号"
+    },
+    "COPY_ADDRESS": {
+      "TEXT": "永久住所にコピー"
+    },
+    "TREATMENTS_CONSENT": {
+      "TEXT": "治療同意"
+    },
+    "SURGERY_CONSENT": {
+      "TEXT": "手術同意"
+    },
+    "ANESTHESIA_CONSENT": {
+      "TEXT": "麻酔同意"
+    },
+    "BLOOD_CONSENT": {
+      "TEXT": "血液同意"
+    },
+    "DATA_SHARING_CONSENT": {
+      "TEXT": "データ共有同意"
+    },
+    "RESEARCH_CONSENT": {
+      "TEXT": "研究同意"
+    },
+    "USERNAME": {
+      "TEXT": "ユーザー名"
+    },
+    "PASSWORD": {
+      "TEXT": "パスワード"
+    },
+    "SEARCH": {
+      "TEXT": "検索"
+    },
+    "PATIENT_NAME": {
+      "TEXT": "患者"
+    },
+    "CASE_ID": {
+      "TEXT": "ケースID"
+    },
+    "DOCTOR_NAME": {
+      "TEXT": "医師"
+    },
+    "PHONE": {
+      "TEXT": "電話"
+    },
+    "CASE_DATE": {
+      "TEXT": "ケース日付"
+    },
+    "FEE": {
+      "TEXT": "料金"
+    },
+    "PHONE_NUMBER": {
+      "TEXT": "電話番号"
+    },
+    "SAVE": {
+      "TEXT": "保存"
+    },
+    "PATIENT_REQUIRED": {
+      "TEXT": "患者が必要です"
+    },
+    "DOCTOR_REQUIRED": {
+      "TEXT": "医師が必要です"
+    },
+    "DEPARTMENT_REQUIRED": {
+      "TEXT": "部門を選択してください"
+    },
+    "CASE_DATE_REQUIRED": {
+      "TEXT": "ケース日付が必要です"
+    },
+    "FEE_REQUIRED": {
+      "TEXT": "料金が必要です"
+    },
+    "DESCRIPTION_REQUIRED": {
+      "TEXT": "説明が必要です"
+    },
+    "ADMISSION_DATE": {
+      "TEXT": "入院日"
+    },
+    "DISCHARGE_DATE": {
+      "TEXT": "退院日"
+    },
+    "PACKAGE_NAME": {
+      "TEXT": "パッケージ"
+    },
+    "INSURANCE_NAME": {
+      "TEXT": "保険"
+    },
+    "POLICY_NO": {
+      "TEXT": "ポリシー番号"
+    },
+    "AGENT_NAME": {
+      "TEXT": "エージェント名"
+    },
+    "GUARDIAN_NAME": {
+      "TEXT": "保護者名"
+    },
+    "GUARDIAN_RELATION": {
+      "TEXT": "保護者関係"
+    },
+    "GUARDIAN_CONTACT_NO": {
+      "TEXT": "保護者連絡先"
+    },
+    "GUARDIAN_ADDRESS": {
+      "TEXT": "保護者住所"
+    },
+    "ADMISSION_DATE_REQUIRED": {
+      "TEXT": "入院日が必要です"
+    },
+    "DISCHARGE_DATE_MIN": {
+      "TEXT": "退院日は明日以降である必要があります"
+    },
+    "HEIGHT": {
+      "TEXT": "身長"
+    },
+    "WEIGHT": {
+      "TEXT": "体重"
+    },
+    "BLOOD_PRESSURE": {
+      "TEXT": "血圧"
+    },
+    "IS_OLD_PATIENT": {
+      "TEXT": "古い患者ですか"
+    },
+    "YES": {
+      "TEXT": "はい"
+    },
+    "NO": {
+      "TEXT": "いいえ"
+    },
+    "PACKAGE": {
+      "TEXT": "パッケージ"
+    },
+    "SYMPTONS": {
+      "TEXT": "症状"
+    },
+    "NOTES": {
+      "TEXT": "ノート"
+    },
+    "TEMPLATE_NAME": {
+      "TEXT": "テンプレート名"
+    },
+    "HEADER_COLOR": {
+      "TEXT": "ヘッダーカラー"
+    },
+    "SHOW_EMAIL": {
+      "TEXT": "メールを表示"
+    },
+    "SHOW_PHONE": {
+      "TEXT": "電話を表示"
+    },
+    "SHOW_DOB": {
+      "TEXT": "生年月日を表示"
+    },
+    "SHOW_BLOOD_GROUP": {
+      "TEXT": "血液型を表示"
+    },
+    "SHOW_ADDRESS": {
+      "TEXT": "住所を表示"
+    },
+    "SHOW_PATIENT_ID": {
+      "TEXT": "患者IDを表示"
+    },
+    "SHOW_INSURANCE": {
+      "TEXT": "保険を表示"
+    },
+    "TEMPLATE_NAME_REQUIRED": {
+      "TEXT": "テンプレート名が必要です"
+    },
+    "CREATE_TEMPLATE": {
+      "TEXT": "テンプレートを作成"
+    },
+    "UPDATE_TEMPLATE": {
+      "TEXT": "テンプレートを更新"
+    },
+    "LIVE_PREVIEW": {
+      "TEXT": "ライブプレビュー"
+    },
+    "HOSPITAL_NAME": {
+      "TEXT": "病院名"
+    },
+    "HOSPITAL_ADDRESS": {
+      "TEXT": "住所"
+    },
+    "DOB": {
+      "TEXT": "生年月日"
+    },
+    "ADDRESS": {
+      "TEXT": "住所"
+    },
+    "PATIENT_ID": {
+      "TEXT": "患者ID"
+    },
+    "SAVING": {
+      "TEXT": "保存中..."
+    },
+    "CHECKBOX": {
+      "TEXT": "チェックボックス"
+    },
+    "TEMPLATE_REQUIRED": {
+      "TEXT": "テンプレートが必要です"
+    },
+    "REQUIRED": {
+      "TEXT": "テンプレート名が必要です"
+    },
+    "ROOM": {
+      "TEXT": "部屋"
+    },
+    "IPD_NO": {
+      "TEXT": "IPD番号"
+    },
+    "BLOODPRESSURE": {
+      "TEXT": "血圧"
+    },
+    "ADMISSIONDATE": {
+      "TEXT": "入院日",
+      "REQUIRED": "入院日が必要です"
+    },
+    "ISOLDPATIENT": {
+      "TEXT": "古い患者"
+    },
+    "ADD": {
+      "TEXT": "追加"
+    },
+    "REFRESH": {
+      "TEXT": "リフレッシュ"
+    },
+    "CASE": {
+      "TEXT": "ケース"
+    },
+    "PATIENT-REQUIRED": {
+      "REQUIRED": "患者が必要です"
+    },
+    "CASE-REQUIRED": {
+      "REQUIRED": "ケースが必要です"
+    },
+    "IPD-REQUIRED": {
+      "REQUIRED": "IPD番号が必要です"
+    },
+    "HEIGH-REQUIRED": {
+      "REQUIRED": "身長が必要です"
+    },
+    "WEIGHT-REQUIRED": {
+      "REQUIRED": "体重が必要です"
+    },
+    "BLOODPRESSURE-REQUIRED": {
+      "REQUIRED": "血圧が必要です"
+    },
+    "ADMISSIONDATE-REQUIRED": {
+      "REQUIRED": "入院日が必要です"
+    },
+    "DOCTOR_NAME_REQUIRED": {
+      "REQUIRED": "医師が必要です"
+    },
+    "DEPARTMENT-REQUIRED": {
+      "REQUIRED": "部門が必要です"
+    },
+    "WARD-REQUIRED": {
+      "REQUIRED": "病棟が必要です"
+    },
+    "ROOM-REQUIRED": {
+      "REQUIRED": "部屋が必要です"
+    },
+    "BED-REQUIRED": {
+      "REQUIRED": "ベッドが必要です",
+      "OCCUPIED": "占有"
+    },
+    "OCCUPIED": {
+      "TEXT": "占有"
+    },
+    "IPD-NO": {
+      "TEXT": "IPD番号"
+    },
+    "OPD_NO": {
+      "TEXT": "OPD番号"
+    },
+    "APPOINTMENT_DATE": {
+      "TEXT": "予約日"
+    },
+    "DOCTOR_OPD_CHARGE": {
+      "TEXT": "医師OPD料金"
+    },
+    "PAYMENT_MODE": {
+      "TEXT": "支払いモード",
+      "REQUIRED": "支払いモードを選択",
+      "CASH": "現金",
+      "CHEQUE": "小切手",
+      "ONLINE": "オンライン"
+    },
+    "TOTAL_VISIT": {
+      "TEXT": "総訪問"
+    },
+    "OPD_NO-REQUIRED": {
+      "REQUIRED": "OPD番号が必要です"
+    },
+    "HEIGHT-REQUIRED": {
+      "REQUIRED": "身長が必要です"
+    },
+    "BLOOD_PRESSURE-REQUIRED": {
+      "REQUIRED": "血圧が必要です"
+    },
+    "APPOINTMENT_DATE-REQUIRED": {
+      "REQUIRED": "予約日が必要です"
+    },
+    "DOCTOR-REQUIRED": {
+      "REQUIRED": "医師が必要です"
+    },
+    "DOCTOR_OPD_CHARGE_REQUIRED": {
+      "REQUIRED": "医師OPD料金が必要です"
+    },
+    "PAYMENT_MODE-REQUIRED": {
+      "REQUIRED": "支払いモードが必要です"
+    },
+    "PERSONAL_DETAILS": {
+      "TEXT": "個人詳細"
+    },
+    "ADDRESS_DETAILS": {
+      "TEXT": "住所詳細"
+    },
+    "CONSENT": {
+      "TEXT": "同意"
+    },
+    "LOGIN_CREDENTIAL": {
+      "TEXT": "ログイン資格"
+    },
+    "NAME": {
+      "TEXT": "名前"
+    },
+    "PROCEDURE-REQUIRED": {
+      "REQUIRED": "手順が必要です"
+    },
+    "OT-SCHEDULE": {
+      "TEXT": "OTスケジュール"
+    },
+    "PROCEDURE": {
+      "TEXT": "手順"
+    },
+    "OT-ROOM": {
+      "TEXT": "OT部屋"
+    },
+    "CLOSE": {
+      "TEXT": "閉じる"
+    },
+    "SCHEDULE": {
+      "TEXT": "スケジュール"
+    },
+    "START": {
+      "TEXT": "開始"
+    },
+    "END": {
+      "TEXT": "終了"
+    },
+    "SCHEDULED_DATE": {
+      "TEXT": "スケジュール日",
+      "REQUIRED": "スケジュール日が必要です"
+    },
+    "START_TIME": {
+      "TEXT": "開始時間",
+      "REQUIRED": "開始時間が必要です"
+    },
+    "END_TIME": {
+      "TEXT": "終了時間",
+      "REQUIRED": "終了時間が必要です"
+    },
+    "SHOW_HIDE_COLUMN": {
+      "TEXT": "列を表示/非表示"
+    },
+    "DELETE": {
+      "TEXT": "削除"
+    },
+    "DOWNLOAD_XLSX": {
+      "TEXT": "Xlsxダウンロード"
+    },
+    "TITLE": {
+      "TEXT": "タイトル"
+    },
+    "ATTACHMENT": {
+      "TEXT": "添付"
+    },
+    "DOCUMENT_TYPE": {
+      "TEXT": "文書タイプ"
+    },
+    "TITLE_REQUIRED": {
+      "REQUIRED": "タイトルが必要です"
+    },
+    "DOCUMENT_TYPE_REQUIRED": {
+      "REQUIRED": "文書タイプが必要です"
+    },
+    "NOTES_REQUIRED": {
+      "REQUIRED": "ノートが必要です"
+    },
+    "NAME_REQUIRED": {
+      "REQUIRED": "名前が必要です"
+    },
+    "DURATION": {
+      "TEXT": "期間"
+    },
+    "DURATION-REQUIRED": {
+      "REQUIRED": "期間が必要です"
+    },
+    "DOES-INTERVAL": {
+      "TEXT": "投与間隔"
+    },
+    "DOES-INTERVAL-REQUIRED": {
+      "REQUIRED": "投与間隔が必要です"
+    },
+    "PRESCRIPTION-TIME": {
+      "TEXT": "時間"
+    },
+    "PRESCRIPTION-TIME-REQUIRED": {
+      "REQUIRED": "時間が必要です"
+    },
+    "ADDED-AT": {
+      "TEXT": "追加日時"
+    },
+    "CREATE-PRESCRIPTION": {
+      "TEXT": "処方箋を作成"
+    },
+    "PRESCRIPTION-DETAILS": {
+      "TEXT": "処方箋詳細"
+    },
+    "HEALTH-INSURANCE": {
+      "TEXT": "健康保険"
+    },
+    "LOW-INCOME": {
+      "TEXT": "低所得"
+    },
+    "REFERENCE": {
+      "TEXT": "参照"
+    },
+    "PAYMENT-STATUS": {
+      "TEXT": "支払いステータス"
+    },
+    "PAID": {
+      "TEXT": "支払済"
+    },
+    "UNPAID": {
+      "TEXT": "未払い"
+    },
+    "MEDICINE": {
+      "TEXT": "薬"
+    },
+    "DOSAGE": {
+      "TEXT": "投与量"
+    },
+    "DOSE-INTERVAL": {
+      "TEXT": "投与間隔"
+    },
+    "COMMENT": {
+      "TEXT": "コメント"
+    },
+    "ADD-MEDICINE": {
+      "TEXT": "購入薬に追加"
+    },
+    "PHYSICAL-INFO": {
+      "TEXT": "身体情報"
+    },
+    "HIGH-BLOOD-PRESSURE": {
+      "TEXT": "高血圧"
+    },
+    "FOOD-ALLERGIES": {
+      "TEXT": "食物アレルギー"
+    },
+    "TENDENCY-BLEED": {
+      "TEXT": "出血傾向"
+    },
+    "HEART-DISEASE": {
+      "TEXT": "心臓病"
+    },
+    "DIABETIC": {
+      "TEXT": "糖尿病"
+    },
+    "FEMALE-PREGNANCY": {
+      "TEXT": "女性妊娠"
+    },
+    "BREAST-FEEDING": {
+      "TEXT": "授乳"
+    },
+    "CURRENT-MEDICATION": {
+      "TEXT": "現在の薬"
+    },
+    "SURGERY": {
+      "TEXT": "手術"
+    },
+    "ACCIDENT": {
+      "TEXT": "事故"
+    },
+    "OTHERS": {
+      "TEXT": "その他"
+    },
+    "PULSE-RATE": {
+      "TEXT": "脈拍数"
+    },
+    "TEMPERATURE": {
+      "TEXT": "体温"
+    },
+    "PROBLEM-DESCRIPTION": {
+      "TEXT": "問題説明"
+    },
+    "TEST": {
+      "TEXT": "テスト"
+    },
+    "ADVICE": {
+      "TEXT": "アドバイス"
+    },
+    "NEXT-VISIT": {
+      "TEXT": "次回訪問"
+    },
+    "NEXT-VISIT-TIME": {
+      "TEXT": "次回訪問時間"
+    },
+    "NEXT-VISIT-DAYS": {
+      "TEXT": "日"
+    },
+    "NEXT-VISIT-MONTHS": {
+      "TEXT": "月"
+    },
+    "NEXT-VISIT-YEARS": {
+      "TEXT": "年"
+    },
+    "RESET": {
+      "TEXT": "リセット"
+    },
+    "STATUS-PAID": {
+      "TEXT": "支払済"
+    },
+    "STATUS-UNPAID": {
+      "TEXT": "未払い"
+    },
+    "NEXT-VISIT-TIME-DAYS": {
+      "TEXT": "日"
+    },
+    "NEXT-VISIT-TIME-MONTHS": {
+      "TEXT": "月"
+    },
+    "NEXT-VISIT-TIME-YEARS": {
+      "TEXT": "年"
+    },
+    "TAX": {
+      "TEXT": "税"
+    },
+    "TAX-NAME": {
+      "TEXT": "税名"
+    },
+    "TAX-NAME-REQUIRED": {
+      "REQUIRED": "税名が必要です"
+    },
+    "TAX-PERCENTAGE": {
+      "TEXT": "税率"
+    },
+    "TAX-PERCENTAGE-REQUIRED": {
+      "REQUIRED": "税率が必要です"
+    },
+    "CHARGE-CATEGORY-NAME": {
+      "TEXT": "カテゴリアイテム",
+      "REQUIRED": "料金カテゴリ名が必要です"
+    },
+    "CATEGORY": {
+      "TEXT": "料金カテゴリ",
+      "REQUIRED": "料金カテゴリが必要です"
+    },
+    "CATEGORY-ITEM": {
+      "TEXT": "カテゴリアイテム",
+      "REQUIRED": "カテゴリアイテムが必要です"
+    },
+    "APPLIES_TO": {
+      "TEXT": "適用先",
+      "OPD": "OPD",
+      "IPD": "IPD",
+      "BOTH": "両方",
+      "REQUIRED": "適用先が必要です"
+    },
+    "EMPLOYEE_RELATED": {
+      "TEXT": "スタッフ関連料金？"
+    },
+    "CHARGE_CATEGORY": {
+      "TEXT": "料金カテゴリ",
+      "REQUIRED": "料金カテゴリが必要です"
+    },
+    "CHARGE_TYPE": {
+      "TEXT": "カテゴリ"
+    },
+    "CHARGE_CATEGORIE": {
+      "TEXT": "カテゴリアイテム"
+    },
+    "CHARGES": {
+      "TEXT": "標準料金",
+      "REQUIRED": "標準料金が必要です"
+    },
+    "APPOINTMENT_DETAILS": {
+      "TEXT": "予約の詳細"
+    },
+    "MEDICINE-BRAND": {
+      "TEXT": "ブランド",
+      "REQUIRED": "ブランドは必須です"
+    },
+    "PHONE-NO": {
+      "TEXT": "電話",
+      "REQUIRED": "電話番号は必須です"
+    },
+    "EMAIL-ID": {
+      "TEXT": "Eメール",
+      "REQUIRED": "Eメールは必須です"
+    },
+    "MEDICINE-NAME": {
+      "TEXT": "薬"
+    },
+    "MEDICINE-BRAND-NAME": {
+      "TEXT": "ブランド"
+    },
+    "SELLING-PRICE": {
+      "TEXT": "販売価格",
+      "REQUIRED": "販売価格は必須です"
+    },
+    "BAYING-PRICE": {
+      "TEXT": "購入価格"
+    },
+    "CATEGORYES": {
+      "TEXT": "カテゴリー",
+      "REQUIRED": "カテゴリーは必須です"
+    },
+    "BRAND": {
+      "TEXT": "ブランド",
+      "REQUIRED": "ブランドは必須です"
+    },
+    "SALT-COMPOSITION": {
+      "TEXT": "塩組成"
+    },
+    "BUYING-PRICE": {
+      "TEXT": "購入価格",
+      "REQUIRED": "購入価格は必須です"
+    },
+    "SIDE-EFFECTS": {
+      "TEXT": "副作用"
+    },
+    "PURCHASE-NO": {
+      "TEXT": "購入番号"
+    },
+    "TOTAL": {
+      "TEXT": "合計"
+    },
+    "NET-AMOUNT": {
+      "TEXT": "正味金額"
+    },
+    "PAYMENT-TYPE": {
+      "TEXT": "支払方法"
+    },
+    "PURCHASE-TITLE": {
+      "TEXT": "薬の購入"
+    },
+    "REFERENCE-NO": {
+      "TEXT": "参照番号"
+    },
+    "PURCHASE-DATE": {
+      "TEXT": "購入日"
+    },
+    "ORDER-ITEMS": {
+      "TEXT": "注文品目"
+    },
+    "BATCH-NO": {
+      "TEXT": "バッチ番号"
+    },
+    "EXPIRY-DATE": {
+      "TEXT": "有効期限"
+    },
+    "SALE-PRICE": {
+      "TEXT": "販売価格"
+    },
+    "PURCHASE-PRICE": {
+      "TEXT": "購入価格"
+    },
+    "QUANTITY": {
+      "TEXT": "数量"
+    },
+    "TAX-PERCENT": {
+      "TEXT": "税率 %"
+    },
+    "AMOUNT": {
+      "TEXT": "金額"
+    },
+    "DISCOUNT": {
+      "TEXT": "割引 %"
+    },
+    "TAX-AMOUNT": {
+      "TEXT": "税額"
+    },
+    "PAYMENT-NOTE": {
+      "TEXT": "支払いメモ"
+    },
+    "ADD-PURCHASE-PRICE-MEDICINE": {
+      "TEXT": "購入した医薬品に追加"
+    },
+    "PAYMENT-CASH": {
+      "TEXT": "現金"
+    },
+    "PAYMENT-CARD": {
+      "TEXT": "カード"
+    },
+    "PAYMENT-ONLINE": {
+      "TEXT": "オンライン"
+    },
+    "PAYMENT-CHEQUE": {
+      "TEXT": "小切手"
+    },
+    "PAYMENT-UPI": {
+      "TEXT": "UPI"
+    },
+    "BILL-NUMBER": {
+      "TEXT": "請求書番号"
+    },
+    "TOTAL-AMOUNT": {
+      "TEXT": "合計金額"
+    },
+    "PATIENT-MAIL": {
+      "TEXT": "患者メール"
+    },
+    "PAYMENT-MODE": {
+      "TEXT": "支払い方法"
+    },
+    "PURCHASE-BILL-TITLE": {
+      "TEXT": "医薬品請求書を作成"
+    },
+    "BILL-DATE": {
+      "TEXT": "請求日"
+    },
+    "MEDICINE-CATEGORY": {
+      "TEXT": "医薬品カテゴリー"
+    },
+    "CONFIRM-TITLE": {
+      "TEXT": "よろしいですか？"
+    },
+    "PERCENTAGE": {
+      "TEXT": "パーセンテージ"
+    },
+    "CHARGE-TYPE": {
+      "TEXT": "料金タイプ"
+    },
+    "CHARGE-CATEGORY": {
+      "TEXT": "料金カテゴリ"
+    },
+    "CHARGE-CATEGORIES": {
+      "TEXT": "料金カテゴリ一覧"
+    },
+    "STANDARD-CHARGES": {
+      "TEXT": "標準料金"
+    },
+    "CODE": {
+      "TEXT": "コード"
+    },
+    "LOGOUT": {
+      "TEXT": "ログアウト"
+    },
+    "MANUFACTURED-BY": {
+      "TEXT": "製造元",
+      "REQUIRED": "製造元が必要です"
+    },
+    "ACTIVE": {
+      "TEXT": "アクティブ"
+    },
+    "INACTIVE": {
+      "TEXT": "非アクティブ"
+    },
+    "VACCINE": {
+      "TEXT": "ワクチン",
+      "REQUIRED": "ワクチンが必要です"
+    },
+    "SERIAL-NO": {
+      "TEXT": "シリアル番号"
+    },
+    "DOSE-NO": {
+      "TEXT": "投与量番号",
+      "REQUIRED": "投与量番号が必要です"
+    },
+    "DOSE-GIVEN-DATE": {
+      "TEXT": "投与日",
+      "REQUIRED": "投与日が必要です"
+    },
+    "ARE-YOU-SURE": {
+      "TEXT": "よろしいですか？"
+    },
+    "EMPLOYEE": {
+      "TEXT": "従業員",
+      "REQUIRED": "従業員が必要です"
+    },
+    "USERS": {
+      "TEXT": "ユーザー",
+      "REQUIRED": "ユーザータイプが必要です"
+    },
+    "BLOOD-GROUP": {
+      "TEXT": "血液型",
+      "REQUIRED": "血液型が必要です"
+    },
+    "REMAINED-BAGS": {
+      "TEXT": "残りのバッグ"
+    },
+    "DONOR-NAME": {
+      "TEXT": "ドナー名",
+      "REQUIRED": "ドナー名が必要です"
+    },
+    "LAST-DONATION-DATE": {
+      "TEXT": "最終献血日",
+      "REQUIRED": "最終献血日が必要です"
+    },
+    "MALE": {
+      "TEXT": "男性"
+    },
+    "FEMALE": {
+      "TEXT": "女性"
+    },
+    "BAGS": {
+      "TEXT": "バッグ"
+    },
+    "DONOR": {
+      "REQUIRED": "ドナー名が必要です"
+    },
+    "DOCTOR-NAME": {
+      "TEXT": "医師名"
+    },
+    "PATIENT-NAME": {
+      "TEXT": "患者名"
+    },
+    "ISSUE-DATE": {
+      "TEXT": "発行日"
+    },
+    "ISSUE-DATE-REQUIRED": {
+      "TEXT": "発行日が必要です"
+    },
+    "DOCTOR-NAME-REQUIRED": {
+      "TEXT": "医師名が必要です"
+    },
+    "PATIENT-NAME-REQUIRED": {
+      "TEXT": "患者名が必要です"
+    },
+    "DONOR-NAME-REQUIRED": {
+      "TEXT": "ドナー名が必要です"
+    },
+    "BLOOD-GROUP-REQUIRED": {
+      "TEXT": "血液型が必要です"
+    },
+    "REMARKS": {
+      "TEXT": "備考"
+    },
+    "REMARKS-REQUIRED": {
+      "TEXT": "備考が必要です"
+    }
+  }
+}

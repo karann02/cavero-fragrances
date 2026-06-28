@@ -1,0 +1,384 @@
+
+/* ── top spacing fix ── */
+:host {
+  display: block;
+  padding-top: 24px;
+}
+
+:host ::ng-deep .column-filter .mat-mdc-select-arrow {
+  display: none;
+}
+:host ::ng-deep .advance-table .mat-mdc-header-cell {
+  font-weight: 500;
+}
+:host ::ng-deep .mat-column-code {
+  min-width: 120px;
+}
+:host ::ng-deep .mat-column-type {
+  min-width: 100px;
+}
+:host ::ng-deep .mat-column-value {
+  min-width: 80px;
+}
+
+.materialTableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  .left,
+  .right {
+    min-width: 0;
+  }
+
+  .right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .header-buttons-left,
+  .tbl-export-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tbl-search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 240px;
+    margin: 0;
+
+    label {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,244,226,0.62);
+      pointer-events: none;
+    }
+  }
+
+  .search-field {
+    width: 220px;
+    height: 40px;
+    min-width: 0;
+    padding: 0 14px 0 42px;
+    border-radius: 12px;
+    border: 1px solid #d8dee9;
+    background: rgba(255, 244, 226, 0.06);
+    color: #FFF4E2;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(255, 244, 226, 0.10);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: rgba(255,244,226,0.45);
+      font-weight: 500;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #4f8cff;
+      box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.14);
+    }
+  }
+
+}
+
+.materialTableHeader .tbl-export-btn {
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.materialTableHeader .tbl-header-btn,
+.materialTableHeader .tbl-export-btn > li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.materialTableHeader .tbl-header-btn .m-l-10,
+.materialTableHeader .tbl-export-btn > li > div {
+  margin-left: 0 !important;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.toolbar-select-anchor {
+  position: relative;
+}
+
+.toolbar-hidden-select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.table-toolbar-btn {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 244, 226, 0.28);
+  background: rgba(255, 244, 226, 0.06);
+  color: rgba(255,244,226,0.62);
+  box-shadow: 0 10px 20px rgba(255, 244, 226, 0.10);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.table-toolbar-btn .mat-icon,
+.table-toolbar-btn .material-icons-outlined,
+.search-icon {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 20px !important;
+  line-height: 20px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+
+:host ::ng-deep .coupon-usage-trigger {
+  text-transform: none;
+  padding: 2px 12px !important;
+  min-width: 44px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(159, 227, 197, 0.2);
+  background: rgba(159, 227, 197, 0.07);
+  color: #F3EEE1 !important;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  // keep the count + chevron readable even in the disabled (0 redemptions) state
+  --mdc-text-button-label-text-color: #F3EEE1;
+  --mdc-text-button-disabled-label-text-color: rgba(243, 238, 225, 0.6);
+
+  .truncate-text { color: inherit; }
+  .mat-icon { font-size: 16px; width: 16px; height: 16px; line-height: 16px; color: rgba(243, 238, 225, 0.5); }
+
+  &:hover:not(.mat-mdc-button-disabled):not([disabled]) {
+    border-color: rgba(159, 227, 197, 0.4);
+    background: rgba(159, 227, 197, 0.12);
+  }
+  &.mat-mdc-button-disabled, &[disabled] {
+    opacity: 1 !important;
+    color: rgba(243, 238, 225, 0.6) !important;
+    .mat-icon { opacity: 0.35; }
+  }
+}
+
+.coupon-usage-overlay .mat-menu-content {
+  padding: 0;
+}
+
+.coupon-usage-menu-overlay {
+  width: 320px;
+  max-width: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.coupon-usage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 244, 226, 0.2);
+  font-weight: 600;
+}
+
+.coupon-usage-loading,
+.coupon-usage-empty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  color: rgba(255,244,226,0.62);
+}
+
+.coupon-usage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.coupon-usage-item {
+  padding: 10px;
+  border: 1px solid rgba(255, 244, 226, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 244, 226, 0.06);
+}
+
+.usage-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.usage-name {
+  font-weight: 600;
+}
+
+.usage-count-badge {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.usage-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: rgba(255,244,226,0.62);
+  font-size: 0.85rem;
+}
+
+.table-toolbar-btn:hover {
+  transform: translateY(-1px);
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.22);
+  box-shadow: 0 14px 24px rgba(37, 99, 235, 0.12);
+}
+
+@media (max-width: 767.98px) {
+  .materialTableHeader {
+    .left,
+    .right,
+    .tbl-search-box {
+      width: 100%;
+    }
+
+    .tbl-search-box {
+      min-width: 0;
+    }
+
+    .search-field {
+      width: 100%;
+    }
+
+    .tbl-export-btn {
+      justify-content: flex-start;
+      width: 100%;
+      gap: 4px;
+    }
+  }
+}
+
+/* ── materialTableHeader fix ── */
+
+.materialTableHeader {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 72px !important;
+  height: auto !important;
+  padding: 14px 20px !important;
+  gap: 10px !important;
+  background: rgba(255, 244, 226, 0.06) !important;
+  border-bottom: 1px solid rgba(255, 244, 226, 0.10) !important;
+
+  .left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .right {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  .header-buttons-left,
+  .tbl-export-btn {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .tbl-header-btn {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .m-l-10 {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  }
+}
+
+/* end fix */
+
+.table-toolbar-btn-delete {
+  color: #dc2626 !important;
+}
+
+.table-toolbar-btn-delete .mat-icon,
+.table-toolbar-btn-delete mat-icon {
+  color: currentColor !important;
+}
+
+.table-toolbar-btn-delete[disabled] {
+  opacity: 0.5;
+  color: #dc2626 !important;
+}

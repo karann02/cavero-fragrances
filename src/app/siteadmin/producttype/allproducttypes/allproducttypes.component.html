@@ -1,0 +1,207 @@
+<!-- allproducttypes.component.html -->
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <app-breadcrumb [title]="'ProductTypes'" [active_item]="'ProductTypes'"></app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="materialTableHeader">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h2>Product Types</h2>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input placeholder="Search" type="text" #filter (keyup)="applyFilter($event)"
+                    class="browser-default search-field" aria-label="Search box">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button color="primary" (click)="select.open()" matTooltip="Show/Hide Column">
+                      <mat-icon>filter_list</mat-icon>
+                      <mat-select #select [(ngModel)]="filter.value" style="width: 200px; display: table;"
+                        class="column-filter">
+                        <span class="table-column-label">Show/Hide Column</span>
+                        @for (cd of columnDefinitions; track cd; let i = $index) {
+                        <div>
+                          <mat-option>
+                            <mat-checkbox (click)="$event.stopPropagation()" [(ngModel)]="cd.visible" color="primary">
+                              {{cd.label}}
+                            </mat-checkbox>
+                          </mat-option>
+                        </div>
+                        }
+                      </mat-select>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="addNew()" class="col-green" matTooltip="Add ProductType">
+                      <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="refresh()" matTooltip="Refresh">
+                      <mat-icon>refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" [hidden]=!selection.hasValue()>
+                    <button mat-icon-button [hidden]=!selection.hasValue() (click)="removeSelectedRows()"
+                      class="col-red" matTooltip="Delete">
+                      <mat-icon>delete_outline</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <div class="export-button m-l-10">
+                    <button mat-icon-button (click)="exportExcel()" class="col-blue" matTooltip="Export Excel">
+                      <mat-icon class="material-icons-outlined">file_download</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
+                <!-- Checkbox Column -->
+                <ng-container matColumnDef="select">
+                  <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()" color="primary"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
+                    </mat-checkbox>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'" color="primary">
+                    </mat-checkbox>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- ProductType Name Column -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Product Type</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row.name">
+                    <span class="mobile-label">ProductType Name:</span>
+                    <span class="truncate-text">{{ row.name }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Products Column -->
+             
+                <!-- Original Price Column -->
+                <!-- Discount Price Column -->
+               
+                <!-- Savings Column -->
+                <!-- Status Column -->
+                <ng-container matColumnDef="active">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Status</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Status:</span>
+                    <span class="truncate-text badge" 
+                          [ngClass]="row.active ? 'badge-success' : 'badge-danger'">
+                      {{ row.active ? 'Active' : 'Inactive' }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Created At Column -->
+                <ng-container matColumnDef="created_at">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Created At</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Created At:</span>
+                    <span class="truncate-text">{{ row.created_at | date:'medium' }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
+                    <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="editCall(row)"
+                      class="tbl-action-btn">
+                      <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                    </button>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+                <mat-row [@rowsAnimation]="" *matRowDef="let row; columns: getDisplayedColumns();"
+                  [style.cursor]="'pointer'" matRipple>
+                </mat-row>
+              </table>
+
+              <!-- Loading spinner -->
+              @if (isLoading) {
+              <div class="tbl-spinner">
+                <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
+                </mat-progress-spinner>
+              </div>
+              }
+
+              <!-- Context Menu -->
+              <div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+                [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+              </div>
+              <mat-menu #contextMenu="matMenu">
+                <ng-template matMenuContent let-item="item">
+                  <button mat-menu-item (click)="addNew()">
+                    <mat-icon>add_box</mat-icon>
+                    <span>Add ProductType</span>
+                  </button>
+                  <button mat-menu-item (click)="editCall(item)">
+                    <mat-icon>create</mat-icon>
+                    <span>Edit ProductType</span>
+                  </button>
+                  <button mat-menu-item (click)="refresh()">
+                    <mat-icon>refresh</mat-icon>
+                    <span>Refresh</span>
+                  </button>
+                </ng-template>
+              </mat-menu>
+
+              <!-- No Results -->
+             
+               @if (!isLoading && dataSource.data.length === 0) {
+              <div class="no-results text-center py-5">
+                <mat-icon class="display-1 text-muted mb-3">inventory_2</mat-icon>
+                <h4 class="text-muted">No product type found</h4>
+                <p class="text-muted">Get started by adding your first product type</p>
+                <button mat-raised-button color="primary" (click)="addNew()">
+                  <mat-icon>add</mat-icon>
+                  Add First Product Type
+                </button>
+              </div>
+              }
+
+
+            </div>
+          </div>
+          <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+              </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,447 @@
+:host { display: block; }
+
+// ── Offcanvas Panel ──────────────────────────────────────────
+.cavero-filter-panel {
+  @media (min-width: 992px) {
+    position: relative !important;   // overrides offcanvas fixed + anchors the glow ring
+    transform: none !important;
+    visibility: visible !important;
+    width: auto !important;
+    z-index: auto !important;
+    /* Dark holographic glass */
+    background:
+      radial-gradient(120% 80% at 18% 8%, rgba(141, 207, 180, 0.18), transparent 50%),
+      radial-gradient(120% 90% at 92% 100%, rgba(65, 133, 118, 0.24), transparent 50%),
+      linear-gradient(165deg, rgba(26, 50, 45, 0.82), rgba(18, 32, 25, 0.93)) !important;
+    background-size: 200% 200%, 200% 200%, 100% 100%;
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid rgba(141, 207, 180, 0.22) !important;
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    padding: 1.4rem 1.2rem !important;
+    overflow: hidden;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: cav-holo-bg 16s ease-in-out infinite alternate;
+    }
+
+    /* Rotating holographic glow border (AR/VR motion-graphics feel) */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1.5px;
+      background: conic-gradient(from var(--cav-a, 0deg),
+        transparent 0%, rgba(141, 207, 180, 0.7) 10%, transparent 26%,
+        rgba(65, 133, 118, 0.65) 50%, transparent 70%,
+        rgba(141, 207, 180, 0.55) 88%, transparent 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+              mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 1;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: cav-ring 6s linear infinite;
+      }
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    background: #1A322D !important;
+    border-right: 1px solid rgba(65, 133, 118, 0.15) !important;
+  }
+}
+
+.cavero-filter-body {
+  @media (min-width: 992px) {
+    overflow: visible !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  @media (max-width: 991.98px) {
+    padding: 0 1.25rem 6rem !important;
+    overflow-y: auto !important;
+  }
+}
+
+// ── Mobile Header ────────────────────────────────────────────
+.cavero-filter-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.125rem 1.25rem;
+  border-bottom: 1px solid rgba(65, 133, 118, 0.15);
+  background: #ffffff;
+}
+
+.cavero-filter-mobile-title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #418576;
+  letter-spacing: 0.01em;
+}
+
+.cavero-filter-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(65, 133, 118, 0.1);
+  border: 1px solid rgba(65, 133, 118, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 247, 228, 0.7);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: rgba(65, 133, 118, 0.2);
+    color: #418576;
+  }
+}
+
+// ── Category Browse Section ──────────────────────────────────
+.cavero-filter-categories {
+  border-bottom: 1px solid rgba(65, 133, 118, 0.1);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cavero-cat-item {
+  border-bottom: 1px solid rgba(65, 133, 118, 0.07);
+
+  &:last-child { border-bottom: none; }
+}
+
+.cavero-cat-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  &:focus { outline: none; }
+
+  &.open .cavero-cat-chevron { transform: rotate(180deg); }
+}
+
+.cavero-cat-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(65, 133, 118, 0.1);
+  border: 1px solid rgba(65, 133, 118, 0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.cavero-cat-name {
+  flex: 1;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.cavero-cat-chevron {
+  flex-shrink: 0;
+  color: rgba(255, 247, 228, 0.3);
+  transition: transform 0.25s var(--ease-smooth, ease);
+}
+
+.cavero-cat-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  &.open { max-height: 400px; }
+}
+
+.cavero-cat-links {
+  list-style: none;
+  margin: 0 0 0.625rem 3.25rem;
+  padding: 0 0 0 1rem;
+  border-left: 1px solid rgba(65, 133, 118, 0.15);
+
+  li { margin-bottom: 0.125rem; }
+
+  a {
+    display: block;
+    padding: 0.25rem 0;
+    font-size: 0.8125rem;
+    color: #ffffff !important;   /* beat the global `html a { color:#1A322D !important }` */
+    text-decoration: none;
+    transition: color 0.15s;
+
+    &:hover { color: #8DCFB4 !important; }
+  }
+}
+
+.cavero-cat-loading {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.375rem 0;
+
+  span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(65, 133, 118, 0.4);
+    animation: cavero-dot-pulse 1s ease-in-out infinite;
+
+    &:nth-child(2) { animation-delay: 0.15s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+  }
+}
+
+@keyframes cavero-dot-pulse {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+// ── Spinner ──────────────────────────────────────────────────
+.cavero-filter-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.cavero-spinner-ring {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(65, 133, 118, 0.2);
+  border-top-color: #418576;
+  border-radius: 50%;
+  animation: cavero-spin 0.7s linear infinite;
+}
+
+@keyframes cavero-spin { to { transform: rotate(360deg); } }
+
+// ── Filter Sections ──────────────────────────────────────────
+.cavero-filter-sections {
+  padding-top: 0.25rem;
+}
+
+.cavero-filter-group {
+  border-bottom: 1px solid rgba(65, 133, 118, 0.1);
+
+  &:last-child { border-bottom: none; }
+}
+
+.cavero-filter-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.875rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 0.5rem;
+
+  &:focus { outline: none; }
+
+  &.open .cavero-filter-chevron { transform: rotate(180deg); }
+}
+
+.cavero-filter-label {
+  flex: 1;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #418576;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+.cavero-filter-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  padding: 0 0.3rem;
+  border-radius: 99px;
+  background: #418576;
+  color: #1A322D;
+  font-size: 0.625rem;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cavero-filter-chevron {
+  flex-shrink: 0;
+  color: rgba(255, 247, 228, 0.3);
+  transition: transform 0.25s var(--ease-smooth, ease);
+}
+
+.cavero-filter-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  &.open { max-height: 400px; }
+}
+
+// ── Price Inputs ─────────────────────────────────────────────
+.cavero-price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding-bottom: 1rem;
+}
+
+.cavero-price-field {
+  flex: 1;
+  position: relative;
+}
+
+.cavero-price-sym {
+  position: absolute;
+  top: 50%;
+  left: 0.625rem;
+  transform: translateY(-50%);
+  font-size: 0.8125rem;
+  color: rgba(65, 133, 118, 0.6);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cavero-price-dash {
+  color: rgba(255, 247, 228, 0.25);
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.cavero-price-input {
+  width: 100%;
+  height: 2.25rem;
+  padding: 0 0.625rem 0 1.625rem;
+  background: rgba(255, 247, 228, 0.04);
+  border: 1px solid rgba(65, 133, 118, 0.2);
+  border-radius: 6px;
+  color: rgba(255, 247, 228, 0.8);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.8125rem;
+  outline: none;
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+  &::placeholder { color: rgba(255, 247, 228, 0.25); }
+  &:focus { border-color: #418576; background: rgba(65, 133, 118, 0.05); }
+}
+
+// ── Gold Chip Filters ────────────────────────────────────────
+.cavero-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.cavero-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3125rem 0.875rem;
+  border-radius: 99px;
+  border: 1px solid rgba(65, 133, 118, 0.25);
+  background: rgba(255, 247, 228, 0.04);
+  color: #ffffff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.18s ease;
+
+  &:hover {
+    border-color: rgba(65, 133, 118, 0.5);
+    color: #ffffff;
+    background: rgba(65, 133, 118, 0.08);
+  }
+
+  &.active {
+    background: #418576;
+    border-color: #418576;
+    color: #1A322D;
+    font-weight: 700;
+  }
+}
+
+.cavero-chip-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+// ── Clear All Button ─────────────────────────────────────────
+.cavero-filter-clear-wrap {
+  padding: 1rem 0 0.5rem;
+}
+
+.cavero-clear-all-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background: rgba(65, 133, 118, 0.07);
+  border: 1px dashed rgba(65, 133, 118, 0.3);
+  border-radius: 8px;
+  color: rgba(65, 133, 118, 0.8);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+
+  &:hover {
+    background: rgba(65, 133, 118, 0.14);
+    border-color: #418576;
+    color: #418576;
+  }
+}
+
+/* ── Holographic glass motion (sidebar) ── */
+@property --cav-a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes cav-ring { to { --cav-a: 360deg; } }
+
+@keyframes cav-holo-bg {
+  0%   { background-position: 0% 0%, 100% 100%, 0 0; }
+  100% { background-position: 100% 60%, 0% 40%, 0 0; }
+}

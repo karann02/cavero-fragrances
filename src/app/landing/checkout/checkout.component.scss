@@ -1,0 +1,694 @@
+/* ════════════════════════════════════════════════════════════
+   CAVERO CHECKOUT — white page + holographic glass cards
+   (matches the catalog filter glass: dark-green translucent panel
+   with an animated rotating glow border). Cream ink on the glass.
+   ════════════════════════════════════════════════════════════ */
+
+.cavero-checkout {
+  position: relative;
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 3rem 0 5rem;
+  overflow: hidden;
+
+  /* faint ambient wash so the white isn't flat */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 560px;
+    background:
+      radial-gradient(120% 80% at 15% 0%, rgba(141, 207, 180, 0.16), transparent 55%),
+      radial-gradient(90% 70% at 95% 6%, rgba(255, 247, 228, 0.6), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { position: relative; z-index: 1; }
+}
+
+/* ── Step Progress Bar ── */
+.cavero-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cvr-co-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+.cavero-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.cavero-step-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: all 0.3s;
+}
+
+.cavero-step--done .cavero-step-circle {
+  background: #418576;
+  color: #FFF7E4;
+  border: 2px solid #418576;
+  box-shadow: 0 4px 14px rgba(65, 133, 118, 0.3);
+}
+
+.cavero-step--active .cavero-step-circle {
+  background: #fff;
+  border: 2px solid #418576;
+  color: #418576;
+  box-shadow: 0 4px 14px rgba(65, 133, 118, 0.2);
+}
+
+.cavero-step--pending .cavero-step-circle {
+  background: #fff;
+  border: 2px solid rgba(26, 50, 45, 0.18);
+  color: rgba(26, 50, 45, 0.35);
+}
+
+.cavero-step-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cavero-step--done .cavero-step-label   { color: #418576; }
+.cavero-step--active .cavero-step-label { color: #1A322D; }
+.cavero-step--pending .cavero-step-label{ color: rgba(26, 50, 45, 0.35); }
+
+.cavero-step-connector {
+  flex: 1;
+  height: 2px;
+  max-width: 80px;
+  margin: 0 0.75rem 1.375rem;
+  border-radius: 2px;
+}
+
+.cavero-step-connector--done    { background: #418576; }
+.cavero-step-connector--pending { background: rgba(26, 50, 45, 0.12); }
+
+/* ── Two-column Grid ── */
+.cavero-checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.75rem;
+  align-items: start;
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Holographic glass card (form + summary) ── */
+.cavero-form-card,
+.cavero-summary-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 18% 8%, rgba(141, 207, 180, 0.18), transparent 50%),
+    radial-gradient(120% 90% at 92% 100%, rgba(65, 133, 118, 0.24), transparent 50%),
+    linear-gradient(165deg, rgba(26, 50, 45, 0.88), rgba(18, 32, 25, 0.95));
+  background-size: 200% 200%, 200% 200%, 100% 100%;
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(141, 207, 180, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(16, 32, 26, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cvr-co-bg 16s ease-in-out infinite alternate, cvr-co-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* rotating holographic glow border */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1.5px;
+    background: conic-gradient(from var(--cvr-a, 0deg),
+      transparent 0%, rgba(141, 207, 180, 0.7) 10%, transparent 26%,
+      rgba(65, 133, 118, 0.65) 50%, transparent 70%,
+      rgba(141, 207, 180, 0.55) 88%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: cvr-co-ring 6s linear infinite;
+    }
+  }
+
+  > * { position: relative; z-index: 1; }
+}
+
+.cavero-form-card {
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+.cavero-form-card:nth-of-type(2) { animation-delay: 0s, 0.1s; }
+
+.cavero-form-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #FFF7E4;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid rgba(141, 207, 180, 0.18);
+}
+
+/* ── Saved Address Selector ── */
+.cavero-saved-addresses {
+  margin-bottom: 1.5rem;
+}
+
+.cavero-saved-addresses-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 247, 228, 0.45);
+  margin: 0 0 0.75rem;
+}
+
+.cavero-newaddr-intro {
+  margin-bottom: 1.25rem;
+
+  .cavero-saved-addresses-title { margin-bottom: 0.25rem; }
+}
+
+.cavero-newaddr-hint {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 247, 228, 0.5);
+}
+
+.cavero-save-addr {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem;
+  color: rgba(255, 247, 228, 0.75);
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #8DCFB4;
+    cursor: pointer;
+    flex: none;
+  }
+}
+
+.cavero-addr-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.cavero-addr-card {
+  background: rgba(255, 247, 228, 0.03);
+  border: 1.5px solid rgba(255, 247, 228, 0.12);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  user-select: none;
+
+  &.active {
+    border-color: #8DCFB4;
+    background: rgba(65, 133, 118, 0.18);
+  }
+  &:hover:not(.active) {
+    border-color: rgba(141, 207, 180, 0.45);
+    transform: translateY(-1px);
+  }
+
+  &--new {
+    border-style: dashed;
+  }
+}
+
+.cavero-addr-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cavero-addr-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.cavero-addr-card-label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #FFF7E4;
+}
+
+.cavero-addr-card-default {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #8DCFB4;
+  background: rgba(65, 133, 118, 0.22);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.cavero-addr-card-text {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: rgba(255, 247, 228, 0.55);
+}
+
+.cavero-addr-card-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 247, 228, 0.25);
+  flex-shrink: 0;
+  transition: all 0.2s;
+
+  &.checked {
+    border-color: #8DCFB4;
+    background: #8DCFB4;
+    box-shadow: inset 0 0 0 4px #16291f;
+  }
+}
+
+/* ── Floating Label Fields ── */
+.cavero-fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.25rem;
+
+  @media (max-width: 575px) { grid-template-columns: 1fr; }
+}
+
+.cavero-field {
+  position: relative;
+  margin-bottom: 1.625rem;
+}
+
+.cavero-field-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 247, 228, 0.18);
+  color: #FFF7E4;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  padding: 1.5rem 2rem 0.5rem 0;
+  outline: none;
+  transition: border-color 0.25s;
+  border-radius: 0;
+  -webkit-appearance: none;
+
+  &::placeholder { color: transparent; }
+  &:focus { border-bottom-color: #8DCFB4; }
+  &.is-invalid { border-bottom-color: #f87171 !important; }
+  &.is-valid { border-bottom-color: rgba(74, 222, 128, 0.55); }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 100px #16291f inset;
+    -webkit-text-fill-color: #FFF7E4;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.cavero-field-label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 247, 228, 0.45);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.cavero-field-input:focus ~ .cavero-field-label,
+.cavero-field-input:not(:placeholder-shown) ~ .cavero-field-label {
+  top: 0.2rem;
+  font-size: 0.625rem;
+  color: #8DCFB4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cavero-field-check {
+  position: absolute;
+  right: 0;
+  top: 1.25rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.cavero-field-input.is-valid ~ .cavero-field-label ~ .cavero-field-check { opacity: 1; }
+
+.cavero-field-error {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  color: #f87171;
+  margin-top: 0.25rem;
+}
+
+/* ── Payment Method Cards ── */
+.cavero-payment-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem;
+
+  @media (max-width: 575px) { grid-template-columns: 1fr; }
+}
+
+.cavero-payment-card {
+  background: rgba(255, 247, 228, 0.03);
+  border: 1.5px solid rgba(255, 247, 228, 0.12);
+  border-radius: 10px;
+  padding: 1.125rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  user-select: none;
+
+  &.active {
+    border-color: #8DCFB4;
+    background: rgba(65, 133, 118, 0.18);
+  }
+  &:hover:not(.active) {
+    border-color: rgba(141, 207, 180, 0.45);
+    transform: translateY(-1px);
+  }
+}
+
+.cavero-payment-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(141, 207, 180, 0.14);
+  color: #8DCFB4;
+  flex-shrink: 0;
+}
+
+.cavero-payment-text { flex: 1; min-width: 0; }
+
+.cavero-payment-title {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #FFF7E4;
+  margin-bottom: 0.125rem;
+}
+
+.cavero-payment-sub {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 247, 228, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cavero-payment-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 247, 228, 0.25);
+  flex-shrink: 0;
+  transition: all 0.2s;
+
+  &.checked {
+    border-color: #8DCFB4;
+    background: #8DCFB4;
+    box-shadow: inset 0 0 0 4px #16291f;
+  }
+}
+
+/* ── Place Order Button ── */
+.cavero-place-order-btn {
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(135deg, #418576 0%, #8DCFB4 50%, #418576 100%);
+  background-size: 200% 100%;
+  color: #1A322D;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  position: relative;
+  overflow: hidden;
+  transition: background-position 0.6s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 8px 26px rgba(65, 133, 118, 0.32);
+  margin-top: 0.25rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.55s ease;
+  }
+  &:hover:not(:disabled)::before { left: 150%; }
+  &:hover:not(:disabled) {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(65, 133, 118, 0.42);
+  }
+  &:active:not(:disabled) { transform: translateY(0); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.cavero-btn-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(26, 50, 45, 0.3);
+  border-top-color: #1A322D;
+  border-radius: 50%;
+  animation: cvr-spin 0.7s linear infinite;
+}
+
+/* ── Order Summary Sidebar ── */
+.cavero-checkout-summary-col {
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 991px) { position: static; }
+}
+
+.cavero-summary-card { padding: 1.5rem; }
+
+.cavero-summary-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #FFF7E4;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid rgba(141, 207, 180, 0.18);
+}
+
+.cavero-summary-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(141, 207, 180, 0.4) transparent;
+
+  &::-webkit-scrollbar { width: 3px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: rgba(141, 207, 180, 0.4); border-radius: 2px; }
+}
+
+.cavero-summary-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 247, 228, 0.07);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+
+  &:last-child { border-bottom: none; }
+}
+
+.cavero-summary-item-name {
+  flex: 1;
+  color: rgba(255, 247, 228, 0.72);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cavero-summary-item-qty {
+  color: rgba(255, 247, 228, 0.45);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+
+.cavero-summary-item-price {
+  color: #FFF7E4;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cavero-summary-totals {
+  border-top: 1px solid rgba(141, 207, 180, 0.14);
+  padding-top: 1rem;
+}
+
+.cavero-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 247, 228, 0.6);
+  margin-bottom: 0.625rem;
+
+  &--discount { color: #4ade80; }
+}
+
+.cavero-free-tag {
+  background: rgba(74, 222, 128, 0.16);
+  color: #4ade80;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 99px;
+  letter-spacing: 0.07em;
+}
+
+.cavero-summary-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.875rem;
+  margin-top: 0.375rem;
+  border-top: 1px solid rgba(141, 207, 180, 0.18);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  color: #FFF7E4;
+  font-weight: 600;
+}
+
+.cavero-summary-total-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #8DCFB4;
+}
+
+/* ── Trust Badges (on the white page) ── */
+.cavero-checkout-trust {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.75rem;
+  background: rgba(65, 133, 118, 0.06);
+  border: 1px solid rgba(65, 133, 118, 0.18);
+  border-radius: 14px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cvr-co-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+}
+
+.cavero-trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.625rem;
+  color: rgba(26, 50, 45, 0.55);
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  flex: 1;
+
+  svg { color: #418576; }
+}
+
+/* ── Animations ── */
+@property --cvr-a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes cvr-co-ring { to { --cvr-a: 360deg; } }
+@keyframes cvr-co-bg {
+  0%   { background-position: 0% 0%, 100% 100%, 0 0; }
+  100% { background-position: 100% 60%, 0% 40%, 0 0; }
+}
+@keyframes cvr-co-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cvr-spin { to { transform: rotate(360deg); } }

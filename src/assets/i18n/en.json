@@ -1,0 +1,2201 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Main"
+    },
+    "DASHBOARD": {
+      "TEXT": "Dashboard",
+      "LIST": {
+        "DASHBOARD1": "Dashboard 1",
+        "DASHBOARD2": "Dashboard 2",
+        "DOCTOR-DASHBOARD": "Doctor Dashboard",
+        "PATIENT-DASHBOARD": "Patient Dashboard"
+      }
+    },
+    "LABEL-SETTING": {
+      "TEXT": "Label Setting",
+      "LIST": {
+        "LABEL-SETTING": "Label Setting",
+        "CUSTOM-LABEL-SETTING": "Custom Label Setting",
+        "SUB-CUSTOM-LABEL-SETTING": "Sub Custom Label Setting"
+      }
+    },
+    "APPOINTMENTS": {
+      "TEXT": "Appointments",
+      "LIST": {
+        "PERMISSION-ASSIGNEMNT": "Permission Assignemnt",
+        "APPOINTMENT-CALENDAR": "Appointment Calendar",
+        "ALL-APPOINTMENT": "All Appointment",
+        "DOCTOR-APPOINTMENT-SCHEDULE": "Doctor Appointment Schedule",
+        "VIEW-APPOINTMENT": "View Appointment",
+        "BOOK-APPOINTMENT": "Book Appointment",
+        "EDIT-APPOINTMENT": "Edit Appointment"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "Employee",
+      "LIST": {
+        "ALL-DOCTOR": "All Employee",
+        "DOCTOR-SCHEDULE": "Doctor Schedule",
+        "EMPLOYEE-BREAKS": "Employee Breaks",
+        "ADD-DOCTOR": "Add Employee",
+        "EDIT-DOCTOR": "Edit Employee",
+        "ASSIGN-DEPARTMENT": "Assign Department",
+        "ASSIGN-SHIFT": "Assign Shift",
+        "PROFILE": "Employee Profile",
+        "DOCTOR-ID-CARD-TEMPLATE": "Doctor Id Card Template",
+        "GENERATE-ID-CARD": "Generate Id Card",
+        "CREAT-ID-CARD-TEMPLATE": "Create ID Card Template",
+        "OVERVIEW": "Overview",
+        "CASE": "Case",
+        "OPD-VISIT": "OPD / Visit",
+        "PATIENT-ADMISSIONS": "Patient Admissions",
+        "SCHEDULE": "Schedule",
+        "APPOINTMENTS": "Appointments"
+      }
+    },
+    "HOSPITAL-BUILDING": {
+      "TEXT": "Hospital Building",
+      "LIST": {
+        "HOSPITAL-BUILDING": "Hospital Building"
+      }
+    },
+    "HOSPITAL-FLOOR": {
+      "TEXT": "Hospital Floor",
+      "LIST": {
+        "HOSPITAL-FLOOR": "Hospital Floor"
+      }
+    },
+    "WARD": {
+      "TEXT": "Ward Management",
+      "LIST": {
+        "WARD": "Ward"
+      }
+    },
+    "SHIFT-MANAGEMENT": {
+      "TEXT": "Shift Management",
+      "LIST": {
+        "ALL-SHIFT": "All Shift",
+        "SHIFTS": "Shifts",
+        "ADD-SHIFT": "Add Shift",
+        "EDIT-SHIFT": "Edit Shift",
+        "SHIFT-MANAGEMENT": "Shift Management"
+      }
+    },
+    "EMAIL-SETTINGS": {
+      "TEXT": "Email Settings",
+      "LIST": {}
+    },
+    "STAFF": {
+      "TEXT": "Staff",
+      "LIST": {
+        "ALL-STAFF": "All Staff",
+        "ADD-STAFF": "Add Staff",
+        "EDIT-STAFF": "Edit Staff",
+        "PROFILE": "Staff Profile"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "Patients",
+      "LIST": {
+        "SETTINGS": "Settings",
+        "PATIENT-SETTINGS": "Patient-Settings",
+        "ALL-CASE": "All Case",
+        "CASE": "Case",
+        "ALL-PATIENT": "All Patients",
+        "PATIENT-ADMISSION": "Patient Admission",
+        "PATIENT-ID-CARD-TEMPLATE": "Patient Id Card Template",
+        "ID-CARD-TEMPLATE": "Id Card Template",
+        "GENERATE-PATIENT-ID-CARD": "Generate Patient Id Card",
+        "PASSCARD-TEMPLATE": "Passcard Template",
+        "GENERATE-PASSCARD": "Generate Passcard",
+        "PATIENTS-OVERVIEW": "Overview",
+        "PATIENT-CASE": "Case",
+        "FAMILY-INFO": "Family Info",
+        "FAMILY-HISTORY": "Family History",
+        "SOCIAL-HABITS": "Social Habits",
+        "OPD-VISIT": "OPD / Visit",
+        "DIAGNOSIS": "Diagnosis",
+        "VITALS": "Vitals",
+        "ALLERGIES": "Allergies",
+        "PROBLEMS": "Problems",
+        "PATIENT-PRESCRIPTION": "Prescriptions",
+        "PATIENT-ADMISSIONS": "Patient Admissions",
+        "DOCUMENT": "Document",
+        "VACCINATION": "Vaccination",
+        "APPOINTMENT": "Appointment",
+        "REPORT": "Report",
+        "CASE-OVERVIEW": "Case Overview",
+        "CASE-OPD-VISIT": "Case OPD / Visit",
+        "CASE-IPD": "Case IPD",
+        "CASE-APPOINTMENT": "Case Appointment"
+      }
+    },
+    "IPD": {
+      "TEXT": "IPD Management",
+      "LIST": {
+        "IPD": "IPD",
+        "IPD-PATIENT": "IPD Patients",
+        "IPD-OVERVIEW": "Overview",
+        "CHARGES": "Charges",
+        "PROBLEM": "Problem",
+        "ALLERGY": "Allergy",
+        "IPDPRESCRIPTION": "Prescriptions",
+        "DIAGNOSIS": "Diagnosis",
+        "VITALS": "Vitals",
+        "DAILY-CHECKUPS": "Daily Checkups",
+        "DOCTORSROUNDS": "Doctor's Rounds",
+        "HOUSEKEEPING": "Housekeeping",
+        "CONSULTANT-INSTRUCTION": "Consultant Instruction",
+        "TIMELINE": "Timeline",
+        "BILLING": "Billing",
+        "OT": "OT"
+      }
+    },
+    "OPD": {
+      "TEXT": "OPD Management",
+      "LIST": {
+        "OPD": "OPD",
+        "OPD-PATIENT": "OPD Patients",
+        "OVERVIEW": "Overview",
+        "VISITS": "Visits",
+        "CHARGES": "Charges",
+        "BILLING": "Billing",
+        "PROBLEM": "Problem",
+        "ALLERGY": "Allergy",
+        "PRESCRIPTIONS": "Prescriptions",
+        "DIAGNOSIS": "Diagnosis",
+        "VITALS": "Vitals",
+        "TIMELINE": "Timeline"
+      }
+    },
+    "OT-MANAGEMENT": {
+      "TEXT": "OT Management",
+      "LIST": {
+        "OT": "OT",
+        "PROCEDURES": "Procedures",
+        "SCHEDULE-CALENDER": "Schedule Calender",
+        "SCHEDULE-TABLE": "Schedule Table",
+        "OT-SCHEDULE": "OT Schedule",
+        "CALENDER": "Calender"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "Reports",
+      "LIST": {
+        "BIRTH-REPORT": "Birth Report",
+        "DEATH-REPORT": "Death Report",
+        "INVESTIGATION-REPORT": "Investigation Report",
+        "OPERATION-REPORT": "Operation Report"
+      }
+    },
+    "BRANCH": {
+      "TEXT": "Branch",
+      "LIST": {
+        "ALL-BRANCH": "All Branch",
+        "ADD-BRANCH": "Add Branch"
+      }
+    },
+    "ALLERGY-MASTER": {
+      "TEXT": "Allergy Master",
+      "LIST": {
+        "ALLERGY-CATEGORY": "Allergy Category",
+        "ALLERGIES": "Allergies",
+        "ALLERGY-REACTION": "Allergy Reaction"
+      }
+    },
+    "DATA-MANAGEMENT": {
+      "TEXT": " Data Management"
+    },
+    "ROOMS": {
+      "TEXT": "Hospital Room",
+      "LIST": {
+        "ROOM-TYPE": "Room Type",
+        "ROOM-MASTER": "Room Master",
+        "ROOM-MASTER-LIST": "Room Master List",
+        "ROOM-INVENTORY": "Room Inventory"
+      }
+    },
+    "BED": {
+      "TEXT": "Bed",
+      "LIST": {
+        "BED-TYPE": "Bed Type",
+        "BED": "Bed ",
+        "BED-ASSIGN": "Bed Assign",
+        "CASES": "Cases"
+      }
+    },
+    "PROBLEM-MASTER": {
+      "TEXT": "Problem Master",
+      "LIST": {
+        "PROBLEM-CATEGORY": "Problem Category",
+        "PROBLEMS": "Problems",
+        "ALL-PROBLEMS": "All Problems"
+      }
+    },
+    "HOSPITAL-CHARGES": {
+      "TEXT": "Fees / Charges",
+      "LIST": {
+        "CHARGES-TYPE": "Charge Category",
+        "CHARGES-CATEGORIES": "Charge Category Items",
+        "CHARGES": "Charges",
+        "DOCOTORCHARGES": "Employee Charges",
+        "TAX-MASTER": "Tax Master"
+      }
+    },
+    "PATHOLOGY": {
+      "TEXT": "Pathology",
+      "LIST": {
+        "PATHOLOGY-CATEGORY": "Pathology Category",
+        "PATHOLOGY-CATEGORY-LIST": "Pathology Category List",
+        "PATHOLOGY-UNITS": "Pathology Units",
+        "PATHOLOGY-UNITS-LIST": "Pathology Units List",
+        "PATHOLOGY-PARAMETERS": "Pathology Parameters",
+        "PATHOLOGY-PARAMETERS-LIST": "Pathology Parameters List",
+        "PATHOLOGY-TESTS": "Pathology Tests",
+        "PATHOLOGY-TESTS-LIST": "Pathology Tests List"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "Accounts",
+      "LIST": {
+        "BILL-LIST": "Bill List",
+        "ADD-BILL": "Add Bill",
+        "INCOME": "Income",
+        "EXPENSES": "Expenses",
+        "INCOME-REPORT": "Income Report",
+        "INCOME-CHART": "Income Chart",
+        "INVOICE": "Invoice"
+      }
+    },
+    "RECORDS": {
+      "TEXT": "Records",
+      "LIST": {
+        "BIRTH-RECORDS": "Birth Records",
+        "DEATH-RECORDS": "Death Records"
+      }
+    },
+    "AMBULANCE": {
+      "TEXT": "Ambulance",
+      "LIST": {
+        "AMBULANCE-CALL-LIST": "Ambulance Call List",
+        "AMBULANCE-LIST": "Ambulance List"
+      }
+    },
+    "PHARMACY": {
+      "TEXT": "Pharmacy",
+      "LIST": {
+        "MEDICINE-LIST": "Medicine List",
+        "ADD-MEDICINE": "Add Medicine"
+      }
+    },
+    "BLOOD-BANK": {
+      "TEXT": "Blood Bank",
+      "LIST": {
+        "BLOOD-BANK": "Blood Bank",
+        "BLOOD-DONATIONS": "Blood Donations",
+        "BLOOD-DONOR": "Blood Donor",
+        "BLOOD-ISSUED": "Blood Issued"
+      }
+    },
+    "DOCUMENTS": {
+      "TEXT": "Documents",
+      "LIST": {
+        "ALL-DOCUMENTS": "All Documents",
+        "DOCUMENTS": "Documents",
+        "DOCUMENTS-TYPE": "Documents Type"
+      }
+    },
+    "RADIOLOGY": {
+      "TEXT": "Radiology",
+      "LIST": {
+        "RADIOLOGY-TEST": "Radiology Test",
+        "RADIOLOGY": "Radiology",
+        "RADIOLOGY-CATEGORIE": "Radiology Categorie"
+      }
+    },
+    "SERVICES": {
+      "TEXT": "Services",
+      "LIST": {
+        "INSURANCE": "Insurance",
+        "CASES": "Cases",
+        "PACKAGES": "Packages",
+        "SERVICES": "Services",
+        "AMBULANCE": "Ambulance",
+        "AMBULANCE-CALLS": "Ambulance Calls"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "Departments",
+      "LIST": {
+        "DEPARTMENT-LIST": "Department List",
+        "ASSIGN-DEPARTMENT": "Assign Department",
+        "ADD-DEPARTMENT": "Add Department",
+        "VIEW-DEPARTMENT-CASE": "View Department Case",
+        "VIEW-DEPARTMENT-EMPLOYEE": "View Department Employee",
+        "VIEW-DEPARTMENT-OPD-PATIENT": "View Department OPD Patients",
+        "VIEW-DEPARTMENT-IPD-PATIENTS": "View Department IPD Patients"
+      }
+    },
+    "INVENTORY": {
+      "TEXT": "Inventory",
+      "LIST": {
+        "ITEM-STOCK-LIST": "Item Stock List",
+        "SUPPLIER": "Supplier",
+        "ITEM-CATEGORY": "Item Category",
+        "STORE": "Store",
+        "ITEMS": "Items",
+        "PURCHASE-ITEMS": "Purchase Items",
+        "ISSUED-ITEMS": "Issued Items"
+      }
+    },
+    "MEDICINES": {
+      "TEXT": "Medicines",
+      "LIST": {
+        "MEDICINE-CATEGORIES": "Medicine Categories",
+        "MEDICINE-BRANDS": "Medicine Brand",
+        "MEDICINES": "Medicines",
+        "ALL-MEDICINES": "All Medicines",
+        "PURCHASE-MEDICINE": "Purchase Medicine",
+        "CREATE-MEDICINE-BILL": "Create Medicine Bill",
+        "PURCHASE-MEDICINE-BILL": "Purchase Medicine Bill"
+      }
+    },
+    "VACCINATION": {
+      "TEXT": "Vaccinations",
+      "LIST": {
+        "VACCINATION": "Vaccination",
+        "VACCINATED-PATIENTS": "Vaccinated Patients",
+        "VACCINATED-EMPLOYEES": "Vaccinated Employees"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "Settings",
+      "LIST": {
+        "DATE-FORMAT-SETTINGS": "Date Format Settings",
+        "PATIENT-SETTINGS": "Patient Settings"
+      }
+    },
+    "PERMISSION-MANAGEMENT": {
+      "TEXT": "Permission Management",
+      "LIST": {
+        "MODULES": "Modules",
+        "ACTIONS": "Actions",
+        "MODULE-ACTIONS": "Module Action",
+        "PERMISSION-ASSIGNEMNT": "Permission Assignemnt"
+      }
+    },
+    "PRESCRIPTIONS": {
+      "TEXT": "Prescription",
+      "LIST": {
+        "PRESCRIPTIONS": "Prescriptions",
+        "DURATION": "Duration",
+        "DOES-INTERVAL": "Dose interval",
+        "TIME": "Time"
+      }
+    },
+    "HR": {
+      "TEXT": "Human Resources",
+      "LIST": {
+        "EMPLOYEE-LEAVE": "Employee Leave",
+        "LEAVE-REQUESTS": "Leave Requests",
+        "LEAVE-BALANCE": "Leave Balance",
+        "LEAVE-TYPES": "Leave Types",
+        "HOLIDAYS": "Holidays",
+        "TODAY-ATTENDANCE": "Today's Attendance",
+        "EMP-ATTENDANCE": "Employee Attendance",
+        "ATTENDANCE-SHEET": "Attendance Sheet",
+        "EMPLOYEE-SALARY": "Employee Salary",
+        "PAYROLL": "Payroll",
+        "PAYSLIP": "Payslip"
+      }
+    },
+    "INSURANCE": {
+      "TEXT": "Insurance",
+      "LIST": {
+        "PATIENT-INSURANCE": "Patient Insurance",
+        "NEW-CLAIM": "New Claim",
+        "CLAIM-STATUS": "Claim Status",
+        "INSURANCE-PROVIDER": "Insurance Provider"
+      }
+    },
+    "SITEADMIN": {
+      "DASHBOARD": "Dashboard",
+      "HOSPITAL": "Hospital",
+      "DOCTORS": "Doctors",
+      "PATIENTS": "Patients",
+      "SETTINGS": "Settings",
+      "TEXT": "Siteadmin",
+      "LIST": {},
+      "CHAT": "Chat"
+    },
+    "DOCTOR": {
+      "DASHBOARD": "Dashboard",
+      "APPOINTMENTS": "Appointments",
+      "DOCTORS": "Doctors",
+      "PATIENTS": "Patients",
+      "SETTINGS": "Settings",
+      "CHAT": "Chat"
+    },
+    "PATIENT": {
+      "TEXT": "Patient",
+      "DASHBOARD": "Dashboard",
+      "APPOINTMENTS": {
+        "TEXT": "Appointments",
+        "LIST": {
+          "BOOK-APPOINTMENT": "Book Appointment",
+          "TODAY": "Today Appointments",
+          "UPCOMING": "Upcoming Appointments",
+          "PAST": "Past Appointments"
+        }
+      },
+      "PRESCRIPTIONS": "Prescriptions",
+      "MEDICAL-RECORD": "Medical Record",
+      "BILLING": "Billing",
+      "CHAT": "Chat",
+      "SETTINGS": "Settings"
+    },
+    "APPS": {
+      "TEXT": "-- Apps"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendar"
+    },
+    "TASK": {
+      "TEXT": "Task"
+    },
+    "CONTACTS": {
+      "TEXT": "Contacts"
+    },
+    "TEMPLATE": {
+      "TEXT": "Template Management",
+      "LIST": {
+        "TEMPLATE-KEYWORD": "Template Keyword",
+        "TEMPLATE": "Template"
+      }
+    },
+    "FINANCIALYEAR": {
+      "TEXT": "Financial Year"
+    },
+    "ACCOUNTGROUPS": {
+      "TEXT": "Account Groups"
+    },
+    "ACCOUNTSUBGROUPS": {
+      "TEXT": "Account Sub Groups"
+    },
+    "APPOINTMENT_TYPE": {
+      "TEXT": "Appointment Type"
+    },
+    "APPOINTMENT_TYPE_PATIENT": {
+      "TEXT": "Patient"
+    },
+    "APPOINTMENT_TYPE_VISITOR": {
+      "TEXT": "Visitor"
+    },
+    "APPOINTMENT_TYPE_FOLLOW_UP": {
+      "TEXT": "Follow-up"
+    },
+    "APPOINTMENT_TYPE_SPECIALIST_REFERRAL": {
+      "TEXT": "Specialist Referral"
+    },
+    "APPOINTMENT_TYPE_DIAGNOSTIC_TEST": {
+      "TEXT": "Diagnostic Test"
+    },
+    "APPOINTMENT_TYPE_TELEMEDICINE": {
+      "TEXT": "Telemedicine"
+    },
+    "APPOINTMENT_TYPE_PATIENT_ATTENDANT": {
+      "TEXT": "Patient Attendant/Family Member"
+    },
+    "APPOINTMENT_TYPE_HEALTH_CHECK_UP": {
+      "TEXT": "Health Check-up"
+    },
+    "APPOINTMENT_TYPE_SURGERY_BOOKING": {
+      "TEXT": "Surgery Booking"
+    },
+    "APPOINTMENT_TYPE_HOME_VISIT": {
+      "TEXT": "Home Visit"
+    },
+    "DEPARTMENT": {
+      "TEXT": "Department",
+      "SEARCH": "Search Department",
+      "REQUIRED": "Department is required"
+    },
+    "CONSULTING_DOCTOR": {
+      "TEXT": "Consulting Doctor"
+    },
+    "NEW_DOCTOR": {
+      "TEXT": "New Doctor"
+    },
+    "DATE": {
+      "TEXT": "Date"
+    },
+    "REASON_FOR_TRANSFER": {
+      "TEXT": "Reason For Transfer"
+    },
+    "APPOINTMENT_CHARGES": {
+      "TEXT": "Appointment Charges"
+    },
+    "REFERENCE_DOCTOR": {
+      "TEXT": "Reference Doctor"
+    },
+    "DESCRIPTION": {
+      "TEXT": "Description"
+    },
+    "STATUS": {
+      "TEXT": "Status",
+      "REQUIRED": "Status is required"
+    },
+    "TIME_OF_APPOINTMENT": {
+      "TEXT": "Time Of Appointment"
+    },
+    "ACTIONS": {
+      "TEXT": "Actions"
+    },
+    "SUBMIT": {
+      "TEXT": "Submit"
+    },
+    "CANCEL": {
+      "TEXT": "Cancel"
+    },
+    "PATIENTNAME": {
+      "TEXT": "Patient"
+    },
+    "DOCTORNAME": {
+      "TEXT": "Doctor"
+    },
+    "DOCTOR_DEPARTMENT": {
+      "TEXT": "Doctor Department"
+    },
+    "TIME": {
+      "TEXT": "Time"
+    },
+    "CASE_PRICE_TYPE": {
+      "TEXT": "Case Price Type"
+    },
+    "CASE_PRICE_TYPE_DEFAULT": {
+      "TEXT": "Default"
+    },
+    "CASE_PRICE_TYPE_DOCTOR_WISE": {
+      "TEXT": "Doctor Wise"
+    },
+    "CASE_PRICE": {
+      "TEXT": "Case Price"
+    },
+    "CASE_PRICE_REQUIRED": {
+      "TEXT": "Case Price is required for default type"
+    },
+    "UPDATE": {
+      "TEXT": "Update"
+    },
+    "CREATE": {
+      "TEXT": "Create"
+    },
+    "PROCESSING": {
+      "TEXT": "Processing..."
+    },
+    "REGISTRATION_NO": {
+      "TEXT": "Registration No"
+    },
+    "GENDER": {
+      "TEXT": "Gender",
+      "REQUIRED": "Gender is required"
+    },
+    "MOBILE": {
+      "TEXT": "Mobile"
+    },
+    "AGE": {
+      "TEXT": "Age"
+    },
+    "EMAIL": {
+      "TEXT": "Email"
+    },
+    "MRN": {
+      "TEXT": "MRN"
+    },
+    "FIRST_NAME": {
+      "TEXT": "First Name"
+    },
+    "MIDDLE_NAME": {
+      "TEXT": "Middle Name"
+    },
+    "LAST_NAME": {
+      "TEXT": "Last Name"
+    },
+    "DATE_OF_BIRTH": {
+      "TEXT": "Date of Birth"
+    },
+    "MARITAL_STATUS": {
+      "TEXT": "Marital Status"
+    },
+    "BLOOD_GROUP": {
+      "TEXT": "Blood Group"
+    },
+    "NATIONAL_ID_TYPE": {
+      "TEXT": "National ID Type"
+    },
+    "NATIONAL_ID_NUMBER": {
+      "TEXT": "National ID Number"
+    },
+    "UPLOAD": {
+      "TEXT": "Upload"
+    },
+    "PRESENT_ADDRESS": {
+      "TEXT": "Present Address"
+    },
+    "PRESENT_COUNTRY": {
+      "TEXT": "Present Country"
+    },
+    "PRESENT_STATE": {
+      "TEXT": "Present State"
+    },
+    "PRESENT_CITY": {
+      "TEXT": "Present City"
+    },
+    "ZIP": {
+      "TEXT": "Zip"
+    },
+    "PERMANENT_ADDRESS": {
+      "TEXT": "Permanent Address"
+    },
+    "PERMANENT_COUNTRY": {
+      "TEXT": "Permanent Country"
+    },
+    "PERMANENT_STATE": {
+      "TEXT": "Permanent State"
+    },
+    "PERMANENT_CITY": {
+      "TEXT": "Permanent City"
+    },
+    "PERMANENT_ZIP": {
+      "TEXT": "Permanent Zip"
+    },
+    "COPY_ADDRESS": {
+      "TEXT": "Copy To Permanent Address"
+    },
+    "TREATMENTS_CONSENT": {
+      "TEXT": "Treatment Consent"
+    },
+    "SURGERY_CONSENT": {
+      "TEXT": "Surgery Consent"
+    },
+    "ANESTHESIA_CONSENT": {
+      "TEXT": "Anesthesia Consent"
+    },
+    "BLOOD_CONSENT": {
+      "TEXT": "Blood Consent"
+    },
+    "DATA_SHARING_CONSENT": {
+      "TEXT": "Data Sharing Consent"
+    },
+    "RESEARCH_CONSENT": {
+      "TEXT": "Research Consent"
+    },
+    "USERNAME": {
+      "TEXT": "Username"
+    },
+    "PASSWORD": {
+      "TEXT": "Password"
+    },
+    "SEARCH": {
+      "TEXT": "Search"
+    },
+    "PATIENT_NAME": {
+      "TEXT": "Patient"
+    },
+    "CASE_ID": {
+      "TEXT": "Case ID"
+    },
+    "DOCTOR_NAME": {
+      "TEXT": "Doctor"
+    },
+    "PHONE": {
+      "TEXT": "Phone"
+    },
+    "CASE_DATE": {
+      "TEXT": "Case Date"
+    },
+    "FEE": {
+      "TEXT": "Fee"
+    },
+    "PHONE_NUMBER": {
+      "TEXT": "Phone Number"
+    },
+    "SAVE": {
+      "TEXT": "Save"
+    },
+    "PATIENT_REQUIRED": {
+      "TEXT": "Patient is required"
+    },
+    "DOCTOR_REQUIRED": {
+      "TEXT": "Doctor is required"
+    },
+    "DEPARTMENT_REQUIRED": {
+      "TEXT": "Select Any Department"
+    },
+    "CASE_DATE_REQUIRED": {
+      "TEXT": "Case Date is required"
+    },
+    "FEE_REQUIRED": {
+      "TEXT": "Fee is required"
+    },
+    "DESCRIPTION_REQUIRED": {
+      "TEXT": "Description is required"
+    },
+    "ADMISSION_DATE": {
+      "TEXT": "Admission Date"
+    },
+    "DISCHARGE_DATE": {
+      "TEXT": "Discharge Date"
+    },
+    "PACKAGE_NAME": {
+      "TEXT": "Package"
+    },
+    "INSURANCE_NAME": {
+      "TEXT": "Insurance"
+    },
+    "POLICY_NO": {
+      "TEXT": "Policy No"
+    },
+    "AGENT_NAME": {
+      "TEXT": "Agent Name"
+    },
+    "GUARDIAN_NAME": {
+      "TEXT": "Guardian Name"
+    },
+    "GUARDIAN_RELATION": {
+      "TEXT": "Guardian Relation"
+    },
+    "GUARDIAN_CONTACT_NO": {
+      "TEXT": "Guardian Contact No"
+    },
+    "GUARDIAN_ADDRESS": {
+      "TEXT": "Guardian Address"
+    },
+    "ADMISSION_DATE_REQUIRED": {
+      "TEXT": "Admission Date is required"
+    },
+    "DISCHARGE_DATE_MIN": {
+      "TEXT": "Discharge date must be from tomorrow onward"
+    },
+    "HEIGHT": {
+      "TEXT": "Height"
+    },
+    "WEIGHT": {
+      "TEXT": "Weight"
+    },
+    "BLOOD_PRESSURE": {
+      "TEXT": "Blood Pressure"
+    },
+    "IS_OLD_PATIENT": {
+      "TEXT": "Is Old Patient"
+    },
+    "YES": {
+      "TEXT": "Yes"
+    },
+    "NO": {
+      "TEXT": "No"
+    },
+    "PACKAGE": {
+      "TEXT": "Package"
+    },
+    "SYMPTONS": {
+      "TEXT": "Symptons"
+    },
+    "NOTES": {
+      "TEXT": "Notes"
+    },
+    "TEMPLATE_NAME": {
+      "TEXT": "Template Name"
+    },
+    "HEADER_COLOR": {
+      "TEXT": "Header Color"
+    },
+    "SHOW_EMAIL": {
+      "TEXT": "Show Email"
+    },
+    "SHOW_PHONE": {
+      "TEXT": "Show Phone"
+    },
+    "SHOW_DOB": {
+      "TEXT": "Show Dob"
+    },
+    "SHOW_BLOOD_GROUP": {
+      "TEXT": "Show Blood Group"
+    },
+    "SHOW_ADDRESS": {
+      "TEXT": "Show Address"
+    },
+    "SHOW_PATIENT_ID": {
+      "TEXT": "Show Patient Id"
+    },
+    "SHOW_INSURANCE": {
+      "TEXT": "Show Insurance"
+    },
+    "TEMPLATE_NAME_REQUIRED": {
+      "TEXT": "Template name is required"
+    },
+    "CREATE_TEMPLATE": {
+      "TEXT": "Create Template"
+    },
+    "UPDATE_TEMPLATE": {
+      "TEXT": "Update Template"
+    },
+    "LIVE_PREVIEW": {
+      "TEXT": "Live Preview"
+    },
+    "HOSPITAL_NAME": {
+      "TEXT": "Hospital Name"
+    },
+    "HOSPITAL_ADDRESS": {
+      "TEXT": "Address"
+    },
+    "DOB": {
+      "TEXT": "DOB"
+    },
+    "ADDRESS": {
+      "TEXT": "Address"
+    },
+    "PATIENT_ID": {
+      "TEXT": "Patient ID"
+    },
+    "SAVING": {
+      "TEXT": "Saving..."
+    },
+    "CHECKBOX": {
+      "TEXT": "Checkbox"
+    },
+    "TEMPLATE_REQUIRED": {
+      "TEXT": "Template is required"
+    },
+    "REQUIRED": {
+      "TEXT": "Template name is required"
+    },
+    "ROOM": {
+      "TEXT": "Room"
+    },
+    "IPD_NO": {
+      "TEXT": "IPD No"
+    },
+    "BLOODPRESSURE": {
+      "TEXT": "Blood Pressure"
+    },
+    "ADMISSIONDATE": {
+      "TEXT": "Admission Date",
+      "REQUIRED": "Admission Date is required"
+    },
+    "ISOLDPATIENT": {
+      "TEXT": "Is Old Patient"
+    },
+    "ADD": {
+      "TEXT": "Add"
+    },
+    "REFRESH": {
+      "TEXT": "Refresh"
+    },
+    "CASE": {
+      "TEXT": "Case"
+    },
+    "PATIENT-REQUIRED": {
+      "REQUIRED": "Patient is required"
+    },
+    "CASE-REQUIRED": {
+      "REQUIRED": "Case is required"
+    },
+    "IPD-REQUIRED": {
+      "REQUIRED": "IPD No is required"
+    },
+    "HEIGH-REQUIRED": {
+      "REQUIRED": "Height is required"
+    },
+    "WEIGHT-REQUIRED": {
+      "REQUIRED": "Weight is required"
+    },
+    "BLOODPRESSURE-REQUIRED": {
+      "REQUIRED": "Blood Pressure is required"
+    },
+    "ADMISSIONDATE-REQUIRED": {
+      "REQUIRED": "Admission Date is required"
+    },
+    "DOCTOR_NAME_REQUIRED": {
+      "REQUIRED": "Doctor is required"
+    },
+    "DEPARTMENT-REQUIRED": {
+      "REQUIRED": "Department is required"
+    },
+    "WARD-REQUIRED": {
+      "REQUIRED": "Ward is required"
+    },
+    "ROOM-REQUIRED": {
+      "REQUIRED": "Room is required"
+    },
+    "BED-REQUIRED": {
+      "REQUIRED": "Bed is required",
+      "OCCUPIED": "Occupied"
+    },
+    "OCCUPIED": {
+      "TEXT": "Occupied"
+    },
+    "IPD-NO": {
+      "TEXT": "IPD No"
+    },
+    "OPD_NO": {
+      "TEXT": "OPD No"
+    },
+    "APPOINTMENT_DATE": {
+      "TEXT": "Appointment Date"
+    },
+    "DOCTOR_OPD_CHARGE": {
+      "TEXT": "Doctor OPD Charge"
+    },
+    "PAYMENT_MODE": {
+      "TEXT": "Payment Mode",
+      "REQUIRED": "Select Payment Mode",
+      "CASH": "Cash",
+      "CHEQUE": "Cheque",
+      "ONLINE": "Online"
+    },
+    "TOTAL_VISIT": {
+      "TEXT": "Total Visit"
+    },
+    "OPD_NO-REQUIRED": {
+      "REQUIRED": "OPD No is required"
+    },
+    "HEIGHT-REQUIRED": {
+      "REQUIRED": "Height is required"
+    },
+    "BLOOD_PRESSURE-REQUIRED": {
+      "REQUIRED": "Blood Pressure is required"
+    },
+    "APPOINTMENT_DATE-REQUIRED": {
+      "REQUIRED": "Appointment Date is required"
+    },
+    "DOCTOR-REQUIRED": {
+      "REQUIRED": "Doctor is required"
+    },
+    "DOCTOR_OPD_CHARGE_REQUIRED": {
+      "REQUIRED": "Doctor OPD Charge is required"
+    },
+    "PAYMENT_MODE-REQUIRED": {
+      "REQUIRED": "Payment Mode is required"
+    },
+    "PERSONAL_DETAILS": {
+      "TEXT": "Personal Details"
+    },
+    "ADDRESS_DETAILS": {
+      "TEXT": "Address Details"
+    },
+    "CONSENT": {
+      "TEXT": "Consent"
+    },
+    "LOGIN_CREDENTIAL": {
+      "TEXT": "Login Credential"
+    },
+    "NAME": {
+      "TEXT": "Name",
+      "REQUIRED": "Name is required"
+    },
+    "PROCEDURE-REQUIRED": {
+      "REQUIRED": "Procedure is required"
+    },
+    "OT-SCHEDULE": {
+      "TEXT": "OT Schedule"
+    },
+    "PROCEDURE": {
+      "TEXT": "Procedure"
+    },
+    "OT-ROOM": {
+      "TEXT": "OT Room"
+    },
+    "CLOSE": {
+      "TEXT": "Close"
+    },
+    "SCHEDULE": {
+      "TEXT": "Schedule"
+    },
+    "START": {
+      "TEXT": "Start"
+    },
+    "END": {
+      "TEXT": "End"
+    },
+    "SCHEDULED_DATE": {
+      "TEXT": "Scheduled Date",
+      "REQUIRED": "Scheduled Date is required"
+    },
+    "START_TIME": {
+      "TEXT": "Start Time",
+      "REQUIRED": "Start Time is required"
+    },
+    "END_TIME": {
+      "TEXT": "End Time",
+      "REQUIRED": "End Time is required"
+    },
+    "SHOW_HIDE_COLUMN": {
+      "TEXT": "Show/Hide Column"
+    },
+    "DELETE": {
+      "TEXT": "Delete"
+    },
+    "DOWNLOAD_XLSX": {
+      "TEXT": "Xlsx Download"
+    },
+    "TITLE": {
+      "TEXT": "Title"
+    },
+    "ATTACHMENT": {
+      "TEXT": "Attachment"
+    },
+    "DOCUMENT_TYPE": {
+      "TEXT": "Document Type"
+    },
+    "TITLE_REQUIRED": {
+      "REQUIRED": "Title is required"
+    },
+    "DOCUMENT_TYPE_REQUIRED": {
+      "REQUIRED": "Document Type is required"
+    },
+    "NOTES_REQUIRED": {
+      "REQUIRED": "Notes is required"
+    },
+    "NAME_REQUIRED": {
+      "REQUIRED": "Name is required"
+    },
+    "DURATION": {
+      "TEXT": "Duration"
+    },
+    "DURATION-REQUIRED": {
+      "REQUIRED": "Duration is required"
+    },
+    "DOES-INTERVAL": {
+      "TEXT": "Does Interval"
+    },
+    "DOES-INTERVAL-REQUIRED": {
+      "REQUIRED": "Does Interval is required"
+    },
+    "PRESCRIPTION-TIME": {
+      "TEXT": "Time"
+    },
+    "PRESCRIPTION-TIME-REQUIRED": {
+      "REQUIRED": "Time is required"
+    },
+    "ADDED-AT": {
+      "TEXT": "Added At"
+    },
+    "CREATE-PRESCRIPTION": {
+      "TEXT": "Create Prescriptions"
+    },
+    "PRESCRIPTION-DETAILS": {
+      "TEXT": "Prescription Details"
+    },
+    "HEALTH-INSURANCE": {
+      "TEXT": "Health Insurance"
+    },
+    "LOW-INCOME": {
+      "TEXT": "Low Income"
+    },
+    "REFERENCE": {
+      "TEXT": "Reference"
+    },
+    "PAYMENT-STATUS": {
+      "TEXT": "Payment Status"
+    },
+    "PAID": {
+      "TEXT": "Paid"
+    },
+    "UNPAID": {
+      "TEXT": "Unpaid"
+    },
+    "MEDICINE": {
+      "TEXT": "Medicine",
+      "REQUIRED": "Medicine is required"
+    },
+    "DOSAGE": {
+      "TEXT": "Dosage"
+    },
+    "DOSE-INTERVAL": {
+      "TEXT": "Dose Interval"
+    },
+    "COMMENT": {
+      "TEXT": "Comment"
+    },
+    "ADD-MEDICINE": {
+      "TEXT": "Add to purchased medicines"
+    },
+    "PHYSICAL-INFO": {
+      "TEXT": "Physical Information"
+    },
+    "HIGH-BLOOD-PRESSURE": {
+      "TEXT": "High Blood Pressure"
+    },
+    "FOOD-ALLERGIES": {
+      "TEXT": "Food Allergies"
+    },
+    "TENDENCY-BLEED": {
+      "TEXT": "Tendency Bleed"
+    },
+    "HEART-DISEASE": {
+      "TEXT": "Heart Disease"
+    },
+    "DIABETIC": {
+      "TEXT": "Diabetic"
+    },
+    "FEMALE-PREGNANCY": {
+      "TEXT": "Female Pregnancy"
+    },
+    "BREAST-FEEDING": {
+      "TEXT": "Breast Feeding"
+    },
+    "CURRENT-MEDICATION": {
+      "TEXT": "Current Medication"
+    },
+    "SURGERY": {
+      "TEXT": "Surgery"
+    },
+    "ACCIDENT": {
+      "TEXT": "Accident"
+    },
+    "OTHERS": {
+      "TEXT": "Others"
+    },
+    "PULSE-RATE": {
+      "TEXT": "Pulse Rate"
+    },
+    "TEMPERATURE": {
+      "TEXT": "Temperature"
+    },
+    "PROBLEM-DESCRIPTION": {
+      "TEXT": "Problem Description"
+    },
+    "TEST": {
+      "TEXT": "Test"
+    },
+    "ADVICE": {
+      "TEXT": "Advice"
+    },
+    "NEXT-VISIT": {
+      "TEXT": "Next Visit"
+    },
+    "NEXT-VISIT-TIME": {
+      "TEXT": "Next Visit Time"
+    },
+    "NEXT-VISIT-DAYS": {
+      "TEXT": "Days"
+    },
+    "NEXT-VISIT-MONTHS": {
+      "TEXT": "Months"
+    },
+    "NEXT-VISIT-YEARS": {
+      "TEXT": "Years"
+    },
+    "RESET": {
+      "TEXT": "Reset"
+    },
+    "STATUS-PAID": {
+      "TEXT": "Paid"
+    },
+    "STATUS-UNPAID": {
+      "TEXT": "Unpaid"
+    },
+    "NEXT-VISIT-TIME-DAYS": {
+      "TEXT": "Days"
+    },
+    "NEXT-VISIT-TIME-MONTHS": {
+      "TEXT": "Months"
+    },
+    "NEXT-VISIT-TIME-YEARS": {
+      "TEXT": "Years"
+    },
+    "TAX": {
+      "TEXT": "Tax"
+    },
+    "TAX-NAME": {
+      "TEXT": "Tax Name"
+    },
+    "TAX-NAME-REQUIRED": {
+      "REQUIRED": "Tax Name is required"
+    },
+    "TAX-PERCENTAGE": {
+      "TEXT": "Tax Percentage"
+    },
+    "TAX-PERCENTAGE-REQUIRED": {
+      "REQUIRED": "Tax Percentage is required"
+    },
+    "CHARGE-CATEGORY-NAME": {
+      "TEXT": "Category Items",
+      "REQUIRED": "Charge Categorie Name is required"
+    },
+    "CATEGORY": {
+      "TEXT": "Charge Category",
+      "REQUIRED": "Charge Category is required"
+    },
+    "CATEGORY-ITEM": {
+      "TEXT": "Category Item",
+      "REQUIRED": "Category Item is required"
+    },
+    "APPLIES_TO": {
+      "TEXT": "Applies To",
+      "OPD": "OPD",
+      "IPD": "IPD",
+      "BOTH": "Both",
+      "REQUIRED": "Applies To is required"
+    },
+    "EMPLOYEE_RELATED": {
+      "TEXT": "Employee Related Charge?"
+    },
+    "CHARGE_CATEGORY": {
+      "TEXT": "Charge Category",
+      "REQUIRED": "Charge Category is required"
+    },
+    "CHARGE_TYPE": {
+      "TEXT": "Category"
+    },
+    "CHARGE_CATEGORIE": {
+      "TEXT": "Category Items"
+    },
+    "CHARGES": {
+      "TEXT": "Standard Charges",
+      "REQUIRED": "Standard Charges is required"
+    },
+    "APPOINTMENT_DETAILS": {
+      "TEXT": "Appointment Details"
+    },
+    "MEDICINE-BRAND": {
+      "TEXT": "Brand",
+      "REQUIRED": "Brand is required"
+    },
+    "PHONE-NO": {
+      "TEXT": "Phone",
+      "REQUIRED": "Phone Number is required"
+    },
+    "EMAIL-ID": {
+      "TEXT": "Email",
+      "REQUIRED": "Email is required"
+    },
+    "MEDICINE-NAME": {
+      "TEXT": "Medicine"
+    },
+    "MEDICINE-BRAND-NAME": {
+      "TEXT": "Brand"
+    },
+    "SELLING-PRICE": {
+      "TEXT": "Selling Price",
+      "REQUIRED": "Selling Price is required"
+    },
+    "BAYING-PRICE": {
+      "TEXT": "Buying Price"
+    },
+    "CATEGORYES": {
+      "TEXT": "Category",
+      "REQUIRED": "Category is required"
+    },
+    "BRAND": {
+      "TEXT": "Brand",
+      "REQUIRED": "Brand is required"
+    },
+    "SALT-COMPOSITION": {
+      "TEXT": "Salt Composition"
+    },
+    "BUYING-PRICE": {
+      "TEXT": "Buying Price",
+      "REQUIRED": "Buying Price is required"
+    },
+    "SIDE-EFFECTS": {
+      "TEXT": "Side Effects"
+    },
+    "PURCHASE-NO": {
+      "TEXT": "Purchase no"
+    },
+    "TOTAL": {
+      "TEXT": "Total"
+    },
+    "NET-AMOUNT": {
+      "TEXT": "Net Amount"
+    },
+    "PAYMENT-TYPE": {
+      "TEXT": "Payment Type"
+    },
+    "PURCHASE-TITLE": {
+      "TEXT": "Purchase Medicine"
+    },
+    "REFERENCE-NO": {
+      "TEXT": "Reference No"
+    },
+    "PURCHASE-DATE": {
+      "TEXT": "Purchase Date"
+    },
+    "ORDER-ITEMS": {
+      "TEXT": "Order Items"
+    },
+    "BATCH-NO": {
+      "TEXT": "Batch No"
+    },
+    "EXPIRY-DATE": {
+      "TEXT": "Expiry Date"
+    },
+    "SALE-PRICE": {
+      "TEXT": "Sale Price"
+    },
+    "PURCHASE-PRICE": {
+      "TEXT": "Purchase Price"
+    },
+    "QUANTITY": {
+      "TEXT": "Quantity"
+    },
+    "TAX-PERCENT": {
+      "TEXT": "Tax %"
+    },
+    "AMOUNT": {
+      "TEXT": "Amount"
+    },
+    "DISCOUNT": {
+      "TEXT": "Discount %"
+    },
+    "TAX-AMOUNT": {
+      "TEXT": "Tax Amount"
+    },
+    "PAYMENT-NOTE": {
+      "TEXT": "Payment Note"
+    },
+    "ADD-PURCHASE-PRICE-MEDICINE": {
+      "TEXT": "Add to purchased medicines"
+    },
+    "PAYMENT-CASH": {
+      "TEXT": "Cash"
+    },
+    "PAYMENT-CARD": {
+      "TEXT": "Card"
+    },
+    "PAYMENT-ONLINE": {
+      "TEXT": "Online"
+    },
+    "PAYMENT-CHEQUE": {
+      "TEXT": "Cheque"
+    },
+    "PAYMENT-UPI": {
+      "TEXT": "UPI"
+    },
+    "BILL-NUMBER": {
+      "TEXT": "Bill Number"
+    },
+    "PATIENT-MAIL": {
+      "TEXT": "Patient Mail"
+    },
+    "PAYMENT-MODE": {
+      "TEXT": "Payment Mode"
+    },
+    "PURCHASE-BILL-TITLE": {
+      "TEXT": "Create Medicine Bill"
+    },
+    "BILL-DATE": {
+      "TEXT": "Bill Date"
+    },
+    "MEDICINE-CATEGORY": {
+      "TEXT": "Medicine Category"
+    },
+    "CONFIRM-TITLE": {
+      "TEXT": "Are you sure?"
+    },
+    "PERCENTAGE": {
+      "TEXT": "Percentage"
+    },
+    "CHARGE-TYPE": {
+      "TEXT": "Charge Type"
+    },
+    "CHARGE-CATEGORY": {
+      "TEXT": "Charge Category"
+    },
+    "CHARGE-CATEGORIES": {
+      "TEXT": "Charge Categories"
+    },
+    "STANDARD-CHARGES": {
+      "TEXT": "Standard Charges"
+    },
+    "CODE": {
+      "TEXT": "Code"
+    },
+    "LOGOUT": {
+      "TEXT": "Logout"
+    },
+    "MANUFACTURED-BY": {
+      "TEXT": "Manufactured By",
+      "REQUIRED": "Manufactured By is required"
+    },
+    "ACTIVE": {
+      "TEXT": "Active"
+    },
+    "INACTIVE": {
+      "TEXT": "Inactive"
+    },
+    "VACCINE": {
+      "TEXT": "Vaccine",
+      "REQUIRED": "Vaccine is required"
+    },
+    "SERIAL-NO": {
+      "TEXT": "Serial No"
+    },
+    "DOSE-NO": {
+      "TEXT": "Dose No",
+      "REQUIRED": "Dose No is required"
+    },
+    "DOSE-GIVEN-DATE": {
+      "TEXT": "Dose Given Date",
+      "REQUIRED": "Dose Given Date is required"
+    },
+    "ARE-YOU-SURE": {
+      "TEXT": "Are you sure?"
+    },
+    "EMPLOYEE": {
+      "TEXT": "Employee",
+      "REQUIRED": "Employee is required"
+    },
+    "USERS": {
+      "TEXT": "Users",
+      "REQUIRED": "Users Type is required"
+    },
+    "BLOOD-GROUP": {
+      "TEXT": "Blood Group",
+      "REQUIRED": "Blood Group is required"
+    },
+    "REMAINED-BAGS": {
+      "TEXT": "Remained Bags"
+    },
+    "DONOR-NAME": {
+      "TEXT": "Donor Name",
+      "REQUIRED": "Donor Name is required"
+    },
+    "LAST-DONATION-DATE": {
+      "TEXT": "Last Donation Date",
+      "REQUIRED": "Last Donation Date is required"
+    },
+    "MALE": {
+      "TEXT": "Male"
+    },
+    "FEMALE": {
+      "TEXT": "Female"
+    },
+    "BAGS": {
+      "TEXT": "Bags"
+    },
+    "DONOR": {
+      "REQUIRED": "Donor Name is required"
+    },
+    "DOCTOR-NAME": {
+      "TEXT": "Doctor Name"
+    },
+    "PATIENT-NAME": {
+      "TEXT": "Patient Name"
+    },
+    "ISSUE-DATE": {
+      "TEXT": "Issue Date"
+    },
+    "ISSUE-DATE-REQUIRED": {
+      "TEXT": "Issue Date is required"
+    },
+    "DOCTOR-NAME-REQUIRED": {
+      "TEXT": "Doctor Name is required"
+    },
+    "PATIENT-NAME-REQUIRED": {
+      "TEXT": "Patient Name is required"
+    },
+    "DONOR-NAME-REQUIRED": {
+      "TEXT": "Donor Name is required"
+    },
+    "BLOOD-GROUP-REQUIRED": {
+      "TEXT": "Blood Group is required"
+    },
+    "REMARKS": {
+      "TEXT": "Remarks"
+    },
+    "REMARKS-REQUIRED": {
+      "TEXT": "Remarks are required"
+    },
+    "PATHOLOGY-CATEGORY-NAME": {
+      "TEXT": "Pathology Category Name"
+    },
+    "PATHOLOGY-CATEGORY": {
+      "TEXT": "Pathology Category"
+    },
+    "PATHOLOGY-CATEGORY-REQUIRED": {
+      "TEXT": "Pathology Category is required"
+    },
+    "PATHOLOGY-UNITS-NAME": {
+      "TEXT": "Pathology Units Name"
+    },
+    "PATHOLOGY-UNITS": {
+      "TEXT": "Pathology Units"
+    },
+    "PATHOLOGY-UNITS-REQUIRED": {
+      "TEXT": "Pathology Units is required"
+    },
+    "REFERENCE-RANGE": {
+      "TEXT": "Reference Range"
+    },
+    "UNITS": {
+      "TEXT": "Units"
+    },
+    "NAME-REQUIRED": {
+      "TEXT": "Name is required"
+    },
+    "REFERENCE-RANGE-REQUIRED": {
+      "TEXT": "Reference Range is required"
+    },
+    "UNITS-REQUIRED": {
+      "TEXT": "Unit Name is required"
+    },
+    "TEST-NAME": {
+      "TEXT": "Test Name"
+    },
+    "SHORT-NAME": {
+      "TEXT": "Short Name"
+    },
+    "TEST-TYPE": {
+      "TEXT": "Test Type"
+    },
+    "CATEGORY-NAME": {
+      "TEXT": "Category Name"
+    },
+    "PATHOLOGY-TESTS": {
+      "TEXT": "Pathology Tests"
+    },
+    "DATE-REQUIRED": {
+      "TEXT": "Date is required"
+    },
+    "REFERENCE-BY-DOCTOR": {
+      "TEXT": "Reference By Doctor"
+    },
+    "REFERENCE-BY-DOCTOR-REQUIRED": {
+      "TEXT": "Reference By Doctor is required"
+    },
+    "TEST-DONE-BY-DOCTOR": {
+      "TEXT": "Test Done By Doctor"
+    },
+    "TEST-DONE-BY-DOCTOR-REQUIRED": {
+      "TEXT": "Test Done By Doctor is required"
+    },
+    "APPROVED-BY": {
+      "TEXT": "Approved By"
+    },
+    "APPROVED-BY-REQUIRED": {
+      "TEXT": "Approved By is required"
+    },
+    "TEST-NAME-REQUIRED": {
+      "TEXT": "Test Name is required"
+    },
+    "SHORT-NAME-REQUIRED": {
+      "TEXT": "Short Name is required"
+    },
+    "PARAMETER": {
+      "TEXT": "Parameter",
+      "PARAMETER-NAME": "Parameter Name",
+      "PATIENT-RESULT": "Patient Result",
+      "PATIENT-RESULT-REQUIRED": "Patient Result is required",
+      "REFERENCE-RANGE": "Reference Range",
+      "REFERENCE-RANGE-REQUIRED": "Reference Range is required",
+      "UNIT": "Unit",
+      "UNIT-REQUIRED": "Unit is required",
+      "REQUIRED": "Required",
+      "DUPLICATE": "This parameter is already selected.",
+      "ADD": "Add"
+    },
+    "ADD-PARAMETER": {
+      "TEXT": "Add Parameter"
+    },
+    "TEST-TYPE-REQUIRED": {
+      "TEXT": "Test Type is required"
+    },
+    "CATEGORY-NAME-REQUIRED": {
+      "TEXT": "Category Name is required"
+    },
+    "UNIT": {
+      "TEXT": "Unit"
+    },
+    "SUB-CATEGORY": {
+      "TEXT": "Sub Category"
+    },
+    "METHOD": {
+      "TEXT": "Method"
+    },
+    "REPORT-DAYS": {
+      "TEXT": "Report Days"
+    },
+    "CHARGE-CATEGORY-REQUIRED": {
+      "TEXT": "Charge Category is required"
+    },
+    "STANDARD-CHARGE": {
+      "TEXT": "Standard Charge"
+    },
+    "STANDARD-CHARGE-REQUIRED": {
+      "TEXT": "Standard Charge is required"
+    },
+    "MARITAL-STATUS": {
+      "TEXT": "Marital Status"
+    },
+    "CATEGORY-REQUIRED": {
+      "TEXT": "Category is required"
+    },
+    "CHARGE": {
+      "TEXT": "Charge"
+    },
+    "CHARGE-REQUIRED": {
+      "TEXT": "Charge is required"
+    },
+    "FINDINGS": {
+      "TEXT": "Findings"
+    },
+    "FINDINGS-REQUIRED": {
+      "TEXT": "Findings is required"
+    },
+    "IMPRESSION": {
+      "TEXT": "Impression"
+    },
+    "IMPRESSION-REQUIRED": {
+      "TEXT": "Impression is required"
+    },
+    "RADIOLOGIST-NAME": {
+      "TEXT": "Radiologist Name"
+    },
+    "RADIOLOGIST-NAME-REQUIRED": {
+      "TEXT": "Radiologist Name is required"
+    },
+    "RADIOLOGIST-QUALIFICATION": {
+      "TEXT": "Radiologist Qualification"
+    },
+    "RADIOLOGIST-QUALIFICATION-REQUIRED": {
+      "TEXT": "Radiologist Qualification is required"
+    },
+    "SUPPLIER-NAME": {
+      "TEXT": "Supplier Name"
+    },
+    "FIRST-NAME": {
+      "TEXT": "First Name"
+    },
+    "LAST-NAME": {
+      "TEXT": "Last Name"
+    },
+    "GST-NO": {
+      "TEXT": "GST NO"
+    },
+    "PAN-NO": {
+      "TEXT": "PAN NO"
+    },
+    "SUPPLIER-NAME-REQUIRED": {
+      "TEXT": "Supplier Name is required"
+    },
+    "FIRST-NAME-REQUIRED": {
+      "TEXT": "First Name is required"
+    },
+    "LAST-NAME-REQUIRED": {
+      "TEXT": "Last Name is required"
+    },
+    "GST-NO-REQUIRED": {
+      "TEXT": "GST NO is required"
+    },
+    "PAN-NO-REQUIRED": {
+      "TEXT": "PAN NO is required"
+    },
+    "PHONE-REQUIRED": {
+      "TEXT": "Phone is required"
+    },
+    "MOBILE-REQUIRED": {
+      "TEXT": "Mobile is required"
+    },
+    "ITEM-NAME": {
+      "TEXT": "Item Name"
+    },
+    "AVAILABLE-QTY": {
+      "TEXT": "Available Qty"
+    },
+    "ITEM-NAME-REQUIRED": {
+      "TEXT": "Item Name is required"
+    },
+    "ITEM-CATEGORY": {
+      "TEXT": "Item Category"
+    },
+    "ITEM-CATEGORY-REQUIRED": {
+      "TEXT": "Item Category is required"
+    },
+    "UNIT-REQUIRED": {
+      "TEXT": "Unit is required"
+    },
+    "PURCHASE-TOTAL": {
+      "TEXT": "Total"
+    },
+    "PURCHASE-TAX": {
+      "TEXT": "Tax"
+    },
+    "PURCHASE-NET-AMOUNT": {
+      "TEXT": "Net Amount"
+    },
+    "SUPPLIER": {
+      "TEXT": "Supplier"
+    },
+    "STORE": {
+      "TEXT": "Store"
+    },
+    "PURCHASE-ITEMS": {
+      "TEXT": "Purchase Items"
+    },
+    "SELECT-ITEM": {
+      "TEXT": "Select Item"
+    },
+    "PRICE": {
+      "TEXT": "Price"
+    },
+    "QTY": {
+      "TEXT": "Qty"
+    },
+    "ADD-ITEM": {
+      "TEXT": "Add Item"
+    },
+    "USER-TYPE": {
+      "TEXT": "User Type"
+    },
+    "ISSUE-TO": {
+      "TEXT": "Issue To"
+    },
+    "RETURN-DATE": {
+      "TEXT": "Return Date"
+    },
+    "REQUIRED-FIELD": {
+      "TEXT": "This field is required"
+    },
+    "QTY-EXCEEDS": {
+      "TEXT": "Quantity cannot exceed available stock"
+    },
+    "ITEM": {
+      "TEXT": "Item"
+    },
+    "RETURN-QTY": {
+      "TEXT": "Return Quantity"
+    },
+    "USER-ROLE": {
+      "TEXT": "User Role"
+    },
+    "SPECIALIZATION": {
+      "TEXT": "Specialization"
+    },
+    "AVAILABILITY": {
+      "TEXT": "Availability"
+    },
+    "DEGREE": {
+      "TEXT": "Degree"
+    },
+    "EXPERIENCE-YEARS": {
+      "TEXT": "Experience (Years)"
+    },
+    "CONSULTATION-FEE": {
+      "TEXT": "Consultation Fee"
+    },
+    "RATING": {
+      "TEXT": "Rating"
+    },
+    "CLINIC-LOCATION": {
+      "TEXT": "Clinic Location"
+    },
+    "USER_ROLE": {
+      "TEXT": "User Role"
+    },
+    "USER_ROLE_ERROR": {
+      "TEXT": "User Role is required"
+    },
+    "SEARCH_ROLE": {
+      "TEXT": "Search Role"
+    },
+    "EMPLOYEE_TYPE": {
+      "TEXT": "Employee Type"
+    },
+    "EMPLOYEE_TITLE": {
+      "TEXT": "Dr./Mr./Mrs."
+    },
+    "EMPLOYEE_TITLE_ERROR": {
+      "TEXT": "Employee Title is required"
+    },
+    "FIRST_NAME_ERROR": {
+      "TEXT": "First Name is required"
+    },
+    "LAST_NAME_ERROR": {
+      "TEXT": "Last Name is required"
+    },
+    "JOINING_DATE": {
+      "TEXT": "Joining Date"
+    },
+    "JOINING_DATE_ERROR": {
+      "TEXT": "Please select a date"
+    },
+    "DOB_ERROR": {
+      "TEXT": "Date of Birth is required"
+    },
+    "GENDER_ERROR": {
+      "TEXT": "Gender is required"
+    },
+    "BLOOD_GROUP_ERROR": {
+      "TEXT": "Blood Group is required"
+    },
+    "BIRTH_PLACE": {
+      "TEXT": "Birth Place"
+    },
+    "MOTHER_TONGUE": {
+      "TEXT": "Mother Tongue"
+    },
+    "EMAIL_ERROR": {
+      "TEXT": "Please enter a valid email address"
+    },
+    "HEALTH_ISSUE": {
+      "TEXT": "Do you have any health issues?"
+    },
+    "AADHAR_CARD": {
+      "TEXT": "Aadhar Card"
+    },
+    "PASSPORT_NUMBER": {
+      "TEXT": "Passport Number"
+    },
+    "PAN_CARD": {
+      "TEXT": "Pan Card"
+    },
+    "RELIGION": {
+      "TEXT": "Religion"
+    },
+    "CASTE": {
+      "TEXT": "Caste"
+    },
+    "SUB_CASTE": {
+      "TEXT": "Sub Caste"
+    },
+    "SEARCH_BLOOD_GROUP": {
+      "TEXT": "Search Blood Group"
+    },
+    "SINGLE": {
+      "TEXT": "Single"
+    },
+    "MARRIED": {
+      "TEXT": "Married"
+    },
+    "DIVORCED": {
+      "TEXT": "Divorced"
+    },
+    "CHOOSE_FILE_PLACEHOLDER": {
+      "TEXT": "Choose a file or drag and drop here"
+    },
+    "EXPERIENCE_YEARS": {
+      "TEXT": "Experience (Years)"
+    },
+    "EXPERIENCE_YEARS_ERROR": {
+      "TEXT": "Experience is required"
+    },
+    "APPOINTMENT_CHARGE": {
+      "TEXT": "Appointment Charge"
+    },
+    "APPOINTMENT_CHARGE_ERROR": {
+      "TEXT": "Appointment Charge is required"
+    },
+    "IPD_CHARGE": {
+      "TEXT": "IPD Charge"
+    },
+    "OPD_CHARGE": {
+      "TEXT": "OPD Charge"
+    },
+    "DOCTOR_APPOINTMENT_MODE": {
+      "TEXT": "Choose Doctor Appointment Mode"
+    },
+    "TOKEN": {
+      "TEXT": "Token"
+    },
+    "HOURLY_CHARGE": {
+      "TEXT": "Hourly Charge"
+    },
+    "PER_PATIENT_CHARGE": {
+      "TEXT": "Per Patient Charge"
+    },
+    "CHARGES_ERROR": {
+      "TEXT": "Please select either a Per Hour or Per Patient charge."
+    },
+    "AVAILABILITY_ERROR": {
+      "TEXT": "Availability is required"
+    },
+    "RATING_ERROR": {
+      "TEXT": "Rating is required"
+    },
+    "ADDRESS_REQUIRED": {
+      "TEXT": "Address is required"
+    },
+    "COUNTRY_REQUIRED": {
+      "TEXT": "Country is required"
+    },
+    "STATE_REQUIRED": {
+      "TEXT": "State is required"
+    },
+    "CITY_REQUIRED": {
+      "TEXT": "City is required"
+    },
+    "MOBILE_REQUIRED": {
+      "TEXT": "Mobile is required"
+    },
+    "MOBILE_INVALID": {
+      "TEXT": "Enter a valid mobile number min 10 digits"
+    },
+    "EMERGENCY_CONTACT_NAME": {
+      "TEXT": "Emergency Contact Name"
+    },
+    "EMERGENCY_CONTACT_NUMBER": {
+      "TEXT": "Emergency Contact Number"
+    },
+    "CONTACT_DETAILS": {
+      "TEXT": "Contact Details"
+    },
+    "COPY_TO_PERMANENT_ADDRESS": {
+      "TEXT": "Copy To Permanent Address"
+    },
+    "EDUCATION_DETAILS": {
+      "TEXT": "Education Details"
+    },
+    "SPECIALIZATION_REQUIRED": {
+      "TEXT": "Specialization is required"
+    },
+    "DESIGNATION": {
+      "TEXT": "Designation"
+    },
+    "TOTAL_EXPERIENCE": {
+      "TEXT": "Total Experience"
+    },
+    "QUALIFICATION": {
+      "TEXT": "Qualification"
+    },
+    "SCHOOL_COLLEGE": {
+      "TEXT": "Name Of School / College"
+    },
+    "BOARD_UNIVERSITY": {
+      "TEXT": "Name Of Board / University"
+    },
+    "YEAR_OF_PASSING": {
+      "TEXT": "Year Of Passing"
+    },
+    "PERCENTAGE_CLASS": {
+      "TEXT": "Percentage / Class"
+    },
+    "ADD_NEW": {
+      "TEXT": "Add New"
+    },
+    "SEARCH_DEPARTMENT": {
+      "TEXT": "Search Department"
+    },
+    "SALARY_DETAILS": {
+      "TEXT": "Salary Details"
+    },
+    "BANK_NAME": {
+      "TEXT": "Bank Name"
+    },
+    "BRANCH_NAME": {
+      "TEXT": "Branch Name"
+    },
+    "ACCOUNT_NUMBER": {
+      "TEXT": "Account Number"
+    },
+    "IFSC_CODE": {
+      "TEXT": "IFSC Code"
+    },
+    "MICR_CODE": {
+      "TEXT": "MICR Code"
+    },
+    "WORKING_HOURS": {
+      "TEXT": "Working Hours"
+    },
+    "SALARY_TYPE": {
+      "TEXT": "Salary Type"
+    },
+    "AMOUNT_TYPE": {
+      "TEXT": "Amount Type"
+    },
+    "PER_DAY_SALARY": {
+      "TEXT": "Per Day Salary"
+    },
+    "GENERATE_SALARY_BY": {
+      "TEXT": "Generate Salary By"
+    },
+    "ASSIGN_SALARY_BASED_ON": {
+      "TEXT": "Assign Salary Based On"
+    },
+    "PF_SECURITY_FUND": {
+      "TEXT": "PF/Security Fund"
+    },
+    "ESI_INSURANCE": {
+      "TEXT": "ESI/Insurance"
+    },
+    "PAYROLL_TYPE": {
+      "TEXT": "Payroll Type"
+    },
+    "PREVIOUS_HOSPITAL_DETAILS": {
+      "TEXT": "Previous Hospital Details"
+    },
+    "PREVIOUS_HOSPITAL": {
+      "TEXT": "Previous Hospital Details"
+    },
+    "PREVIOUS_HOSPITAL_ADDRESS": {
+      "TEXT": "Previous Hospital Address"
+    },
+    "CONTACT_NUMBER": {
+      "TEXT": "Contact Number"
+    },
+    "DOCUMENTS_DETAILS": {
+      "TEXT": "Documents Details"
+    },
+    "UPLOAD_DOCUMENT": {
+      "TEXT": "Upload Document"
+    },
+    "CHOOSE_FILE": {
+      "TEXT": "Choose a file or drag and drop here"
+    },
+    "FILE_NAME": {
+      "TEXT": "File Name"
+    },
+    "DOCUMENT_NAME": {
+      "TEXT": "Document Name"
+    },
+    "OTHER_DETAILS": {
+      "TEXT": "Other Details"
+    },
+    "FACEBOOK_URL": {
+      "TEXT": "Facebook URL"
+    },
+    "INSTAGRAM_URL": {
+      "TEXT": "Instagram URL"
+    },
+    "TWITTER_URL": {
+      "TEXT": "Twitter URL"
+    },
+    "LINKEDIN_URL": {
+      "TEXT": "LinkedIn URL"
+    },
+    "USERNAME_REQUIRED": {
+      "TEXT": "Username is required"
+    },
+    "PASSWORD_REQUIRED": {
+      "TEXT": "Password is required"
+    },
+    "PER_PATIENT_TIME": {
+      "TEXT": "Per Patient Time"
+    },
+    "SELECT_DOCTOR": {
+      "TEXT": "Select Doctor"
+    },
+    "SEARCH_DOCTOR": {
+      "TEXT": "Search Doctor"
+    },
+    "SHIFT": {
+      "TEXT": "Shift",
+      "SEARCH": "Search Shift",
+      "REQUIRED": "Shift is required"
+    },
+    "BREAK_FROM": {
+      "TEXT": "Break From"
+    },
+    "BREAK_TO": {
+      "TEXT": "Break To"
+    },
+    "BREAK_TYPE": {
+      "TEXT": "Break Type",
+      "EVERYDAY": "Every Day",
+      "SINGLE_DAY": "Single Day",
+      "REQUIRED": "Please select a break type"
+    },
+    "EMPLOYEE_NAME": {
+      "TEXT": "Employee Name"
+    },
+    "HOLIDAY_NAME": {
+      "TEXT": "Holiday Name"
+    },
+    "REASON": {
+      "TEXT": "Reason"
+    },
+    "START_DATE": {
+      "TEXT": "Start Date"
+    },
+    "END_DATE": {
+      "TEXT": "End Date"
+    },
+    "SELECT_USERS": {
+      "TEXT": "Select Users"
+    },
+    "SELECT_EMPLOYEE": {
+      "TEXT": "Select Employee"
+    },
+    "HOLIDAY_START_DATE": {
+      "TEXT": "Holiday Start Date"
+    },
+    "HOLIDAY_END_DATE": {
+      "TEXT": "Holiday End Date"
+    },
+    "SELECT_USERS_REQUIRED": {
+      "TEXT": "Users is required"
+    },
+    "SELECT_EMPLOYEE_REQUIRED": {
+      "TEXT": "Employee is required"
+    },
+    "HOLIDAY_START_DATE_REQUIRED": {
+      "TEXT": "Please select a holiday start date"
+    },
+    "HOLIDAY_END_DATE_REQUIRED": {
+      "TEXT": "Please select a holiday end date"
+    },
+    "HOLIDAY_END_DATE_VALIDATION": {
+      "TEXT": "End date must be after start date."
+    },
+    "HOLIDAY_NAME_REQUIRED": {
+      "TEXT": "Holiday Name is required"
+    },
+    "HOLIDAY_DAY": {
+      "TEXT": "Day"
+    },
+    "HOLIDAY_DATE": {
+      "TEXT": "Date"
+    },
+    "DELETE_BTN": {
+      "TEXT": "Delete"
+    },
+    "CANCEL_BTN": {
+      "TEXT": "Cancel"
+    },
+    "SHOW_DOCTOR": {
+      "TEXT": "Show Doctor"
+    },
+    "DOCTOR-TEMPLATE": {
+      "EDIT": "Edit ID Card Template",
+      "CREATE": "Create ID Card Template",
+      "CUSTOMIZE_ID": "Customize your patient ID cards",
+      "NAME": "Template Name",
+      "ERROR_NAME_REQUIRED": "Template name is required",
+      "HEADER_COLOR": "Header Color",
+      "DISPLAY_OPTIONS": "Display Options",
+      "SHOW_EMAIL": "Show Email",
+      "SHOW_PHONE": "Show Phone",
+      "SHOW_DOB": "Show Date of Birth",
+      "SHOW_BLOOD": "Show Blood Group",
+      "SHOW_ADDRESS": "Show Address",
+      "LIVE_PREVIEW": "Live Preview",
+      "LIVE_PREVIEW_SUBTITLE": "See how your ID card will look",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "DOB": "Date of Birth",
+      "BLOOD_GROUP": "Blood Group",
+      "ADDRESS": "Address"
+    },
+    "DOCTOR-TEMPLATE-ACTIONS": {
+      "CANCEL": "Cancel",
+      "CREATE": "Create Template",
+      "UPDATE": "Update Template",
+      "SAVING": "Saving..."
+    },
+    "SELECT_DEPARTMENT": {
+      "TEXT": "Select Department"
+    },
+    "ALL_EMPLOYEE": {
+      "TEXT": "All Employee"
+    },
+    "SELECT_TYPE": {
+      "TEXT": "Select Type"
+    },
+    "FIELD_REQUIRED": {
+      "TEXT": "This field is required"
+    }
+  }
+}

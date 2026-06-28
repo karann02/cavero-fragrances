@@ -1,0 +1,338 @@
+<!-- allcombos.component.html -->
+<section class="content">
+  <div class="content-block">
+    <div class="row" style="margin-top: 14px;">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card combo-settings-card">
+          <div class="card-body">
+            <div class="row align-items-start g-3">
+              <div class="col-lg-4">
+                <div class="combo-settings-copy">
+                  <h3>Build Your Own Box Price</h3>
+                  <p>This section controls the personalised box total and the image shown in the shopping cart when a user builds their own box.</p>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6">
+                <div class="combo-settings-image-card">
+                  <div class="combo-settings-image-header">
+                    <h4>Cart Image</h4>
+                    <p>This image appears for the custom box inside the shopping cart.</p>
+                  </div>
+
+                  <div class="combo-settings-image-preview" [class.has-image]="!!comboBoxImagePreview">
+                    <img
+                      *ngIf="comboBoxImagePreview; else comboBoxImageEmpty"
+                      [src]="comboBoxImagePreview"
+                      alt="Build your own box image"
+                      (error)="$any($event.target).src='assets/cavero/img/shop/grocery/01.png'">
+                    <ng-template #comboBoxImageEmpty>
+                      <div class="combo-settings-image-placeholder">
+                        <mat-icon>image</mat-icon>
+                        <span>No image selected</span>
+                      </div>
+                    </ng-template>
+                  </div>
+
+                  <div class="combo-settings-image-actions">
+                    <input
+                      #comboBoxImageInput
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      (change)="onComboBoxImageSelected($event)">
+                    <button
+                      mat-stroked-button
+                      type="button"
+                      class="combo-settings-image-btn"
+                      (click)="triggerComboBoxImagePicker()">
+                      <mat-icon>upload</mat-icon>
+                      {{ comboBoxImagePreview ? 'Replace Image' : 'Upload Image' }}
+                    </button>
+
+                    <button
+                      *ngIf="comboBoxImagePreview"
+                      mat-button
+                      type="button"
+                      class="combo-settings-remove-btn"
+                      (click)="removeComboBoxImage()">
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6">
+                <div class="combo-settings-side">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Box Price</mat-label>
+                    <input
+                      matInput
+                      type="number"
+                      min="0"
+                      step="1"
+                      [(ngModel)]="comboBoxSettings.box_price"
+                      placeholder="Enter combo box price">
+                    <span matTextPrefix>Rs.&nbsp;</span>
+                  </mat-form-field>
+
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    class="combo-price-save-btn"
+                    (click)="saveComboBoxSettings()"
+                    [disabled]="isSavingComboBoxPrice">
+                    <mat-icon>save</mat-icon>
+                    {{ isSavingComboBoxPrice ? 'Saving...' : 'Save Box Settings' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card no-extra-top-gap">
+          <div class="materialTableHeader" style="padding: 10px 16px 10px;">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h1 class="card-page-title" style="margin: 0; font-size: 1.1rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; color: #243247;">Combos</h1>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input placeholder="Search" type="text" #filter (keyup)="applyFilter($event)"
+                    class="browser-default search-field" aria-label="Search box">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10 toolbar-select-anchor">
+                    <button mat-icon-button color="primary" class="table-toolbar-btn" (click)="select.open()" matTooltip="Show/Hide Column" aria-label="Show or hide columns">
+                      <mat-icon>filter_list</mat-icon>
+                    </button>
+                    <mat-select #select [(ngModel)]="filter.value" class="column-filter toolbar-hidden-select">
+                      <span class="table-column-label">Show/Hide Column</span>
+                      @for (cd of columnDefinitions; track cd; let i = $index) {
+                      <div>
+                        <mat-option>
+                          <mat-checkbox (click)="$event.stopPropagation()" [(ngModel)]="cd.visible" color="primary">
+                            {{cd.label}}
+                          </mat-checkbox>
+                        </mat-option>
+                      </div>
+                      }
+                    </mat-select>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="addNew()" class="table-toolbar-btn col-green" matTooltip="Add Combo" aria-label="Add combo">
+                      <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="refresh()" class="table-toolbar-btn" matTooltip="Refresh" aria-label="Refresh combos">
+                      <mat-icon>refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="removeSelectedRows()"
+                      [disabled]="!selection.hasValue()"
+                      class="table-toolbar-btn table-toolbar-btn-delete col-red"
+                      [matTooltip]="selection.hasValue() ? 'Delete selected combos' : 'Select combos to delete'"
+                      aria-label="Delete selected combos">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="exportExcel()" class="table-toolbar-btn col-blue" matTooltip="Export Excel" aria-label="Export Excel">
+                      <mat-icon class="material-icons-outlined">file_download</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
+                <ng-container matColumnDef="select">
+                  <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()" color="primary"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
+                    </mat-checkbox>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'" color="primary">
+                    </mat-checkbox>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Combo Name</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row.name">
+                    <span class="mobile-label">Combo Name:</span>
+                    <span class="truncate-text">{{ row.name }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="image">
+                  <mat-header-cell *matHeaderCellDef>
+                    <span class="truncate-text">Image</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Image:</span>
+                    <div class="combo-table-image">
+                      <img
+                        [src]="getComboImageUrl(row)"
+                        [alt]="row.name"
+                        (error)="$any($event.target).src='assets/cavero/img/shop/grocery/01.png'">
+                    </div>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="products">
+                  <mat-header-cell *matHeaderCellDef>
+                    <span class="truncate-text">Products</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row" [matTooltip]="getProductNames(row)">
+                    <span class="mobile-label">Products:</span>
+                    <span class="truncate-text">{{ getProductNames(row) }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="validity">
+                  <mat-header-cell *matHeaderCellDef>
+                    <span class="truncate-text">Validity</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Validity:</span>
+                    <span class="truncate-text">{{ getValidityLabel(row) }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="discount_price">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Combo Price</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Combo Price:</span>
+                    <span class="truncate-text text-success fw-bold">Rs {{ row.discount_price || 0 }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="combo_size">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Combo Size</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Combo Size:</span>
+                    <span class="truncate-text">{{ row.combo_size || 0 }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="active">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Status</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Status:</span>
+                    <span class="truncate-text badge clickable-badge" 
+                          [ngClass]="row.active ? 'badge-success' : 'badge-danger'"
+                          (click)="toggleComboStatus(row)"
+                          [matTooltip]="'Click to toggle status'"
+                          [style.opacity]="togglingId === row.id ? '0.6' : '1'">
+                      {{ row.active ? 'Active' : 'Inactive' }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="created_at">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Created At</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Created At:</span>
+                    <span class="truncate-text">{{ row.created_at | date:'medium' }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let row; let i=index;" class="action-cell">
+                    <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="editCall(row)"
+                      class="tbl-action-btn">
+                      <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                    </button>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+                <mat-row [@rowsAnimation]="" *matRowDef="let row; columns: getDisplayedColumns();"
+                  [style.cursor]="'pointer'" matRipple>
+                </mat-row>
+              </table>
+
+              @if (isLoading) {
+              <div class="tbl-spinner">
+                <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate"></mat-progress-spinner>
+              </div>
+              }
+
+              <div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+                [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+              </div>
+              <mat-menu #contextMenu="matMenu">
+                <ng-template matMenuContent let-item="item">
+                  <button mat-menu-item (click)="addNew()">
+                    <mat-icon>add_box</mat-icon>
+                    <span>Add Combo</span>
+                  </button>
+                  <button mat-menu-item (click)="editCall(item)">
+                    <mat-icon>create</mat-icon>
+                    <span>Edit Combo</span>
+                  </button>
+                  <button mat-menu-item (click)="refresh()">
+                    <mat-icon>refresh</mat-icon>
+                    <span>Refresh</span>
+                  </button>
+                </ng-template>
+              </mat-menu>
+
+              @if (!isLoading && dataSource.data.length === 0) {
+              <div class="no-results text-center py-5">
+                <mat-icon class="display-1 text-muted mb-3">inventory_2</mat-icon>
+                <h4 class="text-muted">No combo found</h4>
+                <p class="text-muted">Get started by adding your first combo</p>
+                <button mat-raised-button color="primary" (click)="addNew()">
+                  <mat-icon>add</mat-icon>
+                  Add First Combo
+                </button>
+              </div>
+              }
+
+
+            </div>
+          </div>
+          <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+              </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

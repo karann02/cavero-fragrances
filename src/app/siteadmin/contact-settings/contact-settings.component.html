@@ -1,0 +1,77 @@
+<section class="content">
+  <div class="content-block">
+    <div class="row" *ngIf="!isLoading">
+      <div class="col-12">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Settings</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="pt-3">
+            <h6 class="section-label">Email Addresses</h6>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Email 1</mat-label>
+                  <input matInput [(ngModel)]="settings.email1" placeholder="support@example.com">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Email 2</mat-label>
+                  <input matInput [(ngModel)]="settings.email2" placeholder="help@example.com">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <h6 class="section-label">Homepage SEO Settings</h6>
+            <p class="section-help">
+              These fields control the homepage search title, keywords, and description shown in SEO meta tags.
+            </p>
+            <div class="row g-3">
+              <div class="col-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>SEO Title</mat-label>
+                  <input matInput [(ngModel)]="settings.seo_title" placeholder="Cavero Fragrances">
+                  <mat-hint>Used for the browser title and search result title.</mat-hint>
+                </mat-form-field>
+              </div>
+
+              <div class="col-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>SEO Keywords</mat-label>
+                  <textarea
+                    matInput
+                    [(ngModel)]="settings.seo_keywords"
+                    rows="3"
+                    placeholder="Cavero Fragrances, oud perfumes, skincare, beauty products"></textarea>
+                  <mat-hint>Separate keywords with commas.</mat-hint>
+                </mat-form-field>
+              </div>
+
+              <div class="col-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>SEO Description</mat-label>
+                  <textarea
+                    matInput
+                    [(ngModel)]="settings.seo_description"
+                    rows="4"
+                    placeholder="Short description shown in search results"></textarea>
+                  <mat-hint>This is used in description, Open Graph, and Twitter meta tags.</mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="px-4 pb-4">
+            <button mat-raised-button color="primary" (click)="save()" [disabled]="isSaving">
+              <mat-icon>save</mat-icon> {{ isSaving ? 'Saving...' : 'Save Changes' }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="text-center py-5">
+      <div class="spinner-border text-primary"></div>
+    </div>
+  </div>
+</section>

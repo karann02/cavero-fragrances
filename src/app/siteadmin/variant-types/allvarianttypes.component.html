@@ -1,0 +1,199 @@
+<!-- allvarianttypes.component.html -->
+<section class="content">
+  <div class="content-block">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="materialTableHeader" style="padding: 14px 16px 12px;">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h1 class="card-page-title" style="margin: 0; font-size: 1.1rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em;">Variant / Size Types</h1>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input placeholder="Search" type="text" #filter (keyup)="applyFilter($event)"
+                    class="browser-default search-field" aria-label="Search box">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10 toolbar-select-anchor">
+                    <button mat-icon-button color="primary" class="table-toolbar-btn" (click)="select.open()" matTooltip="Show/Hide Column" aria-label="Show or hide columns">
+                      <mat-icon>filter_list</mat-icon>
+                    </button>
+                    <mat-select #select [(ngModel)]="columnFilterValue" class="column-filter toolbar-hidden-select">
+                      <span class="table-column-label">Show/Hide Column</span>
+                      @for (cd of columnDefinitions; track cd; let i = $index) {
+                      <div>
+                        <mat-option>
+                          <mat-checkbox (click)="$event.stopPropagation()" [(ngModel)]="cd.visible" color="primary">
+                            {{cd.label}}
+                          </mat-checkbox>
+                        </mat-option>
+                      </div>
+                      }
+                    </mat-select>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="addNew()" class="table-toolbar-btn col-green" matTooltip="Add Size Type" aria-label="Add size type">
+                      <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="refresh()" class="table-toolbar-btn" matTooltip="Refresh" aria-label="Refresh">
+                      <mat-icon>refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="removeSelectedRows()"
+                      [disabled]="!selection.hasValue()"
+                      class="table-toolbar-btn table-toolbar-btn-delete col-red"
+                      [matTooltip]="selection.hasValue() ? 'Delete selected' : 'Select rows to delete'"
+                      aria-label="Delete selected">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="exportExcel()" class="table-toolbar-btn col-blue" matTooltip="Export Excel" aria-label="Export Excel">
+                      <mat-icon class="material-icons-outlined">file_download</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
+                <!-- Checkbox Column -->
+                <ng-container matColumnDef="select">
+                  <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()" color="primary"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
+                    </mat-checkbox>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'" color="primary">
+                    </mat-checkbox>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Size Name Column -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Size Name</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row.name">
+                    <span class="mobile-label">Size Name:</span>
+                    <span class="truncate-text fw-bold" style="color:#FFF4E2;">{{ row.name }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="is_active">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Status</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Status:</span>
+                    <span class="truncate-text badge"
+                          [ngClass]="row.is_active ? 'badge-success' : 'badge-danger'">
+                      {{ row.is_active ? 'Active' : 'Inactive' }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Sort Order Column -->
+                <ng-container matColumnDef="sort_order">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Sort Order</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Sort Order:</span>
+                    <span class="truncate-text">{{ row.sort_order }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
+                    <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="editCall(row)"
+                      class="tbl-action-btn">
+                      <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                    </button>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+                <mat-row [@rowsAnimation]="" *matRowDef="let row; columns: getDisplayedColumns();"
+                  [style.cursor]="'pointer'" matRipple>
+                </mat-row>
+              </table>
+
+              <!-- Loading spinner -->
+              @if (isLoading) {
+              <div class="tbl-spinner">
+                <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
+                </mat-progress-spinner>
+              </div>
+              }
+
+              <!-- Context Menu -->
+              <div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+                [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+              </div>
+              <mat-menu #contextMenu="matMenu">
+                <ng-template matMenuContent let-item="item">
+                  <button mat-menu-item (click)="addNew()">
+                    <mat-icon>add_box</mat-icon>
+                    <span>Add Size Type</span>
+                  </button>
+                  <button mat-menu-item (click)="editCall(item)">
+                    <mat-icon>create</mat-icon>
+                    <span>Edit Size Type</span>
+                  </button>
+                  <button mat-menu-item (click)="refresh()">
+                    <mat-icon>refresh</mat-icon>
+                    <span>Refresh</span>
+                  </button>
+                </ng-template>
+              </mat-menu>
+
+              <!-- No Results -->
+              @if (!isLoading && dataSource.data.length === 0) {
+              <div class="no-results text-center py-5">
+                <mat-icon class="display-1 text-muted mb-3">straighten</mat-icon>
+                <h4 class="text-muted">No size types found</h4>
+                <p class="text-muted">Get started by adding your first size variant type</p>
+                <button mat-raised-button color="primary" (click)="addNew()" style="background:#418576;">
+                  <mat-icon>add</mat-icon>
+                  Add First Size Type
+                </button>
+              </div>
+              }
+
+
+            </div>
+          </div>
+          <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+              </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

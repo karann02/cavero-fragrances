@@ -1,0 +1,180 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{ dialogTitle }}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <app-feather-icons [icon]="'x'" [class]="'dialog-feather-icon'"></app-feather-icons>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="couponForm" (ngSubmit)="submit()">
+      <h4 class="mt-2 mb-3">Coupon Information</h4>
+
+      <div class="row">
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Coupon Code</mat-label>
+            <input matInput formControlName="code" required (blur)="generateCode()">
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              class="suffix-icon-btn"
+              (click)="generateCode()"
+              aria-label="Generate coupon code">
+              <app-feather-icons [icon]="'refresh-cw'" [class]="'dialog-feather-icon'"></app-feather-icons>
+            </button>
+            <mat-error *ngIf="couponForm.get('code')?.hasError('required')">Coupon code is required</mat-error>
+            <mat-error *ngIf="couponForm.get('code')?.hasError('minlength')">Coupon code must be at least 3 characters</mat-error>
+            <mat-error *ngIf="couponForm.get('code')?.hasError('maxlength')">Coupon code cannot exceed 30 characters</mat-error>
+            <mat-error *ngIf="couponForm.get('code')?.hasError('pattern')">Use uppercase letters, numbers, `_` or `-` only</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Discount Type</mat-label>
+            <mat-select formControlName="type" required>
+              <mat-option value="percentage">Percentage</mat-option>
+              <mat-option value="fixed">Fixed Amount</mat-option>
+            </mat-select>
+            <span matSuffix class="field-affix">
+              <app-feather-icons [icon]="'percent'" [class]="'dialog-feather-icon'"></app-feather-icons>
+            </span>
+            <mat-error *ngIf="couponForm.get('type')?.hasError('required')">Type is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>
+              {{ couponForm.get('type')?.value === 'percentage' ? 'Discount %' : 'Discount Price' }}
+            </mat-label>
+            <span matTextPrefix *ngIf="couponForm.get('type')?.value !== 'percentage'">{{ rupeeSymbol }}&nbsp;</span>
+            <input matInput type="number" formControlName="value" min="0" step="0.01" required>
+            <span matTextSuffix *ngIf="couponForm.get('type')?.value === 'percentage'">&nbsp;%</span>
+            <mat-error *ngIf="couponForm.get('value')?.hasError('required')">Value is required</mat-error>
+            <mat-error *ngIf="couponForm.get('value')?.hasError('min')">Value must be positive</mat-error>
+            <mat-error *ngIf="couponForm.hasError('percentageTooHigh')">Percentage discount cannot exceed 100%</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Min Cart Value</mat-label>
+            <input matInput type="number" formControlName="min_order_amount" min="0" step="0.01">
+            <span matTextPrefix>{{ rupeeSymbol }}&nbsp;</span>
+            <span matSuffix class="field-affix">
+              <app-feather-icons [icon]="'shopping-cart'" [class]="'dialog-feather-icon'"></app-feather-icons>
+            </span>
+            <mat-error *ngIf="couponForm.get('min_order_amount')?.hasError('min')">Amount must be positive</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-4 mb-2" *ngIf="couponForm.get('type')?.value === 'percentage'">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Max Discount</mat-label>
+            <input matInput type="number" formControlName="max_discount" min="0" step="0.01">
+            <span matTextPrefix>{{ rupeeSymbol }}&nbsp;</span>
+            <span matSuffix class="field-affix">
+              <app-feather-icons [icon]="'tag'" [class]="'dialog-feather-icon'"></app-feather-icons>
+            </span>
+            <mat-error *ngIf="couponForm.get('max_discount')?.hasError('min')">Discount must be positive</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Usage Limit</mat-label>
+            <input 
+              matInput 
+              type="number" 
+              formControlName="usage_limit" 
+              min="1" 
+              placeholder="Unlimited"
+              [disabled]="(couponForm.get('valid_from')?.value && couponForm.get('valid_until')?.value) || false">
+            <span matSuffix class="field-affix">
+              <app-feather-icons [icon]="'users'" [class]="'dialog-feather-icon'"></app-feather-icons>
+            </span>
+            <mat-hint *ngIf="couponForm.get('valid_from')?.value && couponForm.get('valid_until')?.value">
+              Disabled when dates are set
+            </mat-hint>
+            <mat-error *ngIf="couponForm.get('usage_limit')?.hasError('min')">Limit must be at least 1</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Validity Start</mat-label>
+            <input 
+              matInput 
+              [matDatepicker]="fromPicker" 
+              formControlName="valid_from" 
+              required
+              [disabled]="(couponForm.get('usage_limit')?.value && couponForm.get('usage_limit')?.value > 0) || false">
+            <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+            <mat-datepicker #fromPicker></mat-datepicker>
+            <mat-hint *ngIf="couponForm.get('usage_limit')?.value && couponForm.get('usage_limit')?.value > 0">
+              Disabled — usage limit set
+            </mat-hint>
+            <mat-error *ngIf="couponForm.get('valid_from')?.hasError('required')">Valid from date is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Validity End</mat-label>
+            <input 
+              matInput 
+              [matDatepicker]="untilPicker" 
+              formControlName="valid_until" 
+              required
+              [disabled]="(couponForm.get('usage_limit')?.value && couponForm.get('usage_limit')?.value > 0) || false">
+            <mat-datepicker-toggle matSuffix [for]="untilPicker"></mat-datepicker-toggle>
+            <mat-datepicker #untilPicker></mat-datepicker>
+            <mat-hint *ngIf="couponForm.get('usage_limit')?.value && couponForm.get('usage_limit')?.value > 0">
+              Disabled — usage limit set
+            </mat-hint>
+            <mat-error *ngIf="couponForm.get('valid_until')?.hasError('required')">Valid until date is required</mat-error>
+            <mat-error *ngIf="couponForm.hasError('invalidDateRange')">End date must be the same as or later than the start date</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" floatLabel="always" class="example-full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" required>
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+            <span matSuffix class="field-affix">
+              <app-feather-icons [icon]="'toggle-right'" [class]="'dialog-feather-icon'"></app-feather-icons>
+            </span>
+            <mat-error *ngIf="couponForm.get('status')?.hasError('required')">Status is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <button mat-flat-button color="primary" type="submit" [disabled]="!couponForm.valid">
+              {{ action === 'edit' ? 'Update Coupon' : 'Add Coupon' }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

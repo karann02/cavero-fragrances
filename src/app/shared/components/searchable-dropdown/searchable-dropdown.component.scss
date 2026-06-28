@@ -1,0 +1,40 @@
+/* Compact style for navbar */
+.navbar-style-select {
+  font-size: 14px;
+  height: auto;
+  line-height: normal;
+  padding: 0 0px;
+}
+
+::ng-deep .mat-select-trigger {
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  padding: 0 0px;
+}
+
+.dropdown-search-input {
+  width: 100%;
+  padding: 4px 6px 4px 30px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+
+}
+.dropdown-search-input::placeholder {
+  color: #000;
+  opacity: 1;
+}
+::ng-deep .mat-select-panel {
+  min-width: 200px !important;
+  max-height: 300px !important;
+  z-index: 2000 !important; /* to overlay navbar */
+}
+
+// .mb-18bottom{
+//   margin-bottom: -15px;
+// }
+.marginl16{
+  margin-left: 16px !important;
+}

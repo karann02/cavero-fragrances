@@ -1,0 +1,222 @@
+/* Style for the groups dropdown */
+.collapse-menu-icon {
+  margin-right: 15px;
+
+  .currency-selector-container {
+    margin-left: auto;
+    padding: 0 15px;
+  }
+
+  .navbar-dropdown {
+    min-width: 220px;
+    margin: 0 8px;
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+    .mat-select {
+      line-height: 40px;
+    }
+  }
+  
+  .example-full-width {
+    width: 200px;
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+
+    .mat-form-field-outline {
+      background-color: white;
+      border-radius: 4px;
+    }
+
+    .mat-select-arrow-wrapper {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Make the dropdown match your theme */
+.mat-select-panel {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .mat-option {
+    color: #333;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+.mat-mdc-form-field {
+  flex-direction: inherit;
+}
+
+.currency-selector-container {
+  margin-left: auto;
+  padding: 0 15px;
+}
+
+.notification-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.nfc-close {
+  margin-left: auto;
+  cursor: pointer;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.user-menu-icons {
+  width: 16px;
+  height: 16px;
+  color: #888;
+  transition: color 0.2s ease-in-out;
+}
+
+.user-menu-icons:hover {
+  color: red;
+}
+
+.notification-view {
+  position: absolute;
+  top: 0px;
+  right: -3px;
+  text-align: center;
+  font-size: 10px;
+  padding: 0;
+  line-height: 20px;
+  border-radius: 100px;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: none;
+  color: #fff;
+  box-shadow: none;
+  font-weight: 600;
+  background-color: red;
+}
+
+// ── Navbar height & alignment fix ────────────────────────────────────────────
+:host ::ng-deep nav.navbar {
+  min-height: 64px !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+
+  .container-fluid {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 16px !important;
+  }
+
+  .navbar-header {
+    display: flex !important;
+    align-items: center !important;
+    height: 64px !important;
+    padding: 0 16px !important;
+    flex-shrink: 0;
+  }
+
+  .navbar-collapse {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 64px !important;
+    flex: 1;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    min-width: 0;
+  }
+
+  .collapse-menu-icon {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 64px !important;
+  }
+
+  ul.navbar-nav.navbar-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    margin: 0 0 0 auto !important;
+    height: 64px !important;
+    gap: 4px;
+    min-width: 0;
+
+    > li {
+      display: flex !important;
+      align-items: center !important;
+      height: 64px !important;
+      flex-shrink: 0;
+    }
+  }
+
+  .nav-notification-icons {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .nav-notification-icons .material-icons-outlined,
+  .sidemenu-collapse .material-icons-outlined {
+    font-family: 'Material Icons Outlined' !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user_profile .chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  .user_profile .chip .user_img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 99, 235, 0.18);
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  }
+
+  .user_profile .chip .user_img.user_img_brand {
+    width: 88px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 12px;
+    padding: 4px 8px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
+  }
+
+  .user_profile .chip .chip-label {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #4b5675;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}

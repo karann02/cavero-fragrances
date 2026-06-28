@@ -1,0 +1,26 @@
+/* Returns — action buttons themed for the Atelier dark palette */
+:host ::ng-deep {
+  // Approve (stroked primary) → mint
+  .mat-mdc-outlined-button.mat-primary {
+    --mdc-outlined-button-label-text-color: #9FE3C5;
+    color: #9FE3C5 !important;
+    border-color: rgba(159, 227, 197, 0.4) !important;
+    &:hover { background: rgba(159, 227, 197, 0.08) !important; }
+  }
+  // Reject (stroked warn) → red
+  .mat-mdc-outlined-button.mat-warn {
+    --mdc-outlined-button-label-text-color: #EF9A9A;
+    color: #EF9A9A !important;
+    border-color: rgba(242, 163, 156, 0.4) !important;
+    &:hover { background: rgba(242, 163, 156, 0.08) !important; }
+  }
+  // Refund (flat primary) → mint gradient fill
+  .mat-mdc-unelevated-button.mat-primary {
+    --mdc-filled-button-container-color: #4FA28E;
+    --mdc-filled-button-label-text-color: #06231B;
+    background: linear-gradient(135deg, #6FC3A6, #9FE3C5) !important;
+    color: #06231B !important;
+    font-weight: 700 !important;
+  }
+  .mat-mdc-outlined-button, .mat-mdc-unelevated-button { border-radius: 10px !important; }
+}

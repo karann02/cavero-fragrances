@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cavero Fragrances</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover luxury perfumes, Oud, Attar and Arabian fragrances at Cavero Fragrances. Premium scents for men and women.">
+  <meta name="keywords" content="cavero, fragrances, perfumes, oud, attar, arabian perfumes, luxury scents, eau de parfum, cologne, india">
+  <meta name="robots" content="index,follow">
+  <meta property="og:site_name" content="Cavero Fragrances">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="/">
+  <link rel="icon" href="assets/images/cavero-icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Inter:wght@400;500;600;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Theme styles loaded here to prevent flash on reload -->
+  <link rel="stylesheet" href="assets/cavero/css/theme.min.css">
+  <link rel="stylesheet" href="assets/cavero/icons/cavero-icons.min.css">
+  <link rel="stylesheet" href="assets/cavero/vendor/swiper/swiper-bundle.min.css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+  <style>
+    html, body {
+      font-family: 'DM Sans', 'Segoe UI', sans-serif !important;
+    }
+    *:not(mat-icon):not(.mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone):not(.cvr-hero-title) {
+      font-family: 'DM Sans', 'Segoe UI', sans-serif !important;
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LJGCTNVNK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6LJGCTNVNK');
+  </script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Lordicon animated icons web component -->
+  <script src="https://cdn.lordicon.com/lordicon.js" defer></script>
+  <script>
+    document.documentElement.setAttribute('data-bs-theme', 'light');
+    try { localStorage.setItem('theme', 'light'); } catch (_) {}
+  </script>
+  <style>
+    /* ── Light mode ── */
+    #deliveryOptions { background-color: #fff !important; }
+    #deliveryOptions .offcanvas-header, #deliveryOptions .offcanvas-body { background-color: #fff !important; }
+    #deliveryOptions .offcanvas-title { color: #1a1d23 !important; font-size: 1.25rem; font-weight: 700; }
+    #deliveryOptions .btn-close { color: #1a1d23 !important; }
+    #deliveryOptions .nav-pills .nav-link { color: #1a1d23 !important; border: 1px solid #dee2e6 !important; border-radius: 2rem !important; background: transparent !important; padding: 0.5rem 1.25rem; font-size: 0.9375rem; }
+    #deliveryOptions .nav-pills .nav-link.active { border-color: #1a1d23 !important; font-weight: 600; }
+    #deliveryOptions .btn-primary { background-color: #418576 !important; border-color: #418576 !important; color: #fff !important; border-radius: 2rem !important; }
+    #deliveryOptions .text-body-secondary { color: #6c757d !important; }
+
+    /* Address rows */
+    #deliveryOptions .delivery-address-row {
+      border-bottom: 1px solid #e9ecef;
+      padding: 0.875rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    /* Radio button — circle with inner dot style */
+    #deliveryOptions .delivery-radio {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 1.125rem;
+      height: 1.125rem;
+      border: 2px solid #adb5bd;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      position: relative;
+      margin: 0;
+      transition: border-color 0.15s;
+    }
+    #deliveryOptions .delivery-radio:checked {
+      border-color: #1a1d23;
+      background: radial-gradient(circle, #1a1d23 40%, transparent 45%);
+    }
+    /* Address label */
+    #deliveryOptions .delivery-addr-label {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      color: #1a1d23;
+      flex: 1;
+    }
+    #deliveryOptions .delivery-remove-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      opacity: 0.4;
+      cursor: pointer;
+      color: #1a1d23;
+      font-size: 0.75rem;
+      line-height: 1;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+    #deliveryOptions .delivery-remove-btn:hover { opacity: 0.9; }
+    /* Add delivery address link with animate-underline */
+    #deliveryOptions .delivery-add-link {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: #1a1d23;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 0.75rem;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      background-size: 0 1.5px;
+      transition: background-size 0.3s ease;
+      padding-bottom: 1px;
+    }
+    #deliveryOptions .delivery-add-link:hover { background-size: 100% 1.5px; }
+  </style>
+</head>
+
+<body class="mat-typography">
+  <app-root></app-root>
+</body>
+
+</html>
+

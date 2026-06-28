@@ -1,0 +1,96 @@
+<div class="cv-shell" [class.cv-rail-open]="railOpen" [class.cv-anim]="animOn">
+
+  <!-- mobile drawer scrim -->
+  <div class="cv-rail-scrim" (click)="toggleRail()"></div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="cv-rail">
+    <div class="cv-brand">
+      <div class="cv-brand-mark">C</div>
+      <div class="cv-brand-txt">
+        <div class="cv-brand-name">Cavero</div>
+        <div class="cv-brand-sub">Atelier</div>
+      </div>
+    </div>
+
+    <nav class="cv-nav" data-lenis-prevent>
+      <ng-container *ngFor="let g of nav">
+        <div class="cv-nav-group">{{ g.group }}</div>
+        <a *ngFor="let it of g.items"
+           class="cv-nav-item"
+           [routerLink]="it.path"
+           routerLinkActive="is-active">
+          <span class="material-icons-outlined" aria-hidden="true">{{ it.icon }}</span>
+          <span>{{ it.label }}</span>
+          <span *ngIf="it.badge" class="cv-nav-badge">{{ it.badge }}</span>
+        </a>
+      </ng-container>
+    </nav>
+
+    <div class="cv-rail-foot">
+      <div class="cv-avatar">{{ initials }}</div>
+      <div class="cv-who">
+        <div class="cv-who-name">{{ userName }}</div>
+        <div class="cv-who-role">{{ userRole }}</div>
+      </div>
+      <button class="cv-logout" (click)="logout()" title="Sign out" aria-label="Sign out">
+        <span class="material-icons-outlined" aria-hidden="true">logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN COLUMN ============ -->
+  <div class="cv-col">
+    <header class="cv-topbar">
+      <button class="cv-icon-btn cv-hamb" (click)="toggleRail()" aria-label="Open menu">
+        <span class="material-icons-outlined" aria-hidden="true">menu</span>
+      </button>
+
+      <div class="cv-titles">
+        <div class="cv-eyebrow">{{ pageGroup }}</div>
+        <h1 class="cv-title">{{ pageTitle }}</h1>
+      </div>
+
+      <div class="cv-top-actions">
+        <button class="cv-cmdk-trigger" (click)="openPalette()" aria-label="Open command palette">
+          <span class="material-icons-outlined" aria-hidden="true">search</span>
+          <span class="lbl">Search or jump to…</span>
+          <span class="cv-kbd">⌘K</span>
+        </button>
+        <button class="cv-icon-btn" (click)="refresh()" title="Refresh" aria-label="Refresh">
+          <span class="material-icons-outlined" aria-hidden="true">refresh</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="cv-main" data-lenis-prevent>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <!-- ============ COMMAND PALETTE (⌘K) ============ -->
+  <div class="cv-cmdk-scrim" *ngIf="paletteOpen" (click)="closePalette()">
+    <div class="cv-cmdk" (click)="$event.stopPropagation()">
+      <div class="cv-cmdk-in">
+        <span class="material-icons-outlined" aria-hidden="true">search</span>
+        <input type="text" placeholder="Search pages and actions…"
+               [(ngModel)]="query" (ngModelChange)="selIndex = 0"
+               (keydown)="onPaletteKey($event)"
+               autofocus />
+        <span class="cv-kbd">esc</span>
+      </div>
+      <div class="cv-cmdk-list">
+        <div class="cv-cmdk-cap" *ngIf="filtered.length">Navigate</div>
+        <div *ngFor="let it of filtered; let i = index"
+             class="cv-cmdk-row" [class.sel]="i === selIndex"
+             (mouseenter)="selIndex = i" (click)="go(it)">
+          <span class="material-icons-outlined" aria-hidden="true">{{ it.icon }}</span>
+          <span>{{ it.label }}</span>
+          <span class="cv-cmdk-go">{{ it.cap }} · ↵</span>
+        </div>
+        <div class="cv-cmdk-empty" *ngIf="!filtered.length">No matches for “{{ query }}”.</div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,331 @@
+/* ════════════════════════════════════════
+   Landing page — EM5-style light editorial
+   Cream base #FFF7E4 · white section cards ·
+   gold #418576 accents · dark #1A322D feature cards
+   ════════════════════════════════════════ */
+
+:host {
+  display: block;
+  background: #FFF7E4;
+}
+
+.cavero-home {
+  background: #FFF7E4;
+  padding-bottom: 2.5rem;
+}
+
+/* ── Free Gift Teaser Bar — light gold strip ── */
+.cavero-gift-teaser {
+  background: rgba(65, 133, 118, 0.10);
+  border-top: 1px solid rgba(65, 133, 118, 0.25);
+  border-bottom: 1px solid rgba(65, 133, 118, 0.25);
+  padding: 0.875rem 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.cavero-gift-teaser-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cavero-gift-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #1A322D;
+
+  strong {
+    color: var(--color-gold-deep, #1A322D);
+    font-weight: 700;
+  }
+}
+
+.cavero-gift-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.cavero-gift-divider {
+  width: 1px;
+  height: 1.25rem;
+  background: rgba(26, 50, 45, 0.3);
+
+  @media (max-width: 575.98px) { display: none; }
+}
+
+.cavero-gift-cta {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1A322D;
+  background: var(--color-gold, #418576);
+  border-radius: 6px;
+  padding: 0.45rem 1.125rem;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--color-gold-light, #8DCFB4);
+    color: #1A322D;
+    transform: translateY(-1px);
+  }
+}
+
+/* ── Banner Pair — For Him / For Her ── */
+.cavero-banner-pair {
+  padding: 1.25rem 0;
+}
+
+.cavero-banner-pair-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.cavero-banner-card {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  text-decoration: none;
+  border: 1px solid rgba(65, 133, 118, 0.18);
+  box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+
+  &:hover {
+    .cavero-banner-img { transform: scale(1.05); }
+  }
+}
+
+.cavero-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-luxury, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+/* Oversized media so GSAP scroll-parallax never reveals card edges.
+   Driven by [data-parallax] in MotionService; static + centered when motion is off. */
+.cavero-parallax-media {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  will-change: transform;
+  transition: none; // GSAP scrub controls transform — no CSS easing lag
+}
+
+/* Self-contained banner art carries its own typography — no overlay text. */
+
+/* ── Wide Promo Banner ── */
+.cavero-promo-banner {
+  padding: 1.25rem 0;
+}
+
+.cavero-promo-card {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  aspect-ratio: 21 / 8;
+  border: 1px solid rgba(65, 133, 118, 0.18);
+  box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+
+  &:hover {
+    .cavero-promo-img { transform: scale(1.04); }
+    .cavero-promo-cta { color: var(--color-gold-light, #8DCFB4); }
+  }
+}
+
+.cavero-promo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-luxury, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.cavero-promo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, rgba(26, 50, 45, 0.6) 0%, rgba(26, 50, 45, 0.2) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.cavero-promo-copy {
+  position: absolute;
+  top: 50%;
+  right: clamp(1.5rem, 5vw, 4rem);
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.cavero-promo-title {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.8vw, 2.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0 0 0.625rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+.cavero-promo-cta {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-gold, #418576);
+  transition: color 0.25s ease;
+}
+
+/* ── Shop by Notes ── */
+.cavero-notes-section {
+  padding: 1.25rem 0;
+}
+
+.cavero-notes-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(65, 133, 118, 0.18);
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+}
+
+.cavero-notes-intro {
+  background: #1A322D;
+  border-radius: 14px;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cavero-notes-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  color: #FFF7E4;
+  margin: 0 0 0.625rem;
+}
+
+.cavero-notes-text {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: rgba(255, 247, 228, 0.65);
+  margin: 0;
+}
+
+.cavero-notes-scroll {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.875rem, 2vw, 1.5rem);
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem;
+  scrollbar-width: thin;
+}
+
+.cavero-note-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  &:hover {
+    .cavero-note-circle {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(42, 33, 24, 0.25);
+    }
+    .cavero-note-name { color: var(--color-gold-deep, #1A322D); }
+  }
+}
+
+.cavero-note-circle {
+  width: clamp(64px, 7vw, 84px);
+  height: clamp(64px, 7vw, 84px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  color: rgba(255, 247, 228, 0.92);
+  border: 2px solid rgba(65, 133, 118, 0.35);
+  box-shadow: 0 4px 14px rgba(42, 33, 24, 0.18);
+  transition: transform 0.3s var(--ease-luxury, cubic-bezier(0.25, 0.46, 0.45, 0.94)),
+              box-shadow 0.3s ease;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.cavero-note-name {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1A322D;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991.98px) {
+  .cavero-banner-pair-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cavero-promo-card {
+    aspect-ratio: 16 / 9;
+  }
+
+  .cavero-notes-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cavero-gift-teaser-inner {
+    flex-direction: column;
+    gap: 0.625rem;
+    text-align: center;
+  }
+
+  .cavero-banner-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .cavero-promo-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .cavero-notes-card {
+    padding: 0.875rem;
+    border-radius: 16px;
+  }
+}

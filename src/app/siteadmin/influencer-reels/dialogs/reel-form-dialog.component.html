@@ -1,0 +1,168 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="avatarDetails">
+      <div class="modalTitle">{{ data.action === 'edit' ? 'Edit Reel' : 'Add New Reel' }}</div>
+    </div>
+    <button mat-icon-button mat-dialog-close class="modal-close-button" aria-label="Close dialog" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="form" (ngSubmit)="save()">
+
+      <h4 class="mt-2 mb-3">Reel Information</h4>
+      <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Reel Title</mat-label>
+            <input matInput formControlName="title" placeholder="e.g. Shehnaaz Gill's hack to boost metabolism">
+            <mat-icon matSuffix>videocam</mat-icon>
+            <mat-error *ngIf="form.get('title')?.hasError('required')">Title is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width" floatLabel="always">
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName="product_name" placeholder="e.g. Apple Cider Vinegar">
+            <mat-icon matSuffix>inventory_2</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width" floatLabel="always">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="product_price" placeholder="1,245">
+            <mat-icon matSuffix>currency_rupee</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width" floatLabel="always">
+            <mat-label>Orig. Price</mat-label>
+            <input matInput formControlName="product_original_price" placeholder="1,440">
+            <mat-icon matSuffix>currency_rupee</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width" floatLabel="always">
+            <mat-label>Discount Badge</mat-label>
+            <input matInput formControlName="discount_text" placeholder="e.g. 14% off">
+            <mat-icon matSuffix>local_offer</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-4 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width" floatLabel="always">
+            <mat-label>Sort Order</mat-label>
+            <input matInput type="number" formControlName="sort_order" min="1">
+            <mat-icon matSuffix>sort</mat-icon>
+            <mat-error *ngIf="form.get('sort_order')?.hasError('required')">Sort order is required</mat-error>
+            <mat-error *ngIf="form.get('sort_order')?.hasError('min')">Sort order must be greater than 0</mat-error>
+            <mat-error *ngIf="form.get('sort_order')?.hasError('sortOrderExists')">This sort order already exists. Please choose a different one.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-4 mb-2 d-flex align-items-center">
+          <mat-slide-toggle formControlName="is_active" color="primary">Active</mat-slide-toggle>
+        </div>
+      </div>
+
+      <h4 class="mt-4 mb-3">Popup Product Details</h4>
+      <div class="row">
+        <div class="col-xl-12 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Product Description</mat-label>
+            <textarea matInput rows="4" formControlName="product_description" placeholder="Describe the product benefit shown in the popup"></textarea>
+            <mat-icon matSuffix>notes</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Instagram Link</mat-label>
+            <input matInput formControlName="instagram_url" placeholder="https://www.instagram.com/reel/...">
+            <mat-icon matSuffix>alternate_email</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 mb-2">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>View Detail URL</mat-label>
+            <input matInput formControlName="product_detail_url" placeholder="https://caverofragrance.com/product/product-name">
+            <mat-icon matSuffix>open_in_new</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Reel Video Upload -->
+      <h4 class="mt-4 mb-3">Reel Video <small class="text-muted fw-normal fs-6">(mp4, webm, mov — no size limit)</small></h4>
+      <div class="row">
+        <div class="col-xl-12 mb-3">
+          <div class="file-drop-area" (click)="reelVideoInput.click()">
+            <input #reelVideoInput type="file" class="file-input" accept="video/*" (change)="onReelVideoChange($event)">
+            <div class="file-msg">
+              <mat-icon class="file-icon">video_call</mat-icon>
+              <span>Drop reel video here or click to browse</span>
+            </div>
+          </div>
+          <div class="image-preview-container" *ngIf="previewReelVideo || existingReelVideoUrl">
+            <div class="image-preview-item">
+              <video *ngIf="previewReelVideo" [src]="previewReelVideo" style="width:100%;height:112px;object-fit:cover;" muted playsinline></video>
+              <div *ngIf="!previewReelVideo && existingReelVideoUrl" style="width:100%;height:112px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;">
+                <mat-icon style="font-size:2.5rem;color:#8fb3ff;">videocam</mat-icon>
+              </div>
+              <button type="button" class="remove-image-btn" (click)="removeReelVideoPreview()" mat-icon-button>
+                <mat-icon>close</mat-icon>
+              </button>
+              <div class="image-info">
+                <small>{{ previewReelVideo ? 'New video selected' : 'Existing video' }}</small>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">Supported formats: MP4, WebM, MOV. No size limit.</small>
+        </div>
+      </div>
+
+      <!-- Product Image Upload -->
+      <h4 class="mt-4 mb-3">Product Image <small class="text-muted fw-normal fs-6">(shown on card & popup)</small></h4>
+      <div class="row">
+        <div class="col-xl-12 mb-3">
+          <div class="file-drop-area" (click)="productFileInput.click()">
+            <input #productFileInput type="file" class="file-input" accept="image/*" (change)="onProductImageChange($event)">
+            <div class="file-msg">
+              <mat-icon class="file-icon">cloud_upload</mat-icon>
+              <span>Drop product image here or click to browse</span>
+            </div>
+          </div>
+          <div class="image-preview-container" *ngIf="previewProductImage">
+            <div class="image-preview-item">
+              <img [src]="previewProductImage" alt="Product image">
+              <button type="button" class="remove-image-btn" (click)="removeProductImagePreview()" mat-icon-button>
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+          <small class="text-muted">Supported formats: JPG, PNG, GIF, WebP.</small>
+        </div>
+      </div>
+
+      <!-- Form Buttons -->
+      <div class="row mt-4">
+        <div class="col-xl-12 mb-2">
+          <div class="example-button-row">
+            <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid || isSaving">
+              {{ isSaving ? 'Saving...' : (data.action === 'edit' ? 'Update Reel' : 'Add Reel') }}
+            </button>
+            <button mat-flat-button mat-dialog-close class="formCancelBtn" tabindex="-1" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

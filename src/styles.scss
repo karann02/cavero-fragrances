@@ -1,0 +1,994 @@
+/* Fonts loaded via index.html — Playfair Display, DM Sans, Cinzel */
+/* admin: shared white header removed sitewide on desktop (see _admin-redesign) */
+
+/* Your existing Material styles remain unchanged */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html.gallery-viewer-open,
+body.gallery-viewer-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  overscroll-behavior: none !important;
+}
+
+:root,
+html,
+body,
+[data-bs-theme='light'],
+[data-bs-theme='dark'] {
+  --cz-font-sans-serif: 'DM Sans', 'Segoe UI', sans-serif;
+  --cz-body-font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+body {
+  min-width: 320px;
+}
+
+/* Hide storefront chrome while product image fullscreen viewer is open */
+body.gallery-viewer-open app-cavero-header,
+body.gallery-viewer-open app-cavero-categories,
+body.gallery-viewer-open app-product-detail-breadcrumb,
+body.gallery-viewer-open app-scroll-top-button,
+body.gallery-viewer-open header.navbar-sticky {
+  display: none !important;
+}
+
+.viewer-hidden-for-gallery {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+app-root,
+app-landing {
+  display: block;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body,
+app-root,
+app-landing,
+app-cavero-layout,
+app-cavero-header,
+app-cavero-footer {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif !important;
+}
+
+app-root *:not(mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone),
+app-landing *:not(mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone),
+app-cavero-layout *:not(mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone),
+app-cavero-header *:not(mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone),
+app-cavero-footer *:not(mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone) {
+  font-family: inherit !important;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+/* ── Cavero Fragrances — Arabian Luxury Gold Theme ── */
+:root,
+html[data-bs-theme='light'] {
+  --cz-primary: #418576;
+  --cz-primary-rgb: 65, 133, 118;
+  --cavero-gold: #418576;
+  --cavero-gold-dark: #A8873D;
+  --cavero-gold-deep: #1A322D;
+  --cavero-cream: #FFF7E4;
+  --cavero-dark: #1A322D;
+  --cavero-border-gold: #E8D5A0;
+}
+
+/* Cavero theme isolation */
+app-landing {
+  // Import theme base styles
+  @import 'assets/cavero/css/theme.min.css';
+  font-family: inherit;
+  --cz-primary: #418576;
+  --cz-primary-rgb: 65, 133, 118;
+  --cavero-breadcrumb-color: #418576;
+  --cavero-breadcrumb-hover: #A8873D;
+  --cavero-breadcrumb-muted: rgba(65, 133, 118, 0.82);
+
+  // Reset Material styles that might conflict
+  .mat-typography {
+    font-family: inherit;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: inherit;
+      margin: 0;
+    }
+  }
+
+  .breadcrumb-item,
+  .breadcrumb-item a {
+    color: var(--cavero-breadcrumb-color) !important;
+  }
+
+  .breadcrumb-item a:hover,
+  .breadcrumb-item a:focus {
+    color: var(--cavero-breadcrumb-hover) !important;
+  }
+
+  .breadcrumb-item.active,
+  .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--cavero-breadcrumb-muted) !important;
+  }
+}
+
+app-landing h1,
+app-landing h2,
+app-landing h3,
+app-landing h4,
+app-landing h5,
+app-landing h6,
+app-landing .display-1,
+app-landing .display-2,
+app-landing .display-3,
+app-landing .display-4,
+app-landing .display-5,
+app-landing .display-6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+/* Ensure admin routes use Material theme */
+
+/* Cavero theme */
+html,
+body,
+app-root,
+app-landing,
+app-cavero-layout,
+app-cavero-header,
+app-cavero-footer,
+app-cavero-categories,
+app-cavero-popular-products,
+app-cavero-special-products,
+app-cavero-hero-slider,
+app-cavero-featured-categories,
+app-cavero-lifestyle,
+app-cavero-recipes,
+app-cavero-cta-banners {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif !important;
+}
+
+html *:not(mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone),
+body *:not(mat-icon):not(.material-icons):not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone) {
+  font-family: inherit !important;
+}
+
+.material-icons,
+mat-icon:not(.material-icons-outlined):not(.material-icons-round):not(.material-icons-sharp):not(.material-icons-two-tone) {
+  font-family: 'Material Icons' !important;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.material-icons-outlined,
+mat-icon.material-icons-outlined {
+  font-family: 'Material Icons Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.material-icons-round,
+mat-icon.material-icons-round {
+  font-family: 'Material Icons Round' !important;
+}
+
+.material-icons-sharp,
+mat-icon.material-icons-sharp {
+  font-family: 'Material Icons Sharp' !important;
+}
+
+.material-icons-two-tone,
+mat-icon.material-icons-two-tone {
+  font-family: 'Material Icons Two Tone' !important;
+}
+
+app-cavero-popular-products .product-card .card-body,
+app-cavero-special-products .product-card .card-body,
+app-product-detail-related .product-card .card-body,
+app-catalog-products .product-card .card-body,
+app-wishlist .card .card-body {
+  padding-top: 0.5rem !important;
+}
+
+app-cavero-popular-products .product-card .product-card-name,
+app-cavero-special-products .product-card .product-card-name,
+app-product-detail-related .product-card .product-card-name,
+app-catalog-products .product-card .product-card-name,
+app-wishlist .card .product-card-name,
+app-profile .product-card-name,
+.combo-product-card .product-card-name {
+  margin-top: 0 !important;
+  margin-bottom: 0.3rem !important;
+  padding-top: 0.42rem !important;
+  font-size: 1.14rem !important;
+  line-height: 1.18 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+}
+
+app-cavero-popular-products .product-card .product-card-name a,
+app-cavero-popular-products .product-card .product-card-name .hover-effect-underline,
+app-cavero-special-products .product-card .product-card-name a,
+app-cavero-special-products .product-card .product-card-name .hover-effect-underline,
+app-product-detail-related .product-card .product-card-name a,
+app-product-detail-related .product-card .product-card-name .hover-effect-underline,
+app-catalog-products .product-card .product-card-name a,
+app-catalog-products .product-card .product-card-name .hover-effect-underline,
+app-wishlist .card .product-card-name a,
+app-profile .product-card-name a,
+.combo-product-card .product-card-name a,
+.combo-product-card .product-card-name .product-title-link {
+  color: #1A322D !important;
+  font-size: inherit !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+}
+
+app-cavero-popular-products .product-card .product-card-name a:hover,
+app-cavero-popular-products .product-card .product-card-name .hover-effect-underline:hover,
+app-cavero-special-products .product-card .product-card-name a:hover,
+app-cavero-special-products .product-card .product-card-name .hover-effect-underline:hover,
+app-product-detail-related .product-card .product-card-name a:hover,
+app-product-detail-related .product-card .product-card-name .hover-effect-underline:hover,
+app-catalog-products .product-card .product-card-name a:hover,
+app-catalog-products .product-card .product-card-name .hover-effect-underline:hover,
+app-wishlist .card .product-card-name a:hover,
+app-profile .product-card-name a:hover,
+.combo-product-card .product-card-name a:hover,
+.combo-product-card .product-card-name .product-title-link:hover {
+  color: #7A5B10 !important;
+}
+
+app-cavero-popular-products .product-card .product-card-price,
+app-cavero-special-products .product-card .product-card-price,
+app-product-detail-related .product-card .product-card-price,
+app-catalog-products .product-card .product-card-price,
+app-wishlist .card .product-card-price,
+app-profile .product-card-price,
+.combo-product-card .product-card-price {
+  display: inline-flex !important;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-bottom: 0.45rem !important;
+  font-size: 1.2rem !important;
+  line-height: 1.08 !important;
+  font-weight: 900 !important;
+  color: #1A322D !important;
+}
+
+app-cavero-popular-products .product-card .product-card-original-price,
+app-cavero-special-products .product-card .product-card-original-price,
+app-product-detail-related .product-card .product-card-original-price,
+app-catalog-products .product-card .product-card-original-price,
+app-wishlist .card .product-card-original-price,
+app-profile .product-card-original-price,
+.combo-product-card .product-card-original-price {
+  color: #418576 !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  text-decoration-color: #418576 !important;
+  text-decoration-thickness: 1.5px !important;
+  opacity: 1 !important;
+}
+
+app-cavero-popular-products .product-card .h6,
+app-cavero-special-products .product-card .h6,
+app-product-detail-related .product-card .h6,
+app-catalog-products .product-card .h6,
+app-wishlist .card .h6,
+app-profile .h6,
+.combo-product-card .h6,
+app-cavero-popular-products .product-card .hover-effect-underline,
+app-cavero-special-products .product-card .hover-effect-underline,
+app-product-detail-related .product-card .hover-effect-underline,
+app-catalog-products .product-card .hover-effect-underline,
+app-wishlist .card .hover-effect-underline,
+app-profile .hover-effect-underline,
+.combo-product-card .hover-effect-underline {
+  color: #1A322D !important;
+}
+
+app-cavero-popular-products .product-card .text-body-secondary,
+app-cavero-special-products .product-card .text-body-secondary,
+app-product-detail-related .product-card .text-body-secondary,
+app-catalog-products .product-card .text-body-secondary,
+app-wishlist .card .text-body-secondary,
+app-profile .text-body-secondary,
+.combo-product-card .text-body-secondary,
+app-cavero-popular-products .product-card .fs-xs,
+app-cavero-special-products .product-card .fs-xs,
+app-product-detail-related .product-card .fs-xs,
+app-catalog-products .product-card .fs-xs,
+app-wishlist .card .fs-xs,
+app-profile .fs-xs,
+.combo-product-card .fs-xs {
+  color: #b8a87a !important;
+}
+
+@media (max-width: 575.98px) {
+  app-cavero-popular-products .product-card .product-card-name,
+  app-cavero-special-products .product-card .product-card-name,
+  app-product-detail-related .product-card .product-card-name,
+  app-catalog-products .product-card .product-card-name,
+  app-wishlist .card .product-card-name,
+  app-profile .product-card-name,
+  .combo-product-card .product-card-name {
+    padding-top: 0.34rem !important;
+    font-size: 1rem !important;
+  }
+
+  app-cavero-popular-products .product-card .product-card-price,
+  app-cavero-special-products .product-card .product-card-price,
+  app-product-detail-related .product-card .product-card-price,
+  app-catalog-products .product-card .product-card-price,
+  app-wishlist .card .product-card-price,
+  app-profile .product-card-price,
+  .combo-product-card .product-card-price {
+    font-size: 1.08rem !important;
+  }
+}
+
+.card-page-title {
+  margin: 0 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+}
+
+app-main-layout .content-block > .row {
+  margin-top: 0 !important;
+}
+
+app-main-layout .content-block > .row:first-child > [class*='col-'] > .card {
+  margin-top: 18px !important;
+}
+
+app-main-layout .materialTableHeader {
+  min-height: 74px !important;
+  padding: 16px 20px !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+}
+
+app-main-layout .card.no-extra-top-gap .materialTableHeader {
+  min-height: 74px !important;
+  padding: 14px 18px 12px !important;
+}
+
+app-main-layout .materialTableHeader .right {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  min-height: 42px !important;
+}
+
+app-main-layout .materialTableHeader .right .tbl-export-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+app-main-layout .materialTableHeader .right .tbl-export-btn > li,
+app-main-layout .materialTableHeader .right .tbl-export-btn > li.tbl-header-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+app-main-layout .materialTableHeader .right .tbl-export-btn > li > div,
+app-main-layout .materialTableHeader .right .tbl-export-btn > li > .m-l-10,
+app-main-layout .materialTableHeader .right .tbl-export-btn > li > button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+app-main-layout .materialTableHeader .right .tbl-export-btn button[mat-icon-button],
+app-main-layout .materialTableHeader .right .tbl-export-btn .table-toolbar-btn {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  padding: 0 !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(148, 163, 184, 0.24) !important;
+  background: #fff !important;
+  color: #475569 !important;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+app-main-layout .materialTableHeader .right .tbl-export-btn button[mat-icon-button] .mat-icon,
+app-main-layout .materialTableHeader .right .tbl-export-btn button[mat-icon-button] mat-icon,
+app-main-layout .materialTableHeader .right .tbl-export-btn .table-toolbar-btn .mat-icon,
+app-main-layout .materialTableHeader .right .tbl-export-btn .table-toolbar-btn mat-icon {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 20px !important;
+  line-height: 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+/* ── Global Admin Table Header Fix ── */
+app-main-layout .card {
+  margin-top: 24px;
+}
+
+app-main-layout .materialTableHeader,
+app-main-layout .card .materialTableHeader {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 72px !important;
+  height: auto !important;
+  padding: 14px 20px !important;
+  gap: 10px !important;
+  background: #fff !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+  box-sizing: border-box !important;
+}
+
+app-main-layout .materialTableHeader .left {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+app-main-layout .materialTableHeader .right {
+  display: flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+app-main-layout .materialTableHeader .tbl-export-btn {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+app-main-layout .materialTableHeader .tbl-export-btn > li,
+app-main-layout .materialTableHeader .tbl-header-btn {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+app-main-layout .materialTableHeader .tbl-export-btn > li > div,
+app-main-layout .materialTableHeader .tbl-header-btn .m-l-10 {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+app-main-layout .materialTableHeader .header-buttons-left {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 10px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+app-main-layout .content-block {
+  padding-top: 24px !important;
+}
+
+/* ── Sidebar Low Stock Badge ── */
+.low-stock-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #418576, #8DCFB4);
+  color: #1A322D;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: auto;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CAVERO FRAGRANCES — ARABIAN LUXURY MAXIMALIST DESIGN SYSTEM
+   Phase UI-1: Design System Foundation (2026-06-11)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+:root {
+  --font-heading : 'Playfair Display', Georgia, serif;
+  --font-body    : 'DM Sans', system-ui, sans-serif;
+  --font-accent  : 'Cinzel', 'Times New Roman', serif;
+
+  --text-xs   : 0.75rem;
+  --text-sm   : 0.875rem;
+  --text-base : 1rem;
+  --text-lg   : 1.125rem;
+  --text-xl   : 1.25rem;
+  --text-2xl  : 1.5rem;
+  --text-3xl  : 1.875rem;
+  --text-4xl  : 2.25rem;
+  --text-5xl  : 3rem;
+  --text-6xl  : 3.75rem;
+  --text-7xl  : 4.5rem;
+
+  --color-gold          : #418576;
+  --color-gold-deep     : #1A322D;
+  --color-gold-light    : #8DCFB4;
+  --color-gold-shimmer  : #F5E0A0;
+  --color-dark-base     : #1A322D;
+  --color-dark-surface  : #1A322D;
+  --color-dark-elevated : #252017;
+  --color-dark-border   : #3A3020;
+  --color-cream         : #FFF7E4;
+  --color-cream-muted   : #F0E6D0;
+  --color-text-primary  : #FFFFFF;
+  --color-text-secondary: #C4B28A;
+  --color-text-muted    : #7A6A50;
+  --color-success       : #4CAF82;
+  --color-error         : #E05A5A;
+  --color-glass-bg      : rgba(255, 247, 228, 0.04);
+  --color-glass-border  : rgba(65, 133, 118, 0.15);
+
+  --space-1 : 0.25rem;
+  --space-2 : 0.5rem;
+  --space-3 : 0.75rem;
+  --space-4 : 1rem;
+  --space-6 : 1.5rem;
+  --space-8 : 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --radius-sm  : 4px;
+  --radius-md  : 8px;
+  --radius-lg  : 16px;
+  --radius-xl  : 24px;
+  --radius-pill: 9999px;
+
+  --shadow-gold-sm : 0 2px 12px rgba(65, 133, 118, 0.20);
+  --shadow-gold-md : 0 4px 24px rgba(65, 133, 118, 0.30);
+  --shadow-gold-lg : 0 8px 48px rgba(65, 133, 118, 0.40);
+  --shadow-gold-xl : 0 16px 64px rgba(65, 133, 118, 0.50);
+  --shadow-dark    : 0 8px 32px rgba(0, 0, 0, 0.60);
+  --shadow-card    : 0 2px 16px rgba(0, 0, 0, 0.40);
+
+  --gradient-gold       : linear-gradient(135deg, #418576 0%, #8DCFB4 50%, #1A322D 100%);
+  --gradient-gold-h     : linear-gradient(90deg, #1A322D 0%, #418576 50%, #8DCFB4 100%);
+  --gradient-dark       : linear-gradient(180deg, #1A322D 0%, #1A322D 100%);
+  --gradient-hero       : linear-gradient(180deg, rgba(26,50,45,0) 0%, rgba(26,50,45,0.7) 60%, #1A322D 100%);
+  --gradient-card-hover : linear-gradient(180deg, transparent 40%, rgba(26,50,45,0.9) 100%);
+  --gradient-shimmer    : linear-gradient(90deg, transparent 0%, rgba(65,133,118,0.15) 50%, transparent 100%);
+
+  --duration-fast  : 150ms;
+  --duration-normal: 300ms;
+  --duration-slow  : 500ms;
+  --duration-slower: 800ms;
+  --ease-smooth    : cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce    : cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-luxury    : cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── Storefront Dark Base (customer-facing only — admin unaffected) ── */
+app-cavero-layout {
+  background: var(--color-dark-base);
+  color: var(--color-cream);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* ── Custom Scrollbar ── */
+app-cavero-layout *::-webkit-scrollbar,
+app-landing *::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+app-cavero-layout *::-webkit-scrollbar-track,
+app-landing *::-webkit-scrollbar-track {
+  background: var(--color-dark-surface);
+}
+app-cavero-layout *::-webkit-scrollbar-thumb,
+app-landing *::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-pill);
+}
+app-cavero-layout *::-webkit-scrollbar-thumb:hover,
+app-landing *::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-light);
+}
+
+/* ── Text Selection ── */
+app-cavero-layout ::selection,
+app-landing ::selection {
+  background: rgba(65, 133, 118, 0.30);
+  color: #ffffff;
+}
+
+/* ── Keyframes ── */
+@keyframes cavero-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes cavero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cavero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes cavero-slide-left {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes cavero-slide-right {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes cavero-zoom-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes cavero-gold-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(65, 133, 118, 0); }
+  50%       { box-shadow: 0 0 0 8px rgba(65, 133, 118, 0.20); }
+}
+@keyframes cavero-stroke-draw {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── Utility Classes ── */
+.cavero-shimmer {
+  background: var(--gradient-shimmer);
+  background-size: 200% auto;
+  animation: cavero-shimmer 2s linear infinite;
+}
+.cavero-animate-fade-up   { animation: cavero-fade-up   var(--duration-slow)   var(--ease-luxury) both; }
+.cavero-animate-fade-in   { animation: cavero-fade-in   var(--duration-normal) var(--ease-smooth) both; }
+.cavero-animate-slide-left{ animation: cavero-slide-left var(--duration-slow)  var(--ease-luxury) both; }
+.cavero-animate-zoom-in   { animation: cavero-zoom-in   var(--duration-slow)   var(--ease-luxury) both; }
+
+/* ════════════════════════════════════════════════════════════════
+   CAVERO MOTION SYSTEM  (homepage premium animation layer)
+   Driven by MotionService (Lenis + GSAP) with CSS fallbacks.
+   Everything here is disabled by the reduced-motion kill-switch below.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Extra keyframes ── */
+@keyframes cavero-gradient-drift {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+@keyframes cavero-blob {
+  0%, 100% { border-radius: 42% 58% 56% 44% / 48% 42% 58% 52%; transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+  33%      { border-radius: 60% 40% 38% 62% / 56% 60% 40% 44%; transform: translate3d(2%, -3%, 0) rotate(120deg) scale(1.06); }
+  66%      { border-radius: 38% 62% 64% 36% / 40% 50% 50% 60%; transform: translate3d(-2%, 2%, 0) rotate(240deg) scale(0.96); }
+}
+@keyframes cavero-sheen {
+  0%   { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  18%  { opacity: 1; }
+  100% { transform: translateX(220%)  skewX(-18deg); opacity: 0; }
+}
+@keyframes cavero-ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes cavero-kenburns {
+  from { transform: scale(1.02) translate3d(0,0,0); }
+  to   { transform: scale(1.14) translate3d(-1.5%, -1.5%, 0); }
+}
+@keyframes cavero-float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ── Animated gradient mesh background (ambient motion) ── */
+.cavero-ambient-gradient {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(900px circle at 12% 18%, rgba(65,133,118,0.10), transparent 45%),
+      radial-gradient(800px circle at 88% 12%, rgba(141,207,180,0.08), transparent 42%),
+      radial-gradient(1000px circle at 50% 100%, rgba(26,50,45,0.07), transparent 55%);
+    background-size: 200% 200%;
+    animation: cavero-gradient-drift 22s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+/* dark variant for #1A322D sections */
+.cavero-ambient-gradient--dark::before {
+  background:
+    radial-gradient(700px circle at 18% 20%, rgba(65,133,118,0.16), transparent 45%),
+    radial-gradient(700px circle at 85% 80%, rgba(141,207,180,0.10), transparent 45%);
+  background-size: 200% 200%;
+}
+
+/* ── Liquid morphing blob (decorative, behind content) ── */
+.cavero-liquid-blob {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle at 35% 35%, rgba(65,133,118,0.22), rgba(26,50,45,0.04) 70%);
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 0;
+  animation: cavero-blob 18s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+/* ── Sheen sweep (cards / banners) — triggered on hover via parent ── */
+.cavero-sheen-sweep {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 3;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,247,228,0.45), transparent);
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+.cavero-sheen-host:hover .cavero-sheen-sweep::after { animation: cavero-sheen 0.9s var(--ease-luxury); }
+
+/* ── Spinning gold ring (category circles on hover) ── */
+.cavero-ring-spin-host {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0%, #418576 25%, #8DCFB4 50%, transparent 75%, transparent 100%);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-smooth);
+    z-index: 0;
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  }
+  &:hover::before { opacity: 1; animation: cavero-ring-spin 2.4s linear infinite; }
+}
+
+/* ── Reveal states (GSAP/IntersectionObserver target hooks) ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.8s var(--ease-luxury), transform 0.8s var(--ease-luxury);
+  will-change: opacity, transform;
+}
+[data-reveal].is-revealed { opacity: 1; transform: none; }
+
+/* ── 3D tilt + magnetic helpers ── */
+.cavero-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.35s var(--ease-luxury);
+  will-change: transform;
+}
+.cavero-tilt-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255,247,228,0.28), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-smooth);
+  z-index: 4;
+}
+.cavero-tilt.is-tilting .cavero-tilt-glare { opacity: 1; }
+.cavero-magnetic { transition: transform 0.3s var(--ease-luxury); will-change: transform; }
+
+/* ── Ambient particle canvas ── */
+.cavero-ambient-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   REDUCED-MOTION / TEST KILL-SWITCH
+   Honors OS "reduce motion" AND keeps Playwright (which sets this via
+   the emulated media) on a static, fully-visible page. MotionService
+   additionally disables JS motion under navigator.webdriver.
+   ════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .cavero-ambient-canvas,
+  .cavero-liquid-blob { display: none !important; }
+}
+
+.cavero-gold-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cavero-glass-card {
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Stagger children animations ── */
+.cavero-stagger > *:nth-child(1)  { animation-delay: 80ms;  animation-fill-mode: both; }
+.cavero-stagger > *:nth-child(2)  { animation-delay: 160ms; animation-fill-mode: both; }
+.cavero-stagger > *:nth-child(3)  { animation-delay: 240ms; animation-fill-mode: both; }
+.cavero-stagger > *:nth-child(4)  { animation-delay: 320ms; animation-fill-mode: both; }
+.cavero-stagger > *:nth-child(5)  { animation-delay: 400ms; animation-fill-mode: both; }
+.cavero-stagger > *:nth-child(6)  { animation-delay: 480ms; animation-fill-mode: both; }
+.cavero-stagger > *:nth-child(7)  { animation-delay: 560ms; animation-fill-mode: both; }
+.cavero-stagger > *:nth-child(8)  { animation-delay: 640ms; animation-fill-mode: both; }
+
+/* ── Skeleton Loader ── */
+.cavero-skeleton {
+  background: linear-gradient(90deg, var(--color-dark-surface) 25%, var(--color-dark-elevated) 50%, var(--color-dark-surface) 75%);
+  background-size: 200% auto;
+  animation: cavero-shimmer 1.5s linear infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ── Gold Button Base ── */
+.cavero-btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-gold);
+  color: var(--color-dark-base);
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: transform var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-shimmer);
+    background-size: 200% auto;
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-smooth);
+  }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold-md);
+    &::after { opacity: 1; animation: cavero-shimmer 1.5s linear infinite; }
+  }
+  &:active { transform: translateY(0); }
+}
+
+.cavero-btn-outlined {
+  background: transparent;
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background var(--duration-normal) var(--ease-smooth),
+              color var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth),
+              transform var(--duration-normal) var(--ease-smooth);
+  &:hover {
+    background: var(--gradient-gold);
+    color: var(--color-dark-base);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold-sm);
+  }
+}
+
+
+/* ===== Cavero Admin light-theme redesign (scoped to app-main-layout) =====
+   NOTE: this file (src/styles.scss) is NOT in the build — only the `test`
+   target uses it. The live admin theme + Atelier shell are imported from the
+   real build entry: src/assets/scss/style.scss. ===== */
+@import 'assets/scss/admin-redesign';

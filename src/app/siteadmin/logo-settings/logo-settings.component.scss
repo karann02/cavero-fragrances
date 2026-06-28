@@ -1,0 +1,179 @@
+:host {
+  display: block;
+  padding-top: 24px;
+}
+
+.section-label {
+  font-weight: 700;
+  color: #f3eee1;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(159, 227, 197, 0.22);
+}
+
+.section-help {
+  margin: -0.1rem 0 1rem;
+  color: rgba(243, 238, 225, 0.6);
+  font-size: 0.9rem;
+  line-height: 1.55;
+
+  strong { color: #9fe3c5; }
+}
+
+/* ── current-logo preview ──────────────────────────────────────────── */
+.logo-preview-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px dashed rgba(159, 227, 197, 0.28);
+  background:
+    linear-gradient(135deg, rgba(159, 227, 197, 0.04), rgba(79, 162, 142, 0.04)),
+    repeating-conic-gradient(rgba(255, 255, 255, 0.03) 0% 25%, transparent 0% 50%) 50% / 22px 22px;
+}
+
+.logo-preview-img {
+  // scale any uploaded size to a consistent preview height (upscales small logos
+  // too) while keeping aspect ratio and never overflowing the box
+  height: 96px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.logo-state {
+  margin-top: 0.85rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+}
+.pill-new    { color: #f4c56b; background: rgba(244, 197, 107, 0.14); }
+.pill-live   { color: #7be0b0; background: rgba(123, 224, 176, 0.14); }
+.pill-default{ color: rgba(243, 238, 225, 0.7); background: rgba(243, 238, 225, 0.08); }
+
+/* ── upload controls ───────────────────────────────────────────────── */
+.upload-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #06231b;
+  background: linear-gradient(135deg, #6fc3a6 0%, #9fe3c5 100%);
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(40, 120, 100, 0.3); }
+  mat-icon { font-size: 19px; width: 19px; height: 19px; }
+}
+
+.file-name {
+  color: rgba(243, 238, 225, 0.85);
+  font-size: 0.88rem;
+  word-break: break-all;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #f2a39c;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  &:hover { text-decoration: underline; }
+}
+
+.file-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.8rem;
+  color: #f2a39c;
+  font-size: 0.86rem;
+  mat-icon { font-size: 18px; width: 18px; height: 18px; }
+}
+
+.actions-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ── guidelines card ───────────────────────────────────────────────── */
+.guide-title-icon {
+  vertical-align: middle;
+  margin-right: 6px;
+  color: #9fe3c5;
+}
+
+.guide-list {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(159, 227, 197, 0.1);
+
+    &:last-child { border-bottom: none; }
+
+    > mat-icon {
+      flex: none;
+      color: #9fe3c5;
+      font-size: 22px;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    strong { color: #f3eee1; font-size: 0.92rem; }
+    span { color: rgba(243, 238, 225, 0.6); font-size: 0.84rem; line-height: 1.5; }
+  }
+}
+
+.guide-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 1.1rem 0 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(143, 195, 242, 0.08);
+  border: 1px solid rgba(143, 195, 242, 0.2);
+  color: rgba(243, 238, 225, 0.78);
+  font-size: 0.84rem;
+  line-height: 1.55;
+
+  mat-icon { flex: none; color: #8fc3f2; font-size: 20px; width: 20px; height: 20px; }
+}

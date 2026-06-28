@@ -1,0 +1,230 @@
+<app-cavero-navbar variant="solid"></app-cavero-navbar>
+
+<main class="content-wrapper">
+  <div class="container py-5">
+
+    <ng-container *ngIf="cart$ | async as cart">
+
+      <!-- Filled cart: two-column layout -->
+      <div *ngIf="cart.items?.length; else emptyCart" class="cavero-cart-layout">
+
+        <!-- LEFT: Items + free gift -->
+        <div class="cavero-cart-items-col">
+
+          <!-- Header -->
+          <div class="cavero-cart-header">
+            <div>
+              <h1 class="cavero-cart-title">Your Cart</h1>
+              <span class="cavero-cart-count">{{ cart.total_items }} {{ cart.total_items === 1 ? 'item' : 'items' }}</span>
+            </div>
+            <button class="cavero-clear-btn" (click)="clearCart()">Clear all</button>
+          </div>
+
+          <!-- Item rows -->
+          <div class="cavero-items-list">
+            <div class="cavero-cart-item" *ngFor="let item of cart.items">
+
+              <!-- Image -->
+              <a *ngIf="!isComboBoxItem(item)" [routerLink]="['/product', getProductRouteParam(item)]" class="cavero-item-img-wrap">
+                <img class="cavero-item-img" [src]="item.product_image" [alt]="item.product_name"
+                  (error)="$any($event.target).src='assets/images/cavero-logo.png'">
+              </a>
+              <div *ngIf="isComboBoxItem(item)" class="cavero-item-img-wrap">
+                <img class="cavero-item-img" [src]="item.product_image" [alt]="item.product_name"
+                  (error)="$any($event.target).src='assets/images/cavero-logo.png'">
+              </div>
+
+              <!-- Info -->
+              <div class="cavero-item-info">
+                <a *ngIf="!isComboBoxItem(item)" [routerLink]="['/product', getProductRouteParam(item)]" class="cavero-item-name">{{ getItemDisplayName(item) }}</a>
+                <span *ngIf="isComboBoxItem(item)" class="cavero-item-name">{{ item.product_name }}</span>
+                <span class="cavero-item-size" *ngIf="item.selected_size">Size: {{ item.selected_size }}</span>
+                <span class="cavero-item-combo-info" *ngIf="isComboBoxItem(item)">
+                  {{ item.combo_box_size || item.combo_box_items?.length || 0 }} items in box
+                </span>
+                <span class="cavero-item-unit-price">₹{{ item.price | number:'1.2-2' }} each</span>
+              </div>
+
+              <!-- Qty + Total + Remove -->
+              <div class="cavero-item-right">
+                <div class="cavero-item-qty">
+                  <button class="cavero-qty-btn" type="button" (click)="decrementItem(item)" [disabled]="item.quantity <= 1" aria-label="Decrease">−</button>
+                  <span class="cavero-qty-val">{{ item.quantity }}</span>
+                  <button class="cavero-qty-btn" type="button"
+                    [class.cavero-qty-btn--maxed]="isMaxQuantity(item)"
+                    [attr.aria-disabled]="isMaxQuantity(item)"
+                    (click)="incrementItem(item)" aria-label="Increase">+</button>
+                </div>
+                <span class="cavero-item-total">₹{{ item.total | number:'1.2-2' }}</span>
+                <button class="cavero-item-remove" type="button" (click)="removeItem(item.product_id)" aria-label="Remove">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Free gift progress -->
+          <div class="cavero-gift-section" *ngIf="freeGifts.length > 0">
+            <ng-container *ngIf="getNextGift(cart.subtotal) as nextGift">
+              <div class="cavero-gift-progress-wrap">
+                <p class="cavero-gift-label">
+                  🎁 Add <strong>₹{{ nextGift.min_order_value - cart.subtotal | number:'1.0-0' }}</strong> more to unlock FREE <strong>{{ nextGift.name }}</strong>
+                </p>
+                <div class="cavero-gift-track">
+                  <div class="cavero-gift-fill" [style.width.%]="getProgressPercent(cart.subtotal, nextGift)"></div>
+                </div>
+              </div>
+            </ng-container>
+            <div class="cavero-gift-unlocked" *ngFor="let g of getUnlockedGifts(cart.subtotal)">
+              <span class="cavero-gift-unlocked-icon">🎉</span>
+              <span>FREE <strong>{{ g.name }}</strong> unlocked! Will be added to your order.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Summary card -->
+        <div class="cavero-cart-summary-col">
+          <div class="cavero-summary-card">
+
+            <h2 class="cavero-summary-heading">Order Summary</h2>
+
+            <!-- Coupon -->
+            <div class="cavero-coupon-section">
+              <ng-container *ngIf="!cart.applied_coupon; else couponApplied">
+                <div class="cavero-coupon-row">
+                  <input class="cavero-coupon-input" type="text" [(ngModel)]="couponCode"
+                    placeholder="Coupon code" (keyup.enter)="applyCoupon()"
+                    autocomplete="off" spellcheck="false">
+                  <button class="cavero-coupon-btn" type="button" (click)="applyCoupon()" [disabled]="!couponCode.trim()">Apply</button>
+                </div>
+
+                <!-- Almost-there upsell nudge -->
+                <div class="cavero-coupon-nudge" *ngIf="getNextCoupon(cart.subtotal) as nudge">
+                  <p class="cavero-coupon-nudge-text">
+                    🛍️ Add <strong>₹{{ getAmountToUnlock(nudge, cart.subtotal) | number:'1.0-0' }}</strong>
+                    more to unlock <strong>{{ getCouponDiscountLabel(nudge) }}</strong>
+                    and save <strong>₹{{ getCouponSavings(nudge, nudge.min_order_amount) | number:'1.0-0' }}</strong>
+                  </p>
+                  <div class="cavero-coupon-nudge-track">
+                    <div class="cavero-coupon-nudge-fill" [style.width.%]="getCouponProgress(nudge, cart.subtotal)"></div>
+                  </div>
+                </div>
+
+                <!-- Applicable coupons list -->
+                <div class="cavero-coupon-list" *ngIf="availableCoupons.length > 0">
+                  <p class="cavero-coupon-list-title">Available Offers</p>
+                  <div class="cavero-coupon-item"
+                    *ngFor="let coupon of availableCoupons"
+                    [class.cavero-coupon-item--disabled]="!isCouponApplicable(coupon, cart.subtotal)"
+                    [class.cavero-coupon-item--best]="coupon === getBestCoupon(cart.subtotal)">
+                    <div class="cavero-coupon-item-info">
+                      <div class="cavero-coupon-item-head">
+                        <span class="cavero-coupon-item-code">{{ coupon.code }}</span>
+                        <span class="cavero-coupon-item-discount">{{ getCouponDiscountLabel(coupon) }}</span>
+                        <span class="cavero-coupon-item-best" *ngIf="coupon === getBestCoupon(cart.subtotal)">★ BEST</span>
+                        <span class="cavero-coupon-item-expiry" *ngIf="isCouponExpiringSoon(coupon)">⏳ {{ getCouponExpiryLabel(coupon) }}</span>
+                      </div>
+                      <p class="cavero-coupon-item-meta" *ngIf="isCouponApplicable(coupon, cart.subtotal); else couponShort">
+                        You save ₹{{ getCouponSavings(coupon, cart.subtotal) | number:'1.0-0' }} with this coupon
+                      </p>
+                      <ng-template #couponShort>
+                        <p class="cavero-coupon-item-meta">
+                          Add ₹{{ coupon.min_order_amount - cart.subtotal | number:'1.0-0' }} more to use this
+                        </p>
+                      </ng-template>
+                    </div>
+                    <button class="cavero-coupon-item-apply" type="button"
+                      [disabled]="!isCouponApplicable(coupon, cart.subtotal)"
+                      (click)="applyCouponFromList(coupon, cart.subtotal)">Apply</button>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-template #couponApplied>
+                <div class="cavero-coupon-applied-row">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="cavero-coupon-badge">{{ cart.applied_coupon?.code }}</span>
+                  <span class="cavero-coupon-savings">−₹{{ cart.coupon_discount | number:'1.2-2' }}</span>
+                  <button class="cavero-coupon-remove" type="button" (click)="removeCoupon()" aria-label="Remove coupon">×</button>
+                </div>
+              </ng-template>
+            </div>
+
+            <!-- Summary rows -->
+            <div class="cavero-summary-rows">
+              <div class="cavero-summary-row">
+                <span>Subtotal</span>
+                <span>₹{{ cart.subtotal | number:'1.2-2' }}</span>
+              </div>
+              <div class="cavero-summary-row cavero-summary-row--discount" *ngIf="cart.coupon_discount > 0">
+                <span>Coupon ({{ cart.applied_coupon?.code }})</span>
+                <span>−₹{{ cart.coupon_discount | number:'1.2-2' }}</span>
+              </div>
+              <div class="cavero-summary-row">
+                <span>Delivery</span>
+                <span [class.cavero-free-tag]="cart.delivery_fee === 0">
+                  {{ cart.delivery_fee === 0 ? 'FREE' : '₹' + (cart.delivery_fee | number:'1.2-2') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="cavero-summary-total-row">
+              <span class="cavero-total-label">Total</span>
+              <span class="cavero-total-amount">₹{{ cart.total | number:'1.2-2' }}</span>
+            </div>
+
+            <!-- Checkout button -->
+            <a routerLink="/checkout" class="cavero-checkout-btn">
+              <span>Proceed to Checkout</span>
+            </a>
+
+            <!-- Continue shopping -->
+            <a routerLink="/shop" class="cavero-continue-btn"><span>Continue Shopping</span></a>
+
+            <!-- Trust badges -->
+            <div class="cavero-trust-row">
+              <div class="cavero-trust-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Secure</span>
+              </div>
+              <div class="cavero-trust-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.49"/></svg>
+                <span>Easy Returns</span>
+              </div>
+              <div class="cavero-trust-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Free Shipping ₹999+</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Empty cart state -->
+      <ng-template #emptyCart>
+        <div class="cavero-empty-cart">
+          <div class="cavero-empty-ornament">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="39" stroke="rgba(65,133,118,0.2)" stroke-width="1.5"/>
+              <circle cx="40" cy="40" r="28" stroke="rgba(65,133,118,0.1)" stroke-width="1"/>
+              <path d="M32 28h16v4l2 4v12H30V36l2-4v-4z" stroke="rgba(65,133,118,0.5)" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+              <path d="M36 28v-2a2 2 0 0 1 4 0v2" stroke="rgba(65,133,118,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <line x1="34" y1="43" x2="46" y2="43" stroke="rgba(65,133,118,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2 class="cavero-empty-title">Your cart is empty</h2>
+          <p class="cavero-empty-sub">Discover our luxury fragrances and find your signature scent.</p>
+          <a routerLink="/shop" class="cavero-empty-cta">Explore Collection</a>
+        </div>
+      </ng-template>
+
+    </ng-container>
+
+  </div>
+</main>
+
+<app-cavero-footer></app-cavero-footer>

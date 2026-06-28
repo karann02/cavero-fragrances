@@ -1,0 +1,457 @@
+<section class="content">
+  <div class="content-block" style="padding-top: 12px;">
+    <div class="row" style="margin-top: 14px;">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="materialTableHeader" style="padding: 14px 16px 12px;">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h1 class="card-page-title" style="margin: 0; font-size: 1.1rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; color: #243247;">Orders</h1>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input placeholder="Search" type="text" #filter (keyup)="applyFilter($event)"
+                    class="browser-default search-field" aria-label="Search box">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10 toolbar-select-anchor">
+                    <button mat-icon-button color="primary" class="table-toolbar-btn" (click)="select.open()" matTooltip="Show/Hide Column" aria-label="Show or hide columns">
+                      <mat-icon>filter_list</mat-icon>
+                    </button>
+                    <mat-select #select class="column-filter toolbar-hidden-select">
+                      <span class="table-column-label">Show/Hide Column</span>
+                      @for (cd of columnDefinitions; track cd; let i = $index) {
+                      <div>
+                        <mat-option>
+                          <mat-checkbox (click)="$event.stopPropagation()" [(ngModel)]="cd.visible" color="primary">
+                            {{cd.label}}
+                          </mat-checkbox>
+                        </mat-option>
+                      </div>
+                      }
+                    </mat-select>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="refresh()" class="table-toolbar-btn" matTooltip="Refresh" aria-label="Refresh orders">
+                      <mat-icon>refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10">
+                    <button mat-icon-button (click)="exportExcel()" class="table-toolbar-btn col-blue" matTooltip="Export Excel" aria-label="Export Excel">
+                      <mat-icon class="material-icons-outlined">file_download</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Status Filter Chips -->
+          <div class="status-filter-bar">
+            @for (sf of statusFilters; track sf.value) {
+              <button type="button" class="sf-chip" [ngClass]="[sf.cls, activeStatusFilter === sf.value ? 'sf-active' : '']"
+                (click)="filterByStatus(sf.value)">
+                {{ sf.label }}
+                @if (sf.value !== '') {
+                  <span class="sf-count">({{ getStatusCount(sf.value) }})</span>
+                }
+              </button>
+            }
+          </div>
+
+          <!-- Bulk status action bar — appears when orders are selected -->
+          @if (selection.hasValue()) {
+            <div class="bulk-action-bar">
+              <div class="bulk-info">
+                <mat-icon>task_alt</mat-icon>
+                <span><strong>{{ selectedCount }}</strong> selected</span>
+              </div>
+              <div class="bulk-actions">
+                @if (bulkNextStatus) {
+                  <button type="button" class="bulk-advance-btn" [ngClass]="'to-' + bulkNextStatus.value" [disabled]="bulkUpdating"
+                          (click)="bulkUpdateStatus(bulkNextStatus.value)">
+                    <mat-icon>{{ bulkUpdating ? 'autorenew' : 'arrow_forward' }}</mat-icon>
+                    Mark as {{ bulkNextStatus.label }}
+                  </button>
+                } @else if (bulkSelectionMixed) {
+                  <span class="bulk-hint">Select orders of the same status to move them together</span>
+                } @else {
+                  <span class="bulk-hint">No further status available</span>
+                }
+                <button type="button" class="bulk-clear-btn" (click)="clearSelection()" matTooltip="Clear selection" aria-label="Clear selection">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </div>
+            </div>
+          }
+
+          <div class="overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
+                <!-- Checkbox Column -->
+                <ng-container matColumnDef="select">
+                  <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()" color="primary"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
+                    </mat-checkbox>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'" color="primary">
+                    </mat-checkbox>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Order Number Column -->
+                <ng-container matColumnDef="order_number">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Order ID</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Order ID:</span>
+                    <span class="truncate-text">{{ row.order_number }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Razorpay Order ID Column -->
+                <ng-container matColumnDef="razorpay_order_id">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Razorpay Order ID</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Razorpay Order ID:</span>
+                    <span class="truncate-text" [title]="row.razorpay_order_id || 'N/A'">{{ row.razorpay_order_id || 'N/A' }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Customer Column -->
+                <ng-container matColumnDef="customer">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Customer</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Customer:</span>
+                    <div class="order-customer-name">
+                      <span class="truncate-text customer-name-text">{{ getCustomerName(row) }}</span>
+                    </div>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Products Column -->
+                <ng-container matColumnDef="products">
+                  <mat-header-cell *matHeaderCellDef>
+                    <span class="truncate-text">Products</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Products:</span>
+                    <div class="order-products-cell">
+                      @if ((row.orderItems?.length || 0) > 0) {
+                        <div class="order-products-list">
+                          @for (item of getVisibleOrderItems(row); track item.id) {
+                            <span class="order-product-line">
+                              <span class="opl-name" [matTooltip]="item.product_name">{{ item.product_name }}</span>
+                              <span class="opl-qty">×{{ item.quantity }}</span>
+                            </span>
+                          }
+                          @if (getRemainingOrderItemsCount(row) > 0) {
+                            <span class="order-product-more">+{{ getRemainingOrderItemsCount(row) }} more</span>
+                          }
+                        </div>
+                      } @else {
+                        <span class="no-products-text">No products found</span>
+                      }
+                    </div>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Amount Column -->
+                <ng-container matColumnDef="coupon">
+                  <mat-header-cell *matHeaderCellDef>
+                    <span class="truncate-text">Coupon</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Coupon:</span>
+                    <div class="order-coupon-cell" [class.is-empty]="!hasCoupon(row)">
+                      @if (hasCoupon(row)) {
+                        <span class="coupon-code-chip">{{ getCouponCode(row) }}</span>
+                      } @else {
+                        <span class="coupon-empty-text">No coupon used</span>
+                      }
+                    </div>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Amount Column -->
+                <ng-container matColumnDef="amount">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Amount</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Amount:</span>
+                    <span class="truncate-text">₹{{ row.final_amount }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Payment Status Column -->
+                <ng-container matColumnDef="payment_status">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Payment</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Payment:</span>
+                    <span class="truncate-text badge" 
+                          [ngClass]="{
+                            'badge-success': row.payment_status === 'paid',
+                            'badge-warning': row.payment_status === 'pending',
+                            'badge-danger': row.payment_status === 'failed'
+                          }">
+                      {{ row.payment_status }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Order Status Column -->
+                <ng-container matColumnDef="order_status">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Status</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Status:</span>
+                    <span class="truncate-text badge-status" 
+                          [ngClass]="{
+                            'badge-success': row.order_status === 'delivered',
+                            'badge-primary': row.order_status === 'confirmed',
+                            'badge-info': row.order_status === 'processing',
+                            'badge-secondary': row.order_status === 'shipped',
+                            'badge-warning': row.order_status === 'pending',
+                            'badge-danger': row.order_status === 'cancelled'
+                          }">
+                      {{ getStatusLabel(row.order_status) }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Date Column -->
+                <ng-container matColumnDef="created_at">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <span class="truncate-text">Date</span>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <span class="mobile-label">Date:</span>
+                    <span class="truncate-text">{{ row.created_at | date:'medium' }}</span>
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let row; let i=index;" class="pr-0 actions-cell">
+                    <div class="order-actions-wrap">
+                      <!-- Status: colour pill that opens a custom dark-glass menu -->
+                      <button
+                        type="button"
+                        class="status-pill-btn"
+                        [ngClass]="'chip-' + row.order_status"
+                        [matMenuTriggerFor]="statusMenu"
+                        [disabled]="updatingStatusId === row.id"
+                        (click)="$event.stopPropagation()"
+                        (mousedown)="$event.stopPropagation()"
+                        aria-label="Update order status">
+                        <span class="status-dot"></span>
+                        <span class="status-pill-label">{{ getStatusLabel(row.order_status) }}</span>
+                        @if (updatingStatusId === row.id) {
+                          <mat-icon class="status-pill-spin">autorenew</mat-icon>
+                        } @else {
+                          <mat-icon class="status-pill-caret">expand_more</mat-icon>
+                        }
+                      </button>
+                      <mat-menu #statusMenu="matMenu" class="order-status-menu" xPosition="before">
+                        <div class="osm-head">Update status</div>
+                        @for (status of statusOptions; track status.value) {
+                          <button
+                            mat-menu-item
+                            type="button"
+                            class="status-menu-item"
+                            [ngClass]="'opt-' + status.value"
+                            [class.is-current]="row.order_status === status.value"
+                            (click)="updateStatusInline(row, status.value)">
+                            <span class="status-dot"></span>
+                            <span class="smi-label">{{ status.label }}</span>
+                            @if (row.order_status === status.value) {
+                              <mat-icon class="smi-check">check</mat-icon>
+                            }
+                          </button>
+                        }
+                      </mat-menu>
+                      <button
+                        mat-icon-button
+                        type="button"
+                        class="order-details-btn whatsapp-btn"
+                        (click)="$event.stopPropagation(); openWhatsApp(row)"
+                        matTooltip="WhatsApp customer"
+                        aria-label="WhatsApp customer">
+                        <mat-icon>chat</mat-icon>
+                      </button>
+                      <button
+                        mat-icon-button
+                        type="button"
+                        class="order-details-btn"
+                        (click)="$event.stopPropagation(); printPackingSlip(row)"
+                        matTooltip="Print packing slip"
+                        aria-label="Print packing slip">
+                        <mat-icon>print</mat-icon>
+                      </button>
+                      <button
+                        mat-icon-button
+                        type="button"
+                        class="order-details-btn"
+                        (click)="$event.stopPropagation(); downloadInvoice(row)"
+                        matTooltip="Download invoice"
+                        aria-label="Download invoice">
+                        <mat-icon>receipt_long</mat-icon>
+                      </button>
+                      <button
+                        mat-icon-button
+                        type="button"
+                        class="order-details-btn"
+                        (click)="$event.stopPropagation(); openOrderDetails(row)"
+                        matTooltip="View order details"
+                        aria-label="View order details">
+                        <mat-icon>visibility</mat-icon>
+                      </button>
+                    </div>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+                <mat-row [@rowsAnimation]="" *matRowDef="let row; columns: getDisplayedColumns();"
+                  [style.cursor]="'pointer'" matRipple (click)="openOrderDetails(row)">
+                </mat-row>
+              </table>
+
+              <!-- Loading spinner -->
+              
+
+              <!-- No Results -->
+             @if (!isLoading && dataSource.data.length === 0) {
+              <div class="no-results text-center py-5">
+                <mat-icon class="display-1 text-muted mb-3">inventory_2</mat-icon>
+                <h4 class="text-muted">No orders found</h4>
+                <!--<p class="text-muted">Get started by adding your first combo</p>
+                 <button mat-raised-button color="primary" (click)="addNew()">
+                  <mat-icon>add</mat-icon>
+                  Add First Combo
+                </button> -->
+              </div>
+              }
+            </div>
+          </div>
+          <!-- paginator OUTSIDE the horizontal-scroll wrapper → stays fixed -->
+          <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25, 100]">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="order-details-modal-backdrop" *ngIf="selectedOrderDetails" (click)="closeOrderDetails()">
+  <div class="order-details-modal" (click)="$event.stopPropagation()">
+    <div class="order-details-header">
+      <div>
+        <h2>Order Details</h2>
+        <p>{{ selectedOrderDetails.order_number }}</p>
+      </div>
+      <div class="order-details-header-actions">
+        <button mat-icon-button type="button" class="order-details-close-btn whatsapp-btn"
+          (click)="openWhatsApp(selectedOrderDetails)" aria-label="WhatsApp customer" matTooltip="WhatsApp customer">
+          <mat-icon>chat</mat-icon>
+        </button>
+        <button mat-icon-button type="button" class="order-details-close-btn"
+          (click)="printPackingSlip(selectedOrderDetails)" aria-label="Print packing slip" matTooltip="Print packing slip">
+          <mat-icon>print</mat-icon>
+        </button>
+        <button mat-icon-button type="button" class="order-details-close-btn"
+          (click)="downloadInvoice(selectedOrderDetails)" aria-label="Download invoice" matTooltip="Download invoice">
+          <mat-icon>receipt_long</mat-icon>
+        </button>
+        <button mat-icon-button type="button" class="order-details-close-btn"
+          (click)="closeOrderDetails()" aria-label="Close order details">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="order-details-body">
+      <div class="order-details-grid">
+        <div class="order-detail-card">
+          <span class="detail-title">Customer</span>
+          <strong>{{ getCustomerName(selectedOrderDetails) }}</strong>
+          <span>{{ getCustomerPhone(selectedOrderDetails) }}</span>
+          <span>{{ getCustomerEmail(selectedOrderDetails) }}</span>
+        </div>
+
+        <div class="order-detail-card">
+          <span class="detail-title">Payment</span>
+          <strong>{{ getPaymentMethodLabel(selectedOrderDetails) }}</strong>
+          <span>Payment Status: {{ selectedOrderDetails.payment_status || 'N/A' }}</span>
+          <span>Razorpay Order ID: {{ selectedOrderDetails.razorpay_order_id || 'N/A' }}</span>
+          <span>Razorpay Payment ID: {{ getRazorpayPaymentId(selectedOrderDetails) }}</span>
+        </div>
+
+        <div class="order-detail-card">
+          <span class="detail-title">Amounts</span>
+          <strong>₹{{ getAmountValue(selectedOrderDetails.final_amount) | number:'1.2-2' }}</strong>
+          <span>Subtotal: ₹{{ getAmountValue(selectedOrderDetails.total_amount) | number:'1.2-2' }}</span>
+          <span>Discount: ₹{{ getAmountValue(selectedOrderDetails.discount_amount) | number:'1.2-2' }}</span>
+          <span>Shipping: ₹{{ getAmountValue(selectedOrderDetails.shipping_amount) | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="order-detail-card">
+          <span class="detail-title">Order</span>
+          <strong>{{ getStatusLabel(selectedOrderDetails.order_status) }}</strong>
+          <span>Date: {{ selectedOrderDetails.created_at | date:'medium' }}</span>
+          <span *ngIf="hasCoupon(selectedOrderDetails)">Coupon: {{ getCouponExportLabel(selectedOrderDetails) }}</span>
+          <span *ngIf="!hasCoupon(selectedOrderDetails)">Coupon: No coupon used</span>
+        </div>
+      </div>
+
+      <div class="order-detail-section">
+        <h3>Shipping Address</h3>
+        <div class="order-detail-surface">
+          <p class="mb-1"><strong>{{ getCustomerAddressLabel(selectedOrderDetails) }}</strong></p>
+          <p class="mb-0">{{ getCustomerAddress(selectedOrderDetails) }}</p>
+        </div>
+      </div>
+
+      <div class="order-detail-section">
+        <h3>Products</h3>
+        <div class="order-products-list">
+          <div class="order-products-list-item" *ngFor="let item of getOrderProducts(selectedOrderDetails)">
+            <div class="product-copy">
+              <strong>{{ item.product_name }}</strong>
+              <span>Product ID: {{ item.product_id }}</span>
+            </div>
+            <div class="product-metrics">
+              <span>Qty: {{ item.quantity }}</span>
+              <strong>₹{{ getAmountValue(item.total_price) | number:'1.2-2' }}</strong>
+            </div>
+          </div>
+          <div class="empty-products-state" *ngIf="getOrderProducts(selectedOrderDetails).length === 0">
+            No products found for this order.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

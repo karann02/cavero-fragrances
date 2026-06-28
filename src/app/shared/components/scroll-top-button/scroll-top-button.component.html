@@ -1,0 +1,13 @@
+<button
+  type="button"
+  class="scroll-top-button"
+  [class.is-visible]="isVisible"
+  (click)="scrollToTop()"
+  aria-label="Scroll to top">
+  <span class="scroll-top-button__inner">
+    <span class="scroll-top-button__icon" aria-hidden="true">
+      <i class="ci-arrow-up"></i>
+    </span>
+    <span class="scroll-top-button__label">Top</span>
+  </span>
+</button>

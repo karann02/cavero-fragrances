@@ -1,0 +1,6 @@
+<app-page-loader></app-page-loader>
+<div *ngIf="!isOnline" class="overlay">
+    <h2>No Internet Connection</h2>
+  </div>
+<router-outlet></router-outlet>
+<app-scroll-top-button></app-scroll-top-button>

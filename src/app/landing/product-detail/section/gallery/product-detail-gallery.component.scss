@@ -1,0 +1,393 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CAVERO PRODUCT-DETAIL · GALLERY
+   Light theme to match catalog: soft surfaces, teal active state,
+   card lift on the main stage. Fullscreen viewer stays dark.
+   ───────────────────────────────────────────────────────────── */
+
+.product-gallery-layout {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  min-width: 0;
+}
+
+.product-gallery-thumbs-wrap {
+  width: 84px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.product-gallery-thumbs {
+  display: grid;
+  gap: 10px;
+  max-height: 648px; // 7 thumbnails (84px) + 6 gaps (10px)
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+.thumb-btn {
+  border: 1.5px solid rgba(26, 50, 45, 0.1);
+  border-radius: 10px;
+  background: #f4f4f2;
+  width: 84px;
+  height: 84px;
+  padding: 0;
+  overflow: hidden;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:not(.active) {
+    transform: translateY(-2px);
+    img { transform: scale(1.06); }
+  }
+
+  &.active {
+    border-color: #418576;
+    box-shadow: 0 0 0 2px rgba(65, 133, 118, 0.25), 0 6px 16px rgba(65, 133, 118, 0.18);
+  }
+
+  &.thumb-overflow {
+    position: relative;
+  }
+}
+
+.thumb-overflow-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 50, 45, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.thumb-scroll-btn {
+  width: 84px;
+  height: 28px;
+  border: 1px solid rgba(65, 133, 118, 0.25);
+  border-radius: 999px;
+  background: #ffffff;
+  color: rgba(65, 133, 118, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, border-color .2s ease, color .2s ease, background .2s ease;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &:hover {
+    border-color: #418576;
+    color: #418576;
+    background: rgba(65, 133, 118, 0.06);
+  }
+}
+
+.product-gallery-main {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f7f7f5;
+  border: 1px solid rgba(26, 50, 45, 0.1);
+  box-shadow: 0 8px 30px rgba(26, 50, 45, 0.1);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cav-gal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* thin teal sheen along the top edge for a premium accent */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(65, 133, 118, 0.55), rgba(141, 207, 180, 0.7), transparent);
+    pointer-events: none;
+  }
+}
+
+@keyframes cav-gal-in {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Discount flag on the main image */
+.cavero-gallery-discount {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  background: #D64545;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 6px 16px rgba(214, 69, 69, 0.4);
+  pointer-events: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cav-gal-discount-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+  }
+}
+
+@keyframes cav-gal-discount-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.85); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.main-image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 320px;
+  aspect-ratio: 4 / 5;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+
+  &.is-dragging {
+    cursor: grabbing;
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin-inline: auto;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.55s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.06);
+  }
+}
+
+.fullscreen-viewer {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 2147483647;
+  background: rgba(14, 12, 11, 0.995);
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  isolation: isolate;
+}
+
+.viewer-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  z-index: 1;
+
+  img {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.viewer-nav,
+.viewer-close {
+  position: relative;
+  z-index: 6;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+.viewer-nav.prev {
+  justify-self: start;
+}
+
+.viewer-nav.next {
+  justify-self: end;
+}
+
+.viewer-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.viewer-nav:hover,
+.viewer-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.viewer-count {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: .9rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  padding: .25rem .7rem;
+}
+
+@media (max-width: 991.98px) {
+  .product-gallery-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .product-gallery-thumbs-wrap {
+    order: 2;
+    width: 100%;
+    display: block;
+  }
+
+  .product-gallery-main {
+    order: 1;
+    padding: 0;
+    border-radius: 16px;
+    background: #f7f7f5;
+  }
+
+  .product-gallery-thumbs {
+    grid-auto-flow: column;
+    grid-auto-columns: 64px;
+    grid-template-rows: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    scroll-snap-type: x proximity;
+    padding: 2px 6px 6px;
+    scroll-padding-inline: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(65, 133, 118, 0.4) transparent;
+
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(65, 133, 118, 0.38);
+      border-radius: 999px;
+    }
+  }
+
+  .thumb-scroll-btn {
+    display: none;
+  }
+
+  .thumb-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    scroll-snap-align: start;
+  }
+
+  .main-image-link {
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 5 / 6;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .main-image-link img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .fullscreen-viewer {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    padding: 14px 8px;
+    gap: 6px;
+  }
+
+  .viewer-nav,
+  .viewer-close {
+    width: 40px;
+    height: 40px;
+  }
+
+  .viewer-stage img {
+    max-width: 100%;
+    max-height: 84vh;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .main-image-link {
+    aspect-ratio: 5 / 6;
+    padding: 10px;
+  }
+
+  .thumb-btn {
+    width: 60px;
+    height: 60px;
+  }
+}

@@ -1,0 +1,117 @@
+<div class="excel-import-dialog">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>Import Categories from Excel</h2>
+    <button mat-icon-button (click)="close()" class="close-btn"><mat-icon>close</mat-icon></button>
+  </div>
+
+  <mat-dialog-content>
+    <div class="import-container">
+
+      <!-- Upload Section -->
+      <div class="upload-section" *ngIf="parsedData.length === 0">
+        <div class="upload-area" (click)="triggerFileInput()" (dragover)="$event.preventDefault()" (drop)="handleDrop($event)">
+          <mat-icon class="upload-icon">cloud_upload</mat-icon>
+          <h3>Upload Excel File</h3>
+          <p>Click here or drag and drop your Excel file</p>
+          <p class="file-info">Supported formats: .xlsx, .xls</p>
+          <button mat-raised-button color="primary" (click)="$event.stopPropagation(); triggerFileInput()">
+            <mat-icon>folder_open</mat-icon> Choose File
+          </button>
+        </div>
+        <input #fileInput type="file" accept=".xlsx,.xls" (change)="onFileSelected($event)" style="display:none" />
+        <div class="template-section">
+          <p>Don't have a template? Download one:</p>
+          <button mat-stroked-button color="primary" (click)="downloadTemplate()">
+            <mat-icon>download</mat-icon> Download Template
+          </button>
+        </div>
+      </div>
+
+      <!-- Review Section -->
+      <div class="review-section" *ngIf="parsedData.length > 0">
+        <div class="section-header">
+          <h3>Review Import Data</h3>
+          <div class="actions">
+            <button mat-stroked-button (click)="triggerFileInput()"><mat-icon>refresh</mat-icon> Change File</button>
+            <button mat-stroked-button (click)="downloadTemplate()"><mat-icon>download</mat-icon> Template</button>
+          </div>
+        </div>
+        <input #fileInput type="file" accept=".xlsx,.xls" (change)="onFileSelected($event)" style="display:none" />
+
+        <div class="summary-info">
+          <div class="info-item"><span class="label">Total:</span><span class="value">{{ parsedData.length }}</span></div>
+          <div class="info-item"><span class="label">Selected:</span><span class="value">{{ selectedRows.size }}</span></div>
+          <div class="info-item"><span class="label">With Errors:</span><span class="value error">{{ errorCount }}</span></div>
+        </div>
+
+        <div *ngIf="isImporting" class="progress-section">
+          <mat-progress-bar mode="determinate" [value]="importProgress"></mat-progress-bar>
+          <p class="progress-text">Importing... {{ importProgress }}%</p>
+        </div>
+
+        <div class="table-container">
+          <table mat-table [dataSource]="parsedData" class="import-table">
+
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="toggleAllSelection()" [checked]="allSelected" color="primary"></mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row; let i = index">
+                <mat-checkbox (change)="toggleRowSelection(i)" [checked]="selectedRows.has(i)" [disabled]="hasErrors(i)" color="primary"></mat-checkbox>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Category Name</th>
+              <td mat-cell *matCellDef="let row"><span [class.error-text]="!row.name">{{ row.name || 'N/A' }}</span></td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef>Description</th>
+              <td mat-cell *matCellDef="let row">{{ row.description || '—' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let row">
+                <span class="badge" [ngClass]="row.status ? 'badge-success' : 'badge-danger'">
+                  {{ row.status ? 'Active' : 'Inactive' }}
+                </span>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="is_featured">
+              <th mat-header-cell *matHeaderCellDef>Featured</th>
+              <td mat-cell *matCellDef="let row">
+                <span class="badge" [ngClass]="row.is_featured ? 'badge-warning' : 'badge-secondary'">
+                  {{ row.is_featured ? 'Yes' : 'No' }}
+                </span>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="errors">
+              <th mat-header-cell *matHeaderCellDef>Errors</th>
+              <td mat-cell *matCellDef="let row">
+                <div *ngIf="row.errors && row.errors.length > 0" class="error-list">
+                  <span *ngFor="let e of row.errors" class="error-badge">{{ e }}</span>
+                </div>
+                <span *ngIf="!row.errors || row.errors.length === 0" class="success-badge">✓ Valid</span>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.error-row]="row.errors && row.errors.length > 0"></tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </mat-dialog-content>
+
+  <div class="dialog-actions" *ngIf="parsedData.length > 0">
+    <button mat-button (click)="close()" [disabled]="isImporting">Cancel</button>
+    <button mat-raised-button color="primary" (click)="importCategories()" [disabled]="isImporting || selectedRows.size === 0">
+      <mat-icon>cloud_upload</mat-icon> Import Selected ({{ selectedRows.size }})
+    </button>
+  </div>
+</div>
