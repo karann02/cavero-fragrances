@@ -15,7 +15,9 @@ services:
     runtime: node
     plan: free
     region: singapore            # closest to India; change if you prefer
-    buildCommand: npm install && npm run build && npm install --prefix backend/auth-service
+    # --include=dev is REQUIRED: Render sets NODE_ENV=production, which would otherwise
+    # skip the Angular CLI build tools that live in devDependencies.
+    buildCommand: npm install --include=dev && npm run build && npm install --prefix backend/auth-service
     startCommand: node backend/auth-service/server.js
     healthCheckPath: /api/categories
     autoDeploy: true
