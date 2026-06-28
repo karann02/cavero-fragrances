@@ -29,8 +29,11 @@ dev-output.log
 # QA / test screenshots (regenerated)
 qa-screenshots/
 
-# Source branding assets (large .ai/.cdr/.pdf — keep out of repo)
-CAVERO/
+# Source branding assets (large .ai/.cdr/.pdf — keep out of repo).
+# MUST be anchored with a leading slash: git on Windows has core.ignorecase=true,
+# so a bare "CAVERO/" also matched src/themes/cavero & src/assets/cavero (case-
+# insensitive) and silently excluded the app's theme — breaking the cloud build.
+/CAVERO/
 
 # Old theme backup (removed — never re-commit)
 .theme-backup-src/

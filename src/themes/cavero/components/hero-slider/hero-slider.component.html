@@ -1,0 +1,42 @@
+<div class="cvr-masthead">
+  <section class="cvr-hero" *ngIf="slides.length">
+
+    <!-- ── Rounded full-bleed image slider (CoLabs-style) ── -->
+    <div class="cvr-hero-media">
+      <!-- Plain crossfade slides — no canvas, no particles, no glow -->
+      <img *ngFor="let s of slides; let i = index"
+           class="cvr-hero-img" [class.active]="i === currentIndex"
+           [src]="s.image" [alt]="s.title || 'Cavero Fragrances'"
+           (error)="onImgError($event)" loading="eager">
+
+      <!-- Soft top scrim so the floating navbar stays readable over bright art -->
+      <span class="cvr-hero-scrim" aria-hidden="true"></span>
+
+      <!-- Slide dots -->
+      <div class="cvr-hero-dots" *ngIf="slides.length > 1" role="tablist" aria-label="Slides">
+        <button *ngFor="let s of slides; let i = index" type="button"
+                class="cvr-dot" [class.active]="i === currentIndex"
+                (click)="goTo(i)" [attr.aria-label]="'Go to slide ' + (i + 1)"
+                [attr.aria-selected]="i === currentIndex"></button>
+      </div>
+    </div>
+
+    <!-- Carved cream content card — sits OVER the banner (NOT inside the clipped media)
+         so it fully covers the bottom-left corner regardless of baked-in banner art. -->
+    <div class="cvr-hero-panel">
+      <span class="cvr-hero-eyebrow">{{ eyebrow }}</span>
+      <h1 class="cvr-hero-title">{{ tagline }}</h1>
+      <div class="cvr-hero-cta-row">
+        <a class="cvr-hero-cta" routerLink="/shop">
+          {{ ctaLabel }} <i class="ci-arrow-right"></i>
+        </a>
+        <button type="button" class="cvr-hero-scroll" (click)="scrollDown()" aria-label="Scroll to explore">
+          <i class="ci-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Floating navbar over the image (shared reusable component) ── -->
+    <app-cavero-navbar variant="overlay"></app-cavero-navbar>
+  </section>
+</div>

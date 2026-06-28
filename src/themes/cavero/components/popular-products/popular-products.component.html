@@ -1,0 +1,92 @@
+<section class="cavero-products-section">
+  <div class="container">
+
+    <!-- Section header — EM5 style: title left, gold button right -->
+    <div class="cavero-products-header">
+      <div class="cavero-products-title-group">
+        <h2 class="cavero-products-title">Featured Products</h2>
+        <p class="cavero-products-subtext">
+          Indulge in the enchanting world of <span>Cavero Fragrances</span> — luxury Arabian perfumes crafted for India.
+        </p>
+      </div>
+      <a routerLink="/shop" class="cavero-shop-all-btn">Shop All Products</a>
+    </div>
+
+    <!-- Product grid -->
+    <div class="cavero-products-grid" appAnimateOnScroll animationType="fade-up" [staggerDelay]="70">
+      <div
+        *ngFor="let product of visiblePopularProducts; let i = index"
+        class="cavero-product-card-wrap">
+
+        <div class="cavero-product-card cavero-sheen-host" appTilt>
+          <span class="cavero-sheen-sweep"></span>
+
+          <!-- Image area -->
+          <div class="cavero-product-img-wrap">
+
+            <!-- Discount badge -->
+            <span *ngIf="product.discount" class="cavero-badge-discount">
+              -{{ product.discount }}%
+            </span>
+
+            <!-- Wishlist -->
+            <button
+              type="button"
+              class="cavero-wishlist-btn"
+              [class.is-active]="product.isFavorite"
+              (click)="toggleFavorite(product); $event.preventDefault()"
+              [attr.aria-label]="product.isFavorite ? 'Remove from wishlist' : 'Add to wishlist'">
+              <svg width="18" height="18" viewBox="0 0 24 24" [attr.fill]="product.isFavorite ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </button>
+
+            <!-- Product image -->
+            <a [routerLink]="['/product', getProductRouteParam(product)]" class="cavero-product-img-link">
+              <img
+                [src]="product.image"
+                [alt]="product.name"
+                class="cavero-product-img"
+                loading="lazy"
+                (error)="product.image = 'assets/images/cavero-logo.png'">
+            </a>
+
+          </div>
+
+          <!-- Card body -->
+          <div class="cavero-product-body">
+            <h3 class="cavero-product-name">
+              <a [routerLink]="['/product', getProductRouteParam(product)]">{{ product.name }}</a>
+            </h3>
+            <div *ngIf="product.weight" class="cavero-product-volume">{{ product.weight }}</div>
+            <div class="cavero-product-pricing">
+              <span class="cavero-product-price">₹{{ product.price }}</span>
+              <del *ngIf="(product.originalPrice ?? 0) > product.price" class="cavero-product-mrp">
+                ₹{{ product.originalPrice }}
+              </del>
+            </div>
+            <div *ngIf="(product.stock ?? 0) > 0 && (product.stock ?? 0) < 5" class="cavero-stock-status cavero-stock-status--low">
+              Only {{ product.stock }} left
+            </div>
+
+            <!-- Add to cart — full-width button (EM5 style); one click = +1 to cart -->
+            <div class="cavero-product-action">
+              <button
+                *ngIf="(product.stock ?? 0) > 0"
+                type="button"
+                class="cavero-atc-btn"
+                (click)="addToCart(product, $event)">
+                Add to Cart
+              </button>
+              <button *ngIf="(product.stock ?? 0) <= 0" type="button" class="cavero-atc-btn cavero-atc-btn--soldout" disabled>
+                Sold Out
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

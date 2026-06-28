@@ -1,0 +1,99 @@
+<!-- Loading skeleton -->
+<div *ngIf="loading" class="cavero-symphony-loading">
+  <div class="container">
+    <div class="cavero-symphony-skeleton-grid">
+      <div class="cavero-symphony-skeleton cavero-symphony-skeleton--intro"></div>
+      <div class="cavero-symphony-skeleton"></div>
+      <div class="cavero-symphony-skeleton"></div>
+      <div class="cavero-symphony-skeleton"></div>
+    </div>
+  </div>
+</div>
+
+<!-- "A Symphony of Fragrance" — dark intro card + category cards (EM5 style) -->
+<section
+  *ngIf="!loading && featuredCategories.length > 0"
+  class="cavero-symphony-section">
+  <div class="container">
+    <div
+      class="cavero-symphony-card"
+      [class.cavero-motion]="!prefersReducedMotion"
+      appAnimateOnScroll
+      animationType="fade-up">
+
+      <!-- ════ Left: fixed featured card — content rotates in/out ════ -->
+      <div class="cavero-symphony-featured">
+
+        <!-- Outgoing content (only present mid-swap) -->
+        <div *ngIf="animating && featOut" class="cavero-symphony-feat-layer is-out">
+          <ng-container *ngTemplateOutlet="featTpl; context: { $implicit: featOut }"></ng-container>
+        </div>
+
+        <!-- Current featured content -->
+        <div *ngIf="featIn" class="cavero-symphony-feat-layer is-in" [class.is-settling]="animating">
+          <ng-container *ngTemplateOutlet="featTpl; context: { $implicit: featIn }"></ng-container>
+        </div>
+      </div>
+
+      <!-- ════ Right: sliding row of small cards ════ -->
+      <div class="cavero-symphony-track-wrap" [class.is-static]="prefersReducedMotion">
+        <div
+          #symphonyTrack
+          class="cavero-symphony-track"
+          [class.is-animating]="animating"
+          [style.--vis]="visibleCount"
+          [style.transform]="'translate3d(' + trackShift + 'px,0,0)'">
+
+          <a
+            *ngFor="let item of trackItems; let i = index; trackBy: trackBySlot"
+            class="cavero-symphony-cat"
+            [routerLink]="item.link">
+
+            <ng-container *ngIf="item.image; else introCard">
+              <img
+                [src]="item.image"
+                [alt]="item.title"
+                class="cavero-symphony-cat-img"
+                loading="lazy"
+                (error)="item.image = 'assets/images/cavero-logo.png'">
+              <div class="cavero-symphony-cat-gradient"></div>
+              <div class="cavero-symphony-cat-info">
+                <span class="cavero-symphony-cat-name">{{ item.title }}</span>
+                <span class="cavero-symphony-cat-count">{{ item.subtitle }}</span>
+              </div>
+            </ng-container>
+
+            <ng-template #introCard>
+              <div class="cavero-symphony-cat-intro">
+                <span class="cavero-symphony-cat-intro-eyebrow">Cavero</span>
+                <span class="cavero-symphony-cat-intro-title">{{ item.title }}</span>
+                <span class="cavero-symphony-cat-intro-cta">{{ item.ctaLabel }} ›</span>
+              </div>
+            </ng-template>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Featured-card content (reused for the in/out cross-fade layers) -->
+<!-- Image-only: every slide (combo + categories) shows pure artwork. -->
+<ng-template #featTpl let-item>
+  <ng-container *ngIf="item.image; else featIntro">
+    <img
+      [src]="item.image"
+      [alt]="item.title"
+      class="cavero-symphony-feat-bg"
+      loading="lazy"
+      (error)="item.image = 'assets/images/cavero-logo.png'">
+    <div class="cavero-symphony-feat-overlay"></div>
+  </ng-container>
+
+  <ng-template #featIntro>
+    <div class="cavero-symphony-feat-introblock">
+      <h2 class="cavero-symphony-title">{{ item.title }}</h2>
+    </div>
+  </ng-template>
+</ng-template>

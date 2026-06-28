@@ -1,0 +1,234 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CoLabs-style homepage masthead
+   Floating navbar (logo · links pill · socials) over a rounded
+   full-bleed image slider with a carved white content card.
+   ════════════════════════════════════════════════════════════ */
+
+.cvr-masthead {
+  position: relative;
+  width: 100%;
+  background: #FFF7E4;                     /* warm cream margin around the inset image */
+}
+
+/* ── HERO shell: image inset with padding so all four corners round ── */
+.cvr-hero {
+  --cvr-pad: 15px;                          /* uniform frame margin — equal 15px on all 4 sides */
+  --cvr-radius: clamp(28px, 3.4vw, 60px);   /* shared banner + card corner radius */
+  position: relative;
+  padding: var(--cvr-pad);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cvr-fade-in 0.9s ease both;
+  }
+}
+
+.cvr-hero-media {
+  position: relative;
+  width: 100%;
+  height: clamp(480px, 84vh, 940px);
+  border-radius: var(--cvr-radius);          /* all four corners curved */
+  overflow: hidden;
+  background: #1A322D;
+  isolation: isolate;
+}
+
+/* Plain crossfade slides */
+.cvr-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1.6s ease;
+
+  &.active { opacity: 1; z-index: 1; }
+}
+
+/* Soft top gradient so the navbar reads over bright artwork */
+.cvr-hero-scrim {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 220px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
+}
+
+
+/* ── Slide dots (bottom-right of the image) ── */
+.cvr-hero-dots {
+  position: absolute;
+  right: clamp(20px, 3vw, 44px);
+  bottom: clamp(20px, 3vw, 40px);
+  z-index: 5;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cvr-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+
+  &.active { width: 30px; background: #418576; }
+}
+
+/* ── Carved cream content card (bottom-left) ──
+   Lives OVER the banner (sibling of .cvr-hero-media, NOT inside its overflow:hidden clip),
+   offset by the hero padding so it lines up with the banner's bottom-left. Because it is
+   not clipped, its solid cream fully covers the banner's bottom-left corner — hiding any
+   baked-in artwork there. Its own rounded bottom-left matches the banner radius so the
+   visible corner stays curved. */
+.cvr-hero-panel {
+  position: absolute;
+  /* shifted 2px past the banner edge so the card's rounded corner shares the banner's
+     corner CENTER but extends 2px further — over-covers the sub-pixel bleed; the 2px
+     overshoot lands on the cream margin (cream-on-cream = invisible). */
+  left: calc(var(--cvr-pad) - 2px);
+  bottom: calc(var(--cvr-pad) - 2px);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: clamp(0.7rem, 1.3vw, 1.1rem);
+  width: min(40%, 460px);
+  aspect-ratio: 4 / 3;                       /* shorter than square — moderate height */
+  padding: clamp(1.4rem, 2.4vw, 2.4rem) clamp(1.4rem, 2.4vw, 2.4rem) clamp(1.25rem, 2vw, 2rem);
+  background: #FFF7E4;
+  /* convex top-right notch + bottom-left = banner radius + 2px (same center, larger) */
+  border-top-right-radius: clamp(36px, 4vw, 56px);
+  border-bottom-left-radius: calc(var(--cvr-radius) + 2px);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cvr-slide-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+.cvr-hero-eyebrow {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #418576;
+}
+
+.cvr-hero-title {
+  margin: 0;
+  /* !important beats the global `*:not(...) { font-family: DM Sans !important }` in index.html
+     (which is also excluded from .cvr-hero-title there). Inter is loaded via the font link. */
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif !important;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.1vw, 2.8rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: #15110b;
+}
+
+.cvr-hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.cvr-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 48px;
+  padding: 0 1.35rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #418576, #1A322D);
+  color: #ffffff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  i { font-size: 0.82rem; transition: transform 0.25s ease; }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(26, 50, 45, 0.35);
+    i { transform: translateX(3px); }
+  }
+}
+
+.cvr-hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 1.5px solid #15110b;
+  border-radius: 50%;
+  background: transparent;
+  color: #15110b;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+
+  i { line-height: 1; }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(4px);
+    background: #15110b;
+    color: #FFF7E4;
+  }
+}
+
+/* ── Entrance animations ── */
+@keyframes cvr-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes cvr-slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 991.98px) {
+  .cvr-hero-media { height: clamp(520px, 78vh, 760px); }
+  .cvr-hero-panel { width: min(56%, 420px); }
+}
+
+@media (max-width: 575.98px) {
+  .cvr-hero { padding: 8px; --cvr-pad: 8px; --cvr-radius: 22px; }
+  .cvr-hero-media { height: clamp(460px, 80vh, 640px); }
+  .cvr-hero-panel {
+    left: calc(var(--cvr-pad) - 2px);
+    right: calc(var(--cvr-pad) - 2px);
+    bottom: calc(var(--cvr-pad) - 2px);
+    width: auto;
+    aspect-ratio: auto;
+    /* flat top, bottom corners over-cover the banner's rounded bottom corners */
+    border-radius: 0 0 calc(var(--cvr-radius) + 2px) calc(var(--cvr-radius) + 2px);
+    padding: 1.6rem 1.4rem 1.5rem;
+  }
+  .cvr-hero-title { font-size: clamp(2rem, 8.5vw, 2.9rem); }
+  .cvr-hero-cta { height: 48px; font-size: 0.92rem; }
+  .cvr-hero-scroll { width: 48px; height: 48px; }
+  .cvr-hero-dots { bottom: auto; top: 84px; right: 14px; }
+}

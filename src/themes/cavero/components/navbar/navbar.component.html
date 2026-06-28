@@ -1,0 +1,112 @@
+<header class="cvr-nav" [class.cvr-nav-solid]="variant === 'solid'">
+  <a class="cvr-logo" routerLink="/" (click)="closeMenus()" aria-label="Cavero Fragrances home">
+    <img [src]="logoSrc" alt="Cavero Fragrances" class="cvr-logo-img">
+  </a>
+
+  <!-- Desktop links (lg+) -->
+  <nav class="cvr-links d-none d-lg-flex" aria-label="Primary">
+    <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+       class="cvr-link" (click)="closeMenus()">Home</a>
+
+    <div class="cvr-dd">
+      <button type="button" class="cvr-link cvr-has-caret" [class.open]="shopOpen"
+              (click)="toggleShop($event)" aria-haspopup="true" [attr.aria-expanded]="shopOpen">
+        Shop <i class="ci-chevron-down"></i>
+      </button>
+      <div class="cvr-dd-menu" [class.show]="shopOpen">
+        <a *ngFor="let c of categories" class="cvr-dd-item"
+           [routerLink]="['/shop-category', getCategoryRouteParam(c)]" (click)="closeMenus()">{{ c.name }}</a>
+        <a class="cvr-dd-item cvr-dd-all" routerLink="/shop" (click)="closeMenus()">All Perfumes</a>
+      </div>
+    </div>
+
+    <a routerLink="/combo" routerLinkActive="is-active" class="cvr-link" (click)="closeMenus()">Combo</a>
+    <a routerLink="/cms/about-us" routerLinkActive="is-active" class="cvr-link" (click)="closeMenus()">About</a>
+    <a routerLink="/cms/contact" routerLinkActive="is-active" class="cvr-link" (click)="closeMenus()">Contact</a>
+  </nav>
+
+  <!-- E-commerce actions (lg+) -->
+  <div class="cvr-actions d-none d-lg-flex">
+    <div class="cvr-search" [class.open]="searchOpen">
+      <input type="search" class="cvr-search-input" placeholder="Search perfumes…"
+             [(ngModel)]="searchQuery" (ngModelChange)="onSearchInput($event)" (keyup.enter)="submitSearch()"
+             (click)="$event.stopPropagation()" aria-label="Search perfumes" autocomplete="off">
+      <button type="button" class="cvr-icon-btn" (click)="toggleSearch($event)" aria-label="Search">
+        <lord-icon class="cvr-lord" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/kkvxgpti.json"></lord-icon>
+      </button>
+
+      <!-- Live suggestions dropdown -->
+      <div class="cvr-suggest" *ngIf="searchOpen && (showSuggestions || searchLoading)" (click)="$event.stopPropagation()">
+        <div class="cvr-suggest-loading" *ngIf="searchLoading && !suggestions.length">Searching…</div>
+        <a *ngFor="let s of suggestions" class="cvr-suggest-item" (click)="selectSuggestion(s)">
+          <img class="cvr-suggest-img" [src]="s.image" [alt]="s.name" (error)="onImgError($event)" loading="lazy">
+          <span class="cvr-suggest-name">{{ s.name }}</span>
+          <span class="cvr-suggest-price">&#8377;{{ s.price | number:'1.0-0' }}</span>
+        </a>
+        <button type="button" class="cvr-suggest-all" *ngIf="suggestions.length" (click)="submitSearch()">
+          See all results for “{{ searchQuery }}”
+        </button>
+      </div>
+    </div>
+    <button type="button" class="cvr-icon-btn" (click)="goWishlist()" aria-label="Wishlist">
+      <lord-icon class="cvr-lord" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/xyboiuok.json"></lord-icon>
+    </button>
+    <button type="button" class="cvr-icon-btn" (click)="goAccount()" aria-label="Account">
+      <lord-icon class="cvr-lord" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/kthelypq.json"></lord-icon>
+    </button>
+    <button type="button" class="cvr-icon-btn cvr-cart-btn" (click)="goCart()" aria-label="Cart">
+      <lord-icon class="cvr-lord" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/mfmkufkr.json"></lord-icon>
+      <span class="cvr-cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+    </button>
+  </div>
+
+  <!-- Mobile quick actions + burger (< lg) -->
+  <div class="cvr-mobile-bar d-lg-none">
+    <button type="button" class="cvr-icon-btn cvr-cart-btn cvr-mobile-icon" (click)="goCart()" aria-label="Cart">
+      <lord-icon class="cvr-lord" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/mfmkufkr.json"></lord-icon>
+      <span class="cvr-cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+    </button>
+    <button type="button" class="cvr-burger cavero-hamburger" [class.open]="mobileOpen"
+            (click)="toggleMobile($event)" aria-label="Toggle navigation" [attr.aria-expanded]="mobileOpen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div class="cvr-mobile-menu d-lg-none" [class.show]="mobileOpen">
+    <div class="cvr-mobile-search">
+      <input type="search" class="cvr-mobile-search-input" placeholder="Search perfumes…"
+             [(ngModel)]="searchQuery" (ngModelChange)="onSearchInput($event)" (keyup.enter)="submitSearch()"
+             aria-label="Search perfumes" autocomplete="off">
+      <button type="button" (click)="submitSearch()" aria-label="Search"><lord-icon class="cvr-lord cvr-lord-sm" trigger="hover" colors="primary:#FFF7E4,secondary:#8DCFB4" src="https://cdn.lordicon.com/kkvxgpti.json"></lord-icon></button>
+    </div>
+
+    <!-- Mobile live suggestions -->
+    <div class="cvr-mobile-suggest" *ngIf="showSuggestions">
+      <a *ngFor="let s of suggestions" class="cvr-suggest-item" (click)="selectSuggestion(s)">
+        <img class="cvr-suggest-img" [src]="s.image" [alt]="s.name" (error)="onImgError($event)" loading="lazy">
+        <span class="cvr-suggest-name">{{ s.name }}</span>
+        <span class="cvr-suggest-price">&#8377;{{ s.price | number:'1.0-0' }}</span>
+      </a>
+    </div>
+    <a routerLink="/" class="cvr-mobile-link" (click)="closeMenus()">Home</a>
+    <a routerLink="/shop" class="cvr-mobile-link" (click)="closeMenus()">Shop</a>
+    <a routerLink="/combo" class="cvr-mobile-link" (click)="closeMenus()">Combo</a>
+    <a routerLink="/cms/about-us" class="cvr-mobile-link" (click)="closeMenus()">About</a>
+    <a routerLink="/cms/contact" class="cvr-mobile-link" (click)="closeMenus()">Contact</a>
+    <div class="cvr-mobile-actions">
+      <button type="button" class="cvr-mobile-action" (click)="goAccount()">
+        <lord-icon class="cvr-lord cvr-lord-sm" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/kthelypq.json"></lord-icon>
+        <span>{{ isLoggedIn ? 'My Account' : 'Sign In' }}</span>
+      </button>
+      <button type="button" class="cvr-mobile-action" (click)="goWishlist()">
+        <lord-icon class="cvr-lord cvr-lord-sm" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/xyboiuok.json"></lord-icon>
+        <span>Wishlist</span>
+      </button>
+      <button type="button" class="cvr-mobile-action" (click)="goCart()">
+        <lord-icon class="cvr-lord cvr-lord-sm" trigger="hover" colors="primary:#1A322D,secondary:#418576" src="https://cdn.lordicon.com/mfmkufkr.json"></lord-icon>
+        <span>Cart<ng-container *ngIf="cartCount > 0"> ({{ cartCount }})</ng-container></span>
+      </button>
+    </div>
+  </div>
+</header>

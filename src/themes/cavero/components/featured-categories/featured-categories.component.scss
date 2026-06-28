@@ -1,0 +1,449 @@
+:host {
+  display: block;
+}
+
+/* ════════════════════════════════════════
+   "A Symphony of Fragrance" — EM5-style
+   white section card on cream page bg:
+   dark intro card + category image cards
+   ════════════════════════════════════════ */
+
+.cavero-symphony-section {
+  padding: 1.25rem 0;
+}
+
+/* White rounded container card */
+.cavero-symphony-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(65, 133, 118, 0.18);
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(280px, 1.35fr) 2fr;
+  gap: 1.25rem;
+  box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+}
+
+/* ── Left: fixed featured card (content rotates via cross-fade) ── */
+.cavero-symphony-featured {
+  position: relative;
+  overflow: hidden;
+  background: #1A322D;
+  border-radius: 14px;
+  /* Fixed height so swapping content never reflows; also drives the row height. */
+  min-height: clamp(330px, 33vw, 420px);
+}
+
+/* Each variant of the featured content is an absolutely-stacked layer, so an
+   in/out swap is a pure opacity+translate cross-fade — zero layout shift. */
+.cavero-symphony-feat-layer {
+  position: absolute;
+  inset: 0;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  &.is-in {
+    z-index: 1;
+    opacity: 1;
+  }
+
+  /* Incoming layer cross-fades up behind the outgoing one. */
+  &.is-in.is-settling {
+    animation: cavero-feat-fade 900ms ease both;
+  }
+
+  /* Outgoing content fades + lifts away on top, revealing the new content. */
+  &.is-out {
+    z-index: 2;
+    pointer-events: none;
+    animation: cavero-feat-out 1100ms cubic-bezier(0.83, 0, 0.17, 1) both;
+  }
+}
+
+/* Gentle rise for the intro title on its turn (motion on only) */
+.cavero-motion .cavero-symphony-feat-layer.is-in.is-settling .cavero-symphony-feat-introblock {
+  animation: cavero-rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: 0.08s;
+}
+
+@keyframes cavero-feat-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes cavero-feat-out {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes cavero-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Thin gold progress line that fills over each interval, then loops — gives
+   the section a steady, premium rhythm in sync with the rotation. */
+.cavero-motion .cavero-symphony-featured::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 5;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--color-gold, #418576), var(--color-gold-light, #8DCFB4));
+  animation: cavero-progress 4500ms linear infinite;
+}
+
+@keyframes cavero-progress {
+  0%   { transform: scaleX(0); }
+  88%  { transform: scaleX(1); }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+/* Gold sheen that periodically sweeps the featured CTA */
+.cavero-motion .cavero-symphony-btn {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transform: skewX(-20deg);
+    animation: cavero-btn-sheen 4500ms ease-in-out infinite;
+  }
+}
+
+@keyframes cavero-btn-sheen {
+  0%, 68% { left: -150%; }
+  86%     { left: 170%; }
+  100%    { left: 170%; }
+}
+
+/* Category image fills the ENTIRE featured area (full-bleed background) */
+.cavero-symphony-feat-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+/* Subtle vignette only — image-only featured, so no heavy text scrim. */
+.cavero-symphony-feat-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(26, 50, 45, 0.04) 55%, rgba(26, 50, 45, 0.26) 100%);
+}
+
+/* Intro slide (no image): just the centred section title. */
+.cavero-symphony-feat-introblock {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .cavero-symphony-title {
+    margin: 0;
+  }
+}
+
+.cavero-symphony-feat-count {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-gold, #418576);
+  margin-bottom: 1rem;
+}
+
+.cavero-symphony-eyebrow {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--color-gold, #418576);
+  margin-bottom: 0.875rem;
+}
+
+.cavero-symphony-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.15;
+  color: #FFF7E4;
+  margin: 0 0 0.625rem;
+}
+
+.cavero-symphony-text {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(255, 247, 228, 0.7);
+  margin: 0 0 1rem;
+  /* Clamp so a longer category blurb never grows the fixed featured card. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cavero-symphony-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--color-gold, #418576);
+  color: #1A322D;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    background: var(--color-gold-light, #8DCFB4);
+    color: #1A322D;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(65, 133, 118, 0.4);
+  }
+}
+
+/* ── Right: sliding row of small cards ── */
+/* The wrap clips the off-screen incoming card; height stretches to the
+   featured card so every small card is the same fixed size. */
+.cavero-symphony-track-wrap {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.cavero-symphony-track {
+  --gap: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--gap);
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  /* No transition while idle → the post-slide reset snaps instantly (seamless). */
+
+  &.is-animating {
+    /* easeInOutQuint — slow start, smooth glide, soft landing (Apple-like) */
+    transition: transform 1300ms cubic-bezier(0.83, 0, 0.17, 1);
+  }
+}
+
+.cavero-symphony-cat {
+  /* Fixed slot width: exactly --vis cards fill the visible wrap; the extra
+     card (incoming) overflows to the right and is clipped. Never resizes. */
+  flex: 0 0 calc((100% - (var(--vis, 4) - 1) * var(--gap)) / var(--vis, 4));
+  position: relative;
+  display: block;
+  text-decoration: none;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Dark base so every tile reads as a solid, full-height card (matching the
+     intro tile) — the image covers it; this shows only if an image fails. */
+  background: #1A322D;
+  border: 1px solid rgba(65, 133, 118, 0.15);
+  transition: transform 0.4s var(--ease-luxury, cubic-bezier(0.25, 0.46, 0.45, 0.94)),
+              box-shadow 0.4s ease, border-color 0.4s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 38px rgba(42, 33, 24, 0.22);
+    border-color: var(--color-gold, #418576);
+
+    .cavero-symphony-cat-img { transform: scale(1.08); }
+    .cavero-symphony-cat-name { color: var(--color-gold-light, #8DCFB4); }
+  }
+}
+
+/* The leading row card glows softly — it is "up next" for the featured slot. */
+.cavero-motion .cavero-symphony-track .cavero-symphony-cat:first-child {
+  border-color: rgba(65, 133, 118, 0.5);
+  box-shadow: 0 0 0 1px rgba(65, 133, 118, 0.35), 0 10px 30px rgba(65, 133, 118, 0.16);
+}
+
+/* Image fills the ENTIRE card (full-bleed) */
+.cavero-symphony-cat-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease-luxury, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.cavero-symphony-cat-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(26, 50, 45, 0) 42%, rgba(26, 50, 45, 0.88) 100%);
+}
+
+/* Name + count overlaid at the bottom of the image */
+.cavero-symphony-cat-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0.875rem 0.5rem 1rem;
+  text-align: center;
+}
+
+.cavero-symphony-cat-name {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #FFF7E4;
+  transition: color 0.25s ease;
+}
+
+.cavero-symphony-cat-count {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 247, 228, 0.65);
+}
+
+/* Intro variant as a small card (the "Symphony" tile in the row) */
+.cavero-symphony-cat.is-intro {
+  background: #1A322D;
+  border-color: rgba(65, 133, 118, 0.3);
+}
+
+.cavero-symphony-cat-intro {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.cavero-symphony-cat-intro-eyebrow {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--color-gold, #418576);
+}
+
+.cavero-symphony-cat-intro-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  line-height: 1.2;
+  color: #FFF7E4;
+}
+
+.cavero-symphony-cat-intro-cta {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold, #418576);
+}
+
+/* Reduced-motion / headless → no slide, fully visible & static. */
+.cavero-symphony-track-wrap.is-static .cavero-symphony-track {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* ── Loading skeleton ── */
+.cavero-symphony-loading {
+  padding: 1.25rem 0;
+}
+
+.cavero-symphony-skeleton-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.35fr) repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.cavero-symphony-skeleton {
+  border-radius: 14px;
+  min-height: 280px;
+  background: linear-gradient(90deg, #F2EBDC 25%, #FAF5EA 50%, #F2EBDC 75%);
+  background-size: 200% auto;
+  animation: cavero-shimmer 1.6s linear infinite;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991.98px) {
+  .cavero-symphony-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cavero-symphony-featured {
+    min-height: clamp(260px, 46vw, 320px);
+  }
+
+  /* Show 3 cards per row on tablets (slot width follows automatically). */
+  .cavero-symphony-cat {
+    flex-basis: calc((100% - 2 * var(--gap)) / 3);
+  }
+
+  .cavero-symphony-skeleton-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cavero-symphony-card {
+    padding: 0.875rem;
+    border-radius: 16px;
+  }
+
+  .cavero-symphony-featured {
+    min-height: 240px;
+  }
+
+  /* Show 2 cards per row on phones. */
+  .cavero-symphony-cat {
+    flex-basis: calc((100% - 1 * var(--gap)) / 2);
+  }
+
+  .cavero-symphony-skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+}

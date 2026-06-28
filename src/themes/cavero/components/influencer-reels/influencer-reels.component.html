@@ -1,0 +1,177 @@
+﻿<section class="reels-section py-5" *ngIf="!isLoading && reels.length > 0" #reelsSection>
+  <div class="container">
+    <div class="reels-header mb-4">
+      <h2 class="reels-heading mb-1">
+        <span class="reels-ig-badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        Catch the Cavero energy on Instagram!
+      </h2>
+      <p class="reels-subheading mb-0">A curated feed of scenes, artistry and allure — join the fragrance journey</p>
+    </div>
+
+    <div class="swiper reels-swiper" #swiperEl>
+      <div class="swiper-wrapper pb-3">
+        <div class="swiper-slide reel-slide" *ngFor="let reel of reels; trackBy: trackByReel">
+          <article class="reel-card">
+
+            <div class="discount-badge" *ngIf="reel.discount_text">{{ reel.discount_text }}</div>
+
+            <div
+              class="reel-media-shell"
+              [class.is-video-preview]="reel.inlineVideoUrl"
+              (click)="onReelCardClick(reel)"
+            >
+              <ng-container *ngIf="reel.inlineVideoUrl; else staticPreview">
+                <video
+                  #previewVideo
+                  class="reel-preview-video"
+                  [attr.data-reel-id]="reel.id"
+                  [src]="reel.inlineVideoUrl"
+                  [poster]="reel.posterUrl || null"
+                  muted
+                  autoplay
+                  playsinline
+                  preload="auto"
+                  (loadedmetadata)="onPreviewVideoReady(previewVideo)"
+                  (timeupdate)="onPreviewTimeUpdate(previewVideo)"
+                  (error)="onPreviewVideoError(reel)"
+                ></video>
+              </ng-container>
+
+              <ng-template #staticPreview>
+                <img
+                  *ngIf="reel.posterUrl"
+                  [src]="reel.posterUrl"
+                  class="reel-thumb-img"
+                  [alt]="reel.displayTitle"
+                  (error)="reel.posterUrl = null"
+                >
+                <div *ngIf="!reel.posterUrl" class="reel-thumb-placeholder">
+                  <i class="ci-play-circle"></i>
+                </div>
+                <div class="reel-play-overlay">
+                  <div class="play-btn-circle">
+                    <i class="ci-play-fill"></i>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+
+            <div class="product-float" *ngIf="getFloatingImage(reel) as floatingImage; else productFloatSpacer">
+              <div class="product-float-frame">
+                <img
+                  [src]="floatingImage"
+                  [alt]="reel.product_name || reel.title"
+                  (error)="reel.productImageUrl = null"
+                >
+              </div>
+            </div>
+
+            <ng-template #productFloatSpacer>
+              <div class="product-float product-float-spacer" aria-hidden="true"></div>
+            </ng-template>
+
+            <div class="reel-info" (click)="openReel(reel)">
+              <div class="reel-title">{{ reel.displayTitle }}</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popup Modal -->
+<div class="reel-modal-overlay" *ngIf="activeReel" (click)="closeReel()">
+  <div class="reel-modal" (click)="$event.stopPropagation()">
+
+    <!-- Close -->
+    <button class="modal-close-btn" (click)="closeReel()">
+      <i class="ci-close"></i>
+    </button>
+
+    <!-- Left: Video -->
+    <div class="modal-video-side">
+      <div class="modal-video-wrapper">
+        <video
+          *ngIf="activeReel.inlineVideoUrl; else reelVisualFallback"
+          #modalVideo
+          class="modal-inline-video"
+          [src]="activeReel.inlineVideoUrl"
+          [poster]="activeReel.posterUrl || null"
+          [muted]="isMuted"
+          controls
+          autoplay
+          loop
+          playsinline
+        ></video>
+
+        <ng-template #reelVisualFallback>
+          <img
+            *ngIf="activeReel.posterUrl || activeReel.productImageUrl"
+            class="modal-inline-video modal-fallback-image"
+            [src]="activeReel.posterUrl || activeReel.productImageUrl"
+            [alt]="activeReel.product_name || activeReel.title"
+          >
+          <div *ngIf="!activeReel.posterUrl && !activeReel.productImageUrl" class="modal-fallback-empty">
+            <i class="ci-play-circle"></i>
+          </div>
+        </ng-template>
+
+        <button class="mute-btn" *ngIf="activeReel.inlineVideoUrl" (click)="toggleMute(); $event.stopPropagation()">
+          <i [class]="isMuted ? 'ci-volume-x' : 'ci-volume-2'"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right: Product info -->
+    <div class="modal-product-side">
+      <div class="product-panel">
+        <div class="modal-product-img" *ngIf="activeReel.productImageUrl">
+          <img [src]="activeReel.productImageUrl" [alt]="activeReel.product_name || activeReel.title">
+        </div>
+
+        <div class="modal-product-info">
+          <div class="panel-eyebrow">Influencer pick</div>
+          <h4 class="product-name">{{ activeReel.product_name || activeReel.title }}</h4>
+
+          <div class="product-pricing" *ngIf="activeReel.product_price">
+            <span class="price-current">{{ formatPrice(activeReel.product_price) }}</span>
+            <span class="price-original" *ngIf="activeReel.product_original_price">{{ formatPrice(activeReel.product_original_price) }}</span>
+            <span class="price-discount" *ngIf="activeReel.discount_text">{{ activeReel.discount_text }}</span>
+          </div>
+
+          <p class="product-description" *ngIf="hasProductDescription(activeReel)">
+            {{ activeReel.product_description }}
+          </p>
+
+          <div class="modal-actions">
+            <a
+              *ngIf="activeReel.instagramUrl"
+              class="btn-influencer-pick"
+              [href]="activeReel.instagramUrl"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i class="ci-instagram" aria-hidden="true"></i>
+              Influencer Picks
+            </a>
+            <a
+              *ngIf="activeReel.productDetailUrl"
+              class="btn-view-detail"
+              [href]="activeReel.productDetailUrl"
+              target="_blank"
+              rel="noopener noreferrer">
+              View Detail
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

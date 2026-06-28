@@ -1,0 +1,91 @@
+<section *ngIf="specialProducts.length > 0" class="cavero-signature-section">
+  <div class="container">
+
+    <!-- Section header — title left, controls + gold button right -->
+    <div class="cavero-signature-header">
+      <div>
+        <h2 class="cavero-signature-title">The Signature Collection</h2>
+        <p class="cavero-signature-subtext">
+          Rare blends crafted in the spirit of <span>ancient Arabian perfumery</span>.
+        </p>
+      </div>
+      <div class="cavero-signature-controls">
+        <button
+          type="button"
+          class="cavero-signature-arrow"
+          [class.is-disabled]="!canSlidePrev"
+          (click)="prevSlide()"
+          aria-label="Previous products">
+          ‹
+        </button>
+        <button
+          type="button"
+          class="cavero-signature-arrow"
+          [class.is-disabled]="!canSlideNext"
+          (click)="nextSlide()"
+          aria-label="Next products">
+          ›
+        </button>
+        <a routerLink="/shop" class="cavero-signature-btn">Shop Collection</a>
+      </div>
+    </div>
+
+    <!-- Dark cards row (EM5 Private Blends style) -->
+    <div class="cavero-signature-grid">
+      <div *ngFor="let product of visibleSpecialProducts" class="cavero-signature-card cavero-sheen-host" appTilt>
+        <span class="cavero-sheen-sweep"></span>
+
+        <!-- Image -->
+        <a [routerLink]="['/product', getProductRouteParam(product)]" class="cavero-signature-img-link">
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            class="cavero-signature-img"
+            loading="lazy"
+            (error)="product.image = 'assets/images/cavero-logo.png'">
+          <div class="cavero-signature-gradient"></div>
+        </a>
+
+        <!-- Discount badge -->
+        <span *ngIf="product.discount" class="cavero-signature-badge">-{{ product.discount }}%</span>
+
+        <!-- Wishlist -->
+        <button
+          type="button"
+          class="cavero-signature-wishlist"
+          [class.is-active]="product.isFavorite"
+          (click)="toggleFavorite(product)"
+          [attr.aria-label]="product.isFavorite ? 'Remove from wishlist' : 'Add to wishlist'">
+          <svg width="15" height="15" viewBox="0 0 24 24" [attr.fill]="product.isFavorite ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </button>
+
+        <!-- Bottom overlay info -->
+        <div class="cavero-signature-info">
+          <a class="cavero-signature-name" [routerLink]="['/product', getProductRouteParam(product)]">
+            {{ product.name }}
+          </a>
+          <div class="cavero-signature-pricing">
+            <span class="cavero-signature-price">₹{{ product.price }}</span>
+            <del *ngIf="(product.originalPrice ?? 0) > product.price" class="cavero-signature-mrp">₹{{ product.originalPrice }}</del>
+          </div>
+
+          <div class="cavero-signature-action">
+            <button
+              *ngIf="(product.stock ?? 0) > 0"
+              type="button"
+              class="cavero-signature-add"
+              (click)="addToCart(product, $event)"
+              aria-label="Add to cart">
+              + Add
+            </button>
+            <span *ngIf="(product.stock ?? 0) <= 0" class="cavero-signature-soldout">Sold Out</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

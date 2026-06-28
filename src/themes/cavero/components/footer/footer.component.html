@@ -1,0 +1,99 @@
+<footer class="cavero-footer">
+
+  <!-- Gold gradient top divider -->
+  <div class="cavero-footer-divider"></div>
+
+  <!-- Help CTA strip -->
+  <div class="cavero-footer-cta">
+    <div class="container">
+      <div class="cavero-footer-cta-inner">
+        <div class="cavero-footer-cta-text">
+          <h3 class="cavero-footer-cta-heading">Need help with your order?</h3>
+          <p class="cavero-footer-cta-sub">Reach out to the Cavero team for fragrance guidance, delivery updates, or support.</p>
+        </div>
+        <div class="cavero-footer-cta-actions">
+          <a routerLink="/cms/contact" class="cavero-btn-gold cavero-footer-btn">Contact Us</a>
+          <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer" class="cavero-footer-btn-wa">
+            <i class="ci-whatsapp"></i> WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main footer grid -->
+  <div class="container cavero-footer-body">
+    <div class="cavero-footer-grid">
+
+      <!-- Brand column -->
+      <div class="cavero-footer-brand-col">
+        <a routerLink="/" aria-label="Cavero Fragrances home" class="cavero-footer-logo-wrap">
+          <img src="assets/images/cavero-logo-light.png" alt="Cavero Fragrances" class="cavero-footer-logo"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+          <span class="cavero-footer-logo-fallback" style="display:none; font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:1.1rem; letter-spacing:0.06em; color:#418576;">
+            CAVERO <span style="font-weight:300; color:rgba(255,247,228,0.65); font-size:0.9rem; letter-spacing:0.1em;">FRAGRANCES</span>
+          </span>
+        </a>
+        <p class="cavero-footer-about">
+          Explore a curated collection of luxury Oud, Attar, and Arabian fragrances.
+          Handpicked scents for every mood, occasion, and personality — delivered to your door.
+        </p>
+        <div class="cavero-footer-socials">
+          <a class="cavero-footer-social social-instagram" [href]="instagramUrl" target="_blank"
+            rel="noopener noreferrer" aria-label="Follow us on Instagram">
+            <i class="ci-instagram"></i>
+          </a>
+          <a class="cavero-footer-social social-whatsapp" [href]="whatsappUrl" target="_blank"
+            rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+            <i class="ci-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Categories column -->
+      <div class="cavero-footer-links-col" *ngIf="footerLinks.categories.length > 0">
+        <h6 class="cavero-footer-col-heading">Categories</h6>
+        <ul class="cavero-footer-link-list">
+          <li *ngFor="let link of footerLinks.categories">
+            <a [routerLink]="link.link" class="cavero-footer-link">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company column -->
+      <div class="cavero-footer-links-col">
+        <h6 class="cavero-footer-col-heading">Company</h6>
+        <ul class="cavero-footer-link-list">
+          <li *ngFor="let link of footerLinks.company">
+            <a [routerLink]="link.link" class="cavero-footer-link">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Information column -->
+      <div class="cavero-footer-links-col">
+        <h6 class="cavero-footer-col-heading">Policies</h6>
+        <ul class="cavero-footer-link-list">
+          <li *ngFor="let link of footerLinks.information">
+            <a [routerLink]="link.link" class="cavero-footer-link">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="cavero-footer-bottom">
+    <div class="container cavero-footer-bottom-inner">
+      <p class="cavero-footer-copy">
+        &copy; {{ currentYear }} Cavero Fragrances. All rights reserved.
+      </p>
+      <p class="cavero-footer-crafted">
+        Crafted with <i class="ci-heart-filled"></i> in Surat, Gujarat
+      </p>
+    </div>
+  </div>
+
+</footer>

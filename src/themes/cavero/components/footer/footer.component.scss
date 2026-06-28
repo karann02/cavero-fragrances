@@ -1,0 +1,311 @@
+:host {
+  display: block;
+}
+
+// ── Base ──────────────────────────────────────────────────────────────────────
+.cavero-footer {
+  background: #1A322D;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+}
+
+// ── Gold gradient top divider ─────────────────────────────────────────────────
+.cavero-footer-divider {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #1A322D 15%,
+    #418576 35%,
+    #8DCFB4 50%,
+    #418576 65%,
+    #1A322D 85%,
+    transparent 100%);
+}
+
+// ── Help CTA strip ────────────────────────────────────────────────────────────
+.cavero-footer-cta {
+  border-bottom: 1px solid rgba(65, 133, 118, 0.12);
+  padding: 3rem 0;
+}
+
+.cavero-footer-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cavero-footer-cta-heading {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.cavero-footer-cta-sub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  max-width: 480px;
+}
+
+.cavero-footer-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cavero-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.75rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  background: linear-gradient(135deg, #418576 0%, #8DCFB4 50%, #1A322D 100%);
+  color: #ffffff !important;   /* beat the global `html a { color:#1A322D !important }` */
+  box-shadow: 0 8px 24px rgba(65, 133, 118, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(65, 133, 118, 0.38);
+    filter: brightness(1.06);
+    color: #ffffff !important;
+  }
+}
+
+.cavero-footer-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.75rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff !important;
+  border: 1px solid rgba(76, 175, 130, 0.3);
+  background: rgba(76, 175, 130, 0.06);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+
+  i { color: inherit; }
+
+  &:hover {
+    background: linear-gradient(135deg, #2fcc72 0%, #138f4a 100%);
+    border-color: transparent;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(76, 175, 130, 0.28);
+  }
+}
+
+// ── Main footer grid ──────────────────────────────────────────────────────────
+.cavero-footer-body {
+  padding-top: 3.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.cavero-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 2.5rem 3rem;
+
+  @media (max-width: 991.98px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 575.98px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+// ── Brand column ──────────────────────────────────────────────────────────────
+.cavero-footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cavero-footer-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}
+
+.cavero-footer-logo {
+  display: block;
+  width: auto;
+  max-width: 160px;
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(1.05) drop-shadow(0 2px 8px rgba(65, 133, 118, 0.2));
+}
+
+.cavero-footer-about {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+  max-width: 300px;
+}
+
+// ── Social icons ──────────────────────────────────────────────────────────────
+.cavero-footer-socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.cavero-footer-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(65, 133, 118, 0.18);
+  color: #ffffff !important;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
+
+  i { transition: transform 0.25s ease; }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+    i { transform: scale(1.1); }
+  }
+
+  &.social-instagram:hover {
+    background: linear-gradient(135deg, #f58529 0%, #dd2a7b 52%, #8134af 100%);
+    box-shadow: 0 8px 20px rgba(221, 42, 123, 0.28);
+  }
+
+  &.social-whatsapp:hover {
+    background: linear-gradient(135deg, #2fcc72 0%, #138f4a 100%);
+    box-shadow: 0 8px 20px rgba(19, 143, 74, 0.28);
+  }
+}
+
+// ── Link columns ──────────────────────────────────────────────────────────────
+.cavero-footer-links-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cavero-footer-col-heading {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.1rem;
+}
+
+.cavero-footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cavero-footer-link {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.82) !important;   /* beat global anchor !important */
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  display: inline-block;
+
+  &:hover {
+    color: #8DCFB4 !important;
+    padding-left: 3px;
+  }
+}
+
+// ── Bottom bar ────────────────────────────────────────────────────────────────
+.cavero-footer-bottom {
+  border-top: 1px solid rgba(65, 133, 118, 0.1);
+  padding: 1.25rem 0;
+}
+
+.cavero-footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cavero-footer-copy,
+.cavero-footer-crafted {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cavero-footer-crafted {
+  i { color: rgba(65, 133, 118, 0.7); }
+}
+
+// ── Responsive tweaks ─────────────────────────────────────────────────────────
+@media (max-width: 767.98px) {
+  .cavero-footer-cta-inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .cavero-footer-cta-sub {
+    margin-inline: auto;
+  }
+
+  .cavero-footer-cta-actions {
+    justify-content: center;
+  }
+
+  .cavero-footer-about {
+    max-width: 100%;
+  }
+
+  .cavero-footer-logo {
+    object-position: center;
+    margin-inline: auto;
+  }
+
+  .cavero-footer-brand-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .cavero-footer-about { text-align: center; }
+  .cavero-footer-socials { justify-content: center; }
+
+  .cavero-footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.35rem;
+  }
+}
