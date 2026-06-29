@@ -7,7 +7,9 @@ async function verifyToken(req, res, next) {
 
   let decoded;
   try {
-    decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
+    // MUST match the secret used to SIGN in authRoutes.js (same fallback), otherwise
+    // every token is rejected as "Invalid token" when JWT_SECRET is unset in the env.
+    decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET || 'your-secret-key');
   } catch (err) {
     return res.status(401).json({ success: false, message: 'Invalid token' });
   }
