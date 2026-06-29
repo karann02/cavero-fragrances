@@ -623,7 +623,9 @@ async function verifyToken(req, res, next) {
 
   let decoded;
   try {
-    decoded = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET);
+    // Must use the SAME secret/fallback as generateToken() above, else tokens are
+    // rejected as "Invalid token" when JWT_SECRET is unset in the environment.
+    decoded = jwt.verify(token.split(" ")[1], JWT_SECRET);
   } catch (err) {
     return res.status(401).json({ message: "Invalid token" });
   }
