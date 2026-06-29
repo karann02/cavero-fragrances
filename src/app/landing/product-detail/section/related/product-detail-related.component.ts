@@ -140,6 +140,8 @@ export class ProductDetailRelatedComponent implements OnInit, OnChanges {
       if (image.startsWith('uploads/')) return `${environment.apiGatewayBaseUrl}/${image}`;
       return image;
     }
+    const direct = image?.url || image?.secure_url || image?.path;
+    if (typeof direct === 'string' && /^https?:\/\//i.test(direct)) return direct;
     if (image?.filename) return `${environment.apiGatewayBaseUrl}/uploads/products/${image.filename}`;
     if (image?.url) {
       if (image.url.startsWith('http')) return image.url;

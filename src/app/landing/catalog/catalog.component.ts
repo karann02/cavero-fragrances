@@ -124,8 +124,7 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const scripts = [
       'assets/cavero/js/theme.min.js',
-      'assets/cavero/vendor/choices.js/public/assets/scripts/choices.min.js',
-      'assets/cavero/vendor/list.js/dist/list.min.js'
+      'assets/cavero/vendor/choices.js/public/assets/scripts/choices.min.js'
     ];
     let i = 0;
     const loadNext = () => {

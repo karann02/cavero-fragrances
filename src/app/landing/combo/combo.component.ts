@@ -595,6 +595,8 @@ export class ComboComponent implements OnInit, AfterViewInit, OnDestroy {
       return image;
     }
 
+    const direct = image.url || image.secure_url || image.path;
+    if (typeof direct === 'string' && /^https?:\/\//i.test(direct)) return direct;
     if (image.filename) return `${environment.apiGatewayBaseUrl}/uploads/products/${image.filename}`;
     if (image.url) {
       if (image.url.startsWith('/uploads/')) return `${environment.apiGatewayBaseUrl}${image.url}`;
@@ -619,8 +621,7 @@ export class ComboComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const scripts = [
       'assets/cavero/js/theme.min.js',
-      'assets/cavero/vendor/choices.js/public/assets/scripts/choices.min.js',
-      'assets/cavero/vendor/list.js/dist/list.min.js'
+      'assets/cavero/vendor/choices.js/public/assets/scripts/choices.min.js'
     ];
 
     let index = 0;

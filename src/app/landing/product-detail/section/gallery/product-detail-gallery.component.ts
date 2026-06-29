@@ -406,6 +406,9 @@ export class ProductDetailGalleryComponent implements OnChanges, AfterViewInit, 
       if (u.startsWith('http')) return u;
       return `${environment.apiGatewayBaseUrl}/${u.replace(/^\//, '')}`;
     }
+    // Prefer an absolute (Cloudinary) URL when present
+    const direct = image.url || image.secure_url || image.path;
+    if (typeof direct === 'string' && /^https?:\/\//i.test(direct)) return direct;
     // Object with filename
     if (image.filename) {
       return `${environment.apiGatewayBaseUrl}/uploads/products/${image.filename}`;

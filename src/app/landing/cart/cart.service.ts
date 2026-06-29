@@ -754,6 +754,8 @@ export class CartService {
       }
       return firstImage;
     }
+    const direct = firstImage?.url || firstImage?.secure_url || firstImage?.path;
+    if (typeof direct === 'string' && /^https?:\/\//i.test(direct)) return direct;
     if (firstImage?.filename) {
       return `${environment.apiGatewayBaseUrl}/uploads/products/${firstImage.filename}`;
     }

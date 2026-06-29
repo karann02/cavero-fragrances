@@ -190,6 +190,8 @@ export class CaveroNavbarComponent implements OnInit, OnDestroy {
   private resolveImg(p: any): string {
     const img = p?.images?.[0];
     if (!img) return this.FALLBACK;
+    const direct = img.url || img.secure_url || img.path;
+    if (typeof direct === 'string' && /^https?:\/\//i.test(direct)) return direct;
     if (img.filename) return `${environment.apiGatewayBaseUrl}/uploads/products/${img.filename}`;
     const url = img.url || '';
     if (!url) return this.FALLBACK;

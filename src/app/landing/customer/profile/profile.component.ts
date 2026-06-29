@@ -1263,10 +1263,12 @@ export class ProfileComponent implements OnInit {
     if (!product) return 'assets/cavero/img/shop/grocery/01.png';
     
     if (product.images && product.images.length > 0) {
-      const filename = product.images[0].filename;
-      return `${environment.apiGatewayBaseUrl}/uploads/products/${filename}`;
+      const first = product.images[0];
+      const direct = first.url || first.secure_url || first.path;
+      if (typeof direct === 'string' && /^https?:\/\//i.test(direct)) return direct;
+      return `${environment.apiGatewayBaseUrl}/uploads/products/${first.filename}`;
     }
-    
+
     return 'assets/cavero/img/shop/grocery/01.png';
   }
 
@@ -1432,6 +1434,8 @@ export class ProfileComponent implements OnInit {
       return first;
     }
 
+    const direct = first?.url || first?.secure_url || first?.path;
+    if (typeof direct === 'string' && /^https?:\/\//i.test(direct)) return direct;
     if (first?.filename) {
       return `${environment.apiGatewayBaseUrl}/uploads/products/${first.filename}`;
     }

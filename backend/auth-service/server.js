@@ -32,9 +32,11 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc:  ["'self'", "'unsafe-inline'", "https://checkout.razorpay.com", ...GOOGLE, ...ANALYTICS, ...CDNS], // Angular inline + Razorpay/Google/GA/CDNs
-      styleSrc:   ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"], // Angular inline + Google Fonts
+      scriptSrcAttr: ["'unsafe-inline'"], // allow inline on* event handlers (theme/vendor markup) — helmet defaults to 'none'
+      styleSrc:   ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://accounts.google.com"], // Angular inline + Google Fonts + GSI button styles
       imgSrc:     ["'self'", "data:", "blob:", "https:"], // covers Cloudinary, Razorpay, GA pixels
-      connectSrc: ["'self'", ...RAZORPAY, ...GOOGLE, ...ANALYTICS, ...CDNS, "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+      mediaSrc:   ["'self'", "https:", "data:", "blob:"], // Cloudinary reel videos (media-src else falls back to default-src)
+      connectSrc: ["'self'", ...RAZORPAY, ...GOOGLE, ...ANALYTICS, ...CDNS, "https://www.google.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
       frameSrc:   ["'self'", "https://api.razorpay.com", "https://checkout.razorpay.com", "https://accounts.google.com"], // Razorpay modal + Google sign-in
       fontSrc:    ["'self'", "data:", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
       objectSrc:  ["'none'"],                      // Blocks Flash / plugin attacks
