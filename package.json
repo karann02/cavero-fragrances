@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "ng serve --host 0.0.0.0 --port 4200",
+    "start": "node backend/auth-service/server.js",
+    "serve": "ng serve --host 0.0.0.0 --port 4200",
     "backend": "node backend/auth-service/server.js",
-    "dev": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"yellow,cyan\" \"npm run backend\" \"npm run start\"",
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"yellow,cyan\" \"npm run backend\" \"npm run serve\"",
     "build": "ng build --configuration production",
     "build:dev": "ng build --configuration development",
     "test": "playwright test",
