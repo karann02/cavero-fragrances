@@ -65,9 +65,52 @@ async function cancelPendingOrderById(orderId, { userId, isAdmin } = {}) {
   });
 }
 
-// Safety-net job: sweep online orders left 'pending' too long. Before cancelling,
-// double-check with Razorpay — if the customer actually paid (e.g. webhook/verify never
-// ran), reconcile to paid instead of cancelling. Otherwise release the stock.
+// Decide an order's true payment state from Razorpay. Returns:
+//   'paid'    — a captured payment / paid order exists → reconcile, never cancel
+//   'unpaid'  — Razorpay POSITIVELY confirms no captured/authorized payment → safe to release
+//   'unknown' — we could not confirm (no client, no order id, fetch failed, or money is only
+//               authorized-not-captured) → do NOT touch the order; leave it for the next cycle.
+async function resolvePaymentVerdict(rzp, order) {
+  if (!rzp || !order.razorpay_order_id) return { verdict: 'unknown', payId: null };
+
+  let ro;
+  try {
+    ro = await rzp.orders.fetch(order.razorpay_order_id);
+  } catch (e) {
+    console.warn(`[pending-cleanup] orders.fetch failed for ${order.razorpay_order_id}: ${e.message}`);
+    return { verdict: 'unknown', payId: null }; // network/key issue — never cancel on this
+  }
+
+  if (ro && (ro.status === 'paid' || Number(ro.amount_paid || 0) >= Number(ro.amount || 0))) {
+    let payId = order.razorpay_payment_id;
+    try {
+      const pays = await rzp.orders.fetchPayments(order.razorpay_order_id);
+      const cap = (pays.items || []).find((p) => p.status === 'captured');
+      if (cap) payId = cap.id;
+    } catch { /* keep existing payId */ }
+    return { verdict: 'paid', payId };
+  }
+
+  // Not marked paid at the order level — inspect individual payments before deciding.
+  let pays;
+  try {
+    pays = await rzp.orders.fetchPayments(order.razorpay_order_id);
+  } catch (e) {
+    console.warn(`[pending-cleanup] fetchPayments failed for ${order.razorpay_order_id}: ${e.message}`);
+    return { verdict: 'unknown', payId: null }; // can't enumerate payments — don't risk cancelling
+  }
+  const items = pays.items || [];
+  const captured = items.find((p) => p.status === 'captured');
+  if (captured) return { verdict: 'paid', payId: captured.id };
+  // Money authorized but not captured: customer is committed — do NOT cancel; needs capture/review.
+  if (items.some((p) => p.status === 'authorized')) return { verdict: 'unknown', payId: null };
+  // Razorpay confirms nothing succeeded (created/attempted/failed only) → genuinely abandoned.
+  return { verdict: 'unpaid', payId: null };
+}
+
+// Safety-net job: sweep online orders left 'pending' too long. Before cancelling, double-check
+// with Razorpay. CANCEL ONLY when Razorpay positively confirms the order was never paid; if the
+// payment succeeded, reconcile to paid; on ANY uncertainty, leave it pending (retry next cycle).
 async function cleanupStalePendingOrders({ olderThanMinutes = 45 } = {}) {
   const cutoff = new Date(Date.now() - olderThanMinutes * 60 * 1000);
   const stale = await Order.findAll({
@@ -83,41 +126,41 @@ async function cleanupStalePendingOrders({ olderThanMinutes = 45 } = {}) {
   const rzp = getRazorpayClient();
   let released = 0;
   let reconciled = 0;
+  let skipped = 0;
 
   for (const o of stale) {
     try {
+      // Talk to Razorpay OUTSIDE the DB transaction (no lock held during a network call).
+      const { verdict, payId } = await resolvePaymentVerdict(rzp, o);
+      if (verdict === 'unknown') {
+        skipped++;
+        console.warn(`[pending-cleanup] order ${o.id} (${o.order_number}) unverifiable — left pending, will retry.`);
+        continue; // NEVER cancel an order we couldn't confirm is unpaid
+      }
+
       await sequelize.transaction(async (transaction) => {
         const locked = await Order.findByPk(o.id, { transaction, lock: transaction.LOCK.UPDATE });
         if (!locked || locked.payment_status !== 'pending' || locked.order_status !== 'pending') return;
 
-        if (rzp && locked.razorpay_order_id) {
-          try {
-            const ro = await rzp.orders.fetch(locked.razorpay_order_id);
-            const paid = ro && (ro.status === 'paid' || Number(ro.amount_paid || 0) >= Number(ro.amount || 0));
-            if (paid) {
-              let payId = locked.razorpay_payment_id;
-              try {
-                const pays = await rzp.orders.fetchPayments(locked.razorpay_order_id);
-                const cap = (pays.items || []).find((p) => p.status === 'captured');
-                if (cap) payId = cap.id;
-              } catch { /* ignore */ }
-              await locked.update({ payment_status: 'paid', razorpay_payment_id: payId || locked.razorpay_payment_id }, { transaction });
-              reconciled++;
-              return; // genuinely paid — do NOT release
-            }
-          } catch { /* fetch failed → fall through and release */ }
+        if (verdict === 'paid') {
+          await locked.update(
+            { payment_status: 'paid', razorpay_payment_id: payId || locked.razorpay_payment_id },
+            { transaction }
+          );
+          reconciled++;
+          console.log(`[pending-cleanup] order ${locked.id} (${locked.order_number}) reconciled to PAID.`);
+        } else {
+          await releaseOrder(locked, { transaction });
+          released++;
         }
-
-        await releaseOrder(locked, { transaction });
-        released++;
       });
     } catch (e) {
       console.error('[pending-cleanup] failed for order', o.id, e.message);
     }
   }
 
-  if (released || reconciled) {
-    console.log(`[pending-cleanup] released ${released} stale order(s), reconciled ${reconciled} paid order(s).`);
+  if (released || reconciled || skipped) {
+    console.log(`[pending-cleanup] reconciled ${reconciled} paid, released ${released} unpaid, skipped ${skipped} unverifiable.`);
   }
   return released;
 }
