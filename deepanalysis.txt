@@ -6539,3 +6539,55 @@ SECTION 17 : DEVELOPMENT WORKFLOW — HOW WE BUILD THIS PROJECT
   CAVEATS: Render free web sleeps after 15min idle (~50s cold start) → Starter
   $7/mo kills it. Neon free persistent. Tables auto-created on boot.
 
+
+====================================================
+  SESSION 48 — GO LIVE: deploy fixes, custom domain, payment hardening
+  Last Updated : 2026-06-30
+====================================================
+
+  LIVE SITE: https://caverofragrance.com  (also https://cavero-fragrances.onrender.com)
+  Stack: GitHub → Render (Express serves Angular + /api) + Neon (Postgres) + Cloudinary.
+
+  FIXES SHIPPED THIS SESSION (all committed + deployed):
+    - Cloudinary uploads: removed multer-storage-cloudinary (broke on multer 2.x);
+      config/cloudinary.js now memoryStorage + upload_stream.
+    - db.js: DATABASE_URL + SSL (Neon). server.js: exports app, only listen()/migrate/
+      cron when run directly (require.main) so it also runs as the prod server.
+    - package.json: `npm start` runs node server.js (Render default); `npm run serve`
+      = ng serve; build deps hoisted to root.
+    - .gitignore: /CAVERO/ anchored (bare CAVERO/ + ignorecase was excluding
+      src/themes/cavero & src/assets/cavero → cloud build failed). environment.ts tracked.
+    - CSP (server.js helmet): allow Razorpay, Google sign-in/fonts, GA, GSAP, lordicon
+      (unsafe-eval + blob + worker-src for lottie), media-src (reel video), script-src-attr.
+    - Image resolvers (catalog/cart/combo/gallery/related/navbar/profile): prefer absolute
+      Cloudinary url before legacy filename→/uploads fallback (was 404ing migrated images).
+    - Homepage banners + auth cover.png → Cloudinary (were /uploads & missing-file 404s).
+    - JWT: middleware/auth.js AND authRoutes.js local verifyToken now use the SAME
+      `process.env.JWT_SECRET || 'your-secret-key'` fallback as the signer (mismatch caused
+      "Invalid token" 401 → admin login bounced + coupons/cms/combos/sliders 401).
+    - cleanupStalePendingOrders: now CANCELS only when Razorpay positively confirms unpaid;
+      reconciles paid; skips on uncertainty (was cancelling genuinely-paid orders).
+
+  DATA: full local cavero_db migrated to Neon (pg_dump→psql); all images uploaded to
+  Cloudinary + DB URLs rewritten (scripts/migrate-images-to-cloudinary.js).
+
+  VERIFIED (Playwright + API, read-only on live): storefront 0 broken images / no errors;
+  admin panel all 18 sections + login; customer E2E test-payment pending→paid; webhook
+  signature + reconciliation; JWT_SECRET set (forged-fallback token rejected); RAZORPAY_MODE
+  =live (live key served, create-order authenticates); custom domain SSL valid + serves app;
+  real live orders confirm pending→paid (ORD-...228483854 ₹799, ORD-...686518993 ₹2198).
+
+  CUSTOM DOMAIN: GoDaddy A @→216.24.57.1 + CNAME www→cavero-fragrances.onrender.com;
+  removed GoDaddy Websites+Marketing site that was hijacking the domain. Render: both
+  verified + certs issued.
+
+  STILL PENDING (user / operational, NOT code):
+    1. Razorpay LIVE-mode webhook → https://caverofragrance.com/api/payment/webhook
+       (secret 6d98..., events payment.captured + order.paid). Test+live webhooks separate.
+    2. FRONTEND_URL → https://caverofragrance.com (Render env).
+    3. Google OAuth → authorized JS origin https://caverofragrance.com.
+    4. Refund orphan ₹1 (pay_T7jfnBlQzkjyVd, order cancelled) + any test purchases.
+    5. Render Starter ($7) to remove free-tier cold-start sleep.
+    6. ROTATE secrets shared during setup (Razorpay live secret, Cloudinary, Google) before
+       real traffic; JWT_SECRET already rotated.
+
